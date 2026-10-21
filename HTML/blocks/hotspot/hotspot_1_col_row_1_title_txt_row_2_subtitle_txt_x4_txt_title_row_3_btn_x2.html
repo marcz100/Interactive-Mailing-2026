@@ -1,0 +1,772 @@
+<!-- start hotspot_1_col_row_1_title_txt_row_2_subtitle_txt_x4_txt_title_row_3_btn_x2 -->
+<style type="text/css">
+   /* Turndown hotspot (artifact "Het kussenchocolaatje"): a chocolate on a pillow with four flaps. Each flap is a label
+      for its own checkbox; tapping it folds the corner open and shows its text. When all four are open the wish
+      appears on the chocolate with the buttons; "reset" wraps it up again. Order: inputs, fallback, interactive.
+      Interactive only in WebKit clients that support :checked (pre-checked .hs-detect); everything else keeps the
+      fallback (the all-open state, built in tables). Stage geometry = artifact canvas in % of 700 x 680. */
+   @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      .hs-detect:checked ~ .hs-fallback {
+         display: none !important;
+         max-height: 0 !important;
+         overflow: hidden !important;
+      }
+
+      .hs-detect:checked ~ .hs-interactive {
+         display: block !important;
+         max-height: none !important;
+         overflow: visible !important;
+      }
+   }
+
+   .hs-interactive .hs-stage {
+      position: relative;
+      background-color: #efefef;
+   }
+
+   /* 97.1429% = 680 / 700: the stage keeps the artifact's proportions at every width */
+   .hs-interactive .hs-box {
+      position: relative;
+      height: 0;
+      padding-bottom: 97.1429%;
+   }
+
+   .hs-interactive .hs-abs {
+      position: absolute;
+      box-sizing: border-box;
+   }
+
+   .hs-interactive .hs-pillow {
+      left: 2.8571%; top: 3.5294%; width: 94.2857%; height: 94.1176%;
+      border-radius: 48px;
+      background-color: #ffffff;
+      box-shadow: none;
+   }
+
+   .hs-interactive .hs-pillow-line {
+      left: 5.7143%; top: 6.4706%; width: 88.5714%; height: 88.2353%;
+      border-radius: 24px;
+      border: 2px solid #e6e6e6;
+   }
+
+   .hs-interactive .hs-choc {
+      left: 31.4286%; top: 30.8824%; width: 37.1429%; height: 38.2353%;
+      border-radius: 4px;
+      background-color: #050033;
+   }
+
+   .hs-interactive .hs-choc-line {
+      left: 33.7143%; top: 33.2353%; width: 32.5714%; height: 33.5294%;
+      border: 2px solid #444444;
+   }
+
+   /* the wish on the chocolate: only when all four flaps are open */
+   .hs-interactive .hs-wish {
+      left: 31.4286%; top: 30.8824%; width: 37.1429%; height: 38.2353%;
+      display: none;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      text-align: center;
+   }
+
+   .hs-interactive .hs-wish-label {
+      display: block;
+      margin: 0 0 4px 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #e6e6e6;
+   }
+
+   .hs-interactive .hs-wish-txt {
+      display: block;
+      max-width: 50%;
+      margin: 0 auto 4px auto;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      color: #ffffff;
+   }
+
+   .hs-interactive .hs-wish-year {
+      display: block;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 700;
+      color: #e3fc5e;
+   }
+
+   /* closed flaps: four triangles over the chocolate, each a label for its checkbox */
+   .hs-interactive .hs-flap {
+      left: 31.4286%; top: 30.8824%; width: 37.1429%; height: 38.2353%;
+      display: block;
+      cursor: pointer;
+   }
+
+   .hs-interactive .hs-flap-1 {
+      background-color: #9980FF;
+      -webkit-clip-path: polygon(0 0, 100% 0, 50% 50%);
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+   }
+
+   .hs-interactive .hs-flap-2 {
+      background-color: #4d4d4d;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+      clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+   }
+
+   .hs-interactive .hs-flap-3 {
+      background-color: #9E9E9E;
+      -webkit-clip-path: polygon(0 100%, 100% 100%, 50% 50%);
+      clip-path: polygon(0 100%, 100% 100%, 50% 50%);
+   }
+
+   .hs-interactive .hs-flap-4 {
+      background-color: #444444;
+      -webkit-clip-path: polygon(0 0, 50% 50%, 0 100%);
+      clip-path: polygon(0 0, 50% 50%, 0 100%);
+   }
+
+   /* open flaps: folded back outside the chocolate; tapping them folds the corner shut again */
+   .hs-interactive .hs-fold {
+      display: none;
+      cursor: pointer;
+   }
+
+   .hs-interactive .hs-fold-1 {
+      left: 31.4286%; top: 23.5294%; width: 37.1429%; height: 7.3529%;
+      background-color: #e6e6e6;
+      -webkit-clip-path: polygon(0 100%, 100% 100%, 50% 0);
+      clip-path: polygon(0 100%, 100% 100%, 50% 0);
+   }
+
+   .hs-interactive .hs-fold-2 {
+      left: 68.5714%; top: 30.8824%; width: 7.1429%; height: 38.2353%;
+      background-color: #efefef;
+      -webkit-clip-path: polygon(0 0, 100% 50%, 0 100%);
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+   }
+
+   .hs-interactive .hs-fold-3 {
+      left: 31.4286%; top: 69.1176%; width: 37.1429%; height: 7.3529%;
+      background-color: #e6e6e6;
+      -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+   }
+
+   .hs-interactive .hs-fold-4 {
+      left: 24.2857%; top: 30.8824%; width: 7.1429%; height: 38.2353%;
+      background-color: #efefef;
+      -webkit-clip-path: polygon(100% 0, 0 50%, 100% 100%);
+      clip-path: polygon(100% 0, 0 50%, 100% 100%);
+   }
+
+   /* seal: visible until all four flaps are open */
+   .hs-interactive .hs-seal {
+      left: 46.5714%; top: 46.4706%; width: 6.8571%; height: 7.0588%;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      background-color: #e3fc5e;
+      color: #050033;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 20px;
+      pointer-events: none;
+   }
+
+   /* facts around the chocolate (desktop); below the stage on mobile */
+   .hs-interactive .hs-fact {
+      display: none;
+      position: absolute;
+   }
+
+   .hs-interactive .hs-fact-1 {
+      left: 24.2857%;
+      top: 10.5882%;
+      width: 51.4286%;
+      text-align: center;
+   }
+
+   .hs-interactive .hs-fact-2 {
+      left: 77.4286%;
+      top: 38.2353%;
+      width: 14.5714%;
+      text-align: left;
+   }
+
+   .hs-interactive .hs-fact-3 {
+      left: 24.2857%;
+      top: 77.9412%;
+      width: 51.4286%;
+      text-align: center;
+   }
+
+   .hs-interactive .hs-fact-4 {
+      left: 8%;
+      top: 38.2353%;
+      width: 14.5714%;
+      text-align: right;
+   }
+
+   .hs-interactive .hs-fact-label {
+      display: block;
+      margin: 0 0 4px 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9980FF;
+   }
+
+   .hs-interactive .hs-fact-txt {
+      display: block;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      color: #050033;
+   }
+
+   .hs-interactive .hs-fact-2 .hs-fact-txt,
+   .hs-interactive .hs-fact-4 .hs-fact-txt {
+      font-size: 16px;
+      line-height: 22px;
+   }
+
+   .hs-c1:checked ~ .hs-interactive .hs-flap-1 {
+      display: none;
+   }
+
+   .hs-c1:checked ~ .hs-interactive .hs-fold-1,
+   .hs-c1:checked ~ .hs-interactive .hs-fact-1 {
+      display: block;
+   }
+
+   .hs-c2:checked ~ .hs-interactive .hs-flap-2 {
+      display: none;
+   }
+
+   .hs-c2:checked ~ .hs-interactive .hs-fold-2,
+   .hs-c2:checked ~ .hs-interactive .hs-fact-2 {
+      display: block;
+   }
+
+   .hs-c3:checked ~ .hs-interactive .hs-flap-3 {
+      display: none;
+   }
+
+   .hs-c3:checked ~ .hs-interactive .hs-fold-3,
+   .hs-c3:checked ~ .hs-interactive .hs-fact-3 {
+      display: block;
+   }
+
+   .hs-c4:checked ~ .hs-interactive .hs-flap-4 {
+      display: none;
+   }
+
+   .hs-c4:checked ~ .hs-interactive .hs-fold-4,
+   .hs-c4:checked ~ .hs-interactive .hs-fact-4 {
+      display: block;
+   }
+
+   /* status line: one text per number of open flaps (16 combinations of 4 checkboxes) */
+   .hs-interactive .hs-status {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      color: #050033;
+      text-align: center;
+   }
+
+   .hs-interactive .hs-st {
+      display: none;
+   }
+
+   .hs-c1:not(:checked) ~ .hs-c2:not(:checked) ~ .hs-c3:not(:checked) ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-0 {
+      display: block;
+   }
+
+   .hs-c1:checked ~ .hs-c2:not(:checked) ~ .hs-c3:not(:checked) ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-1,
+   .hs-c1:not(:checked) ~ .hs-c2:checked ~ .hs-c3:not(:checked) ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-1,
+   .hs-c1:not(:checked) ~ .hs-c2:not(:checked) ~ .hs-c3:checked ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-1,
+   .hs-c1:not(:checked) ~ .hs-c2:not(:checked) ~ .hs-c3:not(:checked) ~ .hs-c4:checked ~ .hs-interactive .hs-st-1 {
+      display: block;
+   }
+
+   .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:not(:checked) ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-2,
+   .hs-c1:checked ~ .hs-c2:not(:checked) ~ .hs-c3:checked ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-2,
+   .hs-c1:not(:checked) ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-2,
+   .hs-c1:checked ~ .hs-c2:not(:checked) ~ .hs-c3:not(:checked) ~ .hs-c4:checked ~ .hs-interactive .hs-st-2,
+   .hs-c1:not(:checked) ~ .hs-c2:checked ~ .hs-c3:not(:checked) ~ .hs-c4:checked ~ .hs-interactive .hs-st-2,
+   .hs-c1:not(:checked) ~ .hs-c2:not(:checked) ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-st-2 {
+      display: block;
+   }
+
+   .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-3,
+   .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:not(:checked) ~ .hs-c4:checked ~ .hs-interactive .hs-st-3,
+   .hs-c1:checked ~ .hs-c2:not(:checked) ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-st-3,
+   .hs-c1:not(:checked) ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-st-3 {
+      display: block;
+   }
+
+   .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-st-4 {
+      display: block;
+   }
+
+   /* buttons: only when all four flaps are open */
+   .hs-interactive .hs-done {
+      display: none;
+      padding: 14px 0 0 0;
+   }
+
+   .hs-interactive .hs-reset {
+      display: inline-block;
+      height: 48px;
+      margin: 0 0 0 12px;
+      padding: 0 20px;
+      border: 2px solid #050033;
+      border-radius: 4px;
+      background-color: transparent;
+      color: #050033;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+   }
+
+   /* mobile summary under the pillow: hidden on desktop (the facts sit around the chocolate there) */
+   .hs-interactive .hs-list {
+      display: none;
+   }
+
+   .hs-interactive .hs-li {
+      display: none;
+      padding: 0 24px 16px 24px;
+      text-align: center;
+   }
+
+   .hs-interactive .hs-li-label {
+      display: block;
+      margin: 0 0 4px 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9980FF;
+   }
+
+   .hs-interactive .hs-li-txt {
+      display: block;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      color: #050033;
+   }
+
+   .hs-c1:checked ~ .hs-interactive .hs-li-1,
+   .hs-c2:checked ~ .hs-interactive .hs-li-2,
+   .hs-c3:checked ~ .hs-interactive .hs-li-3,
+   .hs-c4:checked ~ .hs-interactive .hs-li-4 {
+      display: block;
+   }
+
+   /* newest-on-top for the mobile text spot (only used in the max-width 600px rules below) */
+   @-webkit-keyframes hs-stack {
+      from {
+         z-index: 10000000;
+      }
+
+      to {
+         z-index: 1;
+      }
+   }
+
+   @keyframes hs-stack {
+      from {
+         z-index: 10000000;
+      }
+
+      to {
+         z-index: 1;
+      }
+   }
+
+   .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-wish {
+      display: -webkit-flex;
+      display: flex;
+   }
+
+   .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-seal {
+      display: none;
+   }
+
+   .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-done {
+      display: block;
+   }
+
+   @media only screen and (max-width: 600px) {
+      .hs-title {
+         font-size: 22px !important;
+         line-height: 26px !important;
+      }
+
+      .hs-interactive .hs-pillow {
+         border-radius: 24px !important;
+      }
+
+      .hs-interactive .hs-pillow-line {
+         border-radius: 16px !important;
+      }
+
+      .hs-interactive .hs-wish-year {
+         font-size: 20px !important;
+         line-height: 24px !important;
+      }
+
+      .hs-interactive .hs-wish-txt {
+         font-size: 12px !important;
+         line-height: 15px !important;
+      }
+
+      .hs-interactive .hs-wish-label {
+         font-size: 9px !important;
+         line-height: 12px !important;
+      }
+
+      .hs-interactive .hs-seal {
+         border-width: 2px !important;
+         font-size: 14px !important;
+      }
+
+      /* mobile: one text spot above the chocolate, the same fixed box for every fact (y 60 = 16 under the pillow
+         line, to y 155 = just above the top fold). All open facts sit in that box on an opaque background, so the
+         one on top always covers the others completely, whatever their length. The newest is on top because every
+         fact starts the hs-stack animation (z-index counting down 100 per second, so taps a split second apart
+         still differ) when it appears. Without animation support the highest corner number shows. */
+      .hs-interactive .hs-fact {
+         left: 12.8571% !important;
+         top: 8.8235% !important;
+         bottom: 77.2059% !important;
+         width: 74.2857% !important;
+         text-align: center !important;
+         background-color: #ffffff;
+         -webkit-animation: hs-stack 100000s linear forwards;
+         animation: hs-stack 100000s linear forwards;
+      }
+
+      .hs-interactive .hs-fact-label {
+         font-size: 10px !important;
+         line-height: 13px !important;
+      }
+
+      .hs-interactive .hs-fact-txt,
+      .hs-interactive .hs-fact-2 .hs-fact-txt,
+      .hs-interactive .hs-fact-4 .hs-fact-txt {
+         font-size: 13px !important;
+         line-height: 17px !important;
+      }
+
+      /* the summary of opened corners under the pillow (in addition to the text spot above the chocolate) */
+      .hs-interactive .hs-list {
+         display: block !important;
+         padding: 8px 0 0 0 !important;
+      }
+
+      .hs-interactive .hs-reset {
+         margin: 12px 0 0 0 !important;
+      }
+   }
+
+   @media only screen and (max-width: 400px) {
+      .hs-interactive .hs-wish-year {
+         font-size: 18px !important;
+         line-height: 22px !important;
+      }
+
+      .hs-interactive .hs-wish-txt {
+         font-size: 11px !important;
+         line-height: 14px !important;
+      }
+
+      /* small phones: the text spot above the chocolate stays clear of the pillow line */
+      .hs-interactive .hs-fact-txt,
+      .hs-interactive .hs-fact-2 .hs-fact-txt,
+      .hs-interactive .hs-fact-4 .hs-fact-txt {
+         font-size: 12px !important;
+         line-height: 15px !important;
+      }
+   }
+</style>
+<style type="text/css">
+   /* Back to the fallback. Every override also exists as a variant at least as specific as the activation selector
+      (.hs-detect:checked ~ ...), because !important rules are decided by specificity before source order. */
+   /* Outlook.com / new Outlook: class names get an x_ prefix */
+   [class~="x_hs-interactive"],
+   [class~="x_hs-detect"]:checked ~ [class~="x_hs-interactive"] {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   [class~="x_hs-fallback"],
+   [class~="x_hs-detect"]:checked ~ [class~="x_hs-fallback"] {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+
+   /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+   #MessageViewBody .hs-interactive {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   #MessageViewBody .hs-fallback {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<style type="text/css">
+   /* Outlook apps: \0 hack in its own style tag (it breaks the rest of a style tag in other clients) */
+   .hs-interactive\0 {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   .hs-detect:checked ~ .hs-interactive\0 {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   .hs-fallback\0 {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+
+   .hs-detect:checked ~ .hs-fallback\0 {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+   <tr>
+      <td class="pml16 pmr16" style="padding: 0 24px 32px 24px;" align="center">
+         <!-- header band: shared by fallback and interactive -->
+         <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#050033">
+            <tr>
+               <td align="center" class="pml24 pmr24" style="padding: 48px 48px 32px 48px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;">
+                  <h1 class="hs-title" style="margin: 0 0 10px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 24px; line-height: 28px; font-weight: 700; color: #ffffff;">title_1</h1>
+                  <p style="margin: 0; font-size: 16px; line-height: 22px; color: #ffffff;">txt_1</p>
+               </td>
+            </tr>
+         </table>
+         <!-- state inputs (in a form, so "reset" can wrap the chocolate up again): detection (pre-checked) +
+              one checkbox per flap, in this order (the "all open" selector chains them) -->
+         <!--[if !mso]><!-->
+         <form class="hs-form" style="margin: 0;">
+         <input type="checkbox" id="hs-detect" class="hs-detect" checked style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="hs-c1" class="hs-c1" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="hs-c2" class="hs-c2" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="hs-c3" class="hs-c3" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="hs-c4" class="hs-c4" style="display: none !important; mso-hide: all;">
+         <!--<![endif]-->
+         <!-- fallback: the all-open state (artifact step 4), in tables -->
+         <div class="hs-fallback">
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef">
+               <tr>
+                  <td class="pml16 pmr16" style="padding: 24px 20px 0 20px;">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="border-radius: 48px; border-collapse: separate;">
+                        <tr>
+                           <td style="padding: 20px;">
+                              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 2px solid #e6e6e6; border-radius: 24px; border-collapse: separate;">
+                                 <tr>
+                                    <td align="center" class="pml16 pmr16" style="padding: 32px 20px;">
+                                       <table role="presentation" width="360" align="center" border="0" cellspacing="0" cellpadding="0" class="col-sm-12" style="width: 360px;">
+                                          <tr>
+                                             <td align="center">
+                                                <p style="margin: 0 0 4px 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 16px; letter-spacing: 0.14em; text-transform: uppercase; color: #9980FF; text-align: center;">subtitle_1</p>
+                                                <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 22px; color: #050033; text-align: center;">txt_2</p>
+                                             </td>
+                                          </tr>
+                                       </table>
+                                       <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                          <tr>
+                                             <td height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                          </tr>
+                                       </table>
+                                       <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                          <tr>
+                                             <th class="col-sm-12" width="112" align="right" valign="middle" style="vertical-align: middle; font-weight: normal; text-align: right;">
+                                                <p class="txt-center" style="margin: 0 0 4px 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 16px; letter-spacing: 0.14em; text-transform: uppercase; color: #9980FF; text-align: right;">subtitle_4</p>
+                                                <p class="txt-center" style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 22px; color: #050033; text-align: right;">txt_5</p>
+                                             </th>
+                                             <th class="col-sm-12" width="16" height="16" aria-hidden="true" style="font-size: 0; line-height: 16px;">&nbsp;</th>
+                                             <th class="col-sm-12" width="260" align="center" valign="middle" style="vertical-align: middle; font-weight: normal;">
+                                                <table role="presentation" width="260" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#050033" style="width: 260px; border-radius: 4px; border-collapse: separate;">
+                                                   <tr>
+                                                      <td style="padding: 16px;">
+                                                         <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 2px solid #444444;">
+                                                            <tr>
+                                                               <td height="224" align="center" valign="middle" style="height: 224px; padding: 0 16px; text-align: center;">
+                                                                  <p style="margin: 0 0 4px 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 16px; letter-spacing: 0.2em; text-transform: uppercase; color: #e6e6e6;">label_1</p>
+                                                                  <p style="margin: 0 auto 4px auto; max-width: 130px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 22px; color: #ffffff;">txt_11</p>
+                                                                  <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 24px; line-height: 28px; font-weight: 700; color: #e3fc5e;">title_2</p>
+                                                               </td>
+                                                            </tr>
+                                                         </table>
+                                                      </td>
+                                                   </tr>
+                                                </table>
+                                             </th>
+                                             <th class="col-sm-12" width="16" height="16" aria-hidden="true" style="font-size: 0; line-height: 16px;">&nbsp;</th>
+                                             <th class="col-sm-12" width="112" align="left" valign="middle" style="vertical-align: middle; font-weight: normal; text-align: left;">
+                                                <p class="txt-center" style="margin: 0 0 4px 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 16px; letter-spacing: 0.14em; text-transform: uppercase; color: #9980FF; text-align: left;">subtitle_2</p>
+                                                <p class="txt-center" style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 22px; color: #050033; text-align: left;">txt_3</p>
+                                             </th>
+                                          </tr>
+                                       </table>
+                                       <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                          <tr>
+                                             <td height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                          </tr>
+                                       </table>
+                                       <table role="presentation" width="360" align="center" border="0" cellspacing="0" cellpadding="0" class="col-sm-12" style="width: 360px;">
+                                          <tr>
+                                             <td align="center">
+                                                <p style="margin: 0 0 4px 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 16px; letter-spacing: 0.14em; text-transform: uppercase; color: #9980FF; text-align: center;">subtitle_3</p>
+                                                <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 22px; color: #050033; text-align: center;">txt_4</p>
+                                             </td>
+                                          </tr>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="center" style="padding: 32px 24px 40px 24px;">
+                     <!--[if mso]>
+                     <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:48px;v-text-anchor:middle;width:240px;" arcsize="8%" strokecolor="#e3fc5e" fillcolor="#e3fc5e">
+                        <w:anchorlock/>
+                        <center style="color:#050033;font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;font-size:20px;font-weight:bold;">btn_txt_1</center>
+                     </v:roundrect>
+                     <![endif]-->
+                     <a href="https://100procent.nl/" target="_blank"
+                        style="background-color:#e3fc5e;border:1px solid #e3fc5e;border-radius:4px;color:#050033;display:inline-block;font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;font-size: 20px;font-weight:700;line-height:48px;padding:0 24px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;mso-hide:all;">btn_txt_1</a>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <!-- interactive: the artifact stage, status line, buttons after all four flaps -->
+         <!--[if !mso]><!-->
+         <div class="hs-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+            <div class="hs-stage">
+               <div class="hs-box">
+                  <div class="hs-abs hs-pillow"></div>
+                  <div class="hs-abs hs-pillow-line"></div>
+                  <div class="hs-abs hs-choc"></div>
+                  <div class="hs-abs hs-choc-line"></div>
+                  <div class="hs-abs hs-wish">
+                     <span class="hs-wish-label">label_1</span>
+                     <span class="hs-wish-txt">txt_11</span>
+                     <span class="hs-wish-year">title_2</span>
+                  </div>
+                  <label for="hs-c1" class="hs-abs hs-flap hs-flap-1" title="subtitle_1"></label>
+                  <label for="hs-c2" class="hs-abs hs-flap hs-flap-2" title="subtitle_2"></label>
+                  <label for="hs-c3" class="hs-abs hs-flap hs-flap-3" title="subtitle_3"></label>
+                  <label for="hs-c4" class="hs-abs hs-flap hs-flap-4" title="subtitle_4"></label>
+                  <label for="hs-c1" class="hs-abs hs-fold hs-fold-1" title="subtitle_1"></label>
+                  <label for="hs-c2" class="hs-abs hs-fold hs-fold-2" title="subtitle_2"></label>
+                  <label for="hs-c3" class="hs-abs hs-fold hs-fold-3" title="subtitle_3"></label>
+                  <label for="hs-c4" class="hs-abs hs-fold hs-fold-4" title="subtitle_4"></label>
+                  <div class="hs-abs hs-seal">label_2</div>
+                  <!-- facts inside the box: their % positions refer to the fixed-proportion box, not to the growing stage -->
+                  <div class="hs-fact hs-fact-1">
+                     <span class="hs-fact-label">subtitle_1</span>
+                     <span class="hs-fact-txt">txt_2</span>
+                  </div>
+                  <div class="hs-fact hs-fact-2">
+                     <span class="hs-fact-label">subtitle_2</span>
+                     <span class="hs-fact-txt">txt_3</span>
+                  </div>
+                  <div class="hs-fact hs-fact-3">
+                     <span class="hs-fact-label">subtitle_3</span>
+                     <span class="hs-fact-txt">txt_4</span>
+                  </div>
+                  <div class="hs-fact hs-fact-4">
+                     <span class="hs-fact-label">subtitle_4</span>
+                     <span class="hs-fact-txt">txt_5</span>
+                  </div>
+               </div>
+               <!-- mobile only: summary of every opened corner, in corner order, under the pillow -->
+               <div class="hs-list">
+                  <div class="hs-li hs-li-1">
+                     <span class="hs-li-label">subtitle_1</span>
+                     <span class="hs-li-txt">txt_2</span>
+                  </div>
+                  <div class="hs-li hs-li-2">
+                     <span class="hs-li-label">subtitle_2</span>
+                     <span class="hs-li-txt">txt_3</span>
+                  </div>
+                  <div class="hs-li hs-li-3">
+                     <span class="hs-li-label">subtitle_3</span>
+                     <span class="hs-li-txt">txt_4</span>
+                  </div>
+                  <div class="hs-li hs-li-4">
+                     <span class="hs-li-label">subtitle_4</span>
+                     <span class="hs-li-txt">txt_5</span>
+                  </div>
+               </div>
+            </div>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef">
+               <tr>
+                  <td align="center" style="padding: 8px 24px 40px 24px;">
+                     <p class="hs-status">
+                        <span class="hs-st hs-st-0">txt_6</span>
+                        <span class="hs-st hs-st-1">txt_7</span>
+                        <span class="hs-st hs-st-2">txt_8</span>
+                        <span class="hs-st hs-st-3">txt_9</span>
+                        <span class="hs-st hs-st-4">txt_10</span>
+                     </p>
+                     <div class="hs-done">
+                        <a href="https://100procent.nl/" target="_blank"
+                           style="background-color:#e3fc5e;border:1px solid #e3fc5e;border-radius:4px;color:#050033;display:inline-block;font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;font-size: 20px;font-weight:700;line-height:48px;padding:0 24px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;mso-hide:all;">btn_txt_1</a>
+                        <input type="reset" class="hs-reset" value="btn_txt_2">
+                     </div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <!--<![endif]-->
+         <!--[if !mso]><!-->
+         </form>
+         <!--<![endif]-->
+      </td>
+   </tr>
+</table>
+<!-- end hotspot_1_col_row_1_title_txt_row_2_subtitle_txt_x4_txt_title_row_3_btn_x2 -->

@@ -1,0 +1,124 @@
+# Interactive artifact concepts
+
+How we turn a Claude Design artifact (an interactive email concept on a canvas) into working email HTML. These rules
+come on top of [docs/email_rules.md](../docs/email_rules.md) and are based on what we learned building the WestCord
+concepts. It's a living document: add a rule when we learn something, and write down **why**.
+
+## Folder structure
+
+```
+interactive_artifact/
+  README.md                      <- this file: rules for every artifact concept
+  <client>/
+    README.md                    <- client rules: brand values, mail shell, data, open items, concept overview
+    concept_<n>_<name>/
+      README.md                  <- concept rules: what it does, states, geometry, decisions, tests, open items
+      <client>_<campaign>_<year>_concept_<n>.html
+```
+
+The reusable block for a concept lives in `blocks/<prefix>/` (default tokens, slot names). The concept mail in this
+folder is the same structure with the client's values and copy.
+
+## 1. Reading the artifact
+
+1. **Rule: read the files, not the page.** Use the Artifact tool, action `read` with `paths`: `project/canvas.json` and
+   the `project/*.dc.html` boards. The page itself only shows "Loading…".
+2. **Rule: read the board's code, not just its text.** Positions, sizes, colours, fonts, `clip-path`s and the state
+   logic (`DCLogic` / `renderVals`) are in the markup and the script. Take values literally.
+   - *Why:* the first turndown version was built from the text only and looked nothing like the artifact.
+3. **Rule: map the canvas first.** `canvas.json` tells which boards belong to which concept (titles, x positions,
+   `is_interactive`). Typical boards per concept: the full mail, the clickable version, the steps/moments, technique.
+4. **Rule: the artifact is a design reference, not email code.** Never copy its HTML/CSS/JS into a mail.
+
+## 2. One-on-one
+
+1. **Rule: the concept mail looks and works one-on-one like the artifact**: layout, colours, fonts, font sizes,
+   radii, shadows, copy and interaction. No generic interpretation in repo tokens.
+   - *Why:* "this looks completely different!" on the first turndown build.
+2. **Rule: geometry as percentages of the artifact canvas.** Absolute positions become `left/width` in % of the
+   canvas width and `top/height` in % of the canvas height, inside a box with a fixed aspect ratio
+   (`height: 0; padding-bottom: <h/w>%`). The scene then scales with the mail width and on phones.
+3. **Check: the containing block.** Absolutely positioned elements must sit inside that fixed-proportion box, not in a
+   container that can grow.
+   - *Lesson:* the turndown texts were in the growing stage; when the mobile summary was added below, their
+     % positions slid down and covered a folded flap.
+4. **Rule: copy stays literal**, including the artifact's personal placeholders (`[Voornaam]`, `[X]`, `[Hotelnaam]`).
+   Never invent data or copy.
+5. **Rule: where the artifact has no answer** (mobile, Outlook, dark mode) we make our own interpretation and say so,
+   in the concept README and in the report.
+
+## 3. Structure of an interactive concept
+
+1. **Rule: inputs → fallback → interactive**, see email_rules 4.1. Inputs and interactive inside
+   `<!--[if !mso]><!-->`, fallback outside it.
+2. **Rule: a pre-checked detection input** (`xx-detect`) gates the interactive layer:
+   `@media screen and (-webkit-min-device-pixel-ratio: 0) { .xx-detect:checked ~ .xx-interactive {...} }`.
+   - *Why:* WebKit alone doesn't mean `:checked` works (Gmail apps).
+3. **Rule: client overrides at least as specific as the activation selector.** `.xx-detect:checked ~ .xx-interactive`
+   is (0,3,0); a single-class override with `!important` loses to it. So every override also exists as a chained
+   variant:
+   - Outlook.com / new Outlook: `[class~="x_xx-interactive"]` and `[class~="x_xx-detect"]:checked ~ [class~="x_xx-interactive"]`
+   - Samsung Mail: `#MessageViewBody .xx-interactive` (an id outranks it)
+   - Outlook apps: `.xx-interactive\0` and `.xx-detect:checked ~ .xx-interactive\0`, in a separate `<style>`
+4. **Rule: selectors use classes, not ids** (Gmail drops id selectors). Ids exist only for `label for=`.
+5. **Rule: one prefix per block** (`hs-`, `lift-`, …) for every class, id and keyframe name.
+6. **Rule: the fallback is the artifact's end state** (everything revealed), built in tables with inline styles and a
+   VML button. It must tell the whole story with the same CTA.
+7. **Rule: the interactive layer is styled with scoped classes** (`.xx-interactive .xx-…`). Only the default hiding of
+   the container is inline. Absolute positioning, flexbox and `clip-path` are fine here: only WebKit clients with
+   working `:checked` ever show this layer.
+
+## 4. Interaction techniques (proven in Chrome, to confirm on devices)
+
+| Need | Technique | Where used |
+|---|---|---|
+| Independent toggles | one checkbox per item, the item is a `label for=` | turndown corners |
+| One state at a time | radios with one `name` | lift floors |
+| "All done" state | chain the inputs: `.c1:checked ~ .c2:checked ~ .c3:checked ~ .c4:checked ~ .xx-interactive .finale` (inputs in this order, as siblings) | turndown wish + buttons |
+| Status text per count ("Nog 2 te gaan") | one text per count, shown by every combination of `:checked` / `:not(:checked)` (16 selectors for 4 inputs, generated) | turndown status |
+| Direction / previous state | encode it in the state: a radio per direction, highlight fixed per state | lift arrows |
+| Undo all | inputs inside a `<form>`, `<input type="reset">` (resets to the `checked` defaults) | "Opnieuw inpakken" |
+| Show the **newest** of several open items in one spot | all items in the same fixed box with an opaque background; each starts a `z-index` countdown animation when it appears (`10000000 → 1` over `100000s`, 100 per second), so the newest is on top. Without animation support the last one in the DOM shows. | turndown mobile text spot |
+| Triangles / flaps | `clip-path: polygon()` (interactive layer only) or border triangles | turndown flaps |
+
+- **Check: stacked layers need identical boxes.** A shorter text on top doesn't cover a longer one below.
+  - *Lesson:* "Hoekje 1 blijft staan" — the boxes now have a fixed top and bottom.
+- **Rule: text keeps ≥ 16px from borders and lines** of the drawn shapes, also on mobile and on small phones.
+  - *Lesson:* corner texts touched the pillow line.
+
+## 5. Mobile
+
+1. **Rule: the scene scales** (percent geometry). Fonts step down at `max-width: 600px` and `400px`, not with `vw`.
+2. **Rule: texts that are too small inside a scaled scene move out of it** or get their own mobile spot; decide per
+   concept and write it down.
+3. **Check at 390px and 360px**, not only at 600px.
+
+## 6. Block and mail from one generator
+
+1. **Rule: build the block and the concept mail from the same generator**, so they can't drift apart. The block gets the
+   default tokens and slot names, the mail gets the client's values and copy.
+2. **Check after every change:** with the default tokens the block comes out as intended, and the mail's block section
+   differs from the block only where intended (e.g. the full-width outer cell). Compare tag skeleton and CSS selectors.
+
+## 7. Testing (until we have real devices)
+
+1. **Rule: compare with the artifact side by side.** Render the artifact board statically per state (resolve its
+   `sc-if` conditions per state) and the mail in the same states, and look at both before reporting.
+2. **Rule: drive Chrome over the DevTools Protocol** for interaction tests: device emulation (`mobile: true`, real
+   390/360px viewport), real clicks with real waits, computed-style measurements, screenshots.
+3. **Rule: test what the user sees, not only the state.** For example, that the top layer fully covers the layers below
+   and that nothing covers the interactive elements (`elementFromPoint`).
+4. **Lessons (tooling):**
+   - Headless Chrome windows have a minimum width (~485px): `--window-size=390` silently lays out at 485px. Use
+     device emulation or an iframe.
+   - `--virtual-time-budget` can hang on long-running CSS animations; use the DevTools Protocol with real time.
+   - Webfonts need time: wait before screenshots, or fonts fall back to Georgia/Arial.
+   - Stop only headless Chrome processes (`--headless` in the command line), never the user's own browser.
+   - Git Bash eats backslashes in inline `node -e` scripts and heredocs; write scripts to files.
+5. **Still needed:** real Apple Mail (iOS, iPadOS, macOS, light and dark), Gmail, Outlook (classic, new, .com, apps),
+   Samsung Mail.
+
+## 8. Size
+
+- ≤ 90 KB preferred, 95 KB hard limit, ~102 KB is where Gmail clips (email_rules section 5). Measure the byte offset of
+  the fallback and the unsubscribe link, not only the total.

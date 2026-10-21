@@ -1,0 +1,242 @@
+<!-- start car_1_col_img_title_txt_btn -->
+<style>
+   /* generic selectors (input, .interactive, .fallback, .content, .slider, .thumbnail) are scoped to .car1-wrap
+      (class on the block's outer td) so they don't leak into other blocks, e.g. input_* or accordion_* */
+   .car1-wrap input {
+      display: none;
+   }
+
+   .car-slide-wrap {
+      display: none;
+      position: relative;
+   }
+
+   /* show the wrap (image + arrows together) for the active radio */
+   input:checked+.car-slide-wrap {
+      display: block;
+   }
+
+   /* show the content block that follows the wrap */
+   input:checked+.car-slide-wrap+.content {
+      display: block;
+   }
+
+   .car1-wrap .slider {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+   }
+
+   .car1-wrap .thumbnail {
+      display: inline-block;
+   }
+
+   .car1-wrap .thumbnail img {
+      width: 150px;
+      height: auto;
+      margin: 0 2px;
+   }
+
+   .car1-wrap .interactive {
+      display: none;
+   }
+
+   .car1-wrap input:checked+div.fallback {
+      display: none;
+   }
+
+   .car1-wrap input:checked+div.fallback+div.interactive {
+      display: block;
+   }
+
+   .car1-wrap .content {
+      padding: 20px 0;
+      display: none;
+   }
+
+   /* arrows */
+   .car-ltn,
+   .car-rtn {
+      z-index: 100;
+      display: block;
+      width: 15%;
+      height: 100%;
+      position: absolute;
+      background-color: transparent;
+      top: 0;
+      cursor: pointer;
+   }
+
+   .car-ltn {
+      left: 0;
+   }
+
+   .car-rtn {
+      right: 0;
+   }
+
+   .car-ltn::after,
+   .car-rtn::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      position: absolute;
+      top: 50%;
+      margin-top: -9px;
+      -webkit-filter: drop-shadow(1px 1.5px 1px rgba(0, 0, 0, .5));
+   }
+
+   .car-ltn::after {
+      border-right: 9px solid #ffffff;
+      left: 10px;
+   }
+
+   .car-rtn::after {
+      border-left: 9px solid #ffffff;
+      right: 10px;
+   }
+
+   @-webkit-keyframes quiver {
+      0% {
+         -webkit-transform: translateX(0);
+      }
+
+      5% {
+         -webkit-transform: translateX(-4px);
+      }
+
+      10% {
+         -webkit-transform: translateX(4px);
+      }
+
+      15% {
+         -webkit-transform: translateX(-3px);
+      }
+
+      20% {
+         -webkit-transform: translateX(3px);
+      }
+
+      25% {
+         -webkit-transform: translateX(-2px);
+      }
+
+      30% {
+         -webkit-transform: translateX(2px);
+      }
+
+      35% {
+         -webkit-transform: translateX(0);
+      }
+
+      100% {
+         -webkit-transform: translateX(0);
+      }
+   }
+
+
+   .car-ltn::after,
+   .car-rtn::after {
+      -webkit-animation: quiver 3s ease 1s 3 both;
+      animation: quiver 3s ease 1s 3 both;
+   }
+
+
+   @media screen and (max-width: 600px) {
+      .car1-wrap .thumbnail img {
+         width: 90px;
+         height: auto;
+      }
+   }
+</style>
+<table align="center" role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <!-- dir rtl for the labels -->
+      <td dir="rtl" class="pml16 pmr16 car1-wrap" style="padding: 0 24px 32px 24px; text-align: center;font-size: 20px;" align="center">
+         <!--[if !mso]><!-->
+         <input type="radio" checked>
+         <!--<![endif]-->
+
+         <div class="fallback">
+            <table align="center" bgcolor="#9980FF" class="darkmode_block" role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+               <tr>
+                  <td>
+                     <a target="_blank" href="https://100procent.nl/">
+                        <img width="290" style="display: block;" src="https://cdn.msdp1.com/public/100procentemail/47f9309745e03a8eeb95fdf5d7d26b93/100_figure_300_300.png" alt="img_alt_1">
+                     </a>
+                  </td>
+                  <td width="20" aria-hidden="true" style="font-size: 0;">&nbsp;</td>
+                  <td>
+                     <a target="_blank" href="https://100procent.nl/">
+                        <img width="290" style="display: block;" src="https://cdn.msdp1.com/public/100procentemail/47f9309745e03a8eeb95fdf5d7d26b93/100_figure_300_300.png" alt="img_alt_2">
+                     </a>
+                  </td>
+               </tr>
+            </table>
+         </div>
+
+         <!--[if !mso]><!-->
+         <div style="background-color: #efefef;" class="interactive darkmode_block">
+            <label>
+               <input type="radio" name="slider" id="car1-radio-1" checked>
+               <div class="car-slide-wrap">
+                  <a target="_blank" href="https://100procent.nl/">
+                     <img class="slider" src="https://cdn.msdp1.com/public/100procentemail/47f9309745e03a8eeb95fdf5d7d26b93/100_figure_300_300.png" alt="img_alt_1">
+                  </a>
+                  <label for="car1-radio-3" class="car-ltn"></label>
+                  <label for="car1-radio-2" class="car-rtn"></label>
+               </div>
+               <div class="content" dir="ltr">
+                  <h1 class="headertxt" style="font-size: 24px; line-height: 28px; font-weight: 700;">title_1</h1>
+                  <p class="bodytxt" style="margin-bottom: 10px; font-size: 16px; line-height: 22px; font-weight: 400;">txt_1</p>
+                  <a style="font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;font-size: 16px; line-height: 22px; font-weight: 400; color: #050033" class="darkmode_cta " href="https://100procent.nl/" target="_blank">btn_txt_1</a>
+               </div>
+
+               <label>
+                  <input type="radio" name="slider" id="car1-radio-2">
+                  <div class="car-slide-wrap">
+                     <a target="_blank" href="https://100procent.nl/">
+                        <img class="slider" src="https://cdn.msdp1.com/public/100procentemail/47f9309745e03a8eeb95fdf5d7d26b93/100_figure_300_300.png" alt="img_alt_2">
+                     </a>
+                     <label for="car1-radio-1" class="car-ltn"></label>
+                     <label for="car1-radio-3" class="car-rtn"></label>
+                  </div>
+                  <div class="content" dir="ltr">
+                     <h1 style="font-size: 24px; line-height: 28px; font-weight: 700;">title_2</h1>
+                     <p style="margin-bottom: 10px; font-size: 16px; line-height: 22px; font-weight: 400;">txt_2</p>
+                     <a style="font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;font-size: 16px; line-height: 22px; font-weight: 400; color: #050033" class="darkmode_cta " href="https://100procent.nl/" target="_blank">btn_txt_2</a>
+                  </div>
+
+                  <label>
+                     <input type="radio" name="slider" id="car1-radio-3">
+                     <div class="car-slide-wrap">
+                        <a target="_blank" href="https://100procent.nl/">
+                           <img class="slider" src="https://cdn.msdp1.com/public/100procentemail/47f9309745e03a8eeb95fdf5d7d26b93/100_figure_300_300.png" alt="img_alt_3">
+                        </a>
+                        <label for="car1-radio-2" class="car-ltn"></label>
+                        <label for="car1-radio-1" class="car-rtn"></label>
+                     </div>
+                     <div class="content" dir="ltr">
+                        <h1 style="font-size: 24px; line-height: 28px; font-weight: 700;">title_3</h1>
+                        <p style="margin-bottom: 10px; font-size: 16px; line-height: 22px; font-weight: 400;">txt_3</p>
+                        <a style="font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;font-size: 16px; line-height: 22px; font-weight: 400; color: #050033" class="darkmode_cta " href="https://100procent.nl/" target="_blank">btn_txt_3</a>
+                     </div>
+                     <div class="thumbnail"> <img style="max-width: 150px;" src="https://cdn.msdp1.com/public/100procentemail/47f9309745e03a8eeb95fdf5d7d26b93/100_figure_300_300.png" alt="img_alt_3">
+                     </div>
+                  </label>
+
+                  <div class="thumbnail"> <img style="max-width: 150px;" src="https://cdn.msdp1.com/public/100procentemail/47f9309745e03a8eeb95fdf5d7d26b93/100_figure_300_300.png" alt="img_alt_2"> </div>
+               </label>
+
+               <div class="thumbnail">
+                  <img style="max-width: 150px;" src="https://cdn.msdp1.com/public/100procentemail/47f9309745e03a8eeb95fdf5d7d26b93/100_figure_300_300.png" alt="img_alt_1">
+               </div>
+            </label>
+         </div>
+         <!--<![endif]-->
+      </td>
+   </tr>
+</table>
+<!-- end car_1_col_img_title_txt_btn -->

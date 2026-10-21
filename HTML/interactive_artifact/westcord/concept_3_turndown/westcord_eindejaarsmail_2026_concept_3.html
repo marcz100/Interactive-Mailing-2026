@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<!-- WestCord eindejaarsmail 2026: concept 3 "Turndown service" (artifact board "Het kussenchocolaatje").
+     Een ingepakt chocolaatje op het kussen met vier flapjes. Elk flapje is een label voor een eigen checkbox: tikken
+     vouwt het hoekje open en toont het feitje; zijn alle vier open, dan staat de wens op het chocolaatje en
+     verschijnen de knoppen. "Opnieuw inpakken" is een reset-knop (daarvoor staan de inputs in een <form>).
+     Kleuren, fonts, maten en posities 1:1 uit het artifact; de posities staan als percentage van het artifact-canvas
+     (700 x 680), zodat het geheel meeschaalt met de mailbreedte.
+     Fallback (Gmail, Outlook, Samsung): de eindstand uit het artifact (alle hoekjes open, stap 4) in tabellen.
+     Mobiel (het artifact heeft geen mobiel ontwerp): het kussen schaalt mee, het feitje van het laatst geopende
+     hoekje staat boven het chocolaatje en vervangt het vorige (z-index animatie: de nieuwste ligt bovenop).
+     Gebouwd uit blocks/hotspot/hotspot_1_col_row_1_title_txt_row_2_subtitle_txt_x4_txt_title_row_3_btn_x2.html
+     met de artifact-waarden; wijzigingen in het blok ook hier doorvoeren.
+     Persoonlijke velden ([Voornaam], [X], [Hotelnaam], [Aantal]) zijn placeholders. Nog nodig van de klant: tekst
+     voor ontvangers zonder verblijfsdata, zodat er nooit "[X]" of "0" in de mail staat. Logo is een tekstversie.
+     Teksten uit het concept, nog af te stemmen met WestCord.
+     Bron: Claude Design concept "WestCord eindejaarsmail: de lift", concept 3. -->
+
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+      <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+      <meta name="x-apple-disable-message-reformatting">
+      <meta name="color-scheme" content="light dark">
+      <meta name="supported-color-schemes" content="light dark">
+      <link rel="shortcut icon" href="https://studio.100procentemail.com/designs/100email/st_j/100_new_design/Avatar_2_light.jpg" type="image/x-icon">
+      <link rel="icon" type="image/icon" href="https://studio.100procentemail.com/designs/100email/st_j/100_new_design/Avatar_2_light.jpg">
+      <title>WestCord Hotels</title>
+
+      <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+		<o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+      <style type="text/css">
+         body {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0px;
+            padding: 0px;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+         }
+
+         .ReadMsgBody {
+            width: 100%;
+         }
+
+         .ExternalClass {
+            width: 100%;
+         }
+
+         table,
+         td {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+         }
+
+         th {
+            font-weight: normal;
+         }
+
+         img {
+            display: block;
+            -ms-interpolation-mode: bicubic;
+         }
+
+         a[x-apple-data-detectors],
+
+         .unstyle-auto-detected-links a,
+         .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+         }
+
+         u+#body a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+         }
+
+         #MessageViewBody a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+         }
+
+         *,
+         *:after,
+         *:before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+         }
+
+         p {
+            margin: 0;
+            font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+         }
+
+         h1 {
+            margin: 0;
+            font-family: EB Garamond,Georgia,Times New Roman,serif;
+            font-size: 38px;
+            line-height: 42px;
+            font-weight: 500;
+         }
+
+         h2 {
+            margin: 0;
+            font-family: EB Garamond,Georgia,Times New Roman,serif;
+            font-size: 26px;
+            line-height: 30px;
+            font-weight: 500;
+         }
+
+         h3 {
+            margin: 0;
+            font-family: EB Garamond,Georgia,Times New Roman,serif;
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 500;
+         }
+
+         .bodytxt a {
+            color: #9980FF;
+            font-weight: bold;
+         }
+
+         .bodytxt a:visited {
+            color: #9980FF;
+            font-weight: bold;
+         }
+
+         .bodytxt {
+            font-size: 16px!important;
+            line-height: 24px!important;
+         }
+
+         .bodytxtwhite,
+         .nav {
+            font-size: 16px!important;
+            line-height: 24px!important;
+         }
+
+         h1.headertxt {
+            font-size: 38px!important;
+            line-height: 42px!important;
+            font-weight: 500!important;
+         }
+
+         h2.headertxt {
+            font-size: 26px!important;
+            line-height: 30px!important;
+            font-weight: 500!important;
+         }
+
+         h3.headertxt {
+            font-size: 20px!important;
+            line-height: 26px!important;
+            font-weight: 500!important;
+         }
+
+         .bodytxtwhite a {
+            color: #ffffff;
+            font-weight: bold;
+         }
+
+         .bodytxtwhite a:visited {
+            color: #ffffff;
+            font-weight: bold;
+         }
+
+         @media only screen and (max-width: 600px) {
+
+            .headertxt {
+               font-size: 1.4em !important;
+            }
+
+            .col-sm-12 {
+               max-width: 100% !important;
+               width: 100% !important;
+               display: block !important
+            }
+
+            .col-sm-9 {
+               max-width: 75% !important;
+               width: 75% !important;
+            }
+
+            .col-sm-8 {
+               max-width: 66.66666666% !important;
+               width: 66.66666666% !important;
+            }
+
+            .col-sm-6 {
+               max-width: 49.5% !important;
+               width: 49.5% !important;
+            }
+
+            .col-sm-4 {
+               max-width: 33.33333333% !important;
+               width: 33.33333333% !important;
+            }
+
+            .col-sm-3 {
+               max-width: 25% !important;
+               width: 25% !important;
+            }
+
+            .col-sm-12-img img {
+               width: 100% !important;
+               max-width: 100% !important;
+            }
+
+            .btn {
+               width: 100% !important;
+            }
+
+            .txt-center {
+               text-align: center !important;
+            }
+
+            .item-center {
+               margin-left: auto !important;
+               margin-right: auto !important;
+            }
+
+            .clearheight {
+               height: 0 !important;
+            }
+
+            .float {
+               width: 100% !important;
+               max-width: 100% !important;
+               clear: both !important;
+               float: left !important;
+            }
+
+            .noBorder {
+               border: none !important;
+            }
+
+            .headerheight {
+               height: 140px !important;
+            }
+
+            .hide_on_mobile {
+               display: none !important;
+            }
+
+            .show-on-mobile {
+               display: block !important;
+               line-height: normal !important;
+               max-height: none !important;
+               width: 100% !important;
+               overflow: hidden !important;
+            }
+
+            .pm0 {
+               padding: 0 !important;
+            }
+
+            .pmt0 {
+               padding-top: 0 !important;
+            }
+
+            .pmr0 {
+               padding-right: 0 !important;
+            }
+
+            .pmb0 {
+               padding-bottom: 0 !important;
+            }
+
+            .pml0 {
+               padding-left: 0 !important;
+            }
+
+            .pm4 {
+               padding: 4px !important;
+            }
+
+            .pmt4 {
+               padding-top: 4px !important;
+            }
+
+            .pmr4 {
+               padding-right: 4px !important;
+            }
+
+            .pmb4 {
+               padding-bottom: 4px !important;
+            }
+
+            .pml4 {
+               padding-left: 4px !important;
+            }
+
+            .pm8 {
+               padding: 8px !important;
+            }
+
+            .pmt8 {
+               padding-top: 8px !important;
+            }
+
+            .pmr8 {
+               padding-right: 8px !important;
+            }
+
+            .pmb8 {
+               padding-bottom: 8px !important;
+            }
+
+            .pml8 {
+               padding-left: 8px !important;
+            }
+
+            .pm12 {
+               padding: 12px !important;
+            }
+
+            .pmt12 {
+               padding-top: 12px !important;
+            }
+
+            .pmr12 {
+               padding-right: 12px !important;
+            }
+
+            .pmb12 {
+               padding-bottom: 12px !important;
+            }
+
+            .pml12 {
+               padding-left: 12px !important;
+            }
+
+            .pm16 {
+               padding: 16px !important;
+            }
+
+            .pmt16 {
+               padding-top: 16px !important;
+            }
+
+            .pmr16 {
+               padding-right: 16px !important;
+            }
+
+            .pmb16 {
+               padding-bottom: 16px !important;
+            }
+
+            .pml16 {
+               padding-left: 16px !important;
+            }
+
+            .pm24 {
+               padding: 24px !important;
+            }
+
+            .pmt24 {
+               padding-top: 24px !important;
+            }
+
+            .pmr24 {
+               padding-right: 24px !important;
+            }
+
+            .pmb24 {
+               padding-bottom: 24px !important;
+            }
+
+            .pml24 {
+               padding-left: 24px !important;
+            }
+
+            .pm32 {
+               padding: 32px !important;
+            }
+
+            .pmt32 {
+               padding-top: 32px !important;
+            }
+
+            .pmr32 {
+               padding-right: 32px !important;
+            }
+
+            .pmb32 {
+               padding-bottom: 32px !important;
+            }
+
+            .pml32 {
+               padding-left: 32px !important;
+            }
+
+         }
+
+         @media only screen and (max-width: 374px) {
+
+            .col-xs-12 {
+               max-width: 100% !important;
+            }
+
+            .col-xs-9 {
+               max-width: 75% !important;
+            }
+
+            .col-xs-8 {
+               max-width: 66.66666666% !important;
+            }
+
+            .col-xs-6 {
+               max-width: 49.5% !important;
+            }
+
+            .col-xs-4 {
+               max-width: 33.33333333% !important;
+            }
+
+            .col-xs-3 {
+               max-width: 25% !important;
+            }
+         }
+      </style>
+      <style type="text/css">
+         @media (prefers-color-scheme: dark) {
+
+            .invert {
+               filter: invert(1);
+            }
+
+            .dark-img {
+               display: inline-block !important;
+            }
+
+            .light-img {
+               display: none !important;
+            }
+
+            .darkmode_side_td {
+               background-color: #0B1A2E!important;
+            }
+
+            .darkmode {
+               background-color: #0B1A2E!important;
+            }
+
+            .darkmode_body {
+               background-color: #12233A!important;
+            }
+
+            .darkmode_cta {
+               background-color: #E2127A!important;
+
+               border: 1px solid #E2127A!important
+            }
+
+            .headertxt {
+               color: #FFFFFF!important;
+            }
+
+            .bodytxt {
+               color: #FFFFFF!important;
+            }
+
+            a {
+               color: #FFFFFF!important;
+            }
+         }
+
+         [data-ogsc] .invert {
+            filter: invert(1);
+         }
+
+         [data-ogsc] .dark-img {
+            display: inline-block !important;
+         }
+
+         [data-ogsc] .light-img {
+            display: none !important;
+         }
+
+         [data-ogsc] .darkmode_side_td {background-color: #0B1A2E!important;
+         }
+
+         [data-ogsc] .darkmode {background-color: #0B1A2E!important;
+         }
+
+         [data-ogsc] .darkmode_body {background-color: #12233A!important;
+         }
+
+         [data-ogsc] .darkmode_cta {background-color: #E2127A!important;
+border: 1px solid #E2127A!important
+         }
+
+         [data-ogsc] .headertxt {color: #FFFFFF!important
+         }
+
+         [data-ogsc] .bodytxt {color: #FFFFFF!important
+         }
+
+         [data-ogsc] a {color: #FFFFFF!important;
+         }
+      </style>
+      <!--[if !mso]><!-->
+      <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&amp;family=Hind:wght@400;600&amp;display=swap" rel="stylesheet" type="text/css">
+      <!--<![endif]-->
+      <!-- hotspot_1_col_row_1_title_txt_row_2_subtitle_txt_x4_txt_title_row_3_btn_x2 -->
+      <style type="text/css">
+         /* Turndown hotspot (artifact "Het kussenchocolaatje"): a chocolate on a pillow with four flaps. Each flap is a label
+            for its own checkbox; tapping it folds the corner open and shows its text. When all four are open the wish
+            appears on the chocolate with the buttons; "reset" wraps it up again. Order: inputs, fallback, interactive.
+            Interactive only in WebKit clients that support :checked (pre-checked .hs-detect); everything else keeps the
+            fallback (the all-open state, built in tables). Stage geometry = artifact canvas in % of 700 x 680. */
+         @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            .hs-detect:checked ~ .hs-fallback {
+               display: none !important;
+               max-height: 0 !important;
+               overflow: hidden !important;
+            }
+
+            .hs-detect:checked ~ .hs-interactive {
+               display: block !important;
+               max-height: none !important;
+               overflow: visible !important;
+            }
+         }
+
+         .hs-interactive .hs-stage {
+            position: relative;
+            background-color: #DCE8F1;
+         }
+
+         /* 97.1429% = 680 / 700: the stage keeps the artifact's proportions at every width */
+         .hs-interactive .hs-box {
+            position: relative;
+            height: 0;
+            padding-bottom: 97.1429%;
+         }
+
+         .hs-interactive .hs-abs {
+            position: absolute;
+            box-sizing: border-box;
+         }
+
+         .hs-interactive .hs-pillow {
+            left: 2.8571%; top: 3.5294%; width: 94.2857%; height: 94.1176%;
+            border-radius: 56px;
+            background-color: #FFFFFF;
+            box-shadow: 0 20px 50px rgba(14,26,43,0.15);
+         }
+
+         .hs-interactive .hs-pillow-line {
+            left: 5.7143%; top: 6.4706%; width: 88.5714%; height: 88.2353%;
+            border-radius: 42px;
+            border: 2px solid #F1EBE0;
+         }
+
+         .hs-interactive .hs-choc {
+            left: 31.4286%; top: 30.8824%; width: 37.1429%; height: 38.2353%;
+            border-radius: 4px;
+            background-color: #3B2418;
+         }
+
+         .hs-interactive .hs-choc-line {
+            left: 33.7143%; top: 33.2353%; width: 32.5714%; height: 33.5294%;
+            border: 2px solid #5A3A28;
+         }
+
+         /* the wish on the chocolate: only when all four flaps are open */
+         .hs-interactive .hs-wish {
+            left: 31.4286%; top: 30.8824%; width: 37.1429%; height: 38.2353%;
+            display: none;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            text-align: center;
+         }
+
+         .hs-interactive .hs-wish-label {
+            display: block;
+            margin: 0 0 4px 0;
+            font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #B3CDE0;
+         }
+
+         .hs-interactive .hs-wish-txt {
+            display: block;
+            max-width: 50%;
+            margin: 0 auto 4px auto;
+            font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 17px;
+            line-height: 22px;
+            color: #F4EBDD;
+         }
+
+         .hs-interactive .hs-wish-year {
+            display: block;
+            font-family: EB Garamond,Georgia,Times New Roman,serif;
+            font-size: 60px;
+            line-height: 60px;
+            font-weight: 500;
+            color: #FFFFFF;
+         }
+
+         /* closed flaps: four triangles over the chocolate, each a label for its checkbox */
+         .hs-interactive .hs-flap {
+            left: 31.4286%; top: 30.8824%; width: 37.1429%; height: 38.2353%;
+            display: block;
+            cursor: pointer;
+         }
+
+         .hs-interactive .hs-flap-1 {
+            background-color: #012D59;
+            -webkit-clip-path: polygon(0 0, 100% 0, 50% 50%);
+            clip-path: polygon(0 0, 100% 0, 50% 50%);
+         }
+
+         .hs-interactive .hs-flap-2 {
+            background-color: #1D4B7A;
+            -webkit-clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+            clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+         }
+
+         .hs-interactive .hs-flap-3 {
+            background-color: #2F6FA6;
+            -webkit-clip-path: polygon(0 100%, 100% 100%, 50% 50%);
+            clip-path: polygon(0 100%, 100% 100%, 50% 50%);
+         }
+
+         .hs-interactive .hs-flap-4 {
+            background-color: #174170;
+            -webkit-clip-path: polygon(0 0, 50% 50%, 0 100%);
+            clip-path: polygon(0 0, 50% 50%, 0 100%);
+         }
+
+         /* open flaps: folded back outside the chocolate; tapping them folds the corner shut again */
+         .hs-interactive .hs-fold {
+            display: none;
+            cursor: pointer;
+         }
+
+         .hs-interactive .hs-fold-1 {
+            left: 31.4286%; top: 23.5294%; width: 37.1429%; height: 7.3529%;
+            background-color: #DCE8F1;
+            -webkit-clip-path: polygon(0 100%, 100% 100%, 50% 0);
+            clip-path: polygon(0 100%, 100% 100%, 50% 0);
+         }
+
+         .hs-interactive .hs-fold-2 {
+            left: 68.5714%; top: 30.8824%; width: 7.1429%; height: 38.2353%;
+            background-color: #CFDFEC;
+            -webkit-clip-path: polygon(0 0, 100% 50%, 0 100%);
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+         }
+
+         .hs-interactive .hs-fold-3 {
+            left: 31.4286%; top: 69.1176%; width: 37.1429%; height: 7.3529%;
+            background-color: #DCE8F1;
+            -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+         }
+
+         .hs-interactive .hs-fold-4 {
+            left: 24.2857%; top: 30.8824%; width: 7.1429%; height: 38.2353%;
+            background-color: #CFDFEC;
+            -webkit-clip-path: polygon(100% 0, 0 50%, 100% 100%);
+            clip-path: polygon(100% 0, 0 50%, 100% 100%);
+         }
+
+         /* seal: visible until all four flaps are open */
+         .hs-interactive .hs-seal {
+            left: 46.5714%; top: 46.4706%; width: 6.8571%; height: 7.0588%;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 3px solid #FFFFFF;
+            background-color: #E2127A;
+            color: #FFFFFF;
+            font-family: EB Garamond,Georgia,Times New Roman,serif;
+            font-size: 20px;
+            pointer-events: none;
+         }
+
+         /* facts around the chocolate (desktop); below the stage on mobile */
+         .hs-interactive .hs-fact {
+            display: none;
+            position: absolute;
+         }
+
+         .hs-interactive .hs-fact-1 {
+            left: 24.2857%;
+            top: 10.5882%;
+            width: 51.4286%;
+            text-align: center;
+         }
+
+         .hs-interactive .hs-fact-2 {
+            left: 77.4286%;
+            top: 38.2353%;
+            width: 14.5714%;
+            text-align: left;
+         }
+
+         .hs-interactive .hs-fact-3 {
+            left: 24.2857%;
+            top: 77.9412%;
+            width: 51.4286%;
+            text-align: center;
+         }
+
+         .hs-interactive .hs-fact-4 {
+            left: 8%;
+            top: 38.2353%;
+            width: 14.5714%;
+            text-align: right;
+         }
+
+         .hs-interactive .hs-fact-label {
+            display: block;
+            margin: 0 0 4px 0;
+            font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 11px;
+            line-height: 15px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #C8106E;
+         }
+
+         .hs-interactive .hs-fact-txt {
+            display: block;
+            font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            line-height: 22px;
+            color: #012D59;
+         }
+
+         .hs-interactive .hs-fact-2 .hs-fact-txt,
+         .hs-interactive .hs-fact-4 .hs-fact-txt {
+            font-size: 15px;
+            line-height: 21px;
+         }
+
+         .hs-c1:checked ~ .hs-interactive .hs-flap-1 {
+            display: none;
+         }
+
+         .hs-c1:checked ~ .hs-interactive .hs-fold-1,
+         .hs-c1:checked ~ .hs-interactive .hs-fact-1 {
+            display: block;
+         }
+
+         .hs-c2:checked ~ .hs-interactive .hs-flap-2 {
+            display: none;
+         }
+
+         .hs-c2:checked ~ .hs-interactive .hs-fold-2,
+         .hs-c2:checked ~ .hs-interactive .hs-fact-2 {
+            display: block;
+         }
+
+         .hs-c3:checked ~ .hs-interactive .hs-flap-3 {
+            display: none;
+         }
+
+         .hs-c3:checked ~ .hs-interactive .hs-fold-3,
+         .hs-c3:checked ~ .hs-interactive .hs-fact-3 {
+            display: block;
+         }
+
+         .hs-c4:checked ~ .hs-interactive .hs-flap-4 {
+            display: none;
+         }
+
+         .hs-c4:checked ~ .hs-interactive .hs-fold-4,
+         .hs-c4:checked ~ .hs-interactive .hs-fact-4 {
+            display: block;
+         }
+
+         /* status line: one text per number of open flaps (16 combinations of 4 checkboxes) */
+         .hs-interactive .hs-status {
+            margin: 0;
+            font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 15px;
+            line-height: 21px;
+            color: #2F5F8F;
+            text-align: center;
+         }
+
+         .hs-interactive .hs-st {
+            display: none;
+         }
+
+         .hs-c1:not(:checked) ~ .hs-c2:not(:checked) ~ .hs-c3:not(:checked) ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-0 {
+            display: block;
+         }
+
+         .hs-c1:checked ~ .hs-c2:not(:checked) ~ .hs-c3:not(:checked) ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-1,
+         .hs-c1:not(:checked) ~ .hs-c2:checked ~ .hs-c3:not(:checked) ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-1,
+         .hs-c1:not(:checked) ~ .hs-c2:not(:checked) ~ .hs-c3:checked ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-1,
+         .hs-c1:not(:checked) ~ .hs-c2:not(:checked) ~ .hs-c3:not(:checked) ~ .hs-c4:checked ~ .hs-interactive .hs-st-1 {
+            display: block;
+         }
+
+         .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:not(:checked) ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-2,
+         .hs-c1:checked ~ .hs-c2:not(:checked) ~ .hs-c3:checked ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-2,
+         .hs-c1:not(:checked) ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-2,
+         .hs-c1:checked ~ .hs-c2:not(:checked) ~ .hs-c3:not(:checked) ~ .hs-c4:checked ~ .hs-interactive .hs-st-2,
+         .hs-c1:not(:checked) ~ .hs-c2:checked ~ .hs-c3:not(:checked) ~ .hs-c4:checked ~ .hs-interactive .hs-st-2,
+         .hs-c1:not(:checked) ~ .hs-c2:not(:checked) ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-st-2 {
+            display: block;
+         }
+
+         .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:not(:checked) ~ .hs-interactive .hs-st-3,
+         .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:not(:checked) ~ .hs-c4:checked ~ .hs-interactive .hs-st-3,
+         .hs-c1:checked ~ .hs-c2:not(:checked) ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-st-3,
+         .hs-c1:not(:checked) ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-st-3 {
+            display: block;
+         }
+
+         .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-st-4 {
+            display: block;
+         }
+
+         /* buttons: only when all four flaps are open */
+         .hs-interactive .hs-done {
+            display: none;
+            padding: 14px 0 0 0;
+         }
+
+         .hs-interactive .hs-reset {
+            display: inline-block;
+            height: 48px;
+            margin: 0 0 0 12px;
+            padding: 0 20px;
+            border: 2px solid #012D59;
+            border-radius: 4px;
+            background-color: transparent;
+            color: #012D59;
+            font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+         }
+
+         /* mobile summary under the pillow: hidden on desktop (the facts sit around the chocolate there) */
+         .hs-interactive .hs-list {
+            display: none;
+         }
+
+         .hs-interactive .hs-li {
+            display: none;
+            padding: 0 24px 16px 24px;
+            text-align: center;
+         }
+
+         .hs-interactive .hs-li-label {
+            display: block;
+            margin: 0 0 4px 0;
+            font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 11px;
+            line-height: 15px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #C8106E;
+         }
+
+         .hs-interactive .hs-li-txt {
+            display: block;
+            font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            line-height: 22px;
+            color: #012D59;
+         }
+
+         .hs-c1:checked ~ .hs-interactive .hs-li-1,
+         .hs-c2:checked ~ .hs-interactive .hs-li-2,
+         .hs-c3:checked ~ .hs-interactive .hs-li-3,
+         .hs-c4:checked ~ .hs-interactive .hs-li-4 {
+            display: block;
+         }
+
+         /* newest-on-top for the mobile text spot (only used in the max-width 600px rules below) */
+         @-webkit-keyframes hs-stack {
+            from {
+               z-index: 10000000;
+            }
+
+            to {
+               z-index: 1;
+            }
+         }
+
+         @keyframes hs-stack {
+            from {
+               z-index: 10000000;
+            }
+
+            to {
+               z-index: 1;
+            }
+         }
+
+         .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-wish {
+            display: -webkit-flex;
+            display: flex;
+         }
+
+         .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-seal {
+            display: none;
+         }
+
+         .hs-c1:checked ~ .hs-c2:checked ~ .hs-c3:checked ~ .hs-c4:checked ~ .hs-interactive .hs-done {
+            display: block;
+         }
+
+         @media only screen and (max-width: 600px) {
+            .hs-title {
+               font-size: 30px !important;
+               line-height: 34px !important;
+            }
+
+            .hs-interactive .hs-pillow {
+               border-radius: 32px !important;
+            }
+
+            .hs-interactive .hs-pillow-line {
+               border-radius: 24px !important;
+            }
+
+            .hs-interactive .hs-wish-year {
+               font-size: 34px !important;
+               line-height: 34px !important;
+            }
+
+            .hs-interactive .hs-wish-txt {
+               font-size: 12px !important;
+               line-height: 15px !important;
+            }
+
+            .hs-interactive .hs-wish-label {
+               font-size: 9px !important;
+               line-height: 12px !important;
+            }
+
+            .hs-interactive .hs-seal {
+               border-width: 2px !important;
+               font-size: 14px !important;
+            }
+
+            /* mobile: one text spot above the chocolate, the same fixed box for every fact (y 60 = 16 under the pillow
+               line, to y 155 = just above the top fold). All open facts sit in that box on an opaque background, so the
+               one on top always covers the others completely, whatever their length. The newest is on top because every
+               fact starts the hs-stack animation (z-index counting down 100 per second, so taps a split second apart
+               still differ) when it appears. Without animation support the highest corner number shows. */
+            .hs-interactive .hs-fact {
+               left: 12.8571% !important;
+               top: 8.8235% !important;
+               bottom: 77.2059% !important;
+               width: 74.2857% !important;
+               text-align: center !important;
+               background-color: #FFFFFF;
+               -webkit-animation: hs-stack 100000s linear forwards;
+               animation: hs-stack 100000s linear forwards;
+            }
+
+            .hs-interactive .hs-fact-label {
+               font-size: 10px !important;
+               line-height: 13px !important;
+            }
+
+            .hs-interactive .hs-fact-txt,
+            .hs-interactive .hs-fact-2 .hs-fact-txt,
+            .hs-interactive .hs-fact-4 .hs-fact-txt {
+               font-size: 13px !important;
+               line-height: 17px !important;
+            }
+
+            /* the summary of opened corners under the pillow (in addition to the text spot above the chocolate) */
+            .hs-interactive .hs-list {
+               display: block !important;
+               padding: 8px 0 0 0 !important;
+            }
+
+            .hs-interactive .hs-reset {
+               margin: 12px 0 0 0 !important;
+            }
+         }
+
+         @media only screen and (max-width: 400px) {
+            .hs-interactive .hs-wish-year {
+               font-size: 28px !important;
+               line-height: 28px !important;
+            }
+
+            .hs-interactive .hs-wish-txt {
+               font-size: 11px !important;
+               line-height: 14px !important;
+            }
+
+            /* small phones: the text spot above the chocolate stays clear of the pillow line */
+            .hs-interactive .hs-fact-txt,
+            .hs-interactive .hs-fact-2 .hs-fact-txt,
+            .hs-interactive .hs-fact-4 .hs-fact-txt {
+               font-size: 12px !important;
+               line-height: 15px !important;
+            }
+         }
+      </style>
+      <style type="text/css">
+         /* Back to the fallback. Every override also exists as a variant at least as specific as the activation selector
+            (.hs-detect:checked ~ ...), because !important rules are decided by specificity before source order. */
+         /* Outlook.com / new Outlook: class names get an x_ prefix */
+         [class~="x_hs-interactive"],
+         [class~="x_hs-detect"]:checked ~ [class~="x_hs-interactive"] {
+            display: none !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+         }
+
+         [class~="x_hs-fallback"],
+         [class~="x_hs-detect"]:checked ~ [class~="x_hs-fallback"] {
+            display: block !important;
+            max-height: none !important;
+            overflow: visible !important;
+         }
+
+         /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+         #MessageViewBody .hs-interactive {
+            display: none !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+         }
+
+         #MessageViewBody .hs-fallback {
+            display: block !important;
+            max-height: none !important;
+            overflow: visible !important;
+         }
+      </style>
+      <style type="text/css">
+         /* Outlook apps: \0 hack in its own style tag (it breaks the rest of a style tag in other clients) */
+         .hs-interactive\0 {
+            display: none !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+         }
+
+         .hs-detect:checked ~ .hs-interactive\0 {
+            display: none !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+         }
+
+         .hs-fallback\0 {
+            display: block !important;
+            max-height: none !important;
+            overflow: visible !important;
+         }
+
+         .hs-detect:checked ~ .hs-fallback\0 {
+            display: block !important;
+            max-height: none !important;
+            overflow: visible !important;
+         }
+      </style>
+      <!-- // hotspot_1_col_row_1_title_txt_row_2_subtitle_txt_x4_txt_title_row_3_btn_x2 -->
+   </head>
+
+   <body id="body" class="darkmode body" width="100%" style="margin: 0; padding: 0 !important;">
+      <!--[if !mso & !IE]>-->
+      <div style="display: none; max-height: 0px; overflow: hidden;">We hebben iets op je kussen gelegd.</div>
+      <div style="display: none; max-height: 0px; overflow: hidden;">
+         &#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;
+         &#8199;&#65279;&#847; &#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;
+         &#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;
+      </div>
+      <!--<![endif]-->
+
+      <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F4F6F8" class="darkmode">
+         <tr>
+            <td class="darkmode_side_td" style="background-color: #F4F6F8"></td>
+            <td class="darkmode" style="text-align: center;font-size: 0;width: 648px; max-width: 648px;" align="center">
+               <!-- header_westcord_wordmark -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#012D59">
+                  <tr>
+                     <td align="right" class="pmr16" style="padding: 12px 24px 0 24px; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; font-weight: 400;">
+                        <!-- view online link -->
+                        <a href="https://100procent.nl/" title="Online versie" target="_blank" style="color: #FFFFFF; text-decoration: underline;">Bekijk online</a>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="center" style="padding: 12px 24px 28px 24px;">
+                        <a href="https://100procent.nl/" target="_blank" style="text-decoration: none; color: #FFFFFF;">
+                           <!-- tekstversie als placeholder: het echte logo komt van de ontwerper -->
+                           <span style="display: block; font-family: EB Garamond,Georgia,Times New Roman,serif; font-size: 36px; line-height: 38px; color: #FFFFFF;">WestCord</span>
+                           <span style="display: block; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 11px; line-height: 16px; letter-spacing: 0.5em; text-transform: uppercase; color: #FFFFFF;">Hotels</span>
+                        </a>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end header_westcord_wordmark -->
+               <!-- start hotspot_1_col_row_1_title_txt_row_2_subtitle_txt_x4_txt_title_row_3_btn_x2 -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                     <td style="padding: 0;" align="center">
+                        <!-- header band: shared by fallback and interactive -->
+                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#012D59">
+                           <tr>
+                              <td align="center" class="pml24 pmr24" style="padding: 12px 60px 44px 60px; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;">
+                                 <h1 class="hs-title" style="margin: 0 0 10px 0; font-family: EB Garamond,Georgia,Times New Roman,serif; font-size: 40px; line-height: 46px; font-weight: 500; color: #FFFFFF;">Welterusten, [Voornaam].</h1>
+                                 <p style="margin: 0; font-size: 17px; line-height: 25px; color: #D8DEE8;">We hebben iets op je kussen gelegd. Vouw de vier hoekjes open.</p>
+                              </td>
+                           </tr>
+                        </table>
+                        <!-- state inputs (in a form, so "reset" can wrap the chocolate up again): detection (pre-checked) +
+                             one checkbox per flap, in this order (the "all open" selector chains them) -->
+                        <!--[if !mso]><!-->
+                        <form class="hs-form" style="margin: 0;">
+                        <input type="checkbox" id="hs-detect" class="hs-detect" checked style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="hs-c1" class="hs-c1" style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="hs-c2" class="hs-c2" style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="hs-c3" class="hs-c3" style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="hs-c4" class="hs-c4" style="display: none !important; mso-hide: all;">
+                        <!--<![endif]-->
+                        <!-- fallback: the all-open state (artifact step 4), in tables -->
+                        <div class="hs-fallback">
+                           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#DCE8F1">
+                              <tr>
+                                 <td class="pml16 pmr16" style="padding: 24px 20px 0 20px;">
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="border-radius: 56px; border-collapse: separate;">
+                                       <tr>
+                                          <td style="padding: 20px;">
+                                             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 2px solid #F1EBE0; border-radius: 42px; border-collapse: separate;">
+                                                <tr>
+                                                   <td align="center" class="pml16 pmr16" style="padding: 32px 20px;">
+                                                      <table role="presentation" width="360" align="center" border="0" cellspacing="0" cellpadding="0" class="col-sm-12" style="width: 360px;">
+                                                         <tr>
+                                                            <td align="center">
+                                                               <p style="margin: 0 0 4px 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 11px; line-height: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #C8106E; text-align: center;">Hoekje 1</p>
+                                                               <p style="margin: 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 22px; color: #012D59; text-align: center;">Je sliep dit jaar [X] nachten bij ons. Hopelijk allemaal even goed.</p>
+                                                            </td>
+                                                         </tr>
+                                                      </table>
+                                                      <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                         <tr>
+                                                            <td height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                         </tr>
+                                                      </table>
+                                                      <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                         <tr>
+                                                            <th class="col-sm-12" width="112" align="right" valign="middle" style="vertical-align: middle; font-weight: normal; text-align: right;">
+                                                               <p class="txt-center" style="margin: 0 0 4px 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 11px; line-height: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #C8106E; text-align: right;">Hoekje 4</p>
+                                                               <p class="txt-center" style="margin: 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #012D59; text-align: right;">Fijn dat je er was, [Voornaam].</p>
+                                                            </th>
+                                                            <th class="col-sm-12" width="16" height="16" aria-hidden="true" style="font-size: 0; line-height: 16px;">&nbsp;</th>
+                                                            <th class="col-sm-12" width="260" align="center" valign="middle" style="vertical-align: middle; font-weight: normal;">
+                                                               <table role="presentation" width="260" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#3B2418" style="width: 260px; border-radius: 4px; border-collapse: separate;">
+                                                                  <tr>
+                                                                     <td style="padding: 16px;">
+                                                                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 2px solid #5A3A28;">
+                                                                           <tr>
+                                                                              <td height="224" align="center" valign="middle" style="height: 224px; padding: 0 16px; text-align: center;">
+                                                                                 <p style="margin: 0 0 4px 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; letter-spacing: 0.2em; text-transform: uppercase; color: #B3CDE0;">WestCord</p>
+                                                                                 <p style="margin: 0 auto 4px auto; max-width: 130px; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 17px; line-height: 22px; color: #F4EBDD;">wenst je een geweldig</p>
+                                                                                 <p style="margin: 0; font-family: EB Garamond,Georgia,Times New Roman,serif; font-size: 60px; line-height: 60px; font-weight: 500; color: #FFFFFF;">2027</p>
+                                                                              </td>
+                                                                           </tr>
+                                                                        </table>
+                                                                     </td>
+                                                                  </tr>
+                                                               </table>
+                                                            </th>
+                                                            <th class="col-sm-12" width="16" height="16" aria-hidden="true" style="font-size: 0; line-height: 16px;">&nbsp;</th>
+                                                            <th class="col-sm-12" width="112" align="left" valign="middle" style="vertical-align: middle; font-weight: normal; text-align: left;">
+                                                               <p class="txt-center" style="margin: 0 0 4px 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 11px; line-height: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #C8106E; text-align: left;">Hoekje 2</p>
+                                                               <p class="txt-center" style="margin: 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #012D59; text-align: left;">[Hotelnaam] was jouw favoriet.</p>
+                                                            </th>
+                                                         </tr>
+                                                      </table>
+                                                      <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                         <tr>
+                                                            <td height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                         </tr>
+                                                      </table>
+                                                      <table role="presentation" width="360" align="center" border="0" cellspacing="0" cellpadding="0" class="col-sm-12" style="width: 360px;">
+                                                         <tr>
+                                                            <td align="center">
+                                                               <p style="margin: 0 0 4px 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 11px; line-height: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #C8106E; text-align: center;">Hoekje 3</p>
+                                                               <p style="margin: 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 22px; color: #012D59; text-align: center;">Samen dronken we [Aantal] kopjes koffie bij het ontbijt.</p>
+                                                            </td>
+                                                         </tr>
+                                                      </table>
+                                                   </td>
+                                                </tr>
+                                             </table>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td align="center" style="padding: 32px 24px 40px 24px;">
+                                    <!--[if mso]>
+                                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:48px;v-text-anchor:middle;width:240px;" arcsize="8%" strokecolor="#E2127A" fillcolor="#E2127A">
+                                       <w:anchorlock/>
+                                       <center style="color:#FFFFFF;font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;">Boek je volgende nacht</center>
+                                    </v:roundrect>
+                                    <![endif]-->
+                                    <a href="https://100procent.nl/" target="_blank"
+                                       style="background-color:#E2127A;border:1px solid #E2127A;border-radius:4px;color:#FFFFFF;display:inline-block;font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 16px;font-weight:600;line-height:48px;padding:0 24px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;mso-hide:all;">Boek je volgende nacht</a>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                        <!-- interactive: the artifact stage, status line, buttons after all four flaps -->
+                        <!--[if !mso]><!-->
+                        <div class="hs-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+                           <div class="hs-stage">
+                              <div class="hs-box">
+                                 <div class="hs-abs hs-pillow"></div>
+                                 <div class="hs-abs hs-pillow-line"></div>
+                                 <div class="hs-abs hs-choc"></div>
+                                 <div class="hs-abs hs-choc-line"></div>
+                                 <div class="hs-abs hs-wish">
+                                    <span class="hs-wish-label">WestCord</span>
+                                    <span class="hs-wish-txt">wenst je een geweldig</span>
+                                    <span class="hs-wish-year">2027</span>
+                                 </div>
+                                 <label for="hs-c1" class="hs-abs hs-flap hs-flap-1" title="Hoekje 1"></label>
+                                 <label for="hs-c2" class="hs-abs hs-flap hs-flap-2" title="Hoekje 2"></label>
+                                 <label for="hs-c3" class="hs-abs hs-flap hs-flap-3" title="Hoekje 3"></label>
+                                 <label for="hs-c4" class="hs-abs hs-flap hs-flap-4" title="Hoekje 4"></label>
+                                 <label for="hs-c1" class="hs-abs hs-fold hs-fold-1" title="Hoekje 1"></label>
+                                 <label for="hs-c2" class="hs-abs hs-fold hs-fold-2" title="Hoekje 2"></label>
+                                 <label for="hs-c3" class="hs-abs hs-fold hs-fold-3" title="Hoekje 3"></label>
+                                 <label for="hs-c4" class="hs-abs hs-fold hs-fold-4" title="Hoekje 4"></label>
+                                 <div class="hs-abs hs-seal">W</div>
+                                 <!-- facts inside the box: their % positions refer to the fixed-proportion box, not to the growing stage -->
+                                 <div class="hs-fact hs-fact-1">
+                                    <span class="hs-fact-label">Hoekje 1</span>
+                                    <span class="hs-fact-txt">Je sliep dit jaar [X] nachten bij ons. Hopelijk allemaal even goed.</span>
+                                 </div>
+                                 <div class="hs-fact hs-fact-2">
+                                    <span class="hs-fact-label">Hoekje 2</span>
+                                    <span class="hs-fact-txt">[Hotelnaam] was jouw favoriet.</span>
+                                 </div>
+                                 <div class="hs-fact hs-fact-3">
+                                    <span class="hs-fact-label">Hoekje 3</span>
+                                    <span class="hs-fact-txt">Samen dronken we [Aantal] kopjes koffie bij het ontbijt.</span>
+                                 </div>
+                                 <div class="hs-fact hs-fact-4">
+                                    <span class="hs-fact-label">Hoekje 4</span>
+                                    <span class="hs-fact-txt">Fijn dat je er was, [Voornaam].</span>
+                                 </div>
+                              </div>
+                              <!-- mobile only: summary of every opened corner, in corner order, under the pillow -->
+                              <div class="hs-list">
+                                 <div class="hs-li hs-li-1">
+                                    <span class="hs-li-label">Hoekje 1</span>
+                                    <span class="hs-li-txt">Je sliep dit jaar [X] nachten bij ons. Hopelijk allemaal even goed.</span>
+                                 </div>
+                                 <div class="hs-li hs-li-2">
+                                    <span class="hs-li-label">Hoekje 2</span>
+                                    <span class="hs-li-txt">[Hotelnaam] was jouw favoriet.</span>
+                                 </div>
+                                 <div class="hs-li hs-li-3">
+                                    <span class="hs-li-label">Hoekje 3</span>
+                                    <span class="hs-li-txt">Samen dronken we [Aantal] kopjes koffie bij het ontbijt.</span>
+                                 </div>
+                                 <div class="hs-li hs-li-4">
+                                    <span class="hs-li-label">Hoekje 4</span>
+                                    <span class="hs-li-txt">Fijn dat je er was, [Voornaam].</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#DCE8F1">
+                              <tr>
+                                 <td align="center" style="padding: 8px 24px 40px 24px;">
+                                    <p class="hs-status">
+                                       <span class="hs-st hs-st-0">Klik op een hoekje om het open te vouwen.</span>
+                                       <span class="hs-st hs-st-1">Nog 3 hoekjes te gaan.</span>
+                                       <span class="hs-st hs-st-2">Nog 2 hoekjes te gaan.</span>
+                                       <span class="hs-st hs-st-3">Nog 1 hoekje te gaan.</span>
+                                       <span class="hs-st hs-st-4">Alle hoekjes open. Welterusten!</span>
+                                    </p>
+                                    <div class="hs-done">
+                                       <a href="https://100procent.nl/" target="_blank"
+                                          style="background-color:#E2127A;border:1px solid #E2127A;border-radius:4px;color:#FFFFFF;display:inline-block;font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 16px;font-weight:600;line-height:48px;padding:0 24px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;mso-hide:all;">Boek je volgende nacht</a>
+                                       <input type="reset" class="hs-reset" value="Opnieuw inpakken">
+                                    </div>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                        <!--<![endif]-->
+                        <!--[if !mso]><!-->
+                        </form>
+                        <!--<![endif]-->
+                     </td>
+                  </tr>
+               </table>
+               <!-- end hotspot_1_col_row_1_title_txt_row_2_subtitle_txt_x4_txt_title_row_3_btn_x2 -->
+            </td>
+            <td class="darkmode_side_td" style="background-color: #F4F6F8"></td>
+         </tr>
+      </table>
+
+      <!-- footer_westcord -->
+      <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#012D59">
+         <tr>
+            <td align="center" class="pml16 pmr16" style="padding: 40px;">
+               <p style="margin: 0 0 8px 0; font-family: EB Garamond,Georgia,Times New Roman,serif; font-size: 24px; line-height: 28px; color: #FFFFFF;">WestCord Hotels</p>
+               <p style="margin: 0 0 16px 0; font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #FFFFFF;">[Contactgegevens WestCord]</p>
+               <!-- unsubscribe link -->
+               <a href="https://100procent.nl/" target="_blank" style="font-family: Hind,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #FFFFFF; text-decoration: underline;">Afmelden voor deze e-mails</a>
+            </td>
+         </tr>
+      </table>
+      <!-- end footer_westcord -->
+   </body>
+
+</html>

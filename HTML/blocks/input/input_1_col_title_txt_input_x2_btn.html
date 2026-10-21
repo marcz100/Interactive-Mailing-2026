@@ -1,0 +1,116 @@
+<!-- start input_1_col_title_txt_input_x2_btn -->
+<style>
+   /* .interactive/.fallback are scoped to .input-wrap (class on the block's outer td) so they don't
+      collide with the car block's own .interactive/.fallback classes */
+   .input-wrap .interactive {
+      display: none;
+      max-height: 0;
+      overflow: hidden;
+   }
+
+   .input-wrap .fallback {
+      display: block;
+   }
+
+   @media screen and (min-width: 1px) {
+      .input-wrap .interactive {
+         display: block !important;
+         max-height: none !important;
+         overflow: visible !important;
+      }
+
+      .input-wrap .fallback {
+         display: none !important;
+      }
+   }
+
+   .input_field {
+      -webkit-appearance: none;
+      appearance: none;
+   }
+
+   .input_field::placeholder {
+      color: #050033;
+      opacity: 0.6;
+   }
+
+   .input_field:focus {
+      border-color: #e3fc5e;
+      outline: none;
+   }
+
+   .input_submit_btn {
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+   }
+
+   .input_submit_btn:hover {
+      opacity: 0.9;
+   }
+</style>
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td class="pml16 pmr16 input-wrap" style="padding: 0 24px 32px 24px;">
+         <table bgcolor="#9980FF" class="darkmode_block" role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+               <td style="padding: 24px;" class="pmt0 pmr24 pmb24 pml24">
+                  <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                     <tr>
+                        <td align="left" style="padding: 0 0 8px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 24px; line-height: 28px; font-weight: 700; color: #050033;" class="headertxt">
+                           <h2 style="margin: 0;font-size: 24px; line-height: 28px;font-weight: 700;" class="headertxt">title_1</h2>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="left" style="padding: 0 0 16px 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 22px; font-weight: 400; color: #050033;">
+                           <p style="margin: 0; font-size: 16px; line-height: 22px; font-weight: 400">txt_1</p>
+                        </td>
+                     </tr>
+                  </table>
+                  <div class="fallback">
+                     <!--[if mso]>
+                     <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:36px;v-text-anchor:middle;width:200px;" arcsize="10%" strokecolor="#050033" fillcolor="#e3fc5e">
+                     <w:anchorlock/>
+                     <center style="color:#050033;font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;font-size:20px;">btn_txt_1</center>
+                     </v:roundrect>
+                     <![endif]-->
+                     <!--[if !mso]><!-->
+                     <a class="btn darkmode_cta" href="https://100procent.nl/" target="_blank"
+                        style="background-color:#e3fc5e;border:1px solid #e3fc5e;border-radius:4px;color:#050033;display:inline-block;font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;font-size: 20px;font-weight:700;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;">btn_txt_1</a>
+                     <!--<![endif]-->
+                  </div>
+                  <!-- real form for clients that support @media (.interactive), static fallback link otherwise (.fallback);
+                       form action / fallback link = input_url (https://100procent.nl/ until there is a real destination) -->
+                  <div class="interactive">
+                     <form method="GET" action="https://100procent.nl/" target="_blank">
+                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                           <tr>
+                              <td style="padding: 0 0 8px 0;">
+                                 <!-- name = input_name_1, placeholder = input_placeholder_1 -->
+                                 <input type="text" name="van" placeholder="input_placeholder_1" required class="input_field"
+                                    style="display: inline-block; width: 98%; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; background-color: #ffffff; border: 1px solid #050033; border-radius: 4px; padding: 8px 10px;" />
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="padding: 0 0 8px 0;">
+                                 <!-- name = input_name_2, placeholder = input_placeholder_2 -->
+                                 <input type="text" name="tot" placeholder="input_placeholder_2" required class="input_field"
+                                    style="display: inline-block; width: 98%; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; background-color: #ffffff; border: 1px solid #050033; border-radius: 4px; padding: 8px 10px;" />
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <input type="submit" value="btn_txt_1" class="input_submit_btn"
+                                    style="height: 36px; width: 100%; display: inline-block; -webkit-appearance: none; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; font-weight: 700; background-color: #e3fc5e; color: #050033; border: 1px solid #e3fc5e; border-radius: 4px;" />
+                              </td>
+                           </tr>
+                        </table>
+                     </form>
+                  </div>
+               </td>
+            </tr>
+         </table>
+      </td>
+   </tr>
+</table>
+<!-- end input_1_col_title_txt_input_x2_btn -->
