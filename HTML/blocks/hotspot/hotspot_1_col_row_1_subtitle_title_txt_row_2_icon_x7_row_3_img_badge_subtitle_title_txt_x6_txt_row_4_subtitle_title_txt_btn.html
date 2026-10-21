@@ -1,0 +1,1149 @@
+<!-- start hotspot_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_badge_subtitle_title_txt_x6_txt_row_4_subtitle_title_txt_btn -->
+<!-- "De straat van de uitersten" (Claude Design artifact "Funda eindejaarsmails 2026", board B2C 1): a Christmas
+     street as an advent calendar. Seven houses are labels of checkboxes: every door you open stays open, turns its
+     light on and shows its record card (the newest on top). Door 24 opens only when the six others are open: the
+     finale with the wish and the CTA. Fallback (Gmail, Outlook, Samsung): the street as a static illustration, all
+     six cards stacked and the finale.
+     Geometry and font sizes are the artifact's; colours are token values here (the Funda mail uses Funda's).
+     Built with interactive_artifact/funda/concept_1_straat_van_de_uitersten/build/gen_straat.js: change the
+     generator, not this file. -->
+<style type="text/css">
+   /* "De straat van de uitersten" (artifact board B2C 1): a Christmas street as an advent calendar. Each house is a
+      label for its own checkbox: tapping it opens the door, turns the light on and shows its record card. Opened
+      doors stay open. Door 24 is locked until the six others are open; then its Christmas lights go on and it opens
+      the finale with the wish and the CTA. Order: inputs, fallback, interactive. Interactive only in WebKit clients
+      that support :checked (pre-checked .fd-detect); everything else keeps the fallback (all six cards and the
+      finale, stacked). */
+   @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      .fd-detect:checked ~ .fd-fallback {
+         display: none !important;
+         max-height: 0 !important;
+         overflow: hidden !important;
+      }
+
+      .fd-detect:checked ~ .fd-interactive {
+         display: block !important;
+         max-height: none !important;
+         overflow: visible !important;
+      }
+   }
+
+   /* the street: 6 houses of 76 + house 24 of 84, 6px apart (576 wide), bottoms on the pavement */
+   .fd-interactive .fd-street {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      margin: 32px 0 0 0;
+   }
+
+   .fd-interactive .fd-house {
+      display: block;
+      margin: 0 3px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+   }
+
+   /* roof: a triangle made with borders (76 wide, 30 high) */
+   .fd-interactive .fd-roof {
+      width: 0;
+      height: 0;
+      margin: 0 auto;
+      border-left: 38px solid transparent;
+      border-right: 38px solid transparent;
+      border-bottom: 30px solid #050033;
+   }
+
+   .fd-interactive .fd-wall {
+      position: relative;
+      width: 76px;
+      margin: 0 auto;
+      padding-top: 14px;
+      box-sizing: border-box;
+   }
+
+   .fd-interactive .fd-win {
+      width: 34px;
+      height: 26px;
+      margin: 0 auto;
+      border: 3px solid #ffffff;
+      background-color: #050033;
+      box-sizing: border-box;
+      -webkit-transition: background-color 0.4s;
+      transition: background-color 0.4s;
+   }
+
+   .fd-interactive .fd-door {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 40px;
+      height: 58px;
+      margin-left: -20px;
+      border-radius: 20px 20px 0 0;
+      background-color: #ffffff;
+      color: #050033;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 58px;
+      font-weight: 800;
+      text-align: center;
+      -webkit-transition: background-color 0.3s;
+      transition: background-color 0.3s;
+   }
+
+   .fd-interactive .fd-h18 .fd-roof {
+      border-bottom-color: #050033;
+   }
+
+   .fd-interactive .fd-h18 .fd-wall {
+      height: 150px;
+      background-color: #9980FF;
+   }
+
+   .fd-interactive .fd-h19 .fd-roof {
+      border-bottom-color: #9E9E9E;
+   }
+
+   .fd-interactive .fd-h19 .fd-wall {
+      height: 176px;
+      background-color: #e6e6e6;
+   }
+
+   .fd-interactive .fd-h20 .fd-roof {
+      border-bottom-color: #444444;
+   }
+
+   .fd-interactive .fd-h20 .fd-wall {
+      height: 128px;
+      background-color: #050033;
+   }
+
+   .fd-interactive .fd-h21 .fd-roof {
+      border-bottom-color: #9E9E9E;
+   }
+
+   .fd-interactive .fd-h21 .fd-wall {
+      height: 162px;
+      background-color: #e3fc5e;
+   }
+
+   .fd-interactive .fd-h22 .fd-roof {
+      border-bottom-color: #444444;
+   }
+
+   .fd-interactive .fd-h22 .fd-wall {
+      height: 144px;
+      background-color: #9E9E9E;
+   }
+
+   .fd-interactive .fd-h23 .fd-roof {
+      border-bottom-color: #9E9E9E;
+   }
+
+   .fd-interactive .fd-h23 .fd-wall {
+      height: 168px;
+      background-color: #efefef;
+   }
+
+   /* house 24: wider, Christmas lights and a wreath; locked until the six others are open */
+   .fd-interactive .fd-h24 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-interactive .fd-h24 .fd-roof {
+      border-left-width: 42px;
+      border-right-width: 42px;
+      border-bottom-width: 34px;
+   }
+
+   .fd-interactive .fd-h24 .fd-wall {
+      width: 84px;
+      height: 170px;
+      background-color: #4d4d4d;
+   }
+
+   .fd-interactive .fd-h24 .fd-door {
+      width: 44px;
+      height: 62px;
+      margin-left: -22px;
+      border-radius: 22px 22px 0 0;
+      background-color: #9E9E9E;
+      font-size: 16px;
+      line-height: 62px;
+   }
+
+   .fd-interactive .fd-lights {
+      width: 50px;
+      height: 8px;
+      margin: 0 auto;
+      border-top: 3px dotted #9E9E9E;
+   }
+
+   .fd-interactive .fd-wreath {
+      width: 38px;
+      height: 38px;
+      margin: 6px auto 0 auto;
+      border: 6px solid #9980FF;
+      border-radius: 50%;
+      box-sizing: border-box;
+   }
+
+   /* the pavement runs inside the hero's 36px side padding (the houses may stick out over it, as in the artifact) */
+   .fd-interactive .fd-ground {
+      height: 22px;
+      margin: 0 36px;
+      background-color: #444444;
+   }
+
+   /* an open door stays open: the house is no longer clickable, its light is on */
+   .fd-c18:checked ~ .fd-interactive .fd-h18 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-h18 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-h18 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c19:checked ~ .fd-interactive .fd-h19 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c19:checked ~ .fd-interactive .fd-h19 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c19:checked ~ .fd-interactive .fd-h19 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c20:checked ~ .fd-interactive .fd-h20 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c20:checked ~ .fd-interactive .fd-h20 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c20:checked ~ .fd-interactive .fd-h20 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c21:checked ~ .fd-interactive .fd-h21 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c21:checked ~ .fd-interactive .fd-h21 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c21:checked ~ .fd-interactive .fd-h21 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c22:checked ~ .fd-interactive .fd-h22 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c22:checked ~ .fd-interactive .fd-h22 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c22:checked ~ .fd-interactive .fd-h22 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c23:checked ~ .fd-interactive .fd-h23 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c23:checked ~ .fd-interactive .fd-h23 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c23:checked ~ .fd-interactive .fd-h23 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   /* all six open: the lights on 24 go on and door 24 can be opened */
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-h24 {
+      pointer-events: auto;
+      cursor: pointer;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-h24 .fd-door {
+      background-color: #ffffff;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-lights {
+      border-top-color: #e3fc5e;
+   }
+
+   /* door 24 open: the finale (door 24 stays open) */
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-c24:checked ~ .fd-interactive .fd-h24 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-c24:checked ~ .fd-interactive .fd-h24 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-c24:checked ~ .fd-interactive .fd-finale {
+      display: block;
+   }
+
+   /* card area: 240 high at least (28 + 184 + 28) */
+   .fd-interactive .fd-area {
+      min-height: 184px;
+   }
+
+   .fd-interactive .fd-hint {
+      padding: 36px;
+      border: 2px dashed #e6e6e6;
+      border-radius: 8px;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 18px;
+      text-align: center;
+      color: #4d4d4d;
+   }
+
+   /* the record cards: all in one grid cell, so the box is as high as the tallest card and the card on top always
+      covers the others. The newest is on top: every card starts the fd-stack animation (z-index counting down 100
+      per second) when its door opens. Without animation support the highest door number shows. */
+   .fd-interactive .fd-cards {
+      display: none;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-hint,
+   .fd-c19:checked ~ .fd-interactive .fd-hint,
+   .fd-c20:checked ~ .fd-interactive .fd-hint,
+   .fd-c21:checked ~ .fd-interactive .fd-hint,
+   .fd-c22:checked ~ .fd-interactive .fd-hint,
+   .fd-c23:checked ~ .fd-interactive .fd-hint {
+      display: none;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-cards,
+   .fd-c19:checked ~ .fd-interactive .fd-cards,
+   .fd-c20:checked ~ .fd-interactive .fd-cards,
+   .fd-c21:checked ~ .fd-interactive .fd-cards,
+   .fd-c22:checked ~ .fd-interactive .fd-cards,
+   .fd-c23:checked ~ .fd-interactive .fd-cards {
+      display: -ms-grid;
+      display: grid;
+   }
+
+   .fd-interactive .fd-card {
+      position: relative;
+      grid-area: 1 / 1;
+      display: -webkit-flex;
+      display: flex;
+      visibility: hidden;
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #ffffff;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-card-1,
+   .fd-c19:checked ~ .fd-interactive .fd-card-2,
+   .fd-c20:checked ~ .fd-interactive .fd-card-3,
+   .fd-c21:checked ~ .fd-interactive .fd-card-4,
+   .fd-c22:checked ~ .fd-interactive .fd-card-5,
+   .fd-c23:checked ~ .fd-interactive .fd-card-6 {
+      visibility: visible;
+      -webkit-animation: fd-stack 100000s linear forwards;
+      animation: fd-stack 100000s linear forwards;
+   }
+
+   @-webkit-keyframes fd-stack {
+      from {
+         z-index: 10000000;
+      }
+
+      to {
+         z-index: 1;
+      }
+   }
+
+   @keyframes fd-stack {
+      from {
+         z-index: 10000000;
+      }
+
+      to {
+         z-index: 1;
+      }
+   }
+
+   .fd-interactive .fd-photo {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex: none;
+      flex: none;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      /* 220 + 2x 12 padding = 244 wide, as in the artifact (content-box) */
+      width: 220px;
+      padding: 12px;
+      box-sizing: content-box;
+      background-color: #efefef;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 18px;
+      text-align: center;
+      color: #444444;
+   }
+
+   .fd-interactive .fd-ctxt {
+      padding: 20px;
+      text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+   }
+
+   .fd-interactive .fd-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: 700;
+   }
+
+   .fd-interactive .fd-rec {
+      margin: 10px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 14px;
+      line-height: 17px;
+      color: #4d4d4d;
+   }
+
+   .fd-interactive .fd-value {
+      margin: 2px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 26px;
+      line-height: 32px;
+      font-weight: 800;
+      color: #050033;
+   }
+
+   .fd-interactive .fd-place {
+      margin: 6px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 18px;
+      color: #9980FF;
+   }
+
+   .fd-interactive .fd-line {
+      margin: 10px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+      color: #444444;
+   }
+
+   /* progress: "Nog [n] deuren te gaan voor nummer 24." counts down with a CSS counter (6 minus the open doors);
+      with all six open the other text shows */
+   .fd-interactive .fd-progress {
+      display: none;
+      margin: 14px 0 0 0;
+      counter-reset: fd-left 6;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 15px;
+      text-align: left;
+      color: #4d4d4d;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-progress,
+   .fd-c19:checked ~ .fd-interactive .fd-progress,
+   .fd-c20:checked ~ .fd-interactive .fd-progress,
+   .fd-c21:checked ~ .fd-interactive .fd-progress,
+   .fd-c22:checked ~ .fd-interactive .fd-progress,
+   .fd-c23:checked ~ .fd-interactive .fd-progress {
+      display: block;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-k18,
+   .fd-c19:checked ~ .fd-interactive .fd-k19,
+   .fd-c20:checked ~ .fd-interactive .fd-k20,
+   .fd-c21:checked ~ .fd-interactive .fd-k21,
+   .fd-c22:checked ~ .fd-interactive .fd-k22,
+   .fd-c23:checked ~ .fd-interactive .fd-k23 {
+      counter-increment: fd-left -1;
+   }
+
+   .fd-interactive .fd-left:before {
+      content: counter(fd-left);
+   }
+
+   .fd-interactive .fd-all-txt {
+      display: none;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-left-txt {
+      display: none;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-all-txt {
+      display: inline;
+   }
+
+   .fd-interactive .fd-finale {
+      display: none;
+      margin: 20px 0 0 0;
+      padding: 32px;
+      border-radius: 8px;
+      background-color: #050033;
+      text-align: center;
+   }
+
+   .fd-interactive .fd-fin-label {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e3fc5e;
+   }
+
+   .fd-interactive .fd-fin-title {
+      margin: 8px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 28px;
+      line-height: 34px;
+      font-weight: 800;
+      color: #ffffff;
+   }
+
+   .fd-interactive .fd-fin-txt {
+      max-width: 420px;
+      margin: 10px auto 22px auto;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #ffffff;
+   }
+
+   .fd-interactive .fd-fin-btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 4px;
+      background-color: #e3fc5e;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 19px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #050033;
+   }
+
+   /* dark mode: the finale button keeps its own colour (the head turns every link white) */
+   @media (prefers-color-scheme: dark) {
+      .fd-btn {
+         color: #050033 !important;
+      }
+   }
+
+   [data-ogsc] .fd-btn {
+      color: #050033 !important;
+   }
+
+   @media only screen and (max-width: 600px) {
+      .fd-h1 {
+         font-size: 28px !important;
+         line-height: 32px !important;
+      }
+
+      .fd-intro {
+         font-size: 15px !important;
+         line-height: 22px !important;
+      }
+
+      .fd-value {
+         font-size: 22px !important;
+         line-height: 28px !important;
+      }
+
+      .fd-fin-title {
+         font-size: 24px !important;
+         line-height: 30px !important;
+      }
+
+      /* record card: photo on top, text below (interactive and fallback) */
+      .fd-interactive .fd-card {
+         -webkit-flex-direction: column !important;
+         flex-direction: column !important;
+      }
+
+      .fd-interactive .fd-photo {
+         width: auto !important;
+         height: 116px !important;
+      }
+
+      .fd-interactive .fd-ground {
+         margin: 0 16px !important;
+      }
+
+      .fd-stack {
+         display: block !important;
+         width: 100% !important;
+         max-width: 100% !important;
+      }
+
+      .fd-photo-fb {
+         height: 140px !important;
+      }
+
+      .fd-interactive .fd-ctxt,
+      .fd-cardtxt {
+         padding: 16px !important;
+      }
+
+      .fd-interactive .fd-finale,
+      .fd-finale-fb {
+         padding: 24px !important;
+      }
+
+      /* the street: 7 houses side by side in about 340px */
+      .fd-interactive .fd-house {
+         margin: 0 2px !important;
+      }
+
+      .fd-interactive .fd-roof {
+         border-left-width: 22px !important;
+         border-right-width: 22px !important;
+         border-bottom-width: 18px !important;
+      }
+
+      .fd-interactive .fd-wall {
+         width: 44px !important;
+         padding-top: 8px !important;
+      }
+
+      .fd-interactive .fd-win {
+         width: 22px !important;
+         height: 17px !important;
+         border-width: 2px !important;
+      }
+
+      .fd-interactive .fd-door {
+         width: 26px !important;
+         height: 38px !important;
+         margin-left: -13px !important;
+         border-radius: 13px 13px 0 0 !important;
+         font-size: 11px !important;
+         line-height: 38px !important;
+      }
+
+      .fd-interactive .fd-h18 .fd-wall {
+         height: 105px !important;
+      }
+
+      .fd-interactive .fd-h19 .fd-wall {
+         height: 123px !important;
+      }
+
+      .fd-interactive .fd-h20 .fd-wall {
+         height: 90px !important;
+      }
+
+      .fd-interactive .fd-h21 .fd-wall {
+         height: 113px !important;
+      }
+
+      .fd-interactive .fd-h22 .fd-wall {
+         height: 101px !important;
+      }
+
+      .fd-interactive .fd-h23 .fd-wall {
+         height: 118px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-roof {
+         border-left-width: 24px !important;
+         border-right-width: 24px !important;
+         border-bottom-width: 20px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-wall {
+         width: 48px !important;
+         height: 119px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-door {
+         width: 28px !important;
+         height: 40px !important;
+         margin-left: -14px !important;
+         border-radius: 14px 14px 0 0 !important;
+         line-height: 40px !important;
+      }
+
+      .fd-interactive .fd-lights {
+         width: 30px !important;
+      }
+
+      .fd-interactive .fd-wreath {
+         width: 22px !important;
+         height: 22px !important;
+         margin-top: 4px !important;
+         border-width: 4px !important;
+      }
+   }
+
+   /* small phones (iPhone SE etc.): one step smaller */
+   @media only screen and (max-width: 400px) {
+      .fd-h1 {
+         font-size: 24px !important;
+         line-height: 28px !important;
+      }
+
+      .fd-value {
+         font-size: 20px !important;
+         line-height: 26px !important;
+      }
+
+      .fd-interactive .fd-house {
+         margin: 0 1px !important;
+      }
+
+      .fd-interactive .fd-roof {
+         border-left-width: 18px !important;
+         border-right-width: 18px !important;
+         border-bottom-width: 15px !important;
+      }
+
+      .fd-interactive .fd-wall {
+         width: 36px !important;
+      }
+
+      .fd-interactive .fd-win {
+         width: 18px !important;
+         height: 14px !important;
+      }
+
+      .fd-interactive .fd-door {
+         width: 22px !important;
+         height: 32px !important;
+         margin-left: -11px !important;
+         border-radius: 11px 11px 0 0 !important;
+         font-size: 10px !important;
+         line-height: 32px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-roof {
+         border-left-width: 20px !important;
+         border-right-width: 20px !important;
+         border-bottom-width: 17px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-wall {
+         width: 40px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-door {
+         width: 24px !important;
+         height: 34px !important;
+         margin-left: -12px !important;
+         border-radius: 12px 12px 0 0 !important;
+         line-height: 34px !important;
+      }
+
+      .fd-interactive .fd-lights {
+         width: 24px !important;
+      }
+
+      .fd-interactive .fd-wreath {
+         width: 18px !important;
+         height: 18px !important;
+         border-width: 3px !important;
+      }
+   }
+
+   /* Outlook.com / new Outlook: class names get an x_ prefix */
+   [class~="x_fd-interactive"],
+   [class~="x_fd-detect"]:checked ~ [class~="x_fd-interactive"] {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   [class~="x_fd-fallback"],
+   [class~="x_fd-detect"]:checked ~ [class~="x_fd-fallback"] {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+
+   /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+   #MessageViewBody .fd-interactive {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   #MessageViewBody .fd-fallback {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<style type="text/css">
+   /* Outlook apps: back to the fallback (separate style tag: the \0 hack breaks the rest of a style tag) */
+   .fd-interactive\0,
+   .fd-detect:checked ~ .fd-interactive\0 {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   .fd-fallback\0,
+   .fd-detect:checked ~ .fd-fallback\0 {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#fefefe">
+   <tr>
+      <td align="center" style="padding: 0;">
+         <!-- intro: subtitle and title shared by interactive and fallback -->
+         <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef">
+            <tr>
+               <td align="center" class="pml16 pmr16 pmt24" style="padding: 40px 36px 0 36px; word-wrap: break-word; overflow-wrap: break-word;">
+                  <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9980FF;">subtitle_1</p>
+                  <h1 class="fd-h1" style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 34px; line-height: 39px; font-weight: 800; color: #050033;">title_1</h1>
+               </td>
+            </tr>
+         </table>
+         <!--[if !mso]><!-->
+         <input type="checkbox" class="fd-detect" checked style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c18" class="fd-c18" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c19" class="fd-c19" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c20" class="fd-c20" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c21" class="fd-c21" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c22" class="fd-c22" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c23" class="fd-c23" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c24" class="fd-c24" style="display: none !important; mso-hide: all;">
+         <!--<![endif]-->
+         <!-- fallback: the street as a static illustration with all doors open, all six cards stacked and the finale
+              with the same CTA (artifact: "alle zes records als kaartjes onder elkaar, de straat als statische illustratie
+              met open deuren") -->
+         <div class="fd-fallback">
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef">
+               <tr>
+                  <td align="center" class="pml16 pmr16" style="padding: 10px 36px 0 36px;">
+                     <p class="fd-intro" style="margin: 0 auto; max-width: 440px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 24px; color: #444444;">txt_2</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="center" class="pml16 pmr16" style="padding: 32px 36px 0 36px;">
+                     <!-- street illustration placeholder: replace by <img width="568" style="display: block; width: 100%; max-width: 568px; height: auto;" alt="..."> when the illustration arrives -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                           <td align="center" valign="middle" height="200" bgcolor="#efefef" style="height: 200px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_7</td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="pml16 pmr16" style="padding: 0 36px;">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                           <td height="22" bgcolor="#444444" style="height: 22px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+               <tr>
+                  <td align="left" class="pml16 pmr16" style="padding: 28px 36px;">
+                     <!-- record card door 18 (slot 1) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_1</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #9980FF; color: #ffffff; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_1</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_2</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_2</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_4</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_5</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 19 (slot 2) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_2</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #e6e6e6; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_2</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_3</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_3</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_6</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_7</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 20 (slot 3) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_3</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #050033; color: #ffffff; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_3</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_4</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_4</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_8</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_9</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 21 (slot 4) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_4</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #e3fc5e; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_4</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_5</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_5</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_10</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_11</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 22 (slot 5) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_5</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #9E9E9E; color: #ffffff; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_5</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_6</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_6</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_12</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_13</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 23 (slot 6) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_6</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #efefef; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_6</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_7</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_7</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_14</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_15</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20" style="height: 20px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- finale: door 24 -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#050033" style="border-radius: 8px; border-collapse: separate;">
+                        <tr>
+                           <td align="center" class="fd-finale-fb" style="padding: 32px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #e3fc5e;">subtitle_8</p>
+                              <p class="fd-fin-title" style="margin: 8px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 28px; line-height: 34px; font-weight: 800; color: #ffffff;">title_8</p>
+                              <p style="margin: 10px auto 22px auto; max-width: 420px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 24px; color: #ffffff;">txt_17</p>
+                              <!--[if mso]>
+                              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:43px;v-text-anchor:middle;width:280px;" arcsize="9%" strokecolor="#e3fc5e" fillcolor="#e3fc5e">
+                                 <w:anchorlock/>
+                                 <center style="color:#050033;font-family:Roboto,Arial,Helvetica,Verdana,sans-serif;font-size:16px;font-weight:bold;">btn_txt_1</center>
+                              </v:roundrect>
+                              <![endif]-->
+                              <a class="fd-btn" href="https://100procent.nl/" target="_blank" style="display: inline-block; padding: 12px 22px; border-radius: 4px; background-color: #e3fc5e; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 19px; font-weight: 700; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">btn_txt_1</a>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <!--[if !mso]><!-->
+         <div class="fd-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+            <div style="background-color: #efefef;">
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                     <td align="center" class="pml16 pmr16" style="padding: 10px 36px 0 36px;">
+                        <p class="fd-intro" style="margin: 0 auto; max-width: 440px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 24px; color: #444444;">txt_1</p>
+                     </td>
+                  </tr>
+               </table>
+               <!-- the street: each house is the label of its door's checkbox -->
+               <div class="fd-street">
+                  <label for="fd-c18" class="fd-house fd-h18" title="Open deur label_1">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_1</div>
+                     </div>
+                  </label>
+                  <label for="fd-c19" class="fd-house fd-h19" title="Open deur label_2">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_2</div>
+                     </div>
+                  </label>
+                  <label for="fd-c20" class="fd-house fd-h20" title="Open deur label_3">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_3</div>
+                     </div>
+                  </label>
+                  <label for="fd-c21" class="fd-house fd-h21" title="Open deur label_4">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_4</div>
+                     </div>
+                  </label>
+                  <label for="fd-c22" class="fd-house fd-h22" title="Open deur label_5">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_5</div>
+                     </div>
+                  </label>
+                  <label for="fd-c23" class="fd-house fd-h23" title="Open deur label_6">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_6</div>
+                     </div>
+                  </label>
+                  <label for="fd-c24" class="fd-house fd-h24" title="Open deur label_7">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-lights"></div>
+                        <div class="fd-wreath"></div>
+                        <div class="fd-door">label_7</div>
+                     </div>
+                  </label>
+               </div>
+               <div class="fd-ground"></div>
+            </div>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+               <tr>
+                  <td align="left" valign="top" class="pml16 pmr16" style="padding: 28px 36px;">
+                     <div class="fd-area">
+                        <div class="fd-hint">txt_3</div>
+                        <div class="fd-cards">
+                           <div class="fd-card fd-card-1">
+                              <div class="fd-photo">img_alt_1</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #9980FF; color: #ffffff;">badge_1</span>
+                                 <p class="fd-rec">subtitle_2</p>
+                                 <p class="fd-value">title_2</p>
+                                 <p class="fd-place">txt_4</p>
+                                 <p class="fd-line">txt_5</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-2">
+                              <div class="fd-photo">img_alt_2</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #e6e6e6; color: #050033;">badge_2</span>
+                                 <p class="fd-rec">subtitle_3</p>
+                                 <p class="fd-value">title_3</p>
+                                 <p class="fd-place">txt_6</p>
+                                 <p class="fd-line">txt_7</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-3">
+                              <div class="fd-photo">img_alt_3</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #050033; color: #ffffff;">badge_3</span>
+                                 <p class="fd-rec">subtitle_4</p>
+                                 <p class="fd-value">title_4</p>
+                                 <p class="fd-place">txt_8</p>
+                                 <p class="fd-line">txt_9</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-4">
+                              <div class="fd-photo">img_alt_4</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #e3fc5e; color: #050033;">badge_4</span>
+                                 <p class="fd-rec">subtitle_5</p>
+                                 <p class="fd-value">title_5</p>
+                                 <p class="fd-place">txt_10</p>
+                                 <p class="fd-line">txt_11</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-5">
+                              <div class="fd-photo">img_alt_5</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #9E9E9E; color: #ffffff;">badge_5</span>
+                                 <p class="fd-rec">subtitle_6</p>
+                                 <p class="fd-value">title_6</p>
+                                 <p class="fd-place">txt_12</p>
+                                 <p class="fd-line">txt_13</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-6">
+                              <div class="fd-photo">img_alt_6</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #efefef; color: #050033;">badge_6</span>
+                                 <p class="fd-rec">subtitle_7</p>
+                                 <p class="fd-value">title_7</p>
+                                 <p class="fd-place">txt_14</p>
+                                 <p class="fd-line">txt_15</p>
+                              </div>
+                           </div>
+                        </div>
+                        <p class="fd-progress"><span class="fd-k18"></span><span class="fd-k19"></span><span class="fd-k20"></span><span class="fd-k21"></span><span class="fd-k22"></span><span class="fd-k23"></span><span class="fd-left-txt">txt_16 <span class="fd-left"></span> txt_18</span><span class="fd-all-txt">txt_19</span></p>
+                        <div class="fd-finale">
+                           <p class="fd-fin-label">subtitle_8</p>
+                           <p class="fd-fin-title">title_8</p>
+                           <p class="fd-fin-txt">txt_17</p>
+                           <a class="fd-btn fd-fin-btn" href="https://100procent.nl/" target="_blank">btn_txt_1</a>
+                        </div>
+                     </div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <!--<![endif]-->
+      </td>
+   </tr>
+</table>
+<!-- end hotspot_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_badge_subtitle_title_txt_x6_txt_row_4_subtitle_title_txt_btn -->

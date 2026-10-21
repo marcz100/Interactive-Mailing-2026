@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<!-- Funda eindejaarsmail 2026: concept B2C 1 "De straat van de uitersten" (artifact "Funda eindejaarsmails 2026",
+     board B2C 1). Een kerststraat als adventskalender. Elk huis is een label voor een eigen checkbox: een deur die je
+     opent blijft open, het licht gaat aan en de recordkaart verschijnt (de nieuwste bovenop). Deur 24 gaat pas open
+     als de andere zes open zijn: de kerstwens en de CTA. Kleuren, fonts, maten en teksten 1:1 uit het artifact.
+     Fallback (Gmail, Outlook, Samsung): de straat als statische illustratie, alle zes kaarten onder elkaar en de
+     finale ("alle zes records als kaartjes onder elkaar, de straat als statische illustratie met open deuren").
+     Gebouwd met build/gen_straat.js + build/build_mail.js; wijzig de generator, niet de HTML.
+     Recordwaarden ([vraagprijs], [X], [Adres], [Plaats], [Regio], [bedrag], [dag]) zijn placeholders: Funda-brede
+     cijfers, geen data per ontvanger. Foto's, straatillustratie en logo zijn placeholders.
+     Huisstijl: waarden uit het artifact, te bevestigen met de Funda brandguide.
+     Bron: Claude Design concept "Funda eindejaarsmails 2026", B2C 1. -->
+
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+      <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+      <meta name="x-apple-disable-message-reformatting">
+      <meta name="color-scheme" content="light dark">
+      <meta name="supported-color-schemes" content="light dark">
+      <link rel="shortcut icon" href="https://studio.100procentemail.com/designs/100email/st_j/100_new_design/Avatar_2_light.jpg" type="image/x-icon">
+      <link rel="icon" type="image/icon" href="https://studio.100procentemail.com/designs/100email/st_j/100_new_design/Avatar_2_light.jpg">
+      <title>Achter elke deur woont een record</title>
+
+      <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+		<o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+      <style type="text/css">
+         body {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0px;
+            padding: 0px;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+         }
+
+         .ReadMsgBody {
+            width: 100%;
+         }
+
+         .ExternalClass {
+            width: 100%;
+         }
+
+         table,
+         td {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+         }
+
+         th {
+            font-weight: normal;
+         }
+
+         img {
+            display: block;
+            -ms-interpolation-mode: bicubic;
+         }
+
+         a[x-apple-data-detectors],
+
+         .unstyle-auto-detected-links a,
+         .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+         }
+
+         u+#body a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+         }
+
+         #MessageViewBody a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+         }
+
+         *,
+         *:after,
+         *:before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+         }
+
+         p {
+            margin: 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+         }
+
+         h1 {
+            margin: 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 34px;
+            line-height: 39px;
+            font-weight: 800;
+         }
+
+         h2 {
+            margin: 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 28px;
+            line-height: 32px;
+            font-weight: 800;
+         }
+
+         h3 {
+            margin: 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 700;
+         }
+
+         .bodytxt a {
+            color: #9980FF;
+            font-weight: bold;
+         }
+
+         .bodytxt a:visited {
+            color: #9980FF;
+            font-weight: bold;
+         }
+
+         .bodytxt {
+            font-size: 16px!important;
+            line-height: 24px!important;
+         }
+
+         .bodytxtwhite,
+         .nav {
+            font-size: 16px!important;
+            line-height: 24px!important;
+         }
+
+         h1.headertxt {
+            font-size: 34px!important;
+            line-height: 39px!important;
+            font-weight: 800!important;
+         }
+
+         h2.headertxt {
+            font-size: 28px!important;
+            line-height: 32px!important;
+            font-weight: 800!important;
+         }
+
+         h3.headertxt {
+            font-size: 20px!important;
+            line-height: 26px!important;
+            font-weight: 700!important;
+         }
+
+         .bodytxtwhite a {
+            color: #ffffff;
+            font-weight: bold;
+         }
+
+         .bodytxtwhite a:visited {
+            color: #ffffff;
+            font-weight: bold;
+         }
+
+         @media only screen and (max-width: 600px) {
+
+            .headertxt {
+               font-size: 1.4em !important;
+            }
+
+            .col-sm-12 {
+               max-width: 100% !important;
+               width: 100% !important;
+               display: block !important
+            }
+
+            .col-sm-9 {
+               max-width: 75% !important;
+               width: 75% !important;
+            }
+
+            .col-sm-8 {
+               max-width: 66.66666666% !important;
+               width: 66.66666666% !important;
+            }
+
+            .col-sm-6 {
+               max-width: 49.5% !important;
+               width: 49.5% !important;
+            }
+
+            .col-sm-4 {
+               max-width: 33.33333333% !important;
+               width: 33.33333333% !important;
+            }
+
+            .col-sm-3 {
+               max-width: 25% !important;
+               width: 25% !important;
+            }
+
+            .col-sm-12-img img {
+               width: 100% !important;
+               max-width: 100% !important;
+            }
+
+            .btn {
+               width: 100% !important;
+            }
+
+            .txt-center {
+               text-align: center !important;
+            }
+
+            .item-center {
+               margin-left: auto !important;
+               margin-right: auto !important;
+            }
+
+            .clearheight {
+               height: 0 !important;
+            }
+
+            .float {
+               width: 100% !important;
+               max-width: 100% !important;
+               clear: both !important;
+               float: left !important;
+            }
+
+            .noBorder {
+               border: none !important;
+            }
+
+            .headerheight {
+               height: 140px !important;
+            }
+
+            .hide_on_mobile {
+               display: none !important;
+            }
+
+            .show-on-mobile {
+               display: block !important;
+               line-height: normal !important;
+               max-height: none !important;
+               width: 100% !important;
+               overflow: hidden !important;
+            }
+
+            .pm0 {
+               padding: 0 !important;
+            }
+
+            .pmt0 {
+               padding-top: 0 !important;
+            }
+
+            .pmr0 {
+               padding-right: 0 !important;
+            }
+
+            .pmb0 {
+               padding-bottom: 0 !important;
+            }
+
+            .pml0 {
+               padding-left: 0 !important;
+            }
+
+            .pm4 {
+               padding: 4px !important;
+            }
+
+            .pmt4 {
+               padding-top: 4px !important;
+            }
+
+            .pmr4 {
+               padding-right: 4px !important;
+            }
+
+            .pmb4 {
+               padding-bottom: 4px !important;
+            }
+
+            .pml4 {
+               padding-left: 4px !important;
+            }
+
+            .pm8 {
+               padding: 8px !important;
+            }
+
+            .pmt8 {
+               padding-top: 8px !important;
+            }
+
+            .pmr8 {
+               padding-right: 8px !important;
+            }
+
+            .pmb8 {
+               padding-bottom: 8px !important;
+            }
+
+            .pml8 {
+               padding-left: 8px !important;
+            }
+
+            .pm12 {
+               padding: 12px !important;
+            }
+
+            .pmt12 {
+               padding-top: 12px !important;
+            }
+
+            .pmr12 {
+               padding-right: 12px !important;
+            }
+
+            .pmb12 {
+               padding-bottom: 12px !important;
+            }
+
+            .pml12 {
+               padding-left: 12px !important;
+            }
+
+            .pm16 {
+               padding: 16px !important;
+            }
+
+            .pmt16 {
+               padding-top: 16px !important;
+            }
+
+            .pmr16 {
+               padding-right: 16px !important;
+            }
+
+            .pmb16 {
+               padding-bottom: 16px !important;
+            }
+
+            .pml16 {
+               padding-left: 16px !important;
+            }
+
+            .pm24 {
+               padding: 24px !important;
+            }
+
+            .pmt24 {
+               padding-top: 24px !important;
+            }
+
+            .pmr24 {
+               padding-right: 24px !important;
+            }
+
+            .pmb24 {
+               padding-bottom: 24px !important;
+            }
+
+            .pml24 {
+               padding-left: 24px !important;
+            }
+
+            .pm32 {
+               padding: 32px !important;
+            }
+
+            .pmt32 {
+               padding-top: 32px !important;
+            }
+
+            .pmr32 {
+               padding-right: 32px !important;
+            }
+
+            .pmb32 {
+               padding-bottom: 32px !important;
+            }
+
+            .pml32 {
+               padding-left: 32px !important;
+            }
+
+         }
+
+         @media only screen and (max-width: 374px) {
+
+            .col-xs-12 {
+               max-width: 100% !important;
+            }
+
+            .col-xs-9 {
+               max-width: 75% !important;
+            }
+
+            .col-xs-8 {
+               max-width: 66.66666666% !important;
+            }
+
+            .col-xs-6 {
+               max-width: 49.5% !important;
+            }
+
+            .col-xs-4 {
+               max-width: 33.33333333% !important;
+            }
+
+            .col-xs-3 {
+               max-width: 25% !important;
+            }
+         }
+      </style>
+      <style type="text/css">
+         @media (prefers-color-scheme: dark) {
+
+            .invert {
+               filter: invert(1);
+            }
+
+            .dark-img {
+               display: inline-block !important;
+            }
+
+            .light-img {
+               display: none !important;
+            }
+
+            .darkmode_side_td {
+               background-color: #1C2630!important;
+            }
+
+            .darkmode {
+               background-color: #1C2630!important;
+            }
+
+            .darkmode_body {
+               background-color: #1C2630!important;
+            }
+
+            .darkmode_cta {
+               background-color: #0071B3!important;
+
+               border: 1px solid #0071B3!important
+            }
+
+            .headertxt {
+               color: #FFFFFF!important;
+            }
+
+            .bodytxt {
+               color: #FFFFFF!important;
+            }
+
+            a {
+               color: #FFFFFF!important;
+            }
+         }
+
+         [data-ogsc] .invert {
+            filter: invert(1);
+         }
+
+         [data-ogsc] .dark-img {
+            display: inline-block !important;
+         }
+
+         [data-ogsc] .light-img {
+            display: none !important;
+         }
+
+         [data-ogsc] .darkmode_side_td {background-color: #1C2630!important;
+         }
+
+         [data-ogsc] .darkmode {background-color: #1C2630!important;
+         }
+
+         [data-ogsc] .darkmode_body {background-color: #1C2630!important;
+         }
+
+         [data-ogsc] .darkmode_cta {background-color: #0071B3!important;
+border: 1px solid #0071B3!important
+         }
+
+         [data-ogsc] .headertxt {color: #FFFFFF!important
+         }
+
+         [data-ogsc] .bodytxt {color: #FFFFFF!important
+         }
+
+         [data-ogsc] a {color: #FFFFFF!important;
+         }
+      </style>
+      <!--[if !mso]><!-->
+      <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&amp;display=swap" rel="stylesheet" type="text/css">
+      <!--<![endif]-->
+      <!-- funda_mail -->
+      <style type="text/css">
+         /* links on coloured bands keep their colour, also in dark mode (the head turns every link white) */
+         .fd-a-ink {
+            color: #2A2A2A !important;
+         }
+
+         .fd-a-blue {
+            color: #0071B3 !important;
+         }
+
+         @media only screen and (max-width: 600px) {
+            .fd-index-btn {
+               padding: 0 24px 22px 24px !important;
+               text-align: left !important;
+            }
+         }
+      </style>
+      <!-- // funda_mail -->
+      <!-- hotspot_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_badge_subtitle_title_txt_x6_txt_row_4_subtitle_title_txt_btn -->
+      <style type="text/css">
+         /* "De straat van de uitersten" (artifact board B2C 1): a Christmas street as an advent calendar. Each house is a
+            label for its own checkbox: tapping it opens the door, turns the light on and shows its record card. Opened
+            doors stay open. Door 24 is locked until the six others are open; then its Christmas lights go on and it opens
+            the finale with the wish and the CTA. Order: inputs, fallback, interactive. Interactive only in WebKit clients
+            that support :checked (pre-checked .fd-detect); everything else keeps the fallback (all six cards and the
+            finale, stacked). */
+         @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            .fd-detect:checked ~ .fd-fallback {
+               display: none !important;
+               max-height: 0 !important;
+               overflow: hidden !important;
+            }
+
+            .fd-detect:checked ~ .fd-interactive {
+               display: block !important;
+               max-height: none !important;
+               overflow: visible !important;
+            }
+         }
+
+         /* the street: 6 houses of 76 + house 24 of 84, 6px apart (576 wide), bottoms on the pavement */
+         .fd-interactive .fd-street {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: flex-end;
+            align-items: flex-end;
+            margin: 32px 0 0 0;
+         }
+
+         .fd-interactive .fd-house {
+            display: block;
+            margin: 0 3px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+         }
+
+         /* roof: a triangle made with borders (76 wide, 30 high) */
+         .fd-interactive .fd-roof {
+            width: 0;
+            height: 0;
+            margin: 0 auto;
+            border-left: 38px solid transparent;
+            border-right: 38px solid transparent;
+            border-bottom: 30px solid #4A1D15;
+         }
+
+         .fd-interactive .fd-wall {
+            position: relative;
+            width: 76px;
+            margin: 0 auto;
+            padding-top: 14px;
+            box-sizing: border-box;
+         }
+
+         .fd-interactive .fd-win {
+            width: 34px;
+            height: 26px;
+            margin: 0 auto;
+            border: 3px solid #FFFFFF;
+            background-color: #24456B;
+            box-sizing: border-box;
+            -webkit-transition: background-color 0.4s;
+            transition: background-color 0.4s;
+         }
+
+         .fd-interactive .fd-door {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 40px;
+            height: 58px;
+            margin-left: -20px;
+            border-radius: 20px 20px 0 0;
+            background-color: #FFFFFF;
+            color: #2A2A2A;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 15px;
+            line-height: 58px;
+            font-weight: 800;
+            text-align: center;
+            -webkit-transition: background-color 0.3s;
+            transition: background-color 0.3s;
+         }
+
+         .fd-interactive .fd-h18 .fd-roof {
+            border-bottom-color: #D98A00;
+         }
+
+         .fd-interactive .fd-h18 .fd-wall {
+            height: 150px;
+            background-color: #F7A100;
+         }
+
+         .fd-interactive .fd-h19 .fd-roof {
+            border-bottom-color: #D8C3A8;
+         }
+
+         .fd-interactive .fd-h19 .fd-wall {
+            height: 176px;
+            background-color: #F1E2CF;
+         }
+
+         .fd-interactive .fd-h20 .fd-roof {
+            border-bottom-color: #00548A;
+         }
+
+         .fd-interactive .fd-h20 .fd-wall {
+            height: 128px;
+            background-color: #0071B3;
+         }
+
+         .fd-interactive .fd-h21 .fd-roof {
+            border-bottom-color: #E0A92A;
+         }
+
+         .fd-interactive .fd-h21 .fd-wall {
+            height: 162px;
+            background-color: #FFC94D;
+         }
+
+         .fd-interactive .fd-h22 .fd-roof {
+            border-bottom-color: #2E7A55;
+         }
+
+         .fd-interactive .fd-h22 .fd-wall {
+            height: 144px;
+            background-color: #3E9B6E;
+         }
+
+         .fd-interactive .fd-h23 .fd-roof {
+            border-bottom-color: #C97C7C;
+         }
+
+         .fd-interactive .fd-h23 .fd-wall {
+            height: 168px;
+            background-color: #E8A0A0;
+         }
+
+         /* house 24: wider, Christmas lights and a wreath; locked until the six others are open */
+         .fd-interactive .fd-h24 {
+            pointer-events: none;
+            cursor: default;
+         }
+
+         .fd-interactive .fd-h24 .fd-roof {
+            border-left-width: 42px;
+            border-right-width: 42px;
+            border-bottom-width: 34px;
+         }
+
+         .fd-interactive .fd-h24 .fd-wall {
+            width: 84px;
+            height: 170px;
+            background-color: #6B2A1F;
+         }
+
+         .fd-interactive .fd-h24 .fd-door {
+            width: 44px;
+            height: 62px;
+            margin-left: -22px;
+            border-radius: 22px 22px 0 0;
+            background-color: #B98A80;
+            font-size: 16px;
+            line-height: 62px;
+         }
+
+         .fd-interactive .fd-lights {
+            width: 50px;
+            height: 8px;
+            margin: 0 auto;
+            border-top: 3px dotted #8A4A3E;
+         }
+
+         .fd-interactive .fd-wreath {
+            width: 38px;
+            height: 38px;
+            margin: 6px auto 0 auto;
+            border: 6px solid #3E9B6E;
+            border-radius: 50%;
+            box-sizing: border-box;
+         }
+
+         /* the pavement runs inside the hero's 36px side padding (the houses may stick out over it, as in the artifact) */
+         .fd-interactive .fd-ground {
+            height: 22px;
+            margin: 0 36px;
+            background-color: #3E9B6E;
+         }
+
+         /* an open door stays open: the house is no longer clickable, its light is on */
+         .fd-c18:checked ~ .fd-interactive .fd-h18 {
+            pointer-events: none;
+            cursor: default;
+         }
+
+         .fd-c18:checked ~ .fd-interactive .fd-h18 .fd-win {
+            background-color: #FFD966;
+         }
+
+         .fd-c18:checked ~ .fd-interactive .fd-h18 .fd-door {
+            background-color: #FFE7A3;
+         }
+
+         .fd-c19:checked ~ .fd-interactive .fd-h19 {
+            pointer-events: none;
+            cursor: default;
+         }
+
+         .fd-c19:checked ~ .fd-interactive .fd-h19 .fd-win {
+            background-color: #FFD966;
+         }
+
+         .fd-c19:checked ~ .fd-interactive .fd-h19 .fd-door {
+            background-color: #FFE7A3;
+         }
+
+         .fd-c20:checked ~ .fd-interactive .fd-h20 {
+            pointer-events: none;
+            cursor: default;
+         }
+
+         .fd-c20:checked ~ .fd-interactive .fd-h20 .fd-win {
+            background-color: #FFD966;
+         }
+
+         .fd-c20:checked ~ .fd-interactive .fd-h20 .fd-door {
+            background-color: #FFE7A3;
+         }
+
+         .fd-c21:checked ~ .fd-interactive .fd-h21 {
+            pointer-events: none;
+            cursor: default;
+         }
+
+         .fd-c21:checked ~ .fd-interactive .fd-h21 .fd-win {
+            background-color: #FFD966;
+         }
+
+         .fd-c21:checked ~ .fd-interactive .fd-h21 .fd-door {
+            background-color: #FFE7A3;
+         }
+
+         .fd-c22:checked ~ .fd-interactive .fd-h22 {
+            pointer-events: none;
+            cursor: default;
+         }
+
+         .fd-c22:checked ~ .fd-interactive .fd-h22 .fd-win {
+            background-color: #FFD966;
+         }
+
+         .fd-c22:checked ~ .fd-interactive .fd-h22 .fd-door {
+            background-color: #FFE7A3;
+         }
+
+         .fd-c23:checked ~ .fd-interactive .fd-h23 {
+            pointer-events: none;
+            cursor: default;
+         }
+
+         .fd-c23:checked ~ .fd-interactive .fd-h23 .fd-win {
+            background-color: #FFD966;
+         }
+
+         .fd-c23:checked ~ .fd-interactive .fd-h23 .fd-door {
+            background-color: #FFE7A3;
+         }
+
+         /* all six open: the lights on 24 go on and door 24 can be opened */
+         .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-h24 {
+            pointer-events: auto;
+            cursor: pointer;
+         }
+
+         .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-h24 .fd-door {
+            background-color: #FFFFFF;
+         }
+
+         .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-lights {
+            border-top-color: #FFD27A;
+         }
+
+         /* door 24 open: the finale (door 24 stays open) */
+         .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-c24:checked ~ .fd-interactive .fd-h24 {
+            pointer-events: none;
+            cursor: default;
+         }
+
+         .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-c24:checked ~ .fd-interactive .fd-h24 .fd-door {
+            background-color: #FFE7A3;
+         }
+
+         .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-c24:checked ~ .fd-interactive .fd-finale {
+            display: block;
+         }
+
+         /* card area: 240 high at least (28 + 184 + 28) */
+         .fd-interactive .fd-area {
+            min-height: 184px;
+         }
+
+         .fd-interactive .fd-hint {
+            padding: 36px;
+            border: 2px dashed #C9D3DC;
+            border-radius: 8px;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 15px;
+            line-height: 18px;
+            text-align: center;
+            color: #5A5A5A;
+         }
+
+         /* the record cards: all in one grid cell, so the box is as high as the tallest card and the card on top always
+            covers the others. The newest is on top: every card starts the fd-stack animation (z-index counting down 100
+            per second) when its door opens. Without animation support the highest door number shows. */
+         .fd-interactive .fd-cards {
+            display: none;
+         }
+
+         .fd-c18:checked ~ .fd-interactive .fd-hint,
+         .fd-c19:checked ~ .fd-interactive .fd-hint,
+         .fd-c20:checked ~ .fd-interactive .fd-hint,
+         .fd-c21:checked ~ .fd-interactive .fd-hint,
+         .fd-c22:checked ~ .fd-interactive .fd-hint,
+         .fd-c23:checked ~ .fd-interactive .fd-hint {
+            display: none;
+         }
+
+         .fd-c18:checked ~ .fd-interactive .fd-cards,
+         .fd-c19:checked ~ .fd-interactive .fd-cards,
+         .fd-c20:checked ~ .fd-interactive .fd-cards,
+         .fd-c21:checked ~ .fd-interactive .fd-cards,
+         .fd-c22:checked ~ .fd-interactive .fd-cards,
+         .fd-c23:checked ~ .fd-interactive .fd-cards {
+            display: -ms-grid;
+            display: grid;
+         }
+
+         .fd-interactive .fd-card {
+            position: relative;
+            grid-area: 1 / 1;
+            display: -webkit-flex;
+            display: flex;
+            visibility: hidden;
+            border: 1px solid #E1E6EB;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #FFFFFF;
+         }
+
+         .fd-c18:checked ~ .fd-interactive .fd-card-1,
+         .fd-c19:checked ~ .fd-interactive .fd-card-2,
+         .fd-c20:checked ~ .fd-interactive .fd-card-3,
+         .fd-c21:checked ~ .fd-interactive .fd-card-4,
+         .fd-c22:checked ~ .fd-interactive .fd-card-5,
+         .fd-c23:checked ~ .fd-interactive .fd-card-6 {
+            visibility: visible;
+            -webkit-animation: fd-stack 100000s linear forwards;
+            animation: fd-stack 100000s linear forwards;
+         }
+
+         @-webkit-keyframes fd-stack {
+            from {
+               z-index: 10000000;
+            }
+
+            to {
+               z-index: 1;
+            }
+         }
+
+         @keyframes fd-stack {
+            from {
+               z-index: 10000000;
+            }
+
+            to {
+               z-index: 1;
+            }
+         }
+
+         .fd-interactive .fd-photo {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex: none;
+            flex: none;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            /* 220 + 2x 12 padding = 244 wide, as in the artifact (content-box) */
+            width: 220px;
+            padding: 12px;
+            box-sizing: content-box;
+            background-color: #D9E4EC;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 13px;
+            line-height: 18px;
+            text-align: center;
+            color: #4A5A68;
+         }
+
+         .fd-interactive .fd-ctxt {
+            padding: 20px;
+            text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+         }
+
+         .fd-interactive .fd-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 12px;
+            line-height: 14px;
+            font-weight: 700;
+         }
+
+         .fd-interactive .fd-rec {
+            margin: 10px 0 0 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 14px;
+            line-height: 17px;
+            color: #5A5A5A;
+         }
+
+         .fd-interactive .fd-value {
+            margin: 2px 0 0 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 26px;
+            line-height: 32px;
+            font-weight: 800;
+            color: #2A2A2A;
+         }
+
+         .fd-interactive .fd-place {
+            margin: 6px 0 0 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 15px;
+            line-height: 18px;
+            color: #0071B3;
+         }
+
+         .fd-interactive .fd-line {
+            margin: 10px 0 0 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 14px;
+            line-height: 21px;
+            color: #3A3A3A;
+         }
+
+         /* progress: "Nog [n] deuren te gaan voor nummer 24." counts down with a CSS counter (6 minus the open doors);
+            with all six open the other text shows */
+         .fd-interactive .fd-progress {
+            display: none;
+            margin: 14px 0 0 0;
+            counter-reset: fd-left 6;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 13px;
+            line-height: 15px;
+            text-align: left;
+            color: #5A5A5A;
+         }
+
+         .fd-c18:checked ~ .fd-interactive .fd-progress,
+         .fd-c19:checked ~ .fd-interactive .fd-progress,
+         .fd-c20:checked ~ .fd-interactive .fd-progress,
+         .fd-c21:checked ~ .fd-interactive .fd-progress,
+         .fd-c22:checked ~ .fd-interactive .fd-progress,
+         .fd-c23:checked ~ .fd-interactive .fd-progress {
+            display: block;
+         }
+
+         .fd-c18:checked ~ .fd-interactive .fd-k18,
+         .fd-c19:checked ~ .fd-interactive .fd-k19,
+         .fd-c20:checked ~ .fd-interactive .fd-k20,
+         .fd-c21:checked ~ .fd-interactive .fd-k21,
+         .fd-c22:checked ~ .fd-interactive .fd-k22,
+         .fd-c23:checked ~ .fd-interactive .fd-k23 {
+            counter-increment: fd-left -1;
+         }
+
+         .fd-interactive .fd-left:before {
+            content: counter(fd-left);
+         }
+
+         .fd-interactive .fd-all-txt {
+            display: none;
+         }
+
+         .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-left-txt {
+            display: none;
+         }
+
+         .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-all-txt {
+            display: inline;
+         }
+
+         .fd-interactive .fd-finale {
+            display: none;
+            margin: 20px 0 0 0;
+            padding: 32px;
+            border-radius: 8px;
+            background-color: #6B2A1F;
+            text-align: center;
+         }
+
+         .fd-interactive .fd-fin-label {
+            margin: 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 13px;
+            line-height: 15px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #FFD27A;
+         }
+
+         .fd-interactive .fd-fin-title {
+            margin: 8px 0 0 0;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 28px;
+            line-height: 34px;
+            font-weight: 800;
+            color: #FFFFFF;
+         }
+
+         .fd-interactive .fd-fin-txt {
+            max-width: 420px;
+            margin: 10px auto 22px auto;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            color: #FFFFFF;
+         }
+
+         .fd-interactive .fd-fin-btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 4px;
+            background-color: #FFFFFF;
+            font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            line-height: 19px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #6B2A1F;
+         }
+
+         /* dark mode: the finale button keeps its own colour (the head turns every link white) */
+         @media (prefers-color-scheme: dark) {
+            .fd-btn {
+               color: #6B2A1F !important;
+            }
+         }
+
+         [data-ogsc] .fd-btn {
+            color: #6B2A1F !important;
+         }
+
+         @media only screen and (max-width: 600px) {
+            .fd-h1 {
+               font-size: 28px !important;
+               line-height: 32px !important;
+            }
+
+            .fd-intro {
+               font-size: 15px !important;
+               line-height: 22px !important;
+            }
+
+            .fd-value {
+               font-size: 22px !important;
+               line-height: 28px !important;
+            }
+
+            .fd-fin-title {
+               font-size: 24px !important;
+               line-height: 30px !important;
+            }
+
+            /* record card: photo on top, text below (interactive and fallback) */
+            .fd-interactive .fd-card {
+               -webkit-flex-direction: column !important;
+               flex-direction: column !important;
+            }
+
+            .fd-interactive .fd-photo {
+               width: auto !important;
+               height: 116px !important;
+            }
+
+            .fd-interactive .fd-ground {
+               margin: 0 16px !important;
+            }
+
+            .fd-stack {
+               display: block !important;
+               width: 100% !important;
+               max-width: 100% !important;
+            }
+
+            .fd-photo-fb {
+               height: 140px !important;
+            }
+
+            .fd-interactive .fd-ctxt,
+            .fd-cardtxt {
+               padding: 16px !important;
+            }
+
+            .fd-interactive .fd-finale,
+            .fd-finale-fb {
+               padding: 24px !important;
+            }
+
+            /* the street: 7 houses side by side in about 340px */
+            .fd-interactive .fd-house {
+               margin: 0 2px !important;
+            }
+
+            .fd-interactive .fd-roof {
+               border-left-width: 22px !important;
+               border-right-width: 22px !important;
+               border-bottom-width: 18px !important;
+            }
+
+            .fd-interactive .fd-wall {
+               width: 44px !important;
+               padding-top: 8px !important;
+            }
+
+            .fd-interactive .fd-win {
+               width: 22px !important;
+               height: 17px !important;
+               border-width: 2px !important;
+            }
+
+            .fd-interactive .fd-door {
+               width: 26px !important;
+               height: 38px !important;
+               margin-left: -13px !important;
+               border-radius: 13px 13px 0 0 !important;
+               font-size: 11px !important;
+               line-height: 38px !important;
+            }
+
+            .fd-interactive .fd-h18 .fd-wall {
+               height: 105px !important;
+            }
+
+            .fd-interactive .fd-h19 .fd-wall {
+               height: 123px !important;
+            }
+
+            .fd-interactive .fd-h20 .fd-wall {
+               height: 90px !important;
+            }
+
+            .fd-interactive .fd-h21 .fd-wall {
+               height: 113px !important;
+            }
+
+            .fd-interactive .fd-h22 .fd-wall {
+               height: 101px !important;
+            }
+
+            .fd-interactive .fd-h23 .fd-wall {
+               height: 118px !important;
+            }
+
+            .fd-interactive .fd-h24 .fd-roof {
+               border-left-width: 24px !important;
+               border-right-width: 24px !important;
+               border-bottom-width: 20px !important;
+            }
+
+            .fd-interactive .fd-h24 .fd-wall {
+               width: 48px !important;
+               height: 119px !important;
+            }
+
+            .fd-interactive .fd-h24 .fd-door {
+               width: 28px !important;
+               height: 40px !important;
+               margin-left: -14px !important;
+               border-radius: 14px 14px 0 0 !important;
+               line-height: 40px !important;
+            }
+
+            .fd-interactive .fd-lights {
+               width: 30px !important;
+            }
+
+            .fd-interactive .fd-wreath {
+               width: 22px !important;
+               height: 22px !important;
+               margin-top: 4px !important;
+               border-width: 4px !important;
+            }
+         }
+
+         /* small phones (iPhone SE etc.): one step smaller */
+         @media only screen and (max-width: 400px) {
+            .fd-h1 {
+               font-size: 24px !important;
+               line-height: 28px !important;
+            }
+
+            .fd-value {
+               font-size: 20px !important;
+               line-height: 26px !important;
+            }
+
+            .fd-interactive .fd-house {
+               margin: 0 1px !important;
+            }
+
+            .fd-interactive .fd-roof {
+               border-left-width: 18px !important;
+               border-right-width: 18px !important;
+               border-bottom-width: 15px !important;
+            }
+
+            .fd-interactive .fd-wall {
+               width: 36px !important;
+            }
+
+            .fd-interactive .fd-win {
+               width: 18px !important;
+               height: 14px !important;
+            }
+
+            .fd-interactive .fd-door {
+               width: 22px !important;
+               height: 32px !important;
+               margin-left: -11px !important;
+               border-radius: 11px 11px 0 0 !important;
+               font-size: 10px !important;
+               line-height: 32px !important;
+            }
+
+            .fd-interactive .fd-h24 .fd-roof {
+               border-left-width: 20px !important;
+               border-right-width: 20px !important;
+               border-bottom-width: 17px !important;
+            }
+
+            .fd-interactive .fd-h24 .fd-wall {
+               width: 40px !important;
+            }
+
+            .fd-interactive .fd-h24 .fd-door {
+               width: 24px !important;
+               height: 34px !important;
+               margin-left: -12px !important;
+               border-radius: 12px 12px 0 0 !important;
+               line-height: 34px !important;
+            }
+
+            .fd-interactive .fd-lights {
+               width: 24px !important;
+            }
+
+            .fd-interactive .fd-wreath {
+               width: 18px !important;
+               height: 18px !important;
+               border-width: 3px !important;
+            }
+         }
+
+         /* Outlook.com / new Outlook: class names get an x_ prefix */
+         [class~="x_fd-interactive"],
+         [class~="x_fd-detect"]:checked ~ [class~="x_fd-interactive"] {
+            display: none !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+         }
+
+         [class~="x_fd-fallback"],
+         [class~="x_fd-detect"]:checked ~ [class~="x_fd-fallback"] {
+            display: block !important;
+            max-height: none !important;
+            overflow: visible !important;
+         }
+
+         /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+         #MessageViewBody .fd-interactive {
+            display: none !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+         }
+
+         #MessageViewBody .fd-fallback {
+            display: block !important;
+            max-height: none !important;
+            overflow: visible !important;
+         }
+      </style>
+      <style type="text/css">
+         /* Outlook apps: back to the fallback (separate style tag: the \0 hack breaks the rest of a style tag) */
+         .fd-interactive\0,
+         .fd-detect:checked ~ .fd-interactive\0 {
+            display: none !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+         }
+
+         .fd-fallback\0,
+         .fd-detect:checked ~ .fd-fallback\0 {
+            display: block !important;
+            max-height: none !important;
+            overflow: visible !important;
+         }
+      </style>
+      <!-- // hotspot_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_badge_subtitle_title_txt_x6_txt_row_4_subtitle_title_txt_btn -->
+   </head>
+
+   <body id="body" class="darkmode body" width="100%" style="margin: 0; padding: 0 !important;">
+      <!--[if !mso & !IE]><!-->
+      <div style="display: none; max-height: 0px; overflow: hidden;">De uitersten van 2026, en achter nummer 24 een wens van ons</div>
+      <div style="display: none; max-height: 0px; overflow: hidden;">
+         &#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;
+      </div>
+      <!--<![endif]-->
+
+      <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#EEF1F4" class="darkmode">
+         <tr>
+            <td class="darkmode_side_td" style="background-color: #EEF1F4"></td>
+            <td class="darkmode" style="text-align: center; font-size: 0; width: 640px; max-width: 640px;" align="center">
+               <!-- header_funda_logo_placeholder -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#F7A100" style="table-layout: fixed;">
+                  <tr>
+                     <td align="left" valign="middle" class="pml16" style="padding: 14px 28px;">
+                        <!-- logo placeholder as in the artifact: the real funda logo comes from the designer, never redraw it -->
+                        <a href="https://100procent.nl/" target="_blank" class="fd-a-ink" style="display: inline-block; padding: 3px 10px; border: 2px dashed #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 15px; font-weight: 800; color: #2A2A2A; text-decoration: none;">[logo funda]</a>
+                     </td>
+                     <td align="right" valign="middle" class="pmr16" style="padding: 14px 28px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 14px;">
+                        <!-- view online link -->
+                        <a href="https://100procent.nl/" title="Online versie" target="_blank" class="fd-a-ink" style="color: #2A2A2A; text-decoration: underline;">Bekijk online</a>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end header_funda_logo_placeholder -->
+               <!-- start hotspot_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_badge_subtitle_title_txt_x6_txt_row_4_subtitle_title_txt_btn -->
+               <!-- "De straat van de uitersten" (Claude Design artifact "Funda eindejaarsmails 2026", board B2C 1): a Christmas
+                    street as an advent calendar. Seven houses are labels of checkboxes: every door you open stays open, turns its
+                    light on and shows its record card (the newest on top). Door 24 opens only when the six others are open: the
+                    finale with the wish and the CTA. Fallback (Gmail, Outlook, Samsung): the street as a static illustration, all
+                    six cards stacked and the finale.
+                    Geometry and font sizes are the artifact's; colours are token values here (the Funda mail uses Funda's).
+                    Built with interactive_artifact/funda/concept_1_straat_van_de_uitersten/build/gen_straat.js: change the
+                    generator, not this file. -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF">
+                  <tr>
+                     <td align="center" style="padding: 0;">
+                        <!-- intro: subtitle and title shared by interactive and fallback -->
+                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#E3F2FB">
+                           <tr>
+                              <td align="center" class="pml16 pmr16 pmt24" style="padding: 40px 36px 0 36px; word-wrap: break-word; overflow-wrap: break-word;">
+                                 <p style="margin: 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0071B3;">Funda in 2026</p>
+                                 <h1 class="fd-h1" style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 34px; line-height: 39px; font-weight: 800; color: #2A2A2A;">Welkom in de straat<br>van de uitersten</h1>
+                              </td>
+                           </tr>
+                        </table>
+                        <!--[if !mso]><!-->
+                        <input type="checkbox" class="fd-detect" checked style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="fd-c18" class="fd-c18" style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="fd-c19" class="fd-c19" style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="fd-c20" class="fd-c20" style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="fd-c21" class="fd-c21" style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="fd-c22" class="fd-c22" style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="fd-c23" class="fd-c23" style="display: none !important; mso-hide: all;">
+                        <input type="checkbox" id="fd-c24" class="fd-c24" style="display: none !important; mso-hide: all;">
+                        <!--<![endif]-->
+                        <!-- fallback: the street as a static illustration with all doors open, all six cards stacked and the finale
+                             with the same CTA (artifact: "alle zes records als kaartjes onder elkaar, de straat als statische illustratie
+                             met open deuren") -->
+                        <div class="fd-fallback">
+                           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#E3F2FB">
+                              <tr>
+                                 <td align="center" class="pml16 pmr16" style="padding: 10px 36px 0 36px;">
+                                    <p class="fd-intro" style="margin: 0 auto; max-width: 440px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 24px; color: #3A3A3A;">Achter elke voordeur woont een record van dit jaar. En achter nummer 24 een wens van ons.</p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td align="center" class="pml16 pmr16" style="padding: 32px 36px 0 36px;">
+                                    <!-- street illustration placeholder: replace by <img width="568" style="display: block; width: 100%; max-width: 568px; height: auto;" alt="..."> when the illustration arrives -->
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                       <tr>
+                                          <td align="center" valign="middle" height="200" bgcolor="#D9E4EC" style="height: 200px; padding: 12px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; color: #4A5A68;">[illustratie: de straat met alle deuren open]</td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="pml16 pmr16" style="padding: 0 36px;">
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                       <tr>
+                                          <td height="22" bgcolor="#3E9B6E" style="height: 22px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                 <td align="left" class="pml16 pmr16" style="padding: 28px 36px;">
+                                    <!-- record card door 18 (slot 1) -->
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                                       <tr>
+                                          <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                                          <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                                          <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#D9E4EC" style="width: 244px; padding: 12px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; color: #4A5A68;">[foto woning]</td>
+                                          <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #F7A100; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">Nummer 18</span>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 17px; color: #5A5A5A;">Het duurste huis van 2026</p>
+                                             <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #2A2A2A;">€ [vraagprijs]</p>
+                                             <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 18px; color: #0071B3;">[Adres], [Plaats]</p>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">Stond [X] dagen op Funda en werd [X] keer bekeken.</p>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                                    <!-- record card door 19 (slot 2) -->
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                                       <tr>
+                                          <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                                          <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                                          <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#D9E4EC" style="width: 244px; padding: 12px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; color: #4A5A68;">[foto woning]</td>
+                                          <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #F1E2CF; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">Nummer 19</span>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 17px; color: #5A5A5A;">Het grootste huis</p>
+                                             <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #2A2A2A;">[X] m² woonoppervlakte</p>
+                                             <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 18px; color: #0071B3;">[Adres], [Plaats]</p>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">Goed voor [X] kamers.</p>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                                    <!-- record card door 20 (slot 3) -->
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                                       <tr>
+                                          <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                                          <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                                          <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#D9E4EC" style="width: 244px; padding: 12px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; color: #4A5A68;">[foto woning]</td>
+                                          <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #0071B3; color: #FFFFFF; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">Nummer 20</span>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 17px; color: #5A5A5A;">Het kleinste huis</p>
+                                             <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #2A2A2A;">[X] m²</p>
+                                             <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 18px; color: #0071B3;">[Adres], [Plaats]</p>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">Klein, maar [X] keer bewaard als favoriet.</p>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                                    <!-- record card door 21 (slot 4) -->
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                                       <tr>
+                                          <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                                          <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                                          <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#D9E4EC" style="width: 244px; padding: 12px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; color: #4A5A68;">[foto woning]</td>
+                                          <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #FFC94D; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">Nummer 21</span>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 17px; color: #5A5A5A;">De duurste regio</p>
+                                             <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #2A2A2A;">[Regio]</p>
+                                             <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 18px; color: #0071B3;">Gemiddelde vraagprijs € [bedrag]</p>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">Gevolgd door [Regio 2] en [Regio 3].</p>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                                    <!-- record card door 22 (slot 5) -->
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                                       <tr>
+                                          <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                                          <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                                          <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#D9E4EC" style="width: 244px; padding: 12px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; color: #4A5A68;">[foto woning]</td>
+                                          <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #3E9B6E; color: #FFFFFF; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">Nummer 22</span>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 17px; color: #5A5A5A;">Het meest bekeken huis</p>
+                                             <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #2A2A2A;">[X] keer bekeken</p>
+                                             <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 18px; color: #0071B3;">[Adres], [Plaats]</p>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">Op [dag] alleen al [X] keer.</p>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                                    <!-- record card door 23 (slot 6) -->
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                                       <tr>
+                                          <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                                          <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                                          <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#D9E4EC" style="width: 244px; padding: 12px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; color: #4A5A68;">[foto woning]</td>
+                                          <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #E8A0A0; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">Nummer 23</span>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 17px; color: #5A5A5A;">Het meest bewaarde huis</p>
+                                             <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #2A2A2A;">[X] keer bewaard</p>
+                                             <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 18px; color: #0071B3;">[Adres], [Plaats]</p>
+                                             <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">Het droomhuis van heel veel Nederlanders.</p>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20" style="height: 20px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                                    <!-- finale: door 24 -->
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#6B2A1F" style="border-radius: 8px; border-collapse: separate;">
+                                       <tr>
+                                          <td align="center" class="fd-finale-fb" style="padding: 32px; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <p style="margin: 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FFD27A;">Nummer 24</p>
+                                             <p class="fd-fin-title" style="margin: 8px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 28px; line-height: 34px; font-weight: 800; color: #FFFFFF;">Fijne feestdagen</p>
+                                             <p style="margin: 10px auto 22px auto; max-width: 420px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 24px; color: #FFFFFF;">Welk huis je volgend jaar ook zoekt, de grootste of juist de knusste: we hopen dat jouw deur in 2027 opengaat.</p>
+                                             <!--[if mso]>
+                                             <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:43px;v-text-anchor:middle;width:280px;" arcsize="9%" strokecolor="#FFFFFF" fillcolor="#FFFFFF">
+                                                <w:anchorlock/>
+                                                <center style="color:#6B2A1F;font-family:Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;">Bekijk wat er nu te koop staat</center>
+                                             </v:roundrect>
+                                             <![endif]-->
+                                             <a class="fd-btn" href="https://100procent.nl/" target="_blank" style="display: inline-block; padding: 12px 22px; border-radius: 4px; background-color: #FFFFFF; color: #6B2A1F; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 19px; font-weight: 700; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">Bekijk wat er nu te koop staat</a>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                        <!--[if !mso]><!-->
+                        <div class="fd-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+                           <div style="background-color: #E3F2FB;">
+                              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                 <tr>
+                                    <td align="center" class="pml16 pmr16" style="padding: 10px 36px 0 36px;">
+                                       <p class="fd-intro" style="margin: 0 auto; max-width: 440px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 24px; color: #3A3A3A;">Achter elke voordeur woont een record van dit jaar. Klik op de deuren 18 tot en met 23. Nummer 24 bewaren we voor het laatst.</p>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <!-- the street: each house is the label of its door's checkbox -->
+                              <div class="fd-street">
+                                 <label for="fd-c18" class="fd-house fd-h18" title="Open deur 18">
+                                    <div class="fd-roof"></div>
+                                    <div class="fd-wall">
+                                       <div class="fd-win"></div>
+                                       <div class="fd-door">18</div>
+                                    </div>
+                                 </label>
+                                 <label for="fd-c19" class="fd-house fd-h19" title="Open deur 19">
+                                    <div class="fd-roof"></div>
+                                    <div class="fd-wall">
+                                       <div class="fd-win"></div>
+                                       <div class="fd-door">19</div>
+                                    </div>
+                                 </label>
+                                 <label for="fd-c20" class="fd-house fd-h20" title="Open deur 20">
+                                    <div class="fd-roof"></div>
+                                    <div class="fd-wall">
+                                       <div class="fd-win"></div>
+                                       <div class="fd-door">20</div>
+                                    </div>
+                                 </label>
+                                 <label for="fd-c21" class="fd-house fd-h21" title="Open deur 21">
+                                    <div class="fd-roof"></div>
+                                    <div class="fd-wall">
+                                       <div class="fd-win"></div>
+                                       <div class="fd-door">21</div>
+                                    </div>
+                                 </label>
+                                 <label for="fd-c22" class="fd-house fd-h22" title="Open deur 22">
+                                    <div class="fd-roof"></div>
+                                    <div class="fd-wall">
+                                       <div class="fd-win"></div>
+                                       <div class="fd-door">22</div>
+                                    </div>
+                                 </label>
+                                 <label for="fd-c23" class="fd-house fd-h23" title="Open deur 23">
+                                    <div class="fd-roof"></div>
+                                    <div class="fd-wall">
+                                       <div class="fd-win"></div>
+                                       <div class="fd-door">23</div>
+                                    </div>
+                                 </label>
+                                 <label for="fd-c24" class="fd-house fd-h24" title="Open deur 24">
+                                    <div class="fd-roof"></div>
+                                    <div class="fd-wall">
+                                       <div class="fd-lights"></div>
+                                       <div class="fd-wreath"></div>
+                                       <div class="fd-door">24</div>
+                                    </div>
+                                 </label>
+                              </div>
+                              <div class="fd-ground"></div>
+                           </div>
+                           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                 <td align="left" valign="top" class="pml16 pmr16" style="padding: 28px 36px;">
+                                    <div class="fd-area">
+                                       <div class="fd-hint">Klik op een voordeur in de straat</div>
+                                       <div class="fd-cards">
+                                          <div class="fd-card fd-card-1">
+                                             <div class="fd-photo">[foto woning]</div>
+                                             <div class="fd-ctxt">
+                                                <span class="fd-badge" style="background-color: #F7A100; color: #2A2A2A;">Nummer 18</span>
+                                                <p class="fd-rec">Het duurste huis van 2026</p>
+                                                <p class="fd-value">€ [vraagprijs]</p>
+                                                <p class="fd-place">[Adres], [Plaats]</p>
+                                                <p class="fd-line">Stond [X] dagen op Funda en werd [X] keer bekeken.</p>
+                                             </div>
+                                          </div>
+                                          <div class="fd-card fd-card-2">
+                                             <div class="fd-photo">[foto woning]</div>
+                                             <div class="fd-ctxt">
+                                                <span class="fd-badge" style="background-color: #F1E2CF; color: #2A2A2A;">Nummer 19</span>
+                                                <p class="fd-rec">Het grootste huis</p>
+                                                <p class="fd-value">[X] m² woonoppervlakte</p>
+                                                <p class="fd-place">[Adres], [Plaats]</p>
+                                                <p class="fd-line">Goed voor [X] kamers.</p>
+                                             </div>
+                                          </div>
+                                          <div class="fd-card fd-card-3">
+                                             <div class="fd-photo">[foto woning]</div>
+                                             <div class="fd-ctxt">
+                                                <span class="fd-badge" style="background-color: #0071B3; color: #FFFFFF;">Nummer 20</span>
+                                                <p class="fd-rec">Het kleinste huis</p>
+                                                <p class="fd-value">[X] m²</p>
+                                                <p class="fd-place">[Adres], [Plaats]</p>
+                                                <p class="fd-line">Klein, maar [X] keer bewaard als favoriet.</p>
+                                             </div>
+                                          </div>
+                                          <div class="fd-card fd-card-4">
+                                             <div class="fd-photo">[foto woning]</div>
+                                             <div class="fd-ctxt">
+                                                <span class="fd-badge" style="background-color: #FFC94D; color: #2A2A2A;">Nummer 21</span>
+                                                <p class="fd-rec">De duurste regio</p>
+                                                <p class="fd-value">[Regio]</p>
+                                                <p class="fd-place">Gemiddelde vraagprijs € [bedrag]</p>
+                                                <p class="fd-line">Gevolgd door [Regio 2] en [Regio 3].</p>
+                                             </div>
+                                          </div>
+                                          <div class="fd-card fd-card-5">
+                                             <div class="fd-photo">[foto woning]</div>
+                                             <div class="fd-ctxt">
+                                                <span class="fd-badge" style="background-color: #3E9B6E; color: #FFFFFF;">Nummer 22</span>
+                                                <p class="fd-rec">Het meest bekeken huis</p>
+                                                <p class="fd-value">[X] keer bekeken</p>
+                                                <p class="fd-place">[Adres], [Plaats]</p>
+                                                <p class="fd-line">Op [dag] alleen al [X] keer.</p>
+                                             </div>
+                                          </div>
+                                          <div class="fd-card fd-card-6">
+                                             <div class="fd-photo">[foto woning]</div>
+                                             <div class="fd-ctxt">
+                                                <span class="fd-badge" style="background-color: #E8A0A0; color: #2A2A2A;">Nummer 23</span>
+                                                <p class="fd-rec">Het meest bewaarde huis</p>
+                                                <p class="fd-value">[X] keer bewaard</p>
+                                                <p class="fd-place">[Adres], [Plaats]</p>
+                                                <p class="fd-line">Het droomhuis van heel veel Nederlanders.</p>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <p class="fd-progress"><span class="fd-k18"></span><span class="fd-k19"></span><span class="fd-k20"></span><span class="fd-k21"></span><span class="fd-k22"></span><span class="fd-k23"></span><span class="fd-left-txt">Nog <span class="fd-left"></span> deuren te gaan voor nummer 24.</span><span class="fd-all-txt">Alle deuren zijn open. Klik nu op nummer 24.</span></p>
+                                       <div class="fd-finale">
+                                          <p class="fd-fin-label">Nummer 24</p>
+                                          <p class="fd-fin-title">Fijne feestdagen</p>
+                                          <p class="fd-fin-txt">Welk huis je volgend jaar ook zoekt, de grootste of juist de knusste: we hopen dat jouw deur in 2027 opengaat.</p>
+                                          <a class="fd-btn fd-fin-btn" href="https://100procent.nl/" target="_blank">Bekijk wat er nu te koop staat</a>
+                                       </div>
+                                    </div>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                        <!--<![endif]-->
+                     </td>
+                  </tr>
+               </table>
+               <!-- end hotspot_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_badge_subtitle_title_txt_x6_txt_row_4_subtitle_title_txt_btn -->
+               <!-- 1_col_title_txt_btn_funda_index -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+                  <tr>
+                     <td class="pml16 pmr16" style="padding: 0 36px 32px 36px;">
+                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FBF1E6" style="table-layout: fixed; border-radius: 8px; border-collapse: separate;">
+                           <tr>
+                              <td class="fd-stack" align="left" valign="middle" style="padding: 22px 16px 22px 24px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 22px; color: #2A2A2A; word-wrap: break-word; overflow-wrap: break-word;">
+                                 <strong>Meer cijfers?</strong> De Funda Index laat zien hoe de markt in jouw regio beweegt.
+                              </td>
+                              <td class="fd-stack fd-index-btn" width="200" align="right" valign="middle" style="width: 200px; padding: 22px 24px 22px 0; font-size: 0; line-height: 0;">
+                                 <!--[if mso]>
+                                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:39px;v-text-anchor:middle;width:176px;" arcsize="10%" strokecolor="#0071B3" filled="f">
+                                    <w:anchorlock/>
+                                    <center style="color:#0071B3;font-family:Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;">Naar de Funda Index</center>
+                                 </v:roundrect>
+                                 <![endif]-->
+                                 <a class="fd-a-blue" href="https://100procent.nl/" target="_blank" style="display: inline-block; padding: 10px 14px; border: 1px solid #0071B3; border-radius: 4px; color: #0071B3; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; font-weight: 600; line-height: 17px; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">Naar de Funda Index</a>
+                              </td>
+                           </tr>
+                        </table>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end 1_col_title_txt_btn_funda_index -->
+               <!-- footer_funda -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#F4F5F6">
+                  <tr>
+                     <td align="left" class="pml16 pmr16" style="padding: 20px 36px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 19px; color: #5A5A5A;">
+                        Je ontvangt deze mail omdat je je hebt aangemeld voor mails van funda.
+                        <!-- unsubscribe link -->
+                        <a href="https://100procent.nl/" target="_blank" class="fd-a-blue" style="color: #0071B3; text-decoration: underline;">Afmelden</a> &middot;
+                        <!-- preferences link -->
+                        <a href="https://100procent.nl/" target="_blank" class="fd-a-blue" style="color: #0071B3; text-decoration: underline;">Voorkeuren</a>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end footer_funda -->
+            </td>
+            <td class="darkmode_side_td" style="background-color: #EEF1F4"></td>
+         </tr>
+      </table>
+   </body>
+
+</html>

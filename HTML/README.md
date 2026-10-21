@@ -15,7 +15,7 @@ All values are the default values from the token table below.
 | `whole_code/2026_plain_email_all_blocks.html` | **Generated** test file with every block pasted into the template. Don't edit it by hand. |
 | `assemble.ps1` | Rebuilds the all-blocks file. Block files are found automatically; their order comes from `blocks.order.txt`. |
 | `interactive_artifact/` | Interactive concepts built from Claude Design artifacts, per client and per concept, each with a README holding the rules for that level. |
-| `eoy_concepts/` | Other campaign emails (end-of-year concepts), plus notes, links and the artifact prompt. |
+| `eoy_concepts/` | Notes for the end-of-year concepts: developer advice, artifact links and downloads (`artefact_links/html_design/`), the artifact prompt. The concept mails themselves live in `interactive_artifact/<client>/`. |
 | `docs/` | Naming conventions for blocks, images and variables, and `email_rules.md`: the rules for building (interactive) email. |
 
 Block folders and file names follow the naming convention in `docs/naming_convention_blocks.md`.

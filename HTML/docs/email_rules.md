@@ -18,11 +18,12 @@ reason is in the text.
    block-specific CSS in `_head/basic/basic_head.html` or the template head.
 4. **Rule: the all-blocks file is generated.** After any block change run
    `powershell -ExecutionPolicy Bypass -File assemble.ps1`. Never edit `whole_code/2026_plain_email_all_blocks.html` by hand.
-5. **Rule: keep copies in sync.** When a block also lives inside a campaign mail (`interactive_artifact/`,
-   `eoy_concepts/`), change both. Concepts from Claude Design artifacts follow the extra rules in
-   [interactive_artifact/README.md](../interactive_artifact/README.md).
-6. **Rule: only token values** (README token table) for colors, fonts, sizes and paddings. Client styling that is
-   deliberately hardcoded (e.g. the Funda and WestCord car blocks) says so in a comment at the top of the block.
+5. **Rule: keep copies in sync.** When a block also lives inside a campaign mail (`interactive_artifact/`), change
+   both; concepts built with a generator get both from the same generator. Concepts from Claude Design artifacts follow
+   the extra rules in [interactive_artifact/README.md](../interactive_artifact/README.md).
+6. **Rule: only token values** (README token table) for colors, fonts, sizes and paddings. Client styling belongs in
+   the client's concept mail (`interactive_artifact/<client>/`); a block that deliberately hardcodes client values
+   says so in a comment at the top.
 
 ## 2. Content and placeholders
 
@@ -71,14 +72,18 @@ reason is in the text.
    `input:checked + div.fallback + div.interactive` (lesson: the image carousel had to be flipped when the fallback moved up).
 4. **Rule: switch on only in WebKit**: `@media screen and (-webkit-min-device-pixel-ratio: 0)` (Apple Mail
    iOS/iPadOS/macOS). Everything else sees the fallback.
-5. **Rule: force the fallback back** in clients that half-support it:
-   - Outlook.com / Office 365: `[class="x_name-interactive"]` → hide, `[class="x_name-fallback"]` → show.
-     That is why the interactive and fallback divs have **exactly one class**.
-   - Samsung Mail: `meta* .name-interactive`.
-   - Outlook apps: `.name-interactive\0` in a **separate** `<style>` (the `\0` hack breaks the rest of a style tag).
+5. **Rule: force the fallback back** in clients that half-support it, **at least as specific as the activation
+   selector** (`.name-detect:checked ~ .name-interactive` is (0,3,0); a single-class override with `!important`
+   loses to it), so every override also exists as a chained variant:
+   - Outlook.com / new Outlook: `[class~="x_name-interactive"]` and `[class~="x_name-detect"]:checked ~ [class~="x_name-interactive"]`
+     → hide; the same for `x_name-fallback` → show. Keep the interactive and fallback divs to one class each.
+   - Samsung Mail: `#MessageViewBody .name-interactive` (the id outranks the activation selector).
+   - Outlook apps: `.name-interactive\0` and `.name-detect:checked ~ .name-interactive\0` in a **separate**
+     `<style>` (the `\0` hack breaks the rest of a style tag).
 6. **Rule: CSS can't remember where you came from.** If something depends on the previous state (direction,
    previous/next), use a radio per direction and a panel per state, with the highlight fixed in the HTML.
-7. **Rule: unique ids and radio names per block** and scoped generic selectors (e.g. everything under
+7. **Rule: selectors use classes, not ids** (Gmail drops rules with id selectors); ids exist only for `label for=`.
+   **Unique ids and radio names per block** and scoped generic selectors (e.g. everything under
    `.car1-wrap`), so two interactive blocks in one mail don't break each other. **Check** duplicate ids after assembling.
 8. **Rule: repeated styles as classes, not inline per panel.** Inside the interactive part, write repeated
    styles as `.name-interactive .name-sN` (two classes):

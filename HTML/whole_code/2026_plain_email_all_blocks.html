@@ -2283,914 +2283,6 @@ border: 1px solid #747474!important
    </tr>
 </table>
 <!-- end car_1_col_img_title_txt_btn -->
-<!-- start car_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_subtitle_title_txt_x6_btn -->
-<!-- "De straat van de uitersten": Christmas street as an advent calendar. Seven houses (18 to 24) are the labels of one radio group:
-     every door shows only its own record card. Door 24 is the finale with the Christmas wish and the CTA. The houses are drawn in CSS.
-     Fallback (Gmail, Outlook, Samsung): a static street image and all cards stacked.
-     Funda house style, deliberately hardcoded (not token values): font Figtree, colors #2A2A2A / #0071B3 / #E3F2FB / #3E9B6E / #6B2A1F etc. -->
-<style type="text/css">
-   .fd-panel {
-      display: none;
-   }
-
-   /* interactive only in WebKit (Apple Mail iOS/iPadOS/macOS) where :checked works */
-   @media screen and (-webkit-min-device-pixel-ratio: 0) {
-      .fd-radio:checked~.fd-interactive {
-         display: block !important;
-         max-height: none !important;
-         overflow: visible !important;
-      }
-
-      .fd-radio:checked~.fd-fallback {
-         display: none !important;
-         max-height: 0 !important;
-         overflow: hidden !important;
-      }
-
-      /* one card per door; the chosen door opens and the light goes on */
-      #fd0:checked~.fd-interactive .fd-p0,
-      #fd24:checked~.fd-interactive .fd-p24 {
-         display: block !important;
-      }
-
-      #fd18:checked~.fd-interactive .fd-p18 {
-         display: block !important;
-      }
-
-      #fd18:checked~.fd-interactive .fd-h18 .fd-win {
-         background-color: #FFD966 !important;
-      }
-
-      #fd18:checked~.fd-interactive .fd-h18 .fd-door {
-         background-color: #FFE7A3 !important;
-      }
-
-      #fd19:checked~.fd-interactive .fd-p19 {
-         display: block !important;
-      }
-
-      #fd19:checked~.fd-interactive .fd-h19 .fd-win {
-         background-color: #FFD966 !important;
-      }
-
-      #fd19:checked~.fd-interactive .fd-h19 .fd-door {
-         background-color: #FFE7A3 !important;
-      }
-
-      #fd20:checked~.fd-interactive .fd-p20 {
-         display: block !important;
-      }
-
-      #fd20:checked~.fd-interactive .fd-h20 .fd-win {
-         background-color: #FFD966 !important;
-      }
-
-      #fd20:checked~.fd-interactive .fd-h20 .fd-door {
-         background-color: #FFE7A3 !important;
-      }
-
-      #fd21:checked~.fd-interactive .fd-p21 {
-         display: block !important;
-      }
-
-      #fd21:checked~.fd-interactive .fd-h21 .fd-win {
-         background-color: #FFD966 !important;
-      }
-
-      #fd21:checked~.fd-interactive .fd-h21 .fd-door {
-         background-color: #FFE7A3 !important;
-      }
-
-      #fd22:checked~.fd-interactive .fd-p22 {
-         display: block !important;
-      }
-
-      #fd22:checked~.fd-interactive .fd-h22 .fd-win {
-         background-color: #FFD966 !important;
-      }
-
-      #fd22:checked~.fd-interactive .fd-h22 .fd-door {
-         background-color: #FFE7A3 !important;
-      }
-
-      #fd23:checked~.fd-interactive .fd-p23 {
-         display: block !important;
-      }
-
-      #fd23:checked~.fd-interactive .fd-h23 .fd-win {
-         background-color: #FFD966 !important;
-      }
-
-      #fd23:checked~.fd-interactive .fd-h23 .fd-door {
-         background-color: #FFE7A3 !important;
-      }
-
-      #fd24:checked~.fd-interactive .fd-h24 .fd-door {
-         background-color: #FFE7A3 !important;
-      }
-
-      #fd24:checked~.fd-interactive .fd-lights {
-         border-top-color: #FFD27A !important;
-      }
-   }
-
-   /* house: the whole house is the label */
-   .fd-house {
-      display: block;
-      cursor: pointer;
-   }
-
-   /* roof: triangle made with borders (no clip-path) */
-   .fd-roof {
-      width: 0;
-      height: 0;
-      margin: 0 auto;
-      border-left: 38px solid transparent;
-      border-right: 38px solid transparent;
-      border-bottom: 30px solid #4A1D15;
-   }
-
-   .fd-wall {
-      position: relative;
-      width: 76px;
-      margin: 0 auto;
-      padding-top: 14px;
-      box-sizing: border-box;
-   }
-
-   .fd-win {
-      width: 34px;
-      height: 26px;
-      margin: 0 auto;
-      border: 3px solid #FFFFFF;
-      background-color: #24456B;
-      box-sizing: border-box;
-   }
-
-   .fd-door {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 40px;
-      height: 58px;
-      margin-left: -20px;
-      border-radius: 20px 20px 0 0;
-      background-color: #FFFFFF;
-      color: #2A2A2A;
-      font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
-      font-size: 15px;
-      line-height: 58px;
-      font-weight: 800;
-      text-align: center;
-   }
-
-   .fd-h18 .fd-roof {
-      border-bottom-color: #D98A00;
-   }
-
-   .fd-h18 .fd-wall {
-      height: 150px;
-      background-color: #F7A100;
-   }
-
-   .fd-h19 .fd-roof {
-      border-bottom-color: #D8C3A8;
-   }
-
-   .fd-h19 .fd-wall {
-      height: 176px;
-      background-color: #F1E2CF;
-   }
-
-   .fd-h20 .fd-roof {
-      border-bottom-color: #00548A;
-   }
-
-   .fd-h20 .fd-wall {
-      height: 128px;
-      background-color: #0071B3;
-   }
-
-   .fd-h21 .fd-roof {
-      border-bottom-color: #E0A92A;
-   }
-
-   .fd-h21 .fd-wall {
-      height: 162px;
-      background-color: #FFC94D;
-   }
-
-   .fd-h22 .fd-roof {
-      border-bottom-color: #2E7A55;
-   }
-
-   .fd-h22 .fd-wall {
-      height: 144px;
-      background-color: #3E9B6E;
-   }
-
-   .fd-h23 .fd-roof {
-      border-bottom-color: #C97C7C;
-   }
-
-   .fd-h23 .fd-wall {
-      height: 168px;
-      background-color: #E8A0A0;
-   }
-
-   /* house 24: wider, Christmas lights and wreath */
-   .fd-h24 .fd-roof {
-      border-left-width: 42px;
-      border-right-width: 42px;
-      border-bottom-width: 34px;
-   }
-
-   .fd-h24 .fd-wall {
-      width: 84px;
-      height: 170px;
-      background-color: #6B2A1F;
-   }
-
-   .fd-h24 .fd-door {
-      width: 44px;
-      height: 62px;
-      margin-left: -22px;
-      border-radius: 22px 22px 0 0;
-      font-size: 16px;
-      line-height: 62px;
-      background-color: #FFFFFF;
-   }
-
-   .fd-lights {
-      width: 50px;
-      height: 8px;
-      margin: 0 auto;
-      border-top: 3px dotted #8A4A3E;
-   }
-
-   .fd-wreath {
-      width: 38px;
-      height: 38px;
-      margin: 6px auto 0 auto;
-      border: 6px solid #3E9B6E;
-      border-radius: 50%;
-      box-sizing: border-box;
-   }
-
-   .fd-next {
-      cursor: pointer;
-      color: #0071B3;
-      font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;
-      font-size: 14px;
-      line-height: 20px;
-      font-weight: 600;
-      text-decoration: underline;
-   }
-
-   /* Outlook.com / Office 365: back to fallback */
-   [class="x_fd-interactive"] {
-      display: none !important;
-   }
-
-   [class="x_fd-fallback"] {
-      display: block !important;
-      max-height: none !important;
-      overflow: visible !important;
-   }
-
-   /* Samsung Mail: back to fallback */
-   meta* .fd-interactive {
-      display: none !important;
-   }
-
-   meta* .fd-fallback {
-      display: block !important;
-      max-height: none !important;
-      overflow: visible !important;
-   }
-
-   /* dark mode: the finale button keeps its own color (the head turns all links white) */
-   @media (prefers-color-scheme: dark) {
-      .fd-btn-light {
-         color: #6B2A1F !important;
-         background-color: #FFFFFF !important;
-      }
-   }
-
-   [data-ogsc] .fd-btn-light {
-      color: #6B2A1F !important;
-   }
-
-   @media only screen and (max-width: 600px) {
-      .fd-h1 {
-         font-size: 28px !important;
-         line-height: 32px !important;
-      }
-
-      .fd-h2 {
-         font-size: 24px !important;
-         line-height: 28px !important;
-      }
-
-      .fd-value {
-         font-size: 22px !important;
-         line-height: 26px !important;
-      }
-
-      .fd-intro {
-         font-size: 15px !important;
-         line-height: 22px !important;
-      }
-
-      /* record card: photo on top, text below */
-      .fd-stack {
-         display: block !important;
-         width: 100% !important;
-         max-width: 100% !important;
-      }
-
-      .fd-stack img {
-         width: 100% !important;
-         max-width: 100% !important;
-      }
-
-      .fd-cardtxt {
-         padding: 16px !important;
-      }
-
-      /* street: 7 houses fit side by side in approx. 343px */
-      .fd-roof {
-         border-left-width: 22px !important;
-         border-right-width: 22px !important;
-         border-bottom-width: 18px !important;
-      }
-
-      .fd-wall {
-         width: 44px !important;
-         padding-top: 8px !important;
-      }
-
-      .fd-win {
-         width: 22px !important;
-         height: 17px !important;
-         border-width: 2px !important;
-      }
-
-      .fd-door {
-         width: 26px !important;
-         height: 38px !important;
-         margin-left: -13px !important;
-         border-radius: 13px 13px 0 0 !important;
-         font-size: 11px !important;
-         line-height: 38px !important;
-      }
-
-      .fd-h18 .fd-wall {
-         height: 105px !important;
-      }
-
-      .fd-h19 .fd-wall {
-         height: 123px !important;
-      }
-
-      .fd-h20 .fd-wall {
-         height: 90px !important;
-      }
-
-      .fd-h21 .fd-wall {
-         height: 113px !important;
-      }
-
-      .fd-h22 .fd-wall {
-         height: 101px !important;
-      }
-
-      .fd-h23 .fd-wall {
-         height: 118px !important;
-      }
-
-      .fd-h24 .fd-roof {
-         border-left-width: 24px !important;
-         border-right-width: 24px !important;
-         border-bottom-width: 20px !important;
-      }
-
-      .fd-h24 .fd-wall {
-         width: 48px !important;
-         height: 119px !important;
-      }
-
-      .fd-h24 .fd-door {
-         width: 28px !important;
-         height: 40px !important;
-         margin-left: -14px !important;
-         line-height: 40px !important;
-      }
-
-      .fd-lights {
-         width: 30px !important;
-      }
-
-      .fd-wreath {
-         width: 22px !important;
-         height: 22px !important;
-         margin-top: 4px !important;
-         border-width: 4px !important;
-      }
-   }
-
-   /* small phones (iPhone SE etc.): one step smaller */
-   @media only screen and (max-width: 400px) {
-      .fd-h1 {
-         font-size: 24px !important;
-         line-height: 28px !important;
-      }
-
-      .fd-h2 {
-         font-size: 22px !important;
-         line-height: 26px !important;
-      }
-
-      .fd-value {
-         font-size: 20px !important;
-         line-height: 24px !important;
-      }
-
-      .fd-roof {
-         border-left-width: 18px !important;
-         border-right-width: 18px !important;
-         border-bottom-width: 15px !important;
-      }
-
-      .fd-wall {
-         width: 36px !important;
-      }
-
-      .fd-win {
-         width: 18px !important;
-         height: 14px !important;
-      }
-
-      .fd-door {
-         width: 22px !important;
-         height: 32px !important;
-         margin-left: -11px !important;
-         border-radius: 11px 11px 0 0 !important;
-         font-size: 10px !important;
-         line-height: 32px !important;
-      }
-
-      .fd-h24 .fd-roof {
-         border-left-width: 20px !important;
-         border-right-width: 20px !important;
-         border-bottom-width: 17px !important;
-      }
-
-      .fd-h24 .fd-wall {
-         width: 40px !important;
-      }
-
-      .fd-h24 .fd-door {
-         width: 24px !important;
-         height: 34px !important;
-         margin-left: -12px !important;
-         line-height: 34px !important;
-      }
-
-      .fd-lights {
-         width: 24px !important;
-      }
-
-      .fd-wreath {
-         width: 18px !important;
-         height: 18px !important;
-         border-width: 3px !important;
-      }
-   }
-</style>
-<style type="text/css">
-   /* Outlook apps: back to fallback (separate style tag, the \0 hack breaks the rest otherwise) */
-   .fd-interactive\0 {
-      display: none !important;
-      max-height: 0 !important;
-      overflow: hidden !important;
-   }
-
-   .fd-fallback\0 {
-      display: block !important;
-      max-height: none !important;
-      overflow: visible !important;
-   }
-</style>
-<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF">
-   <tr>
-      <td align="center" style="padding: 0;">
-
-         <!-- intro: subtitle and title shared by interactive and fallback -->
-         <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#E3F2FB">
-            <tr>
-               <td align="center" class="pml16 pmr16 pmt24" style="padding: 40px 36px 0 36px; word-wrap: break-word; overflow-wrap: break-word;">
-                  <p style="margin: 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0071B3;">subtitle_intro</p>
-                  <h1 class="fd-h1" style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 34px; line-height: 39px; font-weight: 800; color: #2A2A2A;">title_intro</h1>
-               </td>
-            </tr>
-         </table>
-
-         <!--[if !mso]><!-->
-         <input type="radio" name="fd" id="fd0" class="fd-radio" checked style="display: none !important; mso-hide: all;">
-         <input type="radio" name="fd" id="fd18" class="fd-radio" style="display: none !important; mso-hide: all;">
-         <input type="radio" name="fd" id="fd19" class="fd-radio" style="display: none !important; mso-hide: all;">
-         <input type="radio" name="fd" id="fd20" class="fd-radio" style="display: none !important; mso-hide: all;">
-         <input type="radio" name="fd" id="fd21" class="fd-radio" style="display: none !important; mso-hide: all;">
-         <input type="radio" name="fd" id="fd22" class="fd-radio" style="display: none !important; mso-hide: all;">
-         <input type="radio" name="fd" id="fd23" class="fd-radio" style="display: none !important; mso-hide: all;">
-         <input type="radio" name="fd" id="fd24" class="fd-radio" style="display: none !important; mso-hide: all;">
-         <!--<![endif]-->
-
-         <!-- fallback: static street and all cards stacked, with the same CTA -->
-         <div class="fd-fallback">
-            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#E3F2FB">
-               <tr>
-                  <td align="center" class="pml16 pmr16" style="padding: 10px 36px 0 36px;">
-                     <p class="fd-intro" style="margin: 0 auto; max-width: 440px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 24px; color: #3A3A3A;">txt_intro_fallback</p>
-                  </td>
-               </tr>
-               <!-- img_street (car_1_col_600x260_street_open, optional): without an image this row is a 32px spacer instead:
-                    <tr><td height="32" style="height: 32px; font-size: 0; line-height: 0;">&nbsp;</td></tr> -->
-               <tr>
-                  <td align="center" class="pml8 pmr8 pmt24" style="padding: 32px 24px 0 24px; font-size: 0; line-height: 0;">
-                     <img src="https://placehold.co/600x260" alt="img_alt_street" width="600" style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">
-                  </td>
-               </tr>
-               <tr>
-                  <td height="22" bgcolor="#3E9B6E" style="height: 22px; font-size: 0; line-height: 0;">&nbsp;</td>
-               </tr>
-            </table>
-            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
-               <tr>
-                  <td align="left" class="pml16 pmr16 pmt24" style="padding: 28px 36px;">
-                     <!-- record card door 18 (slot 1) -->
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                        <tr>
-                           <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                              <img src="https://placehold.co/220x220" alt="img_alt_1" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                           </td>
-                           <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #F7A100; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 18</span>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_1</p>
-                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_1</p>
-                              <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_1</p>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_1</p>
-                           </td>
-                        </tr>
-                     </table>
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
-                     <!-- record card door 19 (slot 2) -->
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                        <tr>
-                           <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                              <img src="https://placehold.co/220x220" alt="img_alt_2" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                           </td>
-                           <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #F1E2CF; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 19</span>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_2</p>
-                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_2</p>
-                              <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_2</p>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_2</p>
-                           </td>
-                        </tr>
-                     </table>
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
-                     <!-- record card door 20 (slot 3) -->
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                        <tr>
-                           <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                              <img src="https://placehold.co/220x220" alt="img_alt_3" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                           </td>
-                           <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #0071B3; color: #FFFFFF; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 20</span>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_3</p>
-                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_3</p>
-                              <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_3</p>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_3</p>
-                           </td>
-                        </tr>
-                     </table>
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
-                     <!-- record card door 21 (slot 4) -->
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                        <tr>
-                           <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                              <img src="https://placehold.co/220x220" alt="img_alt_4" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                           </td>
-                           <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #FFC94D; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 21</span>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_4</p>
-                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_4</p>
-                              <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_4</p>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_4</p>
-                           </td>
-                        </tr>
-                     </table>
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
-                     <!-- record card door 22 (slot 5) -->
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                        <tr>
-                           <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                              <img src="https://placehold.co/220x220" alt="img_alt_5" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                           </td>
-                           <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #3E9B6E; color: #FFFFFF; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 22</span>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_5</p>
-                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_5</p>
-                              <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_5</p>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_5</p>
-                           </td>
-                        </tr>
-                     </table>
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
-                     <!-- record card door 23 (slot 6) -->
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                        <tr>
-                           <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                              <img src="https://placehold.co/220x220" alt="img_alt_6" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                           </td>
-                           <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #E8A0A0; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 23</span>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_6</p>
-                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_6</p>
-                              <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_6</p>
-                              <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_6</p>
-                           </td>
-                        </tr>
-                     </table>
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
-                     <!-- finale: door 24 -->
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#6B2A1F" style="border-radius: 8px; border-collapse: separate;">
-                        <tr>
-                           <td align="center" class="pm24" style="padding: 32px; word-wrap: break-word; overflow-wrap: break-word;">
-                              <p style="margin: 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FFD27A;">subtitle_7</p>
-                              <p class="fd-h2" style="margin: 8px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 28px; line-height: 32px; font-weight: 800; color: #FFFFFF;">title_7</p>
-                              <p style="margin: 10px auto 0 auto; max-width: 420px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 24px; color: #FFFFFF;">txt_7</p>
-                              <div style="padding: 22px 0 0 0; font-size: 0; line-height: 0;">
-                                 <!--[if mso]>
-                                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:46px;v-text-anchor:middle;width:300px;" arcsize="9%" strokecolor="#FFFFFF" fillcolor="#FFFFFF">
-                                    <w:anchorlock/>
-                                    <center style="color:#6B2A1F;font-family:Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;">btn_txt_1</center>
-                                 </v:roundrect>
-                                 <![endif]-->
-                                 <a class="fd-btn-light" href="https://100procent.nl/" target="_blank" style="display: inline-block; padding: 0 22px; background-color: #FFFFFF; border-radius: 4px; color: #6B2A1F; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; font-weight: 700; line-height: 46px; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">btn_txt_1</a>
-                              </div>
-                           </td>
-                        </tr>
-                     </table>
-                  </td>
-               </tr>
-            </table>
-         </div>
-
-         <!--[if !mso]><!-->
-         <div class="fd-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
-            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#E3F2FB">
-               <tr>
-                  <td align="center" class="pml16 pmr16" style="padding: 10px 36px 0 36px;">
-                     <p class="fd-intro" style="margin: 0 auto; max-width: 440px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 24px; color: #3A3A3A;">txt_intro</p>
-                  </td>
-               </tr>
-               <!-- the street: 6 equal houses + the wider house 24, bottoms on the pavement -->
-               <tr>
-                  <td align="center" class="pml8 pmr8 pmt24" style="padding: 32px 24px 0 24px;">
-                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed; max-width: 600px;">
-                        <tr>
-                           <td width="13.5%" align="center" valign="bottom" style="width: 13.5%;">
-                              <label for="fd18" class="fd-house fd-h18" title="Open deur 18">
-                                 <div class="fd-roof"></div>
-                                 <div class="fd-wall">
-                                    <div class="fd-win"></div>
-                                    <div class="fd-door">18</div>
-                                 </div>
-                              </label>
-                           </td>
-                           <td width="13.5%" align="center" valign="bottom" style="width: 13.5%;">
-                              <label for="fd19" class="fd-house fd-h19" title="Open deur 19">
-                                 <div class="fd-roof"></div>
-                                 <div class="fd-wall">
-                                    <div class="fd-win"></div>
-                                    <div class="fd-door">19</div>
-                                 </div>
-                              </label>
-                           </td>
-                           <td width="13.5%" align="center" valign="bottom" style="width: 13.5%;">
-                              <label for="fd20" class="fd-house fd-h20" title="Open deur 20">
-                                 <div class="fd-roof"></div>
-                                 <div class="fd-wall">
-                                    <div class="fd-win"></div>
-                                    <div class="fd-door">20</div>
-                                 </div>
-                              </label>
-                           </td>
-                           <td width="13.5%" align="center" valign="bottom" style="width: 13.5%;">
-                              <label for="fd21" class="fd-house fd-h21" title="Open deur 21">
-                                 <div class="fd-roof"></div>
-                                 <div class="fd-wall">
-                                    <div class="fd-win"></div>
-                                    <div class="fd-door">21</div>
-                                 </div>
-                              </label>
-                           </td>
-                           <td width="13.5%" align="center" valign="bottom" style="width: 13.5%;">
-                              <label for="fd22" class="fd-house fd-h22" title="Open deur 22">
-                                 <div class="fd-roof"></div>
-                                 <div class="fd-wall">
-                                    <div class="fd-win"></div>
-                                    <div class="fd-door">22</div>
-                                 </div>
-                              </label>
-                           </td>
-                           <td width="13.5%" align="center" valign="bottom" style="width: 13.5%;">
-                              <label for="fd23" class="fd-house fd-h23" title="Open deur 23">
-                                 <div class="fd-roof"></div>
-                                 <div class="fd-wall">
-                                    <div class="fd-win"></div>
-                                    <div class="fd-door">23</div>
-                                 </div>
-                              </label>
-                           </td>
-                           <td width="19%" align="center" valign="bottom" style="width: 19%;">
-                              <label for="fd24" class="fd-house fd-h24" title="Open deur 24">
-                                 <div class="fd-roof"></div>
-                                 <div class="fd-wall">
-                                    <div class="fd-lights"></div>
-                                    <div class="fd-wreath"></div>
-                                    <div class="fd-door">24</div>
-                                 </div>
-                              </label>
-                           </td>
-                        </tr>
-                     </table>
-                  </td>
-               </tr>
-               <tr>
-                  <td height="22" bgcolor="#3E9B6E" style="height: 22px; font-size: 0; line-height: 0;">&nbsp;</td>
-               </tr>
-            </table>
-
-            <!-- card area: fixed minimum height so the email does not jump with short cards -->
-            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
-               <tr>
-                  <td valign="top" height="240" class="pml16 pmr16 pmt24" style="height: 240px; padding: 28px 36px;">
-                     <div class="fd-panel fd-p0">
-                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 2px dashed #C9D3DC; border-radius: 8px; border-collapse: separate;">
-                           <tr>
-                              <td align="center" style="padding: 36px 24px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 22px; color: #5A5A5A;">txt_hint</td>
-                           </tr>
-                        </table>
-                     </div>
-                     <div class="fd-panel fd-p18">
-                        <!-- record card door 18 (slot 1) -->
-                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                           <tr>
-                              <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                                 <img src="https://placehold.co/220x220" alt="img_alt_1" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                              </td>
-                              <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                                 <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #F7A100; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 18</span>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_1</p>
-                                 <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_1</p>
-                                 <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_1</p>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_1</p>
-                              </td>
-                           </tr>
-                        </table>
-                        <!-- next door: fd19 = door 18 + 1 -->
-                        <p style="margin: 14px 0 0 0; text-align: right;"><label for="fd19" class="fd-next">txt_next &rarr;</label></p>
-                     </div>
-                     <div class="fd-panel fd-p19">
-                        <!-- record card door 19 (slot 2) -->
-                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                           <tr>
-                              <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                                 <img src="https://placehold.co/220x220" alt="img_alt_2" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                              </td>
-                              <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                                 <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #F1E2CF; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 19</span>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_2</p>
-                                 <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_2</p>
-                                 <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_2</p>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_2</p>
-                              </td>
-                           </tr>
-                        </table>
-                        <!-- next door: fd20 = door 19 + 1 -->
-                        <p style="margin: 14px 0 0 0; text-align: right;"><label for="fd20" class="fd-next">txt_next &rarr;</label></p>
-                     </div>
-                     <div class="fd-panel fd-p20">
-                        <!-- record card door 20 (slot 3) -->
-                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                           <tr>
-                              <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                                 <img src="https://placehold.co/220x220" alt="img_alt_3" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                              </td>
-                              <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                                 <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #0071B3; color: #FFFFFF; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 20</span>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_3</p>
-                                 <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_3</p>
-                                 <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_3</p>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_3</p>
-                              </td>
-                           </tr>
-                        </table>
-                        <!-- next door: fd21 = door 20 + 1 -->
-                        <p style="margin: 14px 0 0 0; text-align: right;"><label for="fd21" class="fd-next">txt_next &rarr;</label></p>
-                     </div>
-                     <div class="fd-panel fd-p21">
-                        <!-- record card door 21 (slot 4) -->
-                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                           <tr>
-                              <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                                 <img src="https://placehold.co/220x220" alt="img_alt_4" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                              </td>
-                              <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                                 <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #FFC94D; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 21</span>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_4</p>
-                                 <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_4</p>
-                                 <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_4</p>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_4</p>
-                              </td>
-                           </tr>
-                        </table>
-                        <!-- next door: fd22 = door 21 + 1 -->
-                        <p style="margin: 14px 0 0 0; text-align: right;"><label for="fd22" class="fd-next">txt_next &rarr;</label></p>
-                     </div>
-                     <div class="fd-panel fd-p22">
-                        <!-- record card door 22 (slot 5) -->
-                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                           <tr>
-                              <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                                 <img src="https://placehold.co/220x220" alt="img_alt_5" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                              </td>
-                              <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                                 <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #3E9B6E; color: #FFFFFF; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 22</span>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_5</p>
-                                 <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_5</p>
-                                 <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_5</p>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_5</p>
-                              </td>
-                           </tr>
-                        </table>
-                        <!-- next door: fd23 = door 22 + 1 -->
-                        <p style="margin: 14px 0 0 0; text-align: right;"><label for="fd23" class="fd-next">txt_next &rarr;</label></p>
-                     </div>
-                     <div class="fd-panel fd-p23">
-                        <!-- record card door 23 (slot 6) -->
-                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="table-layout: fixed; border: 1px solid #E1E6EB; border-radius: 8px; border-collapse: separate; overflow: hidden;">
-                           <tr>
-                              <td class="fd-stack" width="220" valign="top" bgcolor="#D9E4EC" style="width: 220px; font-size: 0; line-height: 0;">
-                                 <img src="https://placehold.co/220x220" alt="img_alt_6" width="220" style="display: block; width: 100%; max-width: 220px; height: auto; border: 0;">
-                              </td>
-                              <td class="fd-stack fd-cardtxt" valign="middle" align="left" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
-                                 <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #E8A0A0; color: #2A2A2A; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 12px; line-height: 16px; font-weight: 700;">Nummer 23</span>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #5A5A5A;">subtitle_6</p>
-                                 <p class="fd-value" style="margin: 2px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 30px; font-weight: 800; color: #2A2A2A;">title_6</p>
-                                 <p style="margin: 6px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #0071B3;">place_6</p>
-                                 <p style="margin: 10px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 21px; color: #3A3A3A;">txt_6</p>
-                              </td>
-                           </tr>
-                        </table>
-                        <!-- next door: fd24 = door 23 + 1 -->
-                        <p style="margin: 14px 0 0 0; text-align: right;"><label for="fd24" class="fd-next">txt_next &rarr;</label></p>
-                     </div>
-                     <div class="fd-panel fd-p24">
-                        <!-- finale: door 24 -->
-                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#6B2A1F" style="border-radius: 8px; border-collapse: separate;">
-                           <tr>
-                              <td align="center" class="pm24" style="padding: 32px; word-wrap: break-word; overflow-wrap: break-word;">
-                                 <p style="margin: 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 18px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FFD27A;">subtitle_7</p>
-                                 <p class="fd-h2" style="margin: 8px 0 0 0; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 28px; line-height: 32px; font-weight: 800; color: #FFFFFF;">title_7</p>
-                                 <p style="margin: 10px auto 0 auto; max-width: 420px; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; line-height: 24px; color: #FFFFFF;">txt_7</p>
-                                 <div style="padding: 22px 0 0 0; font-size: 0; line-height: 0;">
-                                    <!--[if mso]>
-                                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:46px;v-text-anchor:middle;width:300px;" arcsize="9%" strokecolor="#FFFFFF" fillcolor="#FFFFFF">
-                                       <w:anchorlock/>
-                                       <center style="color:#6B2A1F;font-family:Figtree,Helvetica Neue,Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;">btn_txt_1</center>
-                                    </v:roundrect>
-                                    <![endif]-->
-                                    <a class="fd-btn-light" href="https://100procent.nl/" target="_blank" style="display: inline-block; padding: 0 22px; background-color: #FFFFFF; border-radius: 4px; color: #6B2A1F; font-family: Figtree,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 16px; font-weight: 700; line-height: 46px; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">btn_txt_1</a>
-                                 </div>
-                              </td>
-                           </tr>
-                        </table>
-                     </div>
-                  </td>
-               </tr>
-            </table>
-         </div>
-         <!--<![endif]-->
-
-      </td>
-   </tr>
-</table>
-<!-- end car_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_subtitle_title_txt_x6_btn -->
 <!-- start car_1_col_subtitle_title_txt_x6_img_btn_x2 -->
 <!-- "Wrapped in de lift": 6 floors (L, 1-5) as a radio carousel. The lift buttons are the labels, every panel has its own
      floor display, progress bar and up/down arrows. Fallback (Gmail, Outlook, Samsung): all floors stacked, lobby to roof.
@@ -5299,6 +4391,2558 @@ border: 1px solid #747474!important
    </tr>
 </table>
 <!-- end hotspot_1_col_row_1_title_txt_row_2_subtitle_txt_x4_txt_title_row_3_btn_x2 -->
+<!-- start hotspot_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_badge_subtitle_title_txt_x6_txt_row_4_subtitle_title_txt_btn -->
+<!-- "De straat van de uitersten" (Claude Design artifact "Funda eindejaarsmails 2026", board B2C 1): a Christmas
+     street as an advent calendar. Seven houses are labels of checkboxes: every door you open stays open, turns its
+     light on and shows its record card (the newest on top). Door 24 opens only when the six others are open: the
+     finale with the wish and the CTA. Fallback (Gmail, Outlook, Samsung): the street as a static illustration, all
+     six cards stacked and the finale.
+     Geometry and font sizes are the artifact's; colours are token values here (the Funda mail uses Funda's).
+     Built with interactive_artifact/funda/concept_1_straat_van_de_uitersten/build/gen_straat.js: change the
+     generator, not this file. -->
+<style type="text/css">
+   /* "De straat van de uitersten" (artifact board B2C 1): a Christmas street as an advent calendar. Each house is a
+      label for its own checkbox: tapping it opens the door, turns the light on and shows its record card. Opened
+      doors stay open. Door 24 is locked until the six others are open; then its Christmas lights go on and it opens
+      the finale with the wish and the CTA. Order: inputs, fallback, interactive. Interactive only in WebKit clients
+      that support :checked (pre-checked .fd-detect); everything else keeps the fallback (all six cards and the
+      finale, stacked). */
+   @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      .fd-detect:checked ~ .fd-fallback {
+         display: none !important;
+         max-height: 0 !important;
+         overflow: hidden !important;
+      }
+
+      .fd-detect:checked ~ .fd-interactive {
+         display: block !important;
+         max-height: none !important;
+         overflow: visible !important;
+      }
+   }
+
+   /* the street: 6 houses of 76 + house 24 of 84, 6px apart (576 wide), bottoms on the pavement */
+   .fd-interactive .fd-street {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      margin: 32px 0 0 0;
+   }
+
+   .fd-interactive .fd-house {
+      display: block;
+      margin: 0 3px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+   }
+
+   /* roof: a triangle made with borders (76 wide, 30 high) */
+   .fd-interactive .fd-roof {
+      width: 0;
+      height: 0;
+      margin: 0 auto;
+      border-left: 38px solid transparent;
+      border-right: 38px solid transparent;
+      border-bottom: 30px solid #050033;
+   }
+
+   .fd-interactive .fd-wall {
+      position: relative;
+      width: 76px;
+      margin: 0 auto;
+      padding-top: 14px;
+      box-sizing: border-box;
+   }
+
+   .fd-interactive .fd-win {
+      width: 34px;
+      height: 26px;
+      margin: 0 auto;
+      border: 3px solid #ffffff;
+      background-color: #050033;
+      box-sizing: border-box;
+      -webkit-transition: background-color 0.4s;
+      transition: background-color 0.4s;
+   }
+
+   .fd-interactive .fd-door {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 40px;
+      height: 58px;
+      margin-left: -20px;
+      border-radius: 20px 20px 0 0;
+      background-color: #ffffff;
+      color: #050033;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 58px;
+      font-weight: 800;
+      text-align: center;
+      -webkit-transition: background-color 0.3s;
+      transition: background-color 0.3s;
+   }
+
+   .fd-interactive .fd-h18 .fd-roof {
+      border-bottom-color: #050033;
+   }
+
+   .fd-interactive .fd-h18 .fd-wall {
+      height: 150px;
+      background-color: #9980FF;
+   }
+
+   .fd-interactive .fd-h19 .fd-roof {
+      border-bottom-color: #9E9E9E;
+   }
+
+   .fd-interactive .fd-h19 .fd-wall {
+      height: 176px;
+      background-color: #e6e6e6;
+   }
+
+   .fd-interactive .fd-h20 .fd-roof {
+      border-bottom-color: #444444;
+   }
+
+   .fd-interactive .fd-h20 .fd-wall {
+      height: 128px;
+      background-color: #050033;
+   }
+
+   .fd-interactive .fd-h21 .fd-roof {
+      border-bottom-color: #9E9E9E;
+   }
+
+   .fd-interactive .fd-h21 .fd-wall {
+      height: 162px;
+      background-color: #e3fc5e;
+   }
+
+   .fd-interactive .fd-h22 .fd-roof {
+      border-bottom-color: #444444;
+   }
+
+   .fd-interactive .fd-h22 .fd-wall {
+      height: 144px;
+      background-color: #9E9E9E;
+   }
+
+   .fd-interactive .fd-h23 .fd-roof {
+      border-bottom-color: #9E9E9E;
+   }
+
+   .fd-interactive .fd-h23 .fd-wall {
+      height: 168px;
+      background-color: #efefef;
+   }
+
+   /* house 24: wider, Christmas lights and a wreath; locked until the six others are open */
+   .fd-interactive .fd-h24 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-interactive .fd-h24 .fd-roof {
+      border-left-width: 42px;
+      border-right-width: 42px;
+      border-bottom-width: 34px;
+   }
+
+   .fd-interactive .fd-h24 .fd-wall {
+      width: 84px;
+      height: 170px;
+      background-color: #4d4d4d;
+   }
+
+   .fd-interactive .fd-h24 .fd-door {
+      width: 44px;
+      height: 62px;
+      margin-left: -22px;
+      border-radius: 22px 22px 0 0;
+      background-color: #9E9E9E;
+      font-size: 16px;
+      line-height: 62px;
+   }
+
+   .fd-interactive .fd-lights {
+      width: 50px;
+      height: 8px;
+      margin: 0 auto;
+      border-top: 3px dotted #9E9E9E;
+   }
+
+   .fd-interactive .fd-wreath {
+      width: 38px;
+      height: 38px;
+      margin: 6px auto 0 auto;
+      border: 6px solid #9980FF;
+      border-radius: 50%;
+      box-sizing: border-box;
+   }
+
+   /* the pavement runs inside the hero's 36px side padding (the houses may stick out over it, as in the artifact) */
+   .fd-interactive .fd-ground {
+      height: 22px;
+      margin: 0 36px;
+      background-color: #444444;
+   }
+
+   /* an open door stays open: the house is no longer clickable, its light is on */
+   .fd-c18:checked ~ .fd-interactive .fd-h18 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-h18 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-h18 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c19:checked ~ .fd-interactive .fd-h19 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c19:checked ~ .fd-interactive .fd-h19 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c19:checked ~ .fd-interactive .fd-h19 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c20:checked ~ .fd-interactive .fd-h20 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c20:checked ~ .fd-interactive .fd-h20 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c20:checked ~ .fd-interactive .fd-h20 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c21:checked ~ .fd-interactive .fd-h21 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c21:checked ~ .fd-interactive .fd-h21 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c21:checked ~ .fd-interactive .fd-h21 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c22:checked ~ .fd-interactive .fd-h22 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c22:checked ~ .fd-interactive .fd-h22 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c22:checked ~ .fd-interactive .fd-h22 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c23:checked ~ .fd-interactive .fd-h23 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c23:checked ~ .fd-interactive .fd-h23 .fd-win {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c23:checked ~ .fd-interactive .fd-h23 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   /* all six open: the lights on 24 go on and door 24 can be opened */
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-h24 {
+      pointer-events: auto;
+      cursor: pointer;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-h24 .fd-door {
+      background-color: #ffffff;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-lights {
+      border-top-color: #e3fc5e;
+   }
+
+   /* door 24 open: the finale (door 24 stays open) */
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-c24:checked ~ .fd-interactive .fd-h24 {
+      pointer-events: none;
+      cursor: default;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-c24:checked ~ .fd-interactive .fd-h24 .fd-door {
+      background-color: #e3fc5e;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-c24:checked ~ .fd-interactive .fd-finale {
+      display: block;
+   }
+
+   /* card area: 240 high at least (28 + 184 + 28) */
+   .fd-interactive .fd-area {
+      min-height: 184px;
+   }
+
+   .fd-interactive .fd-hint {
+      padding: 36px;
+      border: 2px dashed #e6e6e6;
+      border-radius: 8px;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 18px;
+      text-align: center;
+      color: #4d4d4d;
+   }
+
+   /* the record cards: all in one grid cell, so the box is as high as the tallest card and the card on top always
+      covers the others. The newest is on top: every card starts the fd-stack animation (z-index counting down 100
+      per second) when its door opens. Without animation support the highest door number shows. */
+   .fd-interactive .fd-cards {
+      display: none;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-hint,
+   .fd-c19:checked ~ .fd-interactive .fd-hint,
+   .fd-c20:checked ~ .fd-interactive .fd-hint,
+   .fd-c21:checked ~ .fd-interactive .fd-hint,
+   .fd-c22:checked ~ .fd-interactive .fd-hint,
+   .fd-c23:checked ~ .fd-interactive .fd-hint {
+      display: none;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-cards,
+   .fd-c19:checked ~ .fd-interactive .fd-cards,
+   .fd-c20:checked ~ .fd-interactive .fd-cards,
+   .fd-c21:checked ~ .fd-interactive .fd-cards,
+   .fd-c22:checked ~ .fd-interactive .fd-cards,
+   .fd-c23:checked ~ .fd-interactive .fd-cards {
+      display: -ms-grid;
+      display: grid;
+   }
+
+   .fd-interactive .fd-card {
+      position: relative;
+      grid-area: 1 / 1;
+      display: -webkit-flex;
+      display: flex;
+      visibility: hidden;
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #ffffff;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-card-1,
+   .fd-c19:checked ~ .fd-interactive .fd-card-2,
+   .fd-c20:checked ~ .fd-interactive .fd-card-3,
+   .fd-c21:checked ~ .fd-interactive .fd-card-4,
+   .fd-c22:checked ~ .fd-interactive .fd-card-5,
+   .fd-c23:checked ~ .fd-interactive .fd-card-6 {
+      visibility: visible;
+      -webkit-animation: fd-stack 100000s linear forwards;
+      animation: fd-stack 100000s linear forwards;
+   }
+
+   @-webkit-keyframes fd-stack {
+      from {
+         z-index: 10000000;
+      }
+
+      to {
+         z-index: 1;
+      }
+   }
+
+   @keyframes fd-stack {
+      from {
+         z-index: 10000000;
+      }
+
+      to {
+         z-index: 1;
+      }
+   }
+
+   .fd-interactive .fd-photo {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex: none;
+      flex: none;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      /* 220 + 2x 12 padding = 244 wide, as in the artifact (content-box) */
+      width: 220px;
+      padding: 12px;
+      box-sizing: content-box;
+      background-color: #efefef;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 18px;
+      text-align: center;
+      color: #444444;
+   }
+
+   .fd-interactive .fd-ctxt {
+      padding: 20px;
+      text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+   }
+
+   .fd-interactive .fd-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: 700;
+   }
+
+   .fd-interactive .fd-rec {
+      margin: 10px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 14px;
+      line-height: 17px;
+      color: #4d4d4d;
+   }
+
+   .fd-interactive .fd-value {
+      margin: 2px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 26px;
+      line-height: 32px;
+      font-weight: 800;
+      color: #050033;
+   }
+
+   .fd-interactive .fd-place {
+      margin: 6px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 18px;
+      color: #9980FF;
+   }
+
+   .fd-interactive .fd-line {
+      margin: 10px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+      color: #444444;
+   }
+
+   /* progress: "Nog [n] deuren te gaan voor nummer 24." counts down with a CSS counter (6 minus the open doors);
+      with all six open the other text shows */
+   .fd-interactive .fd-progress {
+      display: none;
+      margin: 14px 0 0 0;
+      counter-reset: fd-left 6;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 15px;
+      text-align: left;
+      color: #4d4d4d;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-progress,
+   .fd-c19:checked ~ .fd-interactive .fd-progress,
+   .fd-c20:checked ~ .fd-interactive .fd-progress,
+   .fd-c21:checked ~ .fd-interactive .fd-progress,
+   .fd-c22:checked ~ .fd-interactive .fd-progress,
+   .fd-c23:checked ~ .fd-interactive .fd-progress {
+      display: block;
+   }
+
+   .fd-c18:checked ~ .fd-interactive .fd-k18,
+   .fd-c19:checked ~ .fd-interactive .fd-k19,
+   .fd-c20:checked ~ .fd-interactive .fd-k20,
+   .fd-c21:checked ~ .fd-interactive .fd-k21,
+   .fd-c22:checked ~ .fd-interactive .fd-k22,
+   .fd-c23:checked ~ .fd-interactive .fd-k23 {
+      counter-increment: fd-left -1;
+   }
+
+   .fd-interactive .fd-left:before {
+      content: counter(fd-left);
+   }
+
+   .fd-interactive .fd-all-txt {
+      display: none;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-left-txt {
+      display: none;
+   }
+
+   .fd-c18:checked ~ .fd-c19:checked ~ .fd-c20:checked ~ .fd-c21:checked ~ .fd-c22:checked ~ .fd-c23:checked ~ .fd-interactive .fd-all-txt {
+      display: inline;
+   }
+
+   .fd-interactive .fd-finale {
+      display: none;
+      margin: 20px 0 0 0;
+      padding: 32px;
+      border-radius: 8px;
+      background-color: #050033;
+      text-align: center;
+   }
+
+   .fd-interactive .fd-fin-label {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e3fc5e;
+   }
+
+   .fd-interactive .fd-fin-title {
+      margin: 8px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 28px;
+      line-height: 34px;
+      font-weight: 800;
+      color: #ffffff;
+   }
+
+   .fd-interactive .fd-fin-txt {
+      max-width: 420px;
+      margin: 10px auto 22px auto;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #ffffff;
+   }
+
+   .fd-interactive .fd-fin-btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 4px;
+      background-color: #e3fc5e;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 19px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #050033;
+   }
+
+   /* dark mode: the finale button keeps its own colour (the head turns every link white) */
+   @media (prefers-color-scheme: dark) {
+      .fd-btn {
+         color: #050033 !important;
+      }
+   }
+
+   [data-ogsc] .fd-btn {
+      color: #050033 !important;
+   }
+
+   @media only screen and (max-width: 600px) {
+      .fd-h1 {
+         font-size: 28px !important;
+         line-height: 32px !important;
+      }
+
+      .fd-intro {
+         font-size: 15px !important;
+         line-height: 22px !important;
+      }
+
+      .fd-value {
+         font-size: 22px !important;
+         line-height: 28px !important;
+      }
+
+      .fd-fin-title {
+         font-size: 24px !important;
+         line-height: 30px !important;
+      }
+
+      /* record card: photo on top, text below (interactive and fallback) */
+      .fd-interactive .fd-card {
+         -webkit-flex-direction: column !important;
+         flex-direction: column !important;
+      }
+
+      .fd-interactive .fd-photo {
+         width: auto !important;
+         height: 116px !important;
+      }
+
+      .fd-interactive .fd-ground {
+         margin: 0 16px !important;
+      }
+
+      .fd-stack {
+         display: block !important;
+         width: 100% !important;
+         max-width: 100% !important;
+      }
+
+      .fd-photo-fb {
+         height: 140px !important;
+      }
+
+      .fd-interactive .fd-ctxt,
+      .fd-cardtxt {
+         padding: 16px !important;
+      }
+
+      .fd-interactive .fd-finale,
+      .fd-finale-fb {
+         padding: 24px !important;
+      }
+
+      /* the street: 7 houses side by side in about 340px */
+      .fd-interactive .fd-house {
+         margin: 0 2px !important;
+      }
+
+      .fd-interactive .fd-roof {
+         border-left-width: 22px !important;
+         border-right-width: 22px !important;
+         border-bottom-width: 18px !important;
+      }
+
+      .fd-interactive .fd-wall {
+         width: 44px !important;
+         padding-top: 8px !important;
+      }
+
+      .fd-interactive .fd-win {
+         width: 22px !important;
+         height: 17px !important;
+         border-width: 2px !important;
+      }
+
+      .fd-interactive .fd-door {
+         width: 26px !important;
+         height: 38px !important;
+         margin-left: -13px !important;
+         border-radius: 13px 13px 0 0 !important;
+         font-size: 11px !important;
+         line-height: 38px !important;
+      }
+
+      .fd-interactive .fd-h18 .fd-wall {
+         height: 105px !important;
+      }
+
+      .fd-interactive .fd-h19 .fd-wall {
+         height: 123px !important;
+      }
+
+      .fd-interactive .fd-h20 .fd-wall {
+         height: 90px !important;
+      }
+
+      .fd-interactive .fd-h21 .fd-wall {
+         height: 113px !important;
+      }
+
+      .fd-interactive .fd-h22 .fd-wall {
+         height: 101px !important;
+      }
+
+      .fd-interactive .fd-h23 .fd-wall {
+         height: 118px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-roof {
+         border-left-width: 24px !important;
+         border-right-width: 24px !important;
+         border-bottom-width: 20px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-wall {
+         width: 48px !important;
+         height: 119px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-door {
+         width: 28px !important;
+         height: 40px !important;
+         margin-left: -14px !important;
+         border-radius: 14px 14px 0 0 !important;
+         line-height: 40px !important;
+      }
+
+      .fd-interactive .fd-lights {
+         width: 30px !important;
+      }
+
+      .fd-interactive .fd-wreath {
+         width: 22px !important;
+         height: 22px !important;
+         margin-top: 4px !important;
+         border-width: 4px !important;
+      }
+   }
+
+   /* small phones (iPhone SE etc.): one step smaller */
+   @media only screen and (max-width: 400px) {
+      .fd-h1 {
+         font-size: 24px !important;
+         line-height: 28px !important;
+      }
+
+      .fd-value {
+         font-size: 20px !important;
+         line-height: 26px !important;
+      }
+
+      .fd-interactive .fd-house {
+         margin: 0 1px !important;
+      }
+
+      .fd-interactive .fd-roof {
+         border-left-width: 18px !important;
+         border-right-width: 18px !important;
+         border-bottom-width: 15px !important;
+      }
+
+      .fd-interactive .fd-wall {
+         width: 36px !important;
+      }
+
+      .fd-interactive .fd-win {
+         width: 18px !important;
+         height: 14px !important;
+      }
+
+      .fd-interactive .fd-door {
+         width: 22px !important;
+         height: 32px !important;
+         margin-left: -11px !important;
+         border-radius: 11px 11px 0 0 !important;
+         font-size: 10px !important;
+         line-height: 32px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-roof {
+         border-left-width: 20px !important;
+         border-right-width: 20px !important;
+         border-bottom-width: 17px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-wall {
+         width: 40px !important;
+      }
+
+      .fd-interactive .fd-h24 .fd-door {
+         width: 24px !important;
+         height: 34px !important;
+         margin-left: -12px !important;
+         border-radius: 12px 12px 0 0 !important;
+         line-height: 34px !important;
+      }
+
+      .fd-interactive .fd-lights {
+         width: 24px !important;
+      }
+
+      .fd-interactive .fd-wreath {
+         width: 18px !important;
+         height: 18px !important;
+         border-width: 3px !important;
+      }
+   }
+
+   /* Outlook.com / new Outlook: class names get an x_ prefix */
+   [class~="x_fd-interactive"],
+   [class~="x_fd-detect"]:checked ~ [class~="x_fd-interactive"] {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   [class~="x_fd-fallback"],
+   [class~="x_fd-detect"]:checked ~ [class~="x_fd-fallback"] {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+
+   /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+   #MessageViewBody .fd-interactive {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   #MessageViewBody .fd-fallback {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<style type="text/css">
+   /* Outlook apps: back to the fallback (separate style tag: the \0 hack breaks the rest of a style tag) */
+   .fd-interactive\0,
+   .fd-detect:checked ~ .fd-interactive\0 {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   .fd-fallback\0,
+   .fd-detect:checked ~ .fd-fallback\0 {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#fefefe">
+   <tr>
+      <td align="center" style="padding: 0;">
+         <!-- intro: subtitle and title shared by interactive and fallback -->
+         <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef">
+            <tr>
+               <td align="center" class="pml16 pmr16 pmt24" style="padding: 40px 36px 0 36px; word-wrap: break-word; overflow-wrap: break-word;">
+                  <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9980FF;">subtitle_1</p>
+                  <h1 class="fd-h1" style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 34px; line-height: 39px; font-weight: 800; color: #050033;">title_1</h1>
+               </td>
+            </tr>
+         </table>
+         <!--[if !mso]><!-->
+         <input type="checkbox" class="fd-detect" checked style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c18" class="fd-c18" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c19" class="fd-c19" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c20" class="fd-c20" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c21" class="fd-c21" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c22" class="fd-c22" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c23" class="fd-c23" style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="fd-c24" class="fd-c24" style="display: none !important; mso-hide: all;">
+         <!--<![endif]-->
+         <!-- fallback: the street as a static illustration with all doors open, all six cards stacked and the finale
+              with the same CTA (artifact: "alle zes records als kaartjes onder elkaar, de straat als statische illustratie
+              met open deuren") -->
+         <div class="fd-fallback">
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef">
+               <tr>
+                  <td align="center" class="pml16 pmr16" style="padding: 10px 36px 0 36px;">
+                     <p class="fd-intro" style="margin: 0 auto; max-width: 440px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 24px; color: #444444;">txt_2</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="center" class="pml16 pmr16" style="padding: 32px 36px 0 36px;">
+                     <!-- street illustration placeholder: replace by <img width="568" style="display: block; width: 100%; max-width: 568px; height: auto;" alt="..."> when the illustration arrives -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                           <td align="center" valign="middle" height="200" bgcolor="#efefef" style="height: 200px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_7</td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="pml16 pmr16" style="padding: 0 36px;">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                           <td height="22" bgcolor="#444444" style="height: 22px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+               <tr>
+                  <td align="left" class="pml16 pmr16" style="padding: 28px 36px;">
+                     <!-- record card door 18 (slot 1) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_1</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #9980FF; color: #ffffff; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_1</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_2</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_2</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_4</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_5</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 19 (slot 2) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_2</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #e6e6e6; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_2</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_3</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_3</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_6</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_7</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 20 (slot 3) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_3</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #050033; color: #ffffff; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_3</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_4</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_4</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_8</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_9</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 21 (slot 4) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_4</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #e3fc5e; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_4</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_5</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_5</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_10</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_11</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 22 (slot 5) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_5</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #9E9E9E; color: #ffffff; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_5</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_6</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_6</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_12</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_13</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- record card door 23 (slot 6) -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="table-layout: fixed; border: 1px solid #e6e6e6; border-radius: 8px; border-collapse: separate; overflow: hidden;">
+                        <tr>
+                           <!-- photo placeholder: replace by <img width="220" style="display: block; width: 100%; height: auto;" alt="..."> when the photo arrives -->
+                           <!-- 244 = 220 + 2x 12 padding, as the artifact's photo box -->
+                           <td class="fd-stack fd-photo-fb" width="244" align="center" valign="middle" bgcolor="#efefef" style="width: 244px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_6</td>
+                           <td class="fd-stack fd-cardtxt" align="left" valign="middle" style="padding: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <span style="display: inline-block; padding: 3px 8px; border-radius: 3px; background-color: #efefef; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 14px; font-weight: 700;">badge_6</span>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 17px; color: #4d4d4d;">subtitle_7</p>
+                              <p class="fd-value" style="margin: 2px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; font-weight: 800; color: #050033;">title_7</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 18px; color: #9980FF;">txt_14</p>
+                              <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 21px; color: #444444;">txt_15</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20" style="height: 20px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                     <!-- finale: door 24 -->
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#050033" style="border-radius: 8px; border-collapse: separate;">
+                        <tr>
+                           <td align="center" class="fd-finale-fb" style="padding: 32px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #e3fc5e;">subtitle_8</p>
+                              <p class="fd-fin-title" style="margin: 8px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 28px; line-height: 34px; font-weight: 800; color: #ffffff;">title_8</p>
+                              <p style="margin: 10px auto 22px auto; max-width: 420px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 24px; color: #ffffff;">txt_17</p>
+                              <!--[if mso]>
+                              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:43px;v-text-anchor:middle;width:280px;" arcsize="9%" strokecolor="#e3fc5e" fillcolor="#e3fc5e">
+                                 <w:anchorlock/>
+                                 <center style="color:#050033;font-family:Roboto,Arial,Helvetica,Verdana,sans-serif;font-size:16px;font-weight:bold;">btn_txt_1</center>
+                              </v:roundrect>
+                              <![endif]-->
+                              <a class="fd-btn" href="https://100procent.nl/" target="_blank" style="display: inline-block; padding: 12px 22px; border-radius: 4px; background-color: #e3fc5e; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 19px; font-weight: 700; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">btn_txt_1</a>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <!--[if !mso]><!-->
+         <div class="fd-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+            <div style="background-color: #efefef;">
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                     <td align="center" class="pml16 pmr16" style="padding: 10px 36px 0 36px;">
+                        <p class="fd-intro" style="margin: 0 auto; max-width: 440px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 24px; color: #444444;">txt_1</p>
+                     </td>
+                  </tr>
+               </table>
+               <!-- the street: each house is the label of its door's checkbox -->
+               <div class="fd-street">
+                  <label for="fd-c18" class="fd-house fd-h18" title="Open deur label_1">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_1</div>
+                     </div>
+                  </label>
+                  <label for="fd-c19" class="fd-house fd-h19" title="Open deur label_2">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_2</div>
+                     </div>
+                  </label>
+                  <label for="fd-c20" class="fd-house fd-h20" title="Open deur label_3">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_3</div>
+                     </div>
+                  </label>
+                  <label for="fd-c21" class="fd-house fd-h21" title="Open deur label_4">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_4</div>
+                     </div>
+                  </label>
+                  <label for="fd-c22" class="fd-house fd-h22" title="Open deur label_5">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_5</div>
+                     </div>
+                  </label>
+                  <label for="fd-c23" class="fd-house fd-h23" title="Open deur label_6">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-win"></div>
+                        <div class="fd-door">label_6</div>
+                     </div>
+                  </label>
+                  <label for="fd-c24" class="fd-house fd-h24" title="Open deur label_7">
+                     <div class="fd-roof"></div>
+                     <div class="fd-wall">
+                        <div class="fd-lights"></div>
+                        <div class="fd-wreath"></div>
+                        <div class="fd-door">label_7</div>
+                     </div>
+                  </label>
+               </div>
+               <div class="fd-ground"></div>
+            </div>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+               <tr>
+                  <td align="left" valign="top" class="pml16 pmr16" style="padding: 28px 36px;">
+                     <div class="fd-area">
+                        <div class="fd-hint">txt_3</div>
+                        <div class="fd-cards">
+                           <div class="fd-card fd-card-1">
+                              <div class="fd-photo">img_alt_1</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #9980FF; color: #ffffff;">badge_1</span>
+                                 <p class="fd-rec">subtitle_2</p>
+                                 <p class="fd-value">title_2</p>
+                                 <p class="fd-place">txt_4</p>
+                                 <p class="fd-line">txt_5</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-2">
+                              <div class="fd-photo">img_alt_2</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #e6e6e6; color: #050033;">badge_2</span>
+                                 <p class="fd-rec">subtitle_3</p>
+                                 <p class="fd-value">title_3</p>
+                                 <p class="fd-place">txt_6</p>
+                                 <p class="fd-line">txt_7</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-3">
+                              <div class="fd-photo">img_alt_3</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #050033; color: #ffffff;">badge_3</span>
+                                 <p class="fd-rec">subtitle_4</p>
+                                 <p class="fd-value">title_4</p>
+                                 <p class="fd-place">txt_8</p>
+                                 <p class="fd-line">txt_9</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-4">
+                              <div class="fd-photo">img_alt_4</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #e3fc5e; color: #050033;">badge_4</span>
+                                 <p class="fd-rec">subtitle_5</p>
+                                 <p class="fd-value">title_5</p>
+                                 <p class="fd-place">txt_10</p>
+                                 <p class="fd-line">txt_11</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-5">
+                              <div class="fd-photo">img_alt_5</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #9E9E9E; color: #ffffff;">badge_5</span>
+                                 <p class="fd-rec">subtitle_6</p>
+                                 <p class="fd-value">title_6</p>
+                                 <p class="fd-place">txt_12</p>
+                                 <p class="fd-line">txt_13</p>
+                              </div>
+                           </div>
+                           <div class="fd-card fd-card-6">
+                              <div class="fd-photo">img_alt_6</div>
+                              <div class="fd-ctxt">
+                                 <span class="fd-badge" style="background-color: #efefef; color: #050033;">badge_6</span>
+                                 <p class="fd-rec">subtitle_7</p>
+                                 <p class="fd-value">title_7</p>
+                                 <p class="fd-place">txt_14</p>
+                                 <p class="fd-line">txt_15</p>
+                              </div>
+                           </div>
+                        </div>
+                        <p class="fd-progress"><span class="fd-k18"></span><span class="fd-k19"></span><span class="fd-k20"></span><span class="fd-k21"></span><span class="fd-k22"></span><span class="fd-k23"></span><span class="fd-left-txt">txt_16 <span class="fd-left"></span> txt_18</span><span class="fd-all-txt">txt_19</span></p>
+                        <div class="fd-finale">
+                           <p class="fd-fin-label">subtitle_8</p>
+                           <p class="fd-fin-title">title_8</p>
+                           <p class="fd-fin-txt">txt_17</p>
+                           <a class="fd-btn fd-fin-btn" href="https://100procent.nl/" target="_blank">btn_txt_1</a>
+                        </div>
+                     </div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <!--<![endif]-->
+      </td>
+   </tr>
+</table>
+<!-- end hotspot_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_3_img_badge_subtitle_title_txt_x6_txt_row_4_subtitle_title_txt_btn -->
+<!-- start para_1_col_row_1_title_txt_row_2_subtitle_title_txt_x4_img_x2_btn_row_3_title_txt_btn_x2 -->
+<style type="text/css">
+   /* De lift (artifact "Main" + "Lagen" + "Scrollmomenten"): the cabin stays still, the hotel scrolls past from the
+      roof terrace to the lobby. Interactive only in WebKit clients with working :checked (pre-checked .plx-detect);
+      everything else keeps the fallback (the same cross-section in tables, lift in the lobby).
+      Window 700 x 900 and building 700 x 4200 in %, so the cabin lands exactly in the roof house (scroll 0) and in the
+      entrance (scroll end) at every width. The entrance is a front layer (z-index 3) above the cabin (2). */
+   @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      .plx-detect:checked ~ .plx-fallback {
+         display: none !important;
+         max-height: 0 !important;
+         overflow: hidden !important;
+      }
+
+      .plx-detect:checked ~ .plx-interactive {
+         display: block !important;
+         max-height: none !important;
+         overflow: visible !important;
+      }
+   }
+
+   /* 128.5714% = 900 / 700: the window keeps the artifact's proportions */
+   .plx-interactive .plx-window {
+      position: relative;
+      height: 0;
+      padding-bottom: 128.5714%;
+      background-color: #efefef;
+   }
+
+   .plx-interactive .plx-scroll {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scrollbar-width: none;
+      /* named scroll timeline for the scroll-driven extras (doors, floor numbers); a name, because the building
+         itself (overflow: hidden) would otherwise be the nearest scroll container */
+      scroll-timeline: --plx-scroll block;
+   }
+
+   /* no scrollbar: it would make the building narrower than the window and shift it against the cabin
+      (the scene has its own "scroll down" hint, as in the artifact) */
+   .plx-interactive .plx-scroll::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+   }
+
+   /* mobile only: extra pavement below the building (300 of 700 wide), see the max-width 600px rules */
+   .plx-interactive .plx-ground-pad {
+      display: none;
+      height: 0;
+      padding-bottom: 42.8571%;
+      background-color: #9E9E9E;
+   }
+
+   /* 600% = 4200 / 700 */
+   .plx-interactive .plx-building {
+      position: relative;
+      height: 0;
+      padding-bottom: 600%;
+      overflow: hidden;
+   }
+
+   .plx-interactive .plx-a {
+      position: absolute;
+      display: block;
+      box-sizing: border-box;
+   }
+
+   .plx-interactive .plx-front {
+      z-index: 3;
+   }
+
+   /* the cabin: stage x 285, window y 520, 130 x 220; door seam at x 349 */
+   .plx-interactive .plx-cabin {
+      position: absolute;
+      left: 40.7143%;
+      top: 57.7778%;
+      width: 18.5714%;
+      height: 24.4444%;
+      z-index: 2;
+      background-color: #efefef;
+      box-shadow: inset 0 0 0 4px #9E9E9E, 0 0 40px rgba(227,252,94,0.35);
+      pointer-events: none;
+   }
+
+   .plx-interactive .plx-seam {
+      position: absolute;
+      left: 49.2308%;
+      top: 1.8182%;
+      width: 2px;
+      height: 98.1818%;
+      background-color: #9E9E9E;
+   }
+
+   .plx-interactive .plx-star {
+      border-radius: 50%;
+      background-color: #ffffff;
+   }
+
+   .plx-interactive .plx-logo {
+      display: block;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 40px;
+      line-height: 40px;
+      color: #ffffff;
+   }
+
+   .plx-interactive .plx-hotels {
+      display: block;
+      margin: 2px 0 0 0;
+      padding-left: 0.5em;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 11px;
+      line-height: 16px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: #ffffff;
+   }
+
+   .plx-interactive .plx-h1 {
+      margin: 0 0 18px 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 60px;
+      line-height: 63px;
+      font-weight: 500;
+      color: #ffffff;
+   }
+
+   .plx-interactive .plx-sub {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 20px;
+      line-height: 29px;
+      color: #e6e6e6;
+   }
+
+   .plx-interactive .plx-hint {
+      display: block;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9980FF;
+   }
+
+   .plx-interactive .plx-roof-label {
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 11px;
+      line-height: 16px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-align: center;
+      color: #050033;
+   }
+
+   .plx-interactive .plx-num {
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 56px;
+      line-height: 64px;
+      text-align: center;
+      color: #9980FF;
+      /* the halo of a lit number: a radial gradient that grows from the centre (size 0 = off) */
+      background-image: radial-gradient(ellipse closest-side, rgba(227,252,94,0.45), rgba(227,252,94,0));
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 0% 0%;
+   }
+
+   .plx-interactive .plx-slab {
+      background-color: #e6e6e6;
+   }
+
+   .plx-interactive .plx-win {
+      border: 6px solid #e6e6e6;
+   }
+
+   .plx-interactive .plx-lit {
+      background-color: #e3fc5e;
+   }
+
+   .plx-interactive .plx-dark {
+      background-color: #444444;
+   }
+
+   /* info plates (the top layer) */
+   .plx-interactive .plx-plate {
+      padding: 24px;
+      text-align: left;
+      border-radius: 4px;
+      background-color: #ffffff;
+      box-shadow: 0 8px 24px rgba(5,0,51,0.18);
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      color: #050033;
+   }
+
+   .plx-interactive .plx-badge {
+      display: inline-block;
+      margin: 0 0 12px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      line-height: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+   }
+
+   .plx-interactive .plx-badge-dark {
+      background-color: #050033;
+      color: #ffffff;
+   }
+
+   .plx-interactive .plx-badge-light {
+      background-color: #efefef;
+      color: #050033;
+   }
+
+   .plx-interactive .plx-label {
+      display: block;
+      margin: 0 0 12px 0;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9980FF;
+   }
+
+   .plx-interactive .plx-h2 {
+      margin: 0 0 12px 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 26px;
+      line-height: 30px;
+      font-weight: 500;
+      color: #050033;
+   }
+
+   .plx-interactive .plx-big {
+      display: block;
+      margin: 0 0 12px 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 64px;
+      line-height: 64px;
+      color: #050033;
+   }
+
+   .plx-interactive .plx-p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 22px;
+      color: #444444;
+   }
+
+   /* photo placeholder exactly as in the artifact (a box with a label); replace by an image tag when the photo arrives */
+   .plx-interactive .plx-photo {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      width: 100%;
+      height: 120px;
+      margin: 0 0 12px 0;
+      border-radius: 3px;
+      background-color: #efefef;
+      font-size: 13px;
+      line-height: 18px;
+      color: #444444;
+   }
+
+   .plx-interactive .plx-photo-2 {
+      height: 110px;
+   }
+
+   .plx-interactive .plx-strong {
+      display: block;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 600;
+      color: #050033;
+   }
+
+   .plx-interactive .plx-stat {
+      display: block;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 32px;
+      line-height: 38px;
+      color: #050033;
+   }
+
+   .plx-interactive .plx-stat-sm {
+      font-size: 20px;
+      line-height: 26px;
+   }
+
+   .plx-interactive .plx-stat-label {
+      display: block;
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      line-height: 20px;
+      color: #444444;
+   }
+
+   .plx-interactive .plx-more {
+      display: inline-block;
+      margin: 12px 0 0 0;
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 600;
+      text-decoration: underline;
+      color: #050033;
+   }
+
+   /* lobby */
+   .plx-interactive .plx-lobby-card {
+      padding: 24px;
+      border-radius: 4px;
+      background-color: #fefefe;
+      text-align: center;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+   }
+
+   .plx-interactive .plx-lobby-h2 {
+      margin: 0 0 8px 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 44px;
+      line-height: 48px;
+      font-weight: 500;
+      color: #050033;
+   }
+
+   .plx-interactive .plx-lobby-p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 26px;
+      color: #444444;
+   }
+
+   .plx-interactive .plx-room {
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 26px;
+      line-height: 32px;
+      text-align: center;
+      color: #050033;
+   }
+
+   /* key board: 2 rows of 4 keys, as the artifact's grid (4 columns, gap 14px) */
+   .plx-interactive .plx-keys {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      justify-items: center;
+      padding: 16px;
+      border: 4px solid #9E9E9E;
+      background-color: #efefef;
+   }
+
+   .plx-interactive .plx-key {
+      display: block;
+      width: 8px;
+      height: 16px;
+      border-radius: 2px;
+      background-color: #9980FF;
+   }
+
+   .plx-interactive .plx-shelf {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+   }
+
+   .plx-interactive .plx-bottle {
+      display: block;
+      width: 12px;
+      margin: 0 12px 0 0;
+      border-radius: 3px 3px 0 0;
+   }
+
+   .plx-interactive .plx-lift-badge {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #9E9E9E;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #050033;
+   }
+
+   .plx-interactive .plx-sign {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      background-color: #050033;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+   }
+
+   /* Scroll-driven extras (not in the artifact's static boards; requested on top of it). Only in clients that support
+      scroll-driven animations (WebKit / Safari 26+, Chrome 115+); others keep the doors open in the lobby and the
+      floor numbers unlit, as in the artifact.
+      - The lobby doors stay closed (the cabin's look) and open over the last 3% of the scroll, as the lift lands.
+      - A floor number lights up while the cabin passes that floor: cabin centre (window y 630) within the floor's
+        band in the building; progress = scrollTop / 3300.
+      - The "L" above the entrance lights up like the numbers as the lift lands (with the doors). */
+   @supports (animation-timeline: scroll()) {
+      .plx-interactive .plx-door-l,
+      .plx-interactive .plx-door-r,
+      .plx-interactive .plx-lift-badge,
+      .plx-interactive .plx-num-4,
+      .plx-interactive .plx-num-3,
+      .plx-interactive .plx-num-2,
+      .plx-interactive .plx-num-1 {
+         animation-duration: auto;
+         animation-timing-function: linear;
+         animation-fill-mode: both;
+         animation-timeline: --plx-scroll;
+      }
+
+      .plx-interactive .plx-door-l {
+         animation-name: plx-door-l;
+      }
+
+      .plx-interactive .plx-lift-badge {
+         animation-name: plx-lobby;
+      }
+
+      .plx-interactive .plx-door-r {
+         animation-name: plx-door-r;
+      }
+
+      .plx-interactive .plx-num-4 {
+         animation-name: plx-floor-4;
+      }
+
+      .plx-interactive .plx-num-3 {
+         animation-name: plx-floor-3;
+      }
+
+      .plx-interactive .plx-num-2 {
+         animation-name: plx-floor-2;
+      }
+
+      .plx-interactive .plx-num-1 {
+         animation-name: plx-floor-1;
+      }
+   }
+
+   /* closed: the two panels meet in the middle (289-350 and 350-411); open: the artifact's 40px panels */
+   @keyframes plx-door-l {
+      0%, 97% {
+         width: 8.7143%;
+      }
+
+      100% {
+         width: 5.7143%;
+      }
+   }
+
+   /* the "L" lights up with the landing, in the lit floor numbers' colours */
+   @keyframes plx-lobby {
+      0%, 97% {
+         background-color: #9E9E9E;
+         box-shadow: none;
+      }
+
+      100% {
+         background-color: #e3fc5e;
+         box-shadow: 0 0 4px #FFFFFF, 0 0 18px rgba(227,252,94,0.7), 0 0 42px rgba(227,252,94,0.7);
+      }
+   }
+
+   @keyframes plx-door-r {
+      0%, 97% {
+         left: 50%;
+         width: 8.7143%;
+      }
+
+      100% {
+         left: 52.7143%;
+         width: 5.7143%;
+      }
+   }
+
+   /* floor 4: building y 770-1390 -> scroll 4.24%-23.03% */
+   @keyframes plx-floor-4 {
+      0%, 4.24%, 23.03%, 100% {
+         color: #9980FF;
+         text-shadow: none;
+         background-size: 0% 0%;
+      }
+
+      5.24%, 22.03% {
+         color: #e3fc5e;
+         text-shadow: 0 0 4px #FFFFFF, 0 0 18px rgba(227,252,94,0.7), 0 0 42px rgba(227,252,94,0.7);
+         background-size: 100% 100%;
+      }
+   }
+
+   /* floor 3: building y 1410-2030 -> scroll 23.64%-42.42% */
+   @keyframes plx-floor-3 {
+      0%, 23.64%, 42.42%, 100% {
+         color: #9980FF;
+         text-shadow: none;
+         background-size: 0% 0%;
+      }
+
+      24.64%, 41.42% {
+         color: #e3fc5e;
+         text-shadow: 0 0 4px #FFFFFF, 0 0 18px rgba(227,252,94,0.7), 0 0 42px rgba(227,252,94,0.7);
+         background-size: 100% 100%;
+      }
+   }
+
+   /* floor 2: building y 2050-2670 -> scroll 43.03%-61.82% */
+   @keyframes plx-floor-2 {
+      0%, 43.03%, 61.82%, 100% {
+         color: #9980FF;
+         text-shadow: none;
+         background-size: 0% 0%;
+      }
+
+      44.03%, 60.82% {
+         color: #e3fc5e;
+         text-shadow: 0 0 4px #FFFFFF, 0 0 18px rgba(227,252,94,0.7), 0 0 42px rgba(227,252,94,0.7);
+         background-size: 100% 100%;
+      }
+   }
+
+   /* floor 1: building y 2690-3310 -> scroll 62.42%-81.21% */
+   @keyframes plx-floor-1 {
+      0%, 62.42%, 81.21%, 100% {
+         color: #9980FF;
+         text-shadow: none;
+         background-size: 0% 0%;
+      }
+
+      63.42%, 80.21% {
+         color: #e3fc5e;
+         text-shadow: 0 0 4px #FFFFFF, 0 0 18px rgba(227,252,94,0.7), 0 0 42px rgba(227,252,94,0.7);
+         background-size: 100% 100%;
+      }
+   }
+
+   /* dark mode: the head turns every link white; navy links on light backgrounds keep their colour */
+   @media (prefers-color-scheme: dark) {
+      .plx-dl {
+         color: #050033 !important;
+      }
+   }
+
+   [data-ogsc] .plx-dl {
+      color: #050033 !important;
+   }
+
+   @media only screen and (max-width: 600px) {
+      /* mobile: a taller window, 1200 of 700 (just under 2 floors of 640) instead of 900.
+         The cabin stays at the artifact's window y 520, so the start is exact (roof door at 520) and you see more
+         floors below it. Landing stays exact: 300 extra pavement below the building makes the content 4500, the
+         end scroll 4500 - 1200 = 3300, and the entrance (3820) lands at window y 520.
+         The scroll distance stays 3300, so the scroll-driven ranges are unchanged. */
+      .plx-interactive .plx-window {
+         padding-bottom: 171.4286% !important;
+      }
+
+      .plx-interactive .plx-ground-pad {
+         display: block !important;
+      }
+
+      .plx-interactive .plx-cabin {
+         top: 43.3333% !important;
+         height: 18.3333% !important;
+      }
+
+      .plx-interactive .plx-logo {
+         font-size: 28px !important;
+         line-height: 28px !important;
+      }
+
+      .plx-interactive .plx-hotels {
+         font-size: 9px !important;
+      }
+
+      .plx-interactive .plx-h1 {
+         margin: 0 0 10px 0 !important;
+         font-size: 30px !important;
+         line-height: 34px !important;
+      }
+
+      .plx-interactive .plx-sub {
+         font-size: 15px !important;
+         line-height: 21px !important;
+      }
+
+      .plx-interactive .plx-hint {
+         font-size: 10px !important;
+      }
+
+      /* the scene shrinks but an svg keeps its size: a smaller arrow so it stays clear of the lift house */
+      .plx-interactive .plx-chev {
+         width: 14px !important;
+         height: 14px !important;
+         margin-top: 2px !important;
+      }
+
+      .plx-interactive .plx-roof-label {
+         font-size: 8px !important;
+         letter-spacing: 0.1em !important;
+      }
+
+      .plx-interactive .plx-num {
+         font-size: 30px !important;
+         line-height: 36px !important;
+      }
+
+      /* mobile: the plates become wide cards in front of the cabin, with readable type; they start 30 higher
+         (just under the floor number) so they fit within their floor */
+      .plx-interactive .plx-plate {
+         left: 6% !important;
+         width: 88% !important;
+         z-index: 3;
+         padding: 16px !important;
+      }
+
+      .plx-interactive .plx-plate-1 {
+         top: 20.7143% !important;
+      }
+
+      .plx-interactive .plx-plate-2 {
+         top: 35.9524% !important;
+      }
+
+      .plx-interactive .plx-plate-3 {
+         top: 51.1905% !important;
+      }
+
+      .plx-interactive .plx-plate-4 {
+         top: 66.4286% !important;
+      }
+
+      .plx-interactive .plx-badge,
+      .plx-interactive .plx-label,
+      .plx-interactive .plx-h2,
+      .plx-interactive .plx-big,
+      .plx-interactive .plx-photo {
+         margin-bottom: 8px !important;
+      }
+
+      .plx-interactive .plx-h2 {
+         font-size: 22px !important;
+         line-height: 26px !important;
+      }
+
+      .plx-interactive .plx-big {
+         font-size: 44px !important;
+         line-height: 44px !important;
+      }
+
+      .plx-interactive .plx-p {
+         font-size: 14px !important;
+         line-height: 20px !important;
+      }
+
+      .plx-interactive .plx-photo {
+         height: 80px !important;
+      }
+
+      .plx-interactive .plx-stat {
+         font-size: 26px !important;
+         line-height: 30px !important;
+      }
+
+      .plx-interactive .plx-stat-sm {
+         font-size: 18px !important;
+         line-height: 22px !important;
+      }
+
+      .plx-interactive .plx-stat-label {
+         margin-bottom: 6px !important;
+      }
+
+      .plx-interactive .plx-lobby-card {
+         padding: 12px !important;
+      }
+
+      .plx-interactive .plx-lobby-h2 {
+         font-size: 26px !important;
+         line-height: 30px !important;
+      }
+
+      .plx-interactive .plx-lobby-p {
+         font-size: 14px !important;
+         line-height: 19px !important;
+      }
+
+      .plx-interactive .plx-room {
+         font-size: 16px !important;
+         line-height: 20px !important;
+      }
+
+      .plx-interactive .plx-keys {
+         padding: 6px 2px !important;
+         border-width: 2px !important;
+      }
+
+      .plx-interactive .plx-key {
+         width: 4px !important;
+         height: 9px !important;
+         margin-bottom: 6px !important;
+      }
+
+      .plx-interactive .plx-bottle {
+         width: 7px !important;
+         margin-right: 6px !important;
+      }
+
+      .plx-interactive .plx-lift-badge {
+         font-size: 8px !important;
+      }
+
+      .plx-interactive .plx-sign {
+         font-size: 7px !important;
+         letter-spacing: 0.08em !important;
+      }
+
+      .plx-cta-title,
+      .plx-fb-lobby {
+         font-size: 30px !important;
+         line-height: 34px !important;
+      }
+
+      .plx-fb-h1 {
+         margin-top: 40px !important;
+         font-size: 36px !important;
+         line-height: 40px !important;
+      }
+
+      /* mobile: the buttons stacked, full width */
+      .plx-btn {
+         display: block !important;
+         width: 100% !important;
+         margin: 0 0 12px 0 !important;
+         padding: 0 8px !important;
+         box-sizing: border-box !important;
+         text-align: center !important;
+      }
+
+      .plx-usp {
+         display: block !important;
+         padding: 4px 0 !important;
+      }
+   }
+
+   @media only screen and (max-width: 400px) {
+      .plx-interactive .plx-h1 {
+         font-size: 26px !important;
+         line-height: 30px !important;
+      }
+
+      .plx-interactive .plx-h2 {
+         font-size: 20px !important;
+         line-height: 24px !important;
+      }
+
+      /* small phones: a more compact plate so it still fits within its floor */
+      .plx-interactive .plx-plate {
+         padding: 14px !important;
+      }
+
+      .plx-interactive .plx-badge,
+      .plx-interactive .plx-label,
+      .plx-interactive .plx-h2,
+      .plx-interactive .plx-big,
+      .plx-interactive .plx-photo {
+         margin-bottom: 6px !important;
+      }
+
+      .plx-interactive .plx-big {
+         font-size: 38px !important;
+         line-height: 38px !important;
+      }
+
+      .plx-interactive .plx-stat {
+         font-size: 22px !important;
+         line-height: 26px !important;
+      }
+
+      .plx-interactive .plx-stat-sm {
+         font-size: 17px !important;
+         line-height: 21px !important;
+      }
+
+      .plx-interactive .plx-stat-label {
+         margin-bottom: 4px !important;
+         font-size: 13px !important;
+         line-height: 18px !important;
+      }
+
+      .plx-interactive .plx-photo {
+         height: 70px !important;
+      }
+   }
+</style>
+<style type="text/css">
+   /* Back to the fallback. Every override also exists as a variant at least as specific as the activation selector
+      (.plx-detect:checked ~ ...), because !important rules are decided by specificity before source order. */
+   /* Outlook.com / new Outlook: class names get an x_ prefix */
+   [class~="x_plx-interactive"],
+   [class~="x_plx-detect"]:checked ~ [class~="x_plx-interactive"] {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   [class~="x_plx-fallback"],
+   [class~="x_plx-detect"]:checked ~ [class~="x_plx-fallback"] {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+
+   /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+   #MessageViewBody .plx-interactive {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   #MessageViewBody .plx-fallback {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<style type="text/css">
+   /* Outlook apps: \0 hack in its own style tag (it breaks the rest of a style tag in other clients) */
+   .plx-interactive\0 {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   .plx-detect:checked ~ .plx-interactive\0 {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   .plx-fallback\0 {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+
+   .plx-detect:checked ~ .plx-fallback\0 {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+   <tr>
+      <td class="pml16 pmr16" style="padding: 0 24px 32px 24px;" align="center">
+         <!-- state input: detection only (pre-checked); the movement is native scrolling -->
+         <!--[if !mso]><!-->
+         <input type="checkbox" id="plx-detect" class="plx-detect" checked style="display: none !important; mso-hide: all;">
+         <!--<![endif]-->
+         <!-- fallback: the cross-section in tables, the lift in the lobby -->
+         <div class="plx-fallback">
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#050033">
+               <tr>
+                  <td align="center" class="pml16 pmr16" style="padding: 36px 60px 40px 60px;">
+                     <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 40px; line-height: 40px; color: #ffffff;">label_7</p>
+                     <p style="margin: 2px 0 0 0; padding-left: 0.5em; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 16px; letter-spacing: 0.5em; text-transform: uppercase; color: #ffffff;">label_8</p>
+                     <h1 class="plx-fb-h1" style="margin: 72px 0 18px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 60px; line-height: 63px; font-weight: 500; color: #ffffff;">title_1</h1>
+                     <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; line-height: 29px; color: #e6e6e6;">txt_1</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="center" style="padding: 40px 0 0 0;">
+                     <table role="presentation" width="190" align="center" border="0" cellspacing="0" cellpadding="0" style="width: 190px;">
+                        <tr>
+                           <td height="14" bgcolor="#e6e6e6" style="height: 14px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td align="center" bgcolor="#efefef" style="padding: 12px 20px 0 20px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: #050033;">
+                              label_2
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <div style="height: 220px; line-height: 220px; font-size: 0; background-color: #444444;">&nbsp;</div>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+            <tr>
+               <td height="30" bgcolor="#e6e6e6" style="height: 30px; font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef" dir="rtl">
+               <tr>
+                  <th class="col-sm-12 hide_on_mobile" dir="ltr" width="235" align="center" valign="top" style="vertical-align: top; font-weight: normal; padding: 150px 0 40px 0;">
+                     <table role="presentation" width="204" align="center" border="0" cellspacing="0" cellpadding="0" style="width: 204px;">
+                        <tr>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                           <td width="24" style="width: 24px; font-size: 0;">&nbsp;</td>
+                           <td width="90" height="140" bgcolor="#444444" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td colspan="3" height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td width="90" height="140" bgcolor="#444444" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                           <td width="24" style="width: 24px; font-size: 0;">&nbsp;</td>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                        </tr>
+                     </table>
+                  </th>
+                  <th class="col-sm-12" dir="ltr" width="130" height="100%" valign="top" bgcolor="#444444" style="vertical-align: top; height: 100%; font-weight: normal; padding: 0 13px;">
+                     <table role="presentation" width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" style="height: 100%; border-left: 2px solid #4d4d4d; border-right: 2px solid #4d4d4d;">
+                        <tr>
+                           <td align="center" valign="top" style="vertical-align: top; padding: 30px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 56px; line-height: 64px; color: #9980FF;">4</td>
+                        </tr>
+                     </table>
+                  </th>
+                  <th class="col-sm-12 pmt24 pmb24 pml16 pmr16" dir="ltr" width="235" align="center" valign="top" style="vertical-align: top; font-weight: normal; padding: 120px 0 40px 0;">
+                     <table role="presentation" width="230" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" class="col-sm-12" style="width: 230px; border-radius: 4px; border-collapse: separate;">
+                        <tr>
+                           <td align="left" style="padding: 24px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; color: #050033;">
+                              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background-color: #050033; color: #ffffff; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase;">badge_1</span>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 16px; color: #9980FF; letter-spacing: 0.1em; text-transform: uppercase;">subtitle_1</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 30px; font-weight: 500; color: #050033;">title_2</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 64px; line-height: 64px; font-weight: 500; color: #050033; font-weight: 400;">title_3</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 22px; color: #444444;">txt_2</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </th>
+               </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+               <td height="20" bgcolor="#e6e6e6" style="height: 20px; font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef">
+               <tr>
+                  <th class="col-sm-12 hide_on_mobile" dir="ltr" width="235" align="center" valign="top" style="vertical-align: top; font-weight: normal; padding: 150px 0 40px 0;">
+                     <table role="presentation" width="204" align="center" border="0" cellspacing="0" cellpadding="0" style="width: 204px;">
+                        <tr>
+                           <td width="90" height="140" bgcolor="#444444" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                           <td width="24" style="width: 24px; font-size: 0;">&nbsp;</td>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td colspan="3" height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                           <td width="24" style="width: 24px; font-size: 0;">&nbsp;</td>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                        </tr>
+                     </table>
+                  </th>
+                  <th class="col-sm-12" dir="ltr" width="130" height="100%" valign="top" bgcolor="#444444" style="vertical-align: top; height: 100%; font-weight: normal; padding: 0 13px;">
+                     <table role="presentation" width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" style="height: 100%; border-left: 2px solid #4d4d4d; border-right: 2px solid #4d4d4d;">
+                        <tr>
+                           <td align="center" valign="top" style="vertical-align: top; padding: 30px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 56px; line-height: 64px; color: #9980FF;">3</td>
+                        </tr>
+                     </table>
+                  </th>
+                  <th class="col-sm-12 pmt24 pmb24 pml16 pmr16" dir="ltr" width="235" align="center" valign="top" style="vertical-align: top; font-weight: normal; padding: 120px 0 40px 0;">
+                     <table role="presentation" width="230" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" class="col-sm-12" style="width: 230px; border-radius: 4px; border-collapse: separate;">
+                        <tr>
+                           <td align="left" style="padding: 24px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; color: #050033;">
+                              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background-color: #050033; color: #ffffff; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase;">badge_2</span>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 16px; color: #9980FF; letter-spacing: 0.1em; text-transform: uppercase;">subtitle_2</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 30px; font-weight: 500; color: #050033;">title_4</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                 <tr>
+                                    <td align="center" valign="middle" height="120" bgcolor="#efefef" style="height: 120px; border-radius: 3px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_1</td>
+                                 </tr>
+                              </table>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 22px; color: #050033; font-weight: 600;">txt_3</p>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 22px; color: #444444;">txt_4</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </th>
+               </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+               <td height="20" bgcolor="#e6e6e6" style="height: 20px; font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef" dir="rtl">
+               <tr>
+                  <th class="col-sm-12 hide_on_mobile" dir="ltr" width="235" align="center" valign="top" style="vertical-align: top; font-weight: normal; padding: 150px 0 40px 0;">
+                     <table role="presentation" width="204" align="center" border="0" cellspacing="0" cellpadding="0" style="width: 204px;">
+                        <tr>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                           <td width="24" style="width: 24px; font-size: 0;">&nbsp;</td>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td colspan="3" height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td width="90" height="140" bgcolor="#444444" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                           <td width="24" style="width: 24px; font-size: 0;">&nbsp;</td>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                        </tr>
+                     </table>
+                  </th>
+                  <th class="col-sm-12" dir="ltr" width="130" height="100%" valign="top" bgcolor="#444444" style="vertical-align: top; height: 100%; font-weight: normal; padding: 0 13px;">
+                     <table role="presentation" width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" style="height: 100%; border-left: 2px solid #4d4d4d; border-right: 2px solid #4d4d4d;">
+                        <tr>
+                           <td align="center" valign="top" style="vertical-align: top; padding: 30px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 56px; line-height: 64px; color: #9980FF;">2</td>
+                        </tr>
+                     </table>
+                  </th>
+                  <th class="col-sm-12 pmt24 pmb24 pml16 pmr16" dir="ltr" width="235" align="center" valign="top" style="vertical-align: top; font-weight: normal; padding: 120px 0 40px 0;">
+                     <table role="presentation" width="230" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" class="col-sm-12" style="width: 230px; border-radius: 4px; border-collapse: separate;">
+                        <tr>
+                           <td align="left" style="padding: 24px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; color: #050033;">
+                              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background-color: #efefef; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase;">badge_3</span>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 16px; color: #9980FF; letter-spacing: 0.1em; text-transform: uppercase;">subtitle_3</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 30px; font-weight: 500; color: #050033;">title_5</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 32px; line-height: 38px; font-weight: 500; color: #050033; font-weight: 400;">title_6</p>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 20px; color: #444444;">txt_5</p>
+                              <div style="height: 10px; line-height: 10px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 32px; line-height: 38px; font-weight: 500; color: #050033; font-weight: 400;">title_7</p>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 20px; color: #444444;">txt_6</p>
+                              <div style="height: 10px; line-height: 10px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; line-height: 26px; font-weight: 500; color: #050033; font-weight: 400;">title_8</p>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 20px; color: #444444;">txt_7</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </th>
+               </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+               <td height="20" bgcolor="#e6e6e6" style="height: 20px; font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef">
+               <tr>
+                  <th class="col-sm-12 hide_on_mobile" dir="ltr" width="235" align="center" valign="top" style="vertical-align: top; font-weight: normal; padding: 150px 0 40px 0;">
+                     <table role="presentation" width="204" align="center" border="0" cellspacing="0" cellpadding="0" style="width: 204px;">
+                        <tr>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                           <td width="24" style="width: 24px; font-size: 0;">&nbsp;</td>
+                           <td width="90" height="140" bgcolor="#444444" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td colspan="3" height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td width="90" height="140" bgcolor="#e3fc5e" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                           <td width="24" style="width: 24px; font-size: 0;">&nbsp;</td>
+                           <td width="90" height="140" bgcolor="#444444" style="width: 90px; height: 140px; border: 6px solid #e6e6e6;">&nbsp;</td>
+                        </tr>
+                     </table>
+                  </th>
+                  <th class="col-sm-12" dir="ltr" width="130" height="100%" valign="top" bgcolor="#444444" style="vertical-align: top; height: 100%; font-weight: normal; padding: 0 13px;">
+                     <table role="presentation" width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" style="height: 100%; border-left: 2px solid #4d4d4d; border-right: 2px solid #4d4d4d;">
+                        <tr>
+                           <td align="center" valign="top" style="vertical-align: top; padding: 30px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 56px; line-height: 64px; color: #9980FF;">1</td>
+                        </tr>
+                     </table>
+                  </th>
+                  <th class="col-sm-12 pmt24 pmb24 pml16 pmr16" dir="ltr" width="235" align="center" valign="top" style="vertical-align: top; font-weight: normal; padding: 120px 0 40px 0;">
+                     <table role="presentation" width="230" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" class="col-sm-12" style="width: 230px; border-radius: 4px; border-collapse: separate;">
+                        <tr>
+                           <td align="left" style="padding: 24px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; color: #050033;">
+                              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background-color: #efefef; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase;">badge_4</span>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 12px; line-height: 16px; color: #9980FF; letter-spacing: 0.1em; text-transform: uppercase;">subtitle_4</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 30px; font-weight: 500; color: #050033;">title_9</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                 <tr>
+                                    <td align="center" valign="middle" height="110" bgcolor="#efefef" style="height: 110px; border-radius: 3px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 18px; color: #444444;">img_alt_2</td>
+                                 </tr>
+                              </table>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 22px; color: #444444;">txt_8</p>
+                              <div style="height: 12px; line-height: 12px; font-size: 0;">&nbsp;</div>
+                              <a class="plx-dl" href="https://100procent.nl/" target="_blank" style="font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 22px; font-weight: 600; color: #050033; text-decoration: underline;">link_txt_1</a>
+                           </td>
+                        </tr>
+                     </table>
+                  </th>
+               </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+               <td height="20" bgcolor="#e6e6e6" style="height: 20px; font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#e6e6e6">
+               <tr>
+                  <td class="pml16 pmr16" style="padding: 32px 40px 0 40px;">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#fefefe" style="border-radius: 4px; border-collapse: separate;">
+                        <tr>
+                           <td align="center" style="padding: 24px;">
+                              <h2 class="plx-fb-lobby" style="margin: 0 0 8px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 44px; line-height: 48px; font-weight: 500; color: #050033;">title_10</h2>
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 18px; line-height: 26px; color: #444444;">txt_9</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td style="padding: 40px 20px 0 20px;">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                           <th class="col-sm-12" width="34%" valign="bottom" style="vertical-align: bottom; font-weight: normal; padding: 0 0 0 0;">
+                              <p style="margin: 0 0 16px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; color: #050033; text-align: center;">label_3</p>
+                              <table role="presentation" width="140" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef" style="width: 140px; border: 4px solid #9E9E9E;">
+                                 <tr>
+                                    <td align="center" style="padding: 8px 0;"><div style="width: 8px; height: 16px; border-radius: 2px; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td align="center" style="padding: 8px 0;"><div style="width: 8px; height: 16px; border-radius: 2px; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td align="center" style="padding: 8px 0;"><div style="width: 8px; height: 16px; border-radius: 2px; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td align="center" style="padding: 8px 0;"><div style="width: 8px; height: 16px; border-radius: 2px; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                 </tr>
+                                 <tr>
+                                    <td align="center" style="padding: 8px 0;"><div style="width: 8px; height: 16px; border-radius: 2px; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td align="center" style="padding: 8px 0;"><div style="width: 8px; height: 16px; border-radius: 2px; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td align="center" style="padding: 8px 0;"><div style="width: 8px; height: 16px; border-radius: 2px; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td align="center" style="padding: 8px 0;"><div style="width: 8px; height: 16px; border-radius: 2px; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                 </tr>
+                              </table>
+                              <div style="height: 40px; line-height: 40px; font-size: 0;">&nbsp;</div>
+                           </th>
+                           <th class="col-sm-12 pmt24" width="32%" valign="bottom" style="vertical-align: bottom; font-weight: normal;">
+                              <table role="presentation" width="190" align="center" border="0" cellspacing="0" cellpadding="0" style="width: 190px;">
+                                 <tr>
+                                    <td align="center" style="padding: 0 0 9px 0;">
+                                       <div style="width: 28px; height: 28px; border-radius: 50%; background-color: #9E9E9E; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 28px; font-weight: 600; color: #050033; text-align: center;">label_5</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td align="center" height="28" bgcolor="#050033" style="height: 28px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 28px; letter-spacing: 0.16em; text-transform: uppercase; color: #ffffff;">label_6</td>
+                                 </tr>
+                                 <tr>
+                                    <td align="center">
+                                       <table role="presentation" width="144" border="0" cellspacing="0" cellpadding="0" style="width: 144px; border: 7px solid #4d4d4d; border-bottom: 0;">
+                                          <tr>
+                                             <td width="40" height="216" bgcolor="#efefef" style="width: 40px; height: 216px; border-right: 2px solid #9E9E9E;">&nbsp;</td>
+                                             <td bgcolor="#fefefe" style="font-size: 0;">&nbsp;</td>
+                                             <td width="40" height="216" bgcolor="#efefef" style="width: 40px; height: 216px; border-left: 2px solid #9E9E9E;">&nbsp;</td>
+                                          </tr>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </th>
+                           <th class="col-sm-12 pmt24" width="34%" valign="bottom" style="vertical-align: bottom; font-weight: normal;">
+                              <p style="margin: 0 0 16px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 32px; color: #050033; text-align: center;">label_4</p>
+                              <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" style="border-bottom: 6px solid #444444;">
+                                 <tr>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 42px; border-radius: 3px 3px 0 0; background-color: #4d4d4d; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 34px; border-radius: 3px 3px 0 0; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 48px; border-radius: 3px 3px 0 0; background-color: #9E9E9E; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 38px; border-radius: 3px 3px 0 0; background-color: #050033; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 44px; border-radius: 3px 3px 0 0; background-color: #4d4d4d; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 30px; border-radius: 3px 3px 0 0; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 46px; border-radius: 3px 3px 0 0; background-color: #9E9E9E; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                 </tr>
+                              </table>
+                              <div style="height: 14px; line-height: 14px; font-size: 0;">&nbsp;</div>
+                              <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" style="border-bottom: 6px solid #444444;">
+                                 <tr>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 36px; border-radius: 3px 3px 0 0; background-color: #9E9E9E; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 46px; border-radius: 3px 3px 0 0; background-color: #050033; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 32px; border-radius: 3px 3px 0 0; background-color: #4d4d4d; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 44px; border-radius: 3px 3px 0 0; background-color: #9980FF; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 40px; border-radius: 3px 3px 0 0; background-color: #9E9E9E; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 48px; border-radius: 3px 3px 0 0; background-color: #050033; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                    <td valign="bottom" style="padding: 0 6px; vertical-align: bottom;"><div style="width: 12px; height: 34px; border-radius: 3px 3px 0 0; background-color: #4d4d4d; font-size: 0; line-height: 0;">&nbsp;</div></td>
+                                 </tr>
+                              </table>
+                              <div style="height: 40px; line-height: 40px; font-size: 0;">&nbsp;</div>
+                           </th>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+               <td height="10" bgcolor="#4d4d4d" style="height: 10px; font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            <tr>
+               <td height="30" bgcolor="#9E9E9E" style="height: 30px; font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            </table>
+         </div>
+         <!-- interactive: scroll window, building and the still cabin -->
+         <!--[if !mso]><!-->
+         <div class="plx-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+            <div class="plx-window">
+               <div class="plx-scroll">
+                  <div class="plx-building">
+                     <!-- sky -->
+                     <div class="plx-a" style="left:0%;top:0%;width:100%;height:18.3333%;background-color:#050033;"></div>
+                     <div class="plx-a plx-star" style="left:8.5714%;top:1.6667%;width:3px;height:3px;"></div>
+                     <div class="plx-a plx-star" style="left:21.4286%;top:5.9524%;width:2px;height:2px;"></div>
+                     <div class="plx-a plx-star" style="left:32.8571%;top:2.619%;width:3px;height:3px;"></div>
+                     <div class="plx-a plx-star" style="left:67.1429%;top:1.4286%;width:2px;height:2px;"></div>
+                     <div class="plx-a plx-star" style="left:87.1429%;top:5.4762%;width:3px;height:3px;"></div>
+                     <div class="plx-a plx-star" style="left:94.2857%;top:9.0476%;width:2px;height:2px;"></div>
+                     <div class="plx-a plx-star" style="left:5.7143%;top:10%;width:2px;height:2px;"></div>
+                     <div class="plx-a plx-star" style="left:74.2857%;top:10.4762%;width:3px;height:3px;"></div>
+                     <div class="plx-a plx-star" style="left:47.1429%;top:10.9524%;width:2px;height:2px;"></div>
+                     <svg class="plx-a" style="left:7.1429%;top:2.8571%;width:14.2857%;" viewBox="0 0 100 100" fill="none" stroke="#9980FF" stroke-width="2" stroke-linecap="round"><line x1="50" y1="30" x2="50" y2="8"/><line x1="50" y1="70" x2="50" y2="92"/><line x1="30" y1="50" x2="8" y2="50"/><line x1="70" y1="50" x2="92" y2="50"/><line x1="36" y1="36" x2="20" y2="20"/><line x1="64" y1="64" x2="80" y2="80"/><line x1="64" y1="36" x2="80" y2="20"/><line x1="36" y1="64" x2="20" y2="80"/></svg>
+                     <svg class="plx-a" style="left:77.1429%;top:1.9048%;width:17.1429%;" viewBox="0 0 100 100" fill="none" stroke="#e3fc5e" stroke-width="2" stroke-linecap="round"><line x1="50" y1="32" x2="50" y2="6"/><line x1="50" y1="68" x2="50" y2="94"/><line x1="32" y1="50" x2="6" y2="50"/><line x1="68" y1="50" x2="94" y2="50"/><line x1="37" y1="37" x2="18" y2="18"/><line x1="63" y1="63" x2="82" y2="82"/><line x1="63" y1="37" x2="82" y2="18"/><line x1="37" y1="63" x2="18" y2="82"/></svg>
+                     <div class="plx-a" style="left:0%;top:0.8571%;width:100%;text-align:center;"><span class="plx-logo">label_7</span><span class="plx-hotels">label_8</span></div>
+                     <div class="plx-a" style="left:14.2857%;top:4.0476%;width:71.4286%;text-align:center;"><h1 class="plx-h1">title_1</h1><p class="plx-sub">txt_1</p></div>
+                     <div class="plx-a" style="left:0%;top:9.5238%;width:100%;text-align:center;"><span class="plx-hint">label_1</span><svg class="plx-chev" style="display:block;margin:6px auto 0 auto;" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9980FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                     <!-- roof terrace -->
+                     <div class="plx-a" style="left:2.8571%;top:13.8095%;width:34.2857%;height:0.2381%;background:radial-gradient(circle, #e3fc5e 3px, transparent 4px) 0 0 / 30px 10px repeat-x;"></div>
+                     <div class="plx-a" style="left:62.8571%;top:13.8095%;width:34.2857%;height:0.2381%;background:radial-gradient(circle, #e3fc5e 3px, transparent 4px) 0 0 / 30px 10px repeat-x;"></div>
+                     <div class="plx-a" style="left:4.2857%;top:14.8571%;width:9.1429%;height:1.5238%;border-radius:50%;background-color:#4d4d4d;"></div>
+                     <div class="plx-a" style="left:86.5714%;top:14.8571%;width:9.1429%;height:1.5238%;border-radius:50%;background-color:#4d4d4d;"></div>
+                     <div class="plx-a" style="left:18.5714%;top:15.9048%;width:11.4286%;height:0.1905%;border-radius:4px;background-color:#9E9E9E;"></div>
+                     <div class="plx-a" style="left:70%;top:15.9048%;width:11.4286%;height:0.1905%;border-radius:4px;background-color:#9E9E9E;"></div>
+                     <div class="plx-a" style="left:2.8571%;top:16.4286%;width:35.7143%;height:1.1905%;border-top:3px solid #9980FF;background:repeating-linear-gradient(90deg, #9980FF 0 2px, transparent 2px 36px);"></div>
+                     <div class="plx-a" style="left:61.4286%;top:16.4286%;width:35.7143%;height:1.1905%;border-top:3px solid #9980FF;background:repeating-linear-gradient(90deg, #9980FF 0 2px, transparent 2px 36px);"></div>
+                     <div class="plx-a" style="left:36.4286%;top:11.1429%;width:27.1429%;height:0.3333%;background-color:#e6e6e6;"></div>
+                     <div class="plx-a" style="left:37.8571%;top:11.4762%;width:24.2857%;height:6.1429%;background-color:#efefef;"></div>
+                     <div class="plx-a plx-roof-label" style="left:37.8571%;top:11.7619%;width:24.2857%;">label_2</div>
+                     <div class="plx-a" style="left:40.7143%;top:12.381%;width:18.5714%;height:5.2381%;background-color:#444444;"></div>
+                     <div class="plx-a" style="left:0%;top:17.619%;width:100%;height:0.7143%;background-color:#e6e6e6;"></div>
+                     <!-- facade and shaft -->
+                     <div class="plx-a" style="left:0%;top:18.3333%;width:100%;height:60.9524%;background-color:#efefef;"></div>
+                     <div class="plx-a" style="left:40.7143%;top:18.3333%;width:18.5714%;height:71.6667%;background-color:#444444;"></div>
+                     <div class="plx-a" style="left:42.8571%;top:18.3333%;width:0.2857%;height:71.6667%;background-color:#4d4d4d;"></div>
+                     <div class="plx-a" style="left:56.8571%;top:18.3333%;width:0.2857%;height:71.6667%;background-color:#4d4d4d;"></div>
+                     <!-- floor 4 -->
+                     <div class="plx-a plx-num plx-num-4" style="left:40.7143%;top:19.0476%;width:18.5714%;">4</div>
+                     <div class="plx-a plx-win plx-lit" style="left:65.7143%;top:22.1429%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-dark" style="left:82%;top:22.1429%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-dark" style="left:65.7143%;top:26.0476%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-lit" style="left:82%;top:26.0476%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-slab" style="left:0%;top:33.0952%;width:100%;height:0.4762%;"></div>
+                     <!-- floor 3 -->
+                     <div class="plx-a plx-num plx-num-3" style="left:40.7143%;top:34.2857%;width:18.5714%;">3</div>
+                     <div class="plx-a plx-win plx-dark" style="left:5.1429%;top:37.381%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-lit" style="left:21.4286%;top:37.381%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-lit" style="left:5.1429%;top:41.2857%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-lit" style="left:21.4286%;top:41.2857%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-slab" style="left:0%;top:48.3333%;width:100%;height:0.4762%;"></div>
+                     <!-- floor 2 -->
+                     <div class="plx-a plx-num plx-num-2" style="left:40.7143%;top:49.5238%;width:18.5714%;">2</div>
+                     <div class="plx-a plx-win plx-lit" style="left:65.7143%;top:52.619%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-lit" style="left:82%;top:52.619%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-dark" style="left:65.7143%;top:56.5238%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-lit" style="left:82%;top:56.5238%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-slab" style="left:0%;top:63.5714%;width:100%;height:0.4762%;"></div>
+                     <!-- floor 1 -->
+                     <div class="plx-a plx-num plx-num-1" style="left:40.7143%;top:64.7619%;width:18.5714%;">1</div>
+                     <div class="plx-a plx-win plx-lit" style="left:5.1429%;top:67.8571%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-dark" style="left:21.4286%;top:67.8571%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-lit" style="left:5.1429%;top:71.7619%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-win plx-dark" style="left:21.4286%;top:71.7619%;width:12.8571%;height:3.3333%;"></div>
+                     <div class="plx-a plx-slab" style="left:0%;top:78.8095%;width:100%;height:0.4762%;"></div>
+                     <!-- info plates (top layer) -->
+                     <div class="plx-a plx-plate plx-plate-1" style="left:4.2857%;top:21.4286%;width:32.8571%;">
+                     <span class="plx-badge plx-badge-dark">badge_1</span>
+                     <span class="plx-label">subtitle_1</span>
+                     <h2 class="plx-h2">title_2</h2>
+                     <span class="plx-big">title_3</span>
+                     <p class="plx-p">txt_2</p>
+                     </div>
+                     <div class="plx-a plx-plate plx-plate-2" style="left:62.8571%;top:36.6667%;width:32.8571%;">
+                     <span class="plx-badge plx-badge-dark">badge_2</span>
+                     <span class="plx-label">subtitle_2</span>
+                     <h2 class="plx-h2">title_4</h2>
+                     <span class="plx-photo">img_alt_1</span>
+                     <span class="plx-strong">txt_3</span>
+                     <span class="plx-stat-label" style="margin:0;font-size:15px;">txt_4</span>
+                     </div>
+                     <div class="plx-a plx-plate plx-plate-3" style="left:4.2857%;top:51.9048%;width:32.8571%;">
+                     <span class="plx-badge plx-badge-light">badge_3</span>
+                     <span class="plx-label">subtitle_3</span>
+                     <h2 class="plx-h2">title_5</h2>
+                     <span class="plx-stat">title_6</span><span class="plx-stat-label">txt_5</span>
+                     <span class="plx-stat">title_7</span><span class="plx-stat-label">txt_6</span>
+                     <span class="plx-stat plx-stat-sm">title_8</span><span class="plx-stat-label" style="margin:0;">txt_7</span>
+                     </div>
+                     <div class="plx-a plx-plate plx-plate-4" style="left:62.8571%;top:67.1429%;width:32.8571%;">
+                     <span class="plx-badge plx-badge-light">badge_4</span>
+                     <span class="plx-label">subtitle_4</span>
+                     <h2 class="plx-h2">title_9</h2>
+                     <span class="plx-photo plx-photo-2">img_alt_2</span>
+                     <p class="plx-p">txt_8</p>
+                     <a class="plx-more plx-dl" href="https://100procent.nl/" target="_blank">link_txt_1</a>
+                     </div>
+                     <!-- lobby -->
+                     <div class="plx-a" style="left:0%;top:79.2857%;width:100%;height:16.9048%;background-color:#e6e6e6;"></div>
+                     <div class="plx-a" style="left:40.7143%;top:79.2857%;width:18.5714%;height:10.9524%;background-color:#4d4d4d;"></div>
+                     <div class="plx-a plx-front plx-lobby-card" style="left:5.7143%;top:80.0476%;width:88.5714%;"><h2 class="plx-lobby-h2">title_10</h2><p class="plx-lobby-p">txt_9</p></div>
+                     <div class="plx-a" style="left:19.1429%;top:83.3333%;width:0.2857%;height:0.9524%;background-color:#9980FF;"></div>
+                     <div class="plx-a" style="left:15.7143%;top:84.2857%;width:7.1429%;height:0.619%;border-radius:26px 26px 0 0;background-color:#9E9E9E;"></div>
+                     <div class="plx-a" style="left:83.4286%;top:83.3333%;width:0.2857%;height:0.9524%;background-color:#9980FF;"></div>
+                     <div class="plx-a" style="left:80%;top:84.2857%;width:7.1429%;height:0.619%;border-radius:26px 26px 0 0;background-color:#9E9E9E;"></div>
+                     <div class="plx-a plx-room" style="left:5.7143%;top:86.4286%;width:28.5714%;">label_3</div>
+                     <div class="plx-a plx-keys" style="left:10%;top:87.8571%;width:20%;"><span class="plx-key"></span><span class="plx-key"></span><span class="plx-key"></span><span class="plx-key"></span><span class="plx-key"></span><span class="plx-key"></span><span class="plx-key"></span><span class="plx-key"></span></div>
+                     <div class="plx-a" style="left:27.1429%;top:92.2857%;width:3.1429%;height:0.3333%;border-radius:11px 11px 0 0;background-color:#9E9E9E;"></div>
+                     <div class="plx-a" style="left:4.2857%;top:92.619%;width:31.4286%;height:0.2857%;background-color:#9E9E9E;"></div>
+                     <div class="plx-a" style="left:5.7143%;top:92.9048%;width:28.5714%;height:3.2857%;background-color:#050033;"></div>
+                     <div class="plx-a plx-room" style="left:65.7143%;top:86.4286%;width:28.5714%;">label_4</div>
+                     <div class="plx-a plx-shelf" style="left:68.5714%;top:88.0952%;width:24.2857%;height:1.1905%;"><span class="plx-bottle" style="height:42px;background-color:#4d4d4d;"></span><span class="plx-bottle" style="height:34px;background-color:#9980FF;"></span><span class="plx-bottle" style="height:48px;background-color:#9E9E9E;"></span><span class="plx-bottle" style="height:38px;background-color:#050033;"></span><span class="plx-bottle" style="height:44px;background-color:#4d4d4d;"></span><span class="plx-bottle" style="height:30px;background-color:#9980FF;"></span><span class="plx-bottle" style="height:46px;background-color:#9E9E9E;"></span></div>
+                     <div class="plx-a" style="left:67.1429%;top:89.2857%;width:25.7143%;height:0.1429%;background-color:#444444;"></div>
+                     <div class="plx-a plx-shelf" style="left:68.5714%;top:89.7619%;width:24.2857%;height:1.1905%;"><span class="plx-bottle" style="height:36px;background-color:#9E9E9E;"></span><span class="plx-bottle" style="height:46px;background-color:#050033;"></span><span class="plx-bottle" style="height:32px;background-color:#4d4d4d;"></span><span class="plx-bottle" style="height:44px;background-color:#9980FF;"></span><span class="plx-bottle" style="height:40px;background-color:#9E9E9E;"></span><span class="plx-bottle" style="height:48px;background-color:#050033;"></span><span class="plx-bottle" style="height:34px;background-color:#4d4d4d;"></span></div>
+                     <div class="plx-a" style="left:67.1429%;top:90.9524%;width:25.7143%;height:0.1429%;background-color:#444444;"></div>
+                     <div class="plx-a" style="left:64.2857%;top:92.619%;width:31.4286%;height:0.2857%;background-color:#9E9E9E;"></div>
+                     <div class="plx-a" style="left:65.7143%;top:92.9048%;width:28.5714%;height:3.2857%;background-color:#444444;"></div>
+                     <div class="plx-a" style="left:69.7143%;top:93.9048%;width:5.7143%;height:0.2381%;border-radius:5px;background-color:#050033;"></div>
+                     <div class="plx-a" style="left:72.2857%;top:94.1429%;width:0.5714%;height:2.0476%;background-color:#050033;"></div>
+                     <div class="plx-a" style="left:84%;top:93.9048%;width:5.7143%;height:0.2381%;border-radius:5px;background-color:#050033;"></div>
+                     <div class="plx-a" style="left:86.5714%;top:94.1429%;width:0.5714%;height:2.0476%;background-color:#050033;"></div>
+                     <!-- entrance with the lift: front layer, slides over the cabin and lands on it with the doors open -->
+                     <div class="plx-a plx-front plx-lift-badge" style="left:48%;top:89.2381%;width:4%;height:0.6667%;">label_5</div>
+                     <div class="plx-a plx-front plx-sign" style="left:36.4286%;top:90.119%;width:27.1429%;height:0.6667%;">label_6</div>
+                     <div class="plx-a plx-front" style="left:39.7143%;top:90.7857%;width:20.5714%;height:5.4048%;border:7px solid #4d4d4d;border-bottom:0;"></div>
+                     <div class="plx-a plx-front" style="left:40.7143%;top:90.9524%;width:18.5714%;height:5.2381%;background-color:#fefefe;box-shadow:inset 0 0 0 4px #9E9E9E;"></div>
+                     <div class="plx-a plx-front plx-door-l" style="left:41.2857%;top:91.0476%;width:5.7143%;height:5.1429%;background-color:#efefef;border-right:2px solid #9E9E9E;"></div>
+                     <div class="plx-a plx-front plx-door-r" style="left:52.7143%;top:91.0476%;width:5.7143%;height:5.1429%;background-color:#efefef;border-left:2px solid #9E9E9E;"></div>
+                     <!-- pavement -->
+                     <div class="plx-a" style="left:0%;top:96.1905%;width:100%;height:3.8095%;background-color:#9E9E9E;"></div>
+                     <div class="plx-a" style="left:0%;top:96.1905%;width:100%;height:0.2381%;background-color:#4d4d4d;"></div>
+                     <div class="plx-a" style="left:41.4286%;top:96.1905%;width:17.1429%;height:0.2381%;background-color:#050033;"></div>
+                  </div>
+                  <div class="plx-ground-pad"></div>
+               </div>
+               <!-- the cabin: stays still above the scrolling building -->
+               <div class="plx-cabin"><div class="plx-seam"></div></div>
+            </div>
+         </div>
+         <!--<![endif]-->
+         <!-- below the scroll area: shared by fallback and interactive -->
+         <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+               <td align="center" bgcolor="#efefef" class="pml16 pmr16" style="padding: 12px 24px;">
+                  <span class="plx-usp" style="display: inline-block; padding: 0 11px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 20px; color: #444444;"><span style="color: #9980FF; font-weight: 700;">&#10003;</span>&nbsp;txt_10</span><span class="plx-usp" style="display: inline-block; padding: 0 11px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 20px; color: #444444;"><span style="color: #9980FF; font-weight: 700;">&#10003;</span>&nbsp;txt_11</span><span class="plx-usp" style="display: inline-block; padding: 0 11px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 20px; color: #444444;"><span style="color: #9980FF; font-weight: 700;">&#10003;</span>&nbsp;txt_12</span>
+               </td>
+            </tr>
+            <tr>
+               <td align="center" bgcolor="#ffffff" class="pml16 pmr16" style="padding: 48px 60px;">
+                  <h2 class="plx-cta-title" style="margin: 0 0 18px 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 38px; line-height: 44px; font-weight: 500; color: #050033;">title_11</h2>
+                  <p style="margin: 0 0 26px 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 24px; color: #444444;">txt_13</p>
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:48px;v-text-anchor:middle;width:200px;" arcsize="8%" strokecolor="#e3fc5e" fillcolor="#e3fc5e">
+                     <w:anchorlock/>
+                     <center style="color:#050033;font-family:Roboto,Arial,Helvetica,Verdana,sans-serif;font-size:16px;font-weight:bold;">btn_txt_1</center>
+                  </v:roundrect>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:48px;v-text-anchor:middle;width:220px;" arcsize="8%" strokecolor="#050033" strokeweight="2px" filled="f">
+                     <w:anchorlock/>
+                     <center style="color:#050033;font-family:Roboto,Arial,Helvetica,Verdana,sans-serif;font-size:16px;font-weight:bold;">btn_txt_2</center>
+                  </v:roundrect>
+                  <![endif]-->
+                  <a class="plx-btn" href="https://100procent.nl/" target="_blank" style="display: inline-block; margin: 0 8px; padding: 0 26px; border-radius: 4px; background-color: #e3fc5e; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 48px; font-weight: 600; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">btn_txt_1</a>
+                  <a class="plx-btn plx-dl" href="https://100procent.nl/" target="_blank" style="display: inline-block; margin: 0 8px; padding: 0 24px; border-radius: 4px; border: 2px solid #050033; color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 44px; font-weight: 600; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">btn_txt_2</a>
+               </td>
+            </tr>
+         </table>
+      </td>
+   </tr>
+</table>
+<!-- end para_1_col_row_1_title_txt_row_2_subtitle_title_txt_x4_img_x2_btn_row_3_title_txt_btn_x2 -->
 <!-- start accordion_1_col_row_1_title_icon_row_2_txt -->
 <style>
    /* hide the toggle checkbox */

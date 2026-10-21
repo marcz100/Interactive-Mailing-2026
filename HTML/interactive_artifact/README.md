@@ -9,11 +9,14 @@ concepts. It's a living document: add a rule when we learn something, and write 
 ```
 interactive_artifact/
   README.md                      <- this file: rules for every artifact concept
+  tools/                         <- shared tooling (unbundle_artifact.js)
   <client>/
     README.md                    <- client rules: brand values, mail shell, data, open items, concept overview
     concept_<n>_<name>/
       README.md                  <- concept rules: what it does, states, geometry, decisions, tests, open items
       <client>_<campaign>_<year>_concept_<n>.html
+      build/                     <- generator (block + mail), mail builder, tests
+      tests/                     <- test sends kept as reference, unchanged (optional)
 ```
 
 The reusable block for a concept lives in `blocks/<prefix>/` (default tokens, slot names). The concept mail in this
@@ -29,6 +32,15 @@ folder is the same structure with the client's values and copy.
 3. **Rule: map the canvas first.** `canvas.json` tells which boards belong to which concept (titles, x positions,
    `is_interactive`). Typical boards per concept: the full mail, the clickable version, the steps/moments, technique.
 4. **Rule: the artifact is a design reference, not email code.** Never copy its HTML/CSS/JS into a mail.
+5. **Rule: a downloaded artifact is a bundle; unpack it** with `node tools/unbundle_artifact.js "<file>.html" <out>`.
+   The download (one large .html) holds gzipped, base64 resources and every board is a nested bundle; the script
+   writes each board's `_template.html` (markup + DCLogic script). Open the board's page file in Chrome to see it
+   rendered and to measure it.
+   - *Lesson:* the Funda artifact was only available as a download ("Funda eindejaarsmails 2026.html").
+6. **Rule: measure the rendered board** (Chrome over the DevTools Protocol: font size, line height, position, size of
+   every text element) and compare the mail with the same script. Where the board sets no `line-height` it renders
+   `normal` (about 1.2x for most webfonts), not the canvas page's base.
+   - *Lesson:* Funda B2C 1 used 1.4 by guess; the finale and the cards were 30px taller than the board.
 
 ## 2. One-on-one
 
@@ -80,11 +92,31 @@ folder is the same structure with the client's values and copy.
 | Undo all | inputs inside a `<form>`, `<input type="reset">` (resets to the `checked` defaults) | "Opnieuw inpakken" |
 | Show the **newest** of several open items in one spot | all items in the same fixed box with an opaque background; each starts a `z-index` countdown animation when it appears (`10000000 → 1` over `100000s`, 100 per second), so the newest is on top. Without animation support the last one in the DOM shows. | turndown mobile text spot |
 | Triangles / flaps | `clip-path: polygon()` (interactive layer only) or border triangles | turndown flaps |
+| Object stands still while a scene scrolls past (parallax) | a scroll window (`overflow-y: auto`, fixed proportions) with the scene inside, and the object as a separate layer above the window (`pointer-events: none` so you can scroll through it) | lift cabin |
+| Something "happens" at the end of a scroll | make the end state part of the scene as a **front layer** (higher z-index) that lands exactly on the still object | lift entrance in the lobby |
+| Change something **during** a scroll (open at the end, light up while passing) | **scroll-driven animations**: a named `scroll-timeline` on the scroll window, `animation-timeline` + keyframes in % of the scroll, inside `@supports (animation-timeline: scroll())`; WebKit since Safari 26 / Apple Mail 26. Name the timeline: an `overflow: hidden` element in between is otherwise the nearest scroll container. Without support the static state stays. | lift doors open only at the landing, floor numbers light up |
+| Scene scales but text must stay readable | percent geometry for the drawing; on mobile, move text blocks out of the scaled drawing or make them wide cards in front of it | lift plates |
+| Different column order on mobile than on desktop | keep the mobile order in the HTML; on desktop flip the row with `dir="rtl"` on the table and `dir="ltr"` on every cell | lift fallback floors |
+| Something that can't be undone (a door stays open) | `pointer-events: none` on the label of a checked input (`.c1:checked ~ .xx-interactive .label-1`) | Funda doors |
+| Locked until the others are done | the label starts with `pointer-events: none`; the chain of all inputs (`.c1:checked ~ … ~ .c6:checked ~ .xx-interactive`) sets `pointer-events: auto`. A rule for the next state must contain the chain too, or it loses on specificity | Funda door 24 |
+| Count text ("Nog 3 deuren te gaan") with many inputs | a CSS counter: `counter-reset: n 6` on the text, an empty span per input with `counter-increment: n -1` when checked, `content: counter(n)` in a span between the copy. One selector per input instead of 2^n combinations | Funda progress |
+| Newest of several cards in one spot, without fixed heights | all cards in one CSS grid cell (`grid-area: 1 / 1`), unopened ones `visibility: hidden` (they still size the cell), z-index countdown animation as above | Funda record cards |
 
 - **Check: stacked layers need identical boxes.** A shorter text on top doesn't cover a longer one below.
   - *Lesson:* "Hoekje 1 blijft staan" — the boxes now have a fixed top and bottom.
+  - Consequence: stacked cards are as high as the tallest one, where the artifact may size each to its text. Say so
+    in the concept README as a deviation.
+- **Check: click tests use real mouse clicks** (`Input.dispatchMouseEvent` at the element's position), not
+  `element.click()`: the latter ignores `pointer-events: none`, so locked or finished labels look clickable.
 - **Rule: text keeps ≥ 16px from borders and lines** of the drawn shapes, also on mobile and on small phones.
   - *Lesson:* corner texts touched the pillow line.
+- **Rule: no scrollbar in a scroll window** whose content must line up with a layer outside it
+  (`scrollbar-width: none` and `::-webkit-scrollbar { display: none }`).
+  - *Lesson:* on desktop the scrollbar made the lift building 15px narrower than the window, so the cabin missed the
+    roof door. Give the scene its own "scroll" hint instead.
+- **Rule: a drawn scene is as wide as its artifact canvas** (up to 700px) when text and drawing must keep their
+  proportions: positions scale with the width, font sizes don't.
+  - *Lesson:* at 648px the lift plates were narrower than in the artifact and headings wrapped.
 
 ## 5. Mobile
 
@@ -115,6 +147,10 @@ folder is the same structure with the client's values and copy.
    - Webfonts need time: wait before screenshots, or fonts fall back to Georgia/Arial.
    - Stop only headless Chrome processes (`--headless` in the command line), never the user's own browser.
    - Git Bash eats backslashes in inline `node -e` scripts and heredocs; write scripts to files.
+   - Hit-testing (`elementFromPoint`) ignores elements with `pointer-events: none` (like the lift cabin): check
+     stacking geometrically (overlap + computed z-index) instead.
+   - Compare desktop at a viewport wider than the mail (e.g. 760px for a 700px mail): the page's own scrollbar takes
+     15px of a 700px viewport.
 5. **Still needed:** real Apple Mail (iOS, iPadOS, macOS, light and dark), Gmail, Outlook (classic, new, .com, apps),
    Samsung Mail.
 
@@ -122,3 +158,9 @@ folder is the same structure with the client's values and copy.
 
 - ≤ 90 KB preferred, 95 KB hard limit, ~102 KB is where Gmail clips (email_rules section 5). Measure the byte offset of
   the fallback and the unsubscribe link, not only the total.
+- **Rule: insert a large generated block into the mail without re-indenting it.**
+  - *Lesson:* shifting the lift block 15 spaces to the mail's nesting added about 11 KB (the mail went from 90 KB to
+    101 KB).
+- **Rule: if still too heavy, compact the block's indentation in the mail** to 1 space per level (formatting only;
+  verify the mail is identical apart from leading whitespace). The block file in `blocks/` keeps normal indentation.
+  - *Lesson:* the lift mail went from 97 KB to 86.5 KB this way after adding the scroll-driven extras.
