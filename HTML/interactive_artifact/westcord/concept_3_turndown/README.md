@@ -76,11 +76,17 @@ keeps its size. Side-by-side screenshots with the artifact matched in all states
 
 ## How it is built
 
-- One generator (`gen_hotspot.js`) produces the block (default tokens, slot names) and, with the artifact's values and
-  copy, this mail (`build_westcord_turndown.js`); the mail's block section differs from the block only in the full-width
-  outer cell.
-- **The generator scripts currently live only in the session scratchpad, not in the repo.** Edit the mail and the block
-  by hand together (email_rules 1.5), or add the scripts to the repo first.
+Scripts in [build/](build/) (Node 22+):
+
+| Script | What it does |
+|---|---|
+| `node gen_hotspot.js` | Writes the block `blocks/hotspot/…` with the default tokens and slot names. Then run `assemble.ps1` in `HTML/`. |
+| `node build_mail.js` | Writes this mail: the WestCord shell from the concept 2 mail + the block with the artifact's values + the copy. |
+| `node test_clicks.js` | Click tests over the Chrome DevTools Protocol (390/360px mobile emulation and desktop 700px); screenshots go to the system temp folder. `CHROME=<path>` overrides the Chrome location. |
+
+- **Change the generator, not the HTML.** The block and the mail come from the same code; the mail's block section
+  differs from the block only in the full-width outer cell. After a change: run both scripts, `assemble.ps1`, and
+  `test_clicks.js`.
 
 ## Open items
 
