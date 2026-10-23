@@ -1,0 +1,694 @@
+<!-- start hotspot_1_col_row_1_icon_badge_row_2_subtitle_title_row_3_icon_x5_row_4_subtitle_txt_btn -->
+<!-- "Van boorgat tot badkamer" (Claude Design artifact "Coram eindejaarsmail", concept 1): a bare tiled wall with five
+     drill holes. Each plus mounts a product (checkbox per product) and shows its thank-you or fact; with all five the
+     headline and the finale change. Fallback (Gmail, Outlook, Samsung): the complete bathroom and all texts.
+     Geometry and font sizes are the artifact's; colours and fonts are token values here (the Coram mail uses the
+     artifact's). Built with interactive_artifact/coram/concept_1_van_boorgat_tot_badkamer/build/gen_badkamer.js:
+     change the generator, not this file. -->
+<style type="text/css">
+   /* Van boorgat tot badkamer (artifact "Van boorgat tot badkamer"): a bare tiled wall with five drill holes. Each
+      plus is the label of its own checkbox: tapping it mounts a Coram product there and shows its thank-you or fact in
+      the panel below (the newest on top). With all five mounted the headline changes and the panel shows the finale
+      with "Opnieuw" (the form's reset). Order: inputs, fallback, interactive. Interactive only in WebKit clients that
+      support :checked (pre-checked .cb-detect); everything else keeps the fallback: the complete bathroom with all the
+      texts below it. */
+   @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      .cb-detect:checked ~ .cb-fallback {
+         display: none !important;
+         max-height: 0 !important;
+         overflow: hidden !important;
+      }
+
+      .cb-detect:checked ~ .cb-interactive {
+         display: block !important;
+         max-height: none !important;
+         overflow: visible !important;
+      }
+   }
+
+   /* the board: 700 x 1000, padding 32 40 40, rows 20 apart */
+   .cb-interactive .cb-wrap {
+      padding: 32px 40px 40px 40px;
+      background-color: #ffffff;
+      text-align: left;
+   }
+
+   .cb-interactive .cb-top {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      -webkit-align-items: center;
+      align-items: center;
+   }
+
+   .cb-interactive .cb-logo {
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 24px;
+      line-height: 35px;
+      font-weight: 600;
+      letter-spacing: 0.38em;
+      color: #050033;
+   }
+
+   /* the counter pill: "n van 5 gemonteerd", n from a CSS counter (one empty span per product) */
+   .cb-interactive .cb-pill {
+      padding: 8px 16px;
+      border-radius: 999px;
+      background-color: #050033;
+      counter-reset: cb-n 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 22px;
+      white-space: nowrap;
+      color: #ffffff;
+   }
+
+   .cb-c1:checked ~ .cb-interactive .cb-k1,
+   .cb-c2:checked ~ .cb-interactive .cb-k2,
+   .cb-c3:checked ~ .cb-interactive .cb-k3,
+   .cb-c4:checked ~ .cb-interactive .cb-k4,
+   .cb-c5:checked ~ .cb-interactive .cb-k5 {
+      counter-increment: cb-n 1;
+   }
+
+   .cb-interactive .cb-count:before {
+      content: counter(cb-n);
+   }
+
+   .cb-interactive .cb-kicker {
+      margin: 20px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #4d4d4d;
+   }
+
+   /* the two headlines share one grid cell; the second shows when all five hang */
+   .cb-interactive .cb-heads {
+      display: -ms-grid;
+      display: grid;
+      margin: 8px 0 0 0;
+   }
+
+   .cb-interactive .cb-h1 {
+      grid-area: 1 / 1;
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 36px;
+      line-height: 41.4px;
+      font-weight: 300;
+      color: #050033;
+   }
+
+   .cb-interactive .cb-h1-done,
+   .cb-c1:checked ~ .cb-c2:checked ~ .cb-c3:checked ~ .cb-c4:checked ~ .cb-c5:checked ~ .cb-interactive .cb-h1-start {
+      visibility: hidden;
+   }
+
+   .cb-c1:checked ~ .cb-c2:checked ~ .cb-c3:checked ~ .cb-c4:checked ~ .cb-c5:checked ~ .cb-interactive .cb-h1-done {
+      visibility: visible;
+   }
+
+   /* the scene: 620 x 470 (75.8065% = 470 / 620), the tiled wall with 78px tiles */
+   .cb-interactive .cb-scene {
+      position: relative;
+      height: 0;
+      margin: 20px 0 0 0;
+      padding-bottom: 75.8065%;
+      overflow: hidden;
+      background-color: #efefef;
+      background-image: repeating-linear-gradient(0deg, rgba(68,68,68,0.25) 0 1px, transparent 1px 78px), repeating-linear-gradient(90deg, rgba(68,68,68,0.25) 0 1px, transparent 1px 78px);
+   }
+
+   .cb-interactive .cb-a {
+      position: absolute;
+      display: block;
+      box-sizing: border-box;
+   }
+
+   /* furniture and basin are there already */
+   .cb-interactive .cb-cabinet {
+      left: 20.9677%; top: 85.1064%; width: 58.0645%; height: 14.8936%;
+      background-color: #050033;
+   }
+
+   .cb-interactive .cb-basin {
+      left: 33.871%; top: 75.3191%; width: 32.2581%; height: 10.2128%;
+      border-radius: 8px 8px 4px 4px;
+      background-color: #fefefe;
+      box-shadow: inset 0 -10px 14px rgba(0,0,0,0.08), 0 6px 10px rgba(0,0,0,0.15);
+   }
+
+   /* the drill holes (6px) and the plus buttons (48px, centred on the board's buttons) */
+   .cb-interactive .cb-hole {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #444444;
+   }
+
+   .cb-interactive .cb-plus {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin: -24px 0 0 -24px;
+      border: 2px solid #9980FF;
+      border-radius: 50%;
+      background-color: #ffffff;
+      box-shadow: 0 0 0 7px rgba(153,128,255,0.18);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+   }
+
+   /* the products, hidden until mounted */
+   .cb-interactive .cb-on {
+      display: none;
+   }
+
+   .cb-c1:checked ~ .cb-interactive .cb-on1,
+   .cb-c2:checked ~ .cb-interactive .cb-on2,
+   .cb-c3:checked ~ .cb-interactive .cb-on3,
+   .cb-c4:checked ~ .cb-interactive .cb-on4,
+   .cb-c5:checked ~ .cb-interactive .cb-on5 {
+      display: block;
+   }
+
+   .cb-c1:checked ~ .cb-interactive .cb-off1,
+   .cb-c2:checked ~ .cb-interactive .cb-off2,
+   .cb-c3:checked ~ .cb-interactive .cb-off3,
+   .cb-c4:checked ~ .cb-interactive .cb-off4,
+   .cb-c5:checked ~ .cb-interactive .cb-off5 {
+      display: none;
+   }
+
+   .cb-interactive .cb-dark {
+      background-color: #050033;
+   }
+
+   /* 1 haakje */
+   .cb-interactive .cb-haak-1 { left: 10.9677%; top: 13.1915%; width: 3.5484%; height: 4.6809%; border-radius: 4px; }
+   .cb-interactive .cb-haak-2 { left: 12.2581%; top: 16.1702%; width: 0.9677%; height: 5.5319%; border-radius: 3px; }
+   .cb-interactive .cb-haak-3 { left: 12.2581%; top: 20.4255%; width: 2.5806%; height: 1.2766%; border-radius: 3px; }
+
+   /* 2 planchet */
+   .cb-interactive .cb-plank-1 { left: 10.6452%; top: 41.7021%; width: 3.2258%; height: 8.5106%; border-radius: 4px; }
+   .cb-interactive .cb-plank-2 {
+      left: 21.2903%; top: 43.8298%; width: 2.2581%; height: 6.383%;
+      border-radius: 7px 7px 3px 3px;
+      background-color: #fefefe;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
+   }
+   .cb-interactive .cb-plank-3 {
+      left: 7.0968%; top: 50.2128%; width: 21.2903%; height: 1.7021%;
+      border-radius: 2px;
+      background-color: rgba(230,230,230,0.95);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+   }
+   .cb-interactive .cb-plank-4 { left: 7.4194%; top: 51.9149%; width: 1.6129%; height: 2.1277%; }
+   .cb-interactive .cb-plank-5 { left: 26.4516%; top: 51.9149%; width: 1.6129%; height: 2.1277%; }
+
+   /* 3 spiegel: 160 x 240 frame, 8px padding, the glass 144 x 224 with two light streaks */
+   .cb-interactive .cb-spiegel {
+      left: 37.0968%; top: 10.6383%; width: 25.8065%; height: 51.0638%;
+      padding: 1.2903%;
+      border-radius: 20px;
+      background-color: #050033;
+      box-shadow: 0 14px 24px rgba(40,30,20,0.3);
+   }
+
+   .cb-interactive .cb-glass {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 13px;
+      overflow: hidden;
+      background-color: #9E9E9E;
+   }
+
+   .cb-interactive .cb-streak-1,
+   .cb-interactive .cb-streak-2 {
+      top: -8.9286%;
+      height: 142.8571%;
+      -webkit-transform: rotate(25deg);
+      transform: rotate(25deg);
+   }
+
+   .cb-interactive .cb-streak-1 {
+      left: -20.8333%;
+      width: 34.7222%;
+      background-color: rgba(255,255,255,0.14);
+   }
+
+   .cb-interactive .cb-streak-2 {
+      left: 34.7222%;
+      width: 12.5%;
+      background-color: rgba(255,255,255,0.10);
+   }
+
+   /* 4 zeepdispenser */
+   .cb-interactive .cb-zeep-1 { left: 71.9355%; top: 51.9149%; width: 4.1935%; height: 3.4043%; border-radius: 3px; }
+   .cb-interactive .cb-zeep-2 { left: 72.9032%; top: 54.8936%; width: 2.2581%; height: 2.1277%; }
+   .cb-interactive .cb-zeep-3 {
+      left: 71.2903%; top: 56.5957%; width: 5.4839%; height: 13.617%;
+      border-radius: 8px;
+      background-color: #444444;
+      box-shadow: inset 4px 0 0 rgba(255,255,255,0.08), 0 6px 10px rgba(0,0,0,0.2);
+   }
+
+   /* 5 handdoekrek */
+   .cb-interactive .cb-rek-1 { left: 80%; top: 24.2553%; width: 3.5484%; height: 4.6809%; border-radius: 4px; }
+   .cb-interactive .cb-rek-2 { left: 93.871%; top: 24.2553%; width: 3.5484%; height: 4.6809%; border-radius: 4px; }
+   .cb-interactive .cb-rek-3 { left: 81.6129%; top: 25.5319%; width: 14.1935%; height: 2.1277%; border-radius: 5px; }
+   .cb-interactive .cb-rek-4 {
+      left: 83.2258%; top: 27.234%; width: 10.9677%; height: 27.6596%;
+      border-radius: 0 0 4px 4px;
+      background-color: #e3fc5e;
+      background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.12) 0 2px, transparent 2px 6px);
+      box-shadow: 0 10px 16px rgba(40,30,20,0.2);
+   }
+
+   /* the panel: 292 high (1000 - 32 - 40 - the rows above), padding 24 28. Its texts share one grid cell on the
+      panel's background: the start text, one per product (the newest on top: each starts the cb-stack z-index
+      countdown when mounted) and the finale (above everything when all five hang). */
+   .cb-interactive .cb-panel {
+      min-height: 292px;
+      margin: 20px 0 0 0;
+      padding: 24px 28px;
+      box-sizing: border-box;
+      background-color: #050033;
+   }
+
+   .cb-interactive .cb-msgs {
+      display: -ms-grid;
+      display: grid;
+   }
+
+   .cb-interactive .cb-msg {
+      position: relative;
+      grid-area: 1 / 1;
+      visibility: hidden;
+      background-color: #050033;
+   }
+
+   .cb-interactive .cb-msg0 {
+      visibility: visible;
+   }
+
+   .cb-c1:checked ~ .cb-interactive .cb-msg0,
+   .cb-c2:checked ~ .cb-interactive .cb-msg0,
+   .cb-c3:checked ~ .cb-interactive .cb-msg0,
+   .cb-c4:checked ~ .cb-interactive .cb-msg0,
+   .cb-c5:checked ~ .cb-interactive .cb-msg0 {
+      visibility: hidden;
+   }
+
+   .cb-c1:checked ~ .cb-interactive .cb-msg1,
+   .cb-c2:checked ~ .cb-interactive .cb-msg2,
+   .cb-c3:checked ~ .cb-interactive .cb-msg3,
+   .cb-c4:checked ~ .cb-interactive .cb-msg4,
+   .cb-c5:checked ~ .cb-interactive .cb-msg5 {
+      visibility: visible;
+      -webkit-animation: cb-stack 100000s linear forwards;
+      animation: cb-stack 100000s linear forwards;
+   }
+
+   .cb-c1:checked ~ .cb-c2:checked ~ .cb-c3:checked ~ .cb-c4:checked ~ .cb-c5:checked ~ .cb-interactive .cb-msg6 {
+      visibility: visible;
+      z-index: 20000000;
+   }
+
+   @-webkit-keyframes cb-stack {
+      from {
+         z-index: 10000000;
+      }
+
+      to {
+         z-index: 1;
+      }
+   }
+
+   @keyframes cb-stack {
+      from {
+         z-index: 10000000;
+      }
+
+      to {
+         z-index: 1;
+      }
+   }
+
+   .cb-interactive .cb-msg-k {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #e6e6e6;
+   }
+
+   .cb-interactive .cb-msg-t {
+      margin: 10px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 20px;
+      line-height: 29px;
+      font-weight: 300;
+      color: #ffffff;
+   }
+
+   /* the signature and "Opnieuw", only when all five hang */
+   .cb-interactive .cb-done {
+      display: none;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      -webkit-align-items: center;
+      align-items: center;
+      margin: 10px 0 0 0;
+   }
+
+   .cb-c1:checked ~ .cb-c2:checked ~ .cb-c3:checked ~ .cb-c4:checked ~ .cb-c5:checked ~ .cb-interactive .cb-done {
+      display: -webkit-flex;
+      display: flex;
+   }
+
+   .cb-interactive .cb-sign {
+      margin: 0 16px 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 23px;
+      font-weight: 300;
+      color: #e6e6e6;
+   }
+
+   .cb-interactive .cb-reset {
+      height: 44px;
+      padding: 0;
+      border: 0;
+      background-color: transparent;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 22px;
+      text-decoration: underline;
+      color: #ffffff;
+      cursor: pointer;
+      -webkit-appearance: none;
+   }
+
+   @media only screen and (max-width: 600px) {
+      .cb-interactive .cb-wrap {
+         padding: 24px 16px 24px 16px !important;
+      }
+
+      .cb-interactive .cb-logo {
+         font-size: 20px !important;
+         line-height: 29px !important;
+      }
+
+      .cb-interactive .cb-pill {
+         padding: 6px 12px !important;
+         font-size: 13px !important;
+         line-height: 19px !important;
+      }
+
+      .cb-h1 {
+         font-size: 28px !important;
+         line-height: 33px !important;
+      }
+
+      .cb-interactive .cb-plus {
+         width: 36px !important;
+         height: 36px !important;
+         margin: -18px 0 0 -18px !important;
+         box-shadow: 0 0 0 5px rgba(153,128,255,0.18) !important;
+      }
+
+      .cb-interactive .cb-plus svg {
+         width: 16px !important;
+         height: 16px !important;
+      }
+
+      .cb-interactive .cb-spiegel {
+         border-radius: 12px !important;
+      }
+
+      .cb-interactive .cb-glass {
+         border-radius: 8px !important;
+      }
+
+      .cb-interactive .cb-panel {
+         min-height: 0 !important;
+         padding: 20px !important;
+      }
+
+      .cb-msg-t {
+         font-size: 17px !important;
+         line-height: 25px !important;
+      }
+
+      .cb-interactive .cb-done {
+         -webkit-flex-direction: column !important;
+         flex-direction: column !important;
+         -webkit-align-items: flex-start !important;
+         align-items: flex-start !important;
+      }
+
+      .cb-fb-wrap {
+         padding: 24px 16px !important;
+      }
+
+      .cb-fb-panel {
+         padding: 20px !important;
+      }
+   }
+
+   @media only screen and (max-width: 400px) {
+      .cb-h1 {
+         font-size: 24px !important;
+         line-height: 29px !important;
+      }
+
+      .cb-interactive .cb-logo {
+         font-size: 18px !important;
+         line-height: 26px !important;
+      }
+   }
+
+   /* Outlook.com / new Outlook: class names get an x_ prefix */
+   [class~="x_cb-interactive"],
+   [class~="x_cb-detect"]:checked ~ [class~="x_cb-interactive"] {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   [class~="x_cb-fallback"],
+   [class~="x_cb-detect"]:checked ~ [class~="x_cb-fallback"] {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+
+   /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+   #MessageViewBody .cb-interactive {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   #MessageViewBody .cb-fallback {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<style type="text/css">
+   /* Outlook apps: back to the fallback (separate style tag: the \0 hack breaks the rest of a style tag) */
+   .cb-interactive\0,
+   .cb-detect:checked ~ .cb-interactive\0 {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   .cb-fallback\0,
+   .cb-detect:checked ~ .cb-fallback\0 {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<!-- the form makes "Opnieuw" (input type=reset) work -->
+<form action="#" style="margin: 0;">
+   <!--[if !mso]><!-->
+   <input type="checkbox" class="cb-detect" checked style="display: none !important; mso-hide: all;">
+   <input type="checkbox" id="cb-c1" class="cb-c1" style="display: none !important; mso-hide: all;">
+   <input type="checkbox" id="cb-c2" class="cb-c2" style="display: none !important; mso-hide: all;">
+   <input type="checkbox" id="cb-c3" class="cb-c3" style="display: none !important; mso-hide: all;">
+   <input type="checkbox" id="cb-c4" class="cb-c4" style="display: none !important; mso-hide: all;">
+   <input type="checkbox" id="cb-c5" class="cb-c5" style="display: none !important; mso-hide: all;">
+   <!--<![endif]-->
+   <!-- fallback: "Gmail en Outlook zien de complete badkamer met alle teksten eronder" (artifact): the complete
+        bathroom, the five texts and the finale -->
+   <div class="cb-fallback">
+      <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+         <tr>
+            <td align="left" class="cb-fb-wrap" style="padding: 32px 40px 40px 40px; word-wrap: break-word; overflow-wrap: break-word;">
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                     <td align="left" valign="middle" style="font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 24px; line-height: 35px; font-weight: 600; letter-spacing: 0.38em; color: #050033;" class="cb-logo">label_1</td>
+                     <td align="right" valign="middle">
+                        <span style="display: inline-block; padding: 8px 16px; border-radius: 999px; background-color: #050033; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 22px; white-space: nowrap; color: #ffffff;">5 txt_1</span>
+                     </td>
+                  </tr>
+               </table>
+               <p style="margin: 20px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.3em; text-transform: uppercase; color: #4d4d4d;">subtitle_1</p>
+               <h1 class="cb-h1" style="margin: 8px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 36px; line-height: 41px; font-weight: 300; color: #050033;">title_2</h1>
+               <!-- the complete bathroom: placeholder until the image (620 x 470, Coram product photos) arrives; replace by
+                    <img width="620" style="display: block; width: 100%; max-width: 620px; height: auto;" alt="..."> -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px 0 0 0;">
+                  <tr>
+                     <td align="center" valign="middle" height="300" bgcolor="#e6e6e6" style="height: 300px; padding: 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 22px; color: #444444;">img_alt_1</td>
+                  </tr>
+               </table>
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#050033" style="margin: 20px 0 0 0;">
+                  <tr>
+                     <td align="left" class="cb-fb-panel" style="padding: 24px 28px;">
+                        <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.24em; text-transform: uppercase; color: #e6e6e6;">subtitle_2</p>
+                        <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; line-height: 29px; font-weight: 300; color: #ffffff;" class="cb-msg-t">txt_2</p>
+                        <p style="margin: 24px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.24em; text-transform: uppercase; color: #e6e6e6;">subtitle_3</p>
+                        <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; line-height: 29px; font-weight: 300; color: #ffffff;" class="cb-msg-t">txt_3</p>
+                        <p style="margin: 24px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.24em; text-transform: uppercase; color: #e6e6e6;">subtitle_4</p>
+                        <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; line-height: 29px; font-weight: 300; color: #ffffff;" class="cb-msg-t">txt_4</p>
+                        <p style="margin: 24px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.24em; text-transform: uppercase; color: #e6e6e6;">subtitle_5</p>
+                        <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; line-height: 29px; font-weight: 300; color: #ffffff;" class="cb-msg-t">txt_5</p>
+                        <p style="margin: 24px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.24em; text-transform: uppercase; color: #e6e6e6;">subtitle_6</p>
+                        <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; line-height: 29px; font-weight: 300; color: #ffffff;" class="cb-msg-t">txt_6</p>
+                        <p style="margin: 24px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.24em; text-transform: uppercase; color: #e6e6e6;">subtitle_8</p>
+                        <p style="margin: 10px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; line-height: 29px; font-weight: 300; color: #ffffff;" class="cb-msg-t">txt_8</p>
+                        <p style="margin: 16px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 23px; font-weight: 300; color: #e6e6e6;">txt_9</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+   </div>
+   <!--[if !mso]><!-->
+   <div class="cb-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+      <div class="cb-wrap">
+         <div class="cb-top">
+            <span class="cb-logo">label_1</span>
+            <span class="cb-pill"><span class="cb-k1"></span><span class="cb-k2"></span><span class="cb-k3"></span><span class="cb-k4"></span><span class="cb-k5"></span><span class="cb-count"></span> txt_1</span>
+         </div>
+         <p class="cb-kicker">subtitle_1</p>
+         <div class="cb-heads">
+            <h1 class="cb-h1 cb-h1-start">title_1</h1>
+            <h1 class="cb-h1 cb-h1-done">title_2</h1>
+         </div>
+         <div class="cb-scene">
+            <div class="cb-a cb-cabinet"></div>
+            <div class="cb-a cb-basin"></div>
+            <!-- 1 haak: holes and plus until mounted, then the product -->
+            <div class="cb-off1">
+               <div class="cb-a cb-hole" style="left: 12.2581%; top: 14.8936%;"></div>
+               <label for="cb-c1" class="cb-a cb-plus" style="left: 12.7419%; top: 22.5532%;" title="label_3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9980FF" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></label>
+            </div>
+            <div class="cb-on cb-on1">
+               <div class="cb-a cb-dark cb-haak-1"></div>
+               <div class="cb-a cb-dark cb-haak-2"></div>
+               <div class="cb-a cb-dark cb-haak-3"></div>
+            </div>
+            <!-- 2 plank: holes and plus until mounted, then the product -->
+            <div class="cb-off2">
+               <div class="cb-a cb-hole" style="left: 8.3871%; top: 49.3617%;"></div>
+               <div class="cb-a cb-hole" style="left: 26.129%; top: 49.3617%;"></div>
+               <label for="cb-c2" class="cb-a cb-plus" style="left: 17.7419%; top: 50%;" title="label_4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9980FF" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></label>
+            </div>
+            <div class="cb-on cb-on2">
+               <div class="cb-a cb-dark cb-plank-1"></div>
+               <div class="cb-a cb-plank-2"></div>
+               <div class="cb-a cb-plank-3"></div>
+               <div class="cb-a cb-dark cb-plank-4"></div>
+               <div class="cb-a cb-dark cb-plank-5"></div>
+            </div>
+            <!-- 3 spiegel: holes and plus until mounted, then the product -->
+            <div class="cb-off3">
+               <div class="cb-a cb-hole" style="left: 47.7419%; top: 14.8936%;"></div>
+               <div class="cb-a cb-hole" style="left: 51.2903%; top: 14.8936%;"></div>
+               <label for="cb-c3" class="cb-a cb-plus" style="left: 50%; top: 37.234%;" title="label_5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9980FF" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></label>
+            </div>
+            <div class="cb-on cb-on3">
+               <div class="cb-a cb-spiegel"><div class="cb-glass"><div class="cb-a cb-streak-1"></div><div class="cb-a cb-streak-2"></div></div></div>
+            </div>
+            <!-- 4 zeep: holes and plus until mounted, then the product -->
+            <div class="cb-off4">
+               <div class="cb-a cb-hole" style="left: 73.3871%; top: 53.617%;"></div>
+               <label for="cb-c4" class="cb-a cb-plus" style="left: 73.871%; top: 61.7021%;" title="label_6"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9980FF" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></label>
+            </div>
+            <div class="cb-on cb-on4">
+               <div class="cb-a cb-dark cb-zeep-1"></div>
+               <div class="cb-a cb-dark cb-zeep-2"></div>
+               <div class="cb-a cb-zeep-3"></div>
+            </div>
+            <!-- 5 rek: holes and plus until mounted, then the product -->
+            <div class="cb-off5">
+               <div class="cb-a cb-hole" style="left: 81.2903%; top: 25.9574%;"></div>
+               <div class="cb-a cb-hole" style="left: 95.1613%; top: 25.9574%;"></div>
+               <label for="cb-c5" class="cb-a cb-plus" style="left: 88.7097%; top: 26.5957%;" title="label_7"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9980FF" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></label>
+            </div>
+            <div class="cb-on cb-on5">
+               <div class="cb-a cb-dark cb-rek-1"></div>
+               <div class="cb-a cb-dark cb-rek-2"></div>
+               <div class="cb-a cb-dark cb-rek-3"></div>
+               <div class="cb-a cb-rek-4"></div>
+            </div>
+         </div>
+         <div class="cb-panel">
+            <div class="cb-msgs">
+               <div class="cb-msg cb-msg0">
+                  <p class="cb-msg-k">subtitle_7</p>
+                  <p class="cb-msg-t">txt_7</p>
+               </div>
+               <div class="cb-msg cb-msg1">
+                  <p class="cb-msg-k">subtitle_2</p>
+                  <p class="cb-msg-t">txt_2</p>
+               </div>
+               <div class="cb-msg cb-msg2">
+                  <p class="cb-msg-k">subtitle_3</p>
+                  <p class="cb-msg-t">txt_3</p>
+               </div>
+               <div class="cb-msg cb-msg3">
+                  <p class="cb-msg-k">subtitle_4</p>
+                  <p class="cb-msg-t">txt_4</p>
+               </div>
+               <div class="cb-msg cb-msg4">
+                  <p class="cb-msg-k">subtitle_5</p>
+                  <p class="cb-msg-t">txt_5</p>
+               </div>
+               <div class="cb-msg cb-msg5">
+                  <p class="cb-msg-k">subtitle_6</p>
+                  <p class="cb-msg-t">txt_6</p>
+               </div>
+               <div class="cb-msg cb-msg6">
+                  <p class="cb-msg-k">subtitle_8</p>
+                  <p class="cb-msg-t">txt_8</p>
+               </div>
+            </div>
+            <div class="cb-done">
+               <p class="cb-sign">txt_9</p>
+               <input type="reset" class="cb-reset" value="label_2">
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--<![endif]-->
+</form>
+<!-- end hotspot_1_col_row_1_icon_badge_row_2_subtitle_title_row_3_icon_x5_row_4_subtitle_txt_btn -->

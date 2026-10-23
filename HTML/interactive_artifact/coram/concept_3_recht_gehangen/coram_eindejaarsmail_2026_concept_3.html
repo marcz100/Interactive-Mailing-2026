@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<!-- Coram eindejaarsmail 2026: concept 3 "Recht gehangen" (artifact boards "Recht gehangen (klikbaar)" en
+     "De momenten, techniek en gewicht").
+     Een matzwart handdoekrek hangt net niet recht. Twee checkboxes na elkaar: het eerste pijltje draait het rek te
+     ver door, het tweede zet het waterpas en er hangt een handdoek aan: "Handdoek en bedankt". "Nog een keer" zet het
+     terug. Daarna een rustige, gewone mail: de boodschap en "Jullie jaar in vakwerk".
+     Kleuren, fonts, maten, teksten en de animatie 1:1 uit het artifact; het rek in procenten van 520 x 380.
+     Fallback (Gmail, Outlook, Samsung): het rechte rek met de handdoek in tabellen en de teksten van stap 3.
+     Mobiel (het artifact heeft geen mobiel ontwerp): het rek schaalt mee, de knoppen blijven groot genoeg om te tikken.
+     Gebouwd met build/gen_rek.js + build/build_mail.js; wijzig de generator, niet de HTML.
+     Persoonlijke velden ([Voornaam], [X], [Merknaam]) zijn placeholders; zonder data valt "Jullie jaar in vakwerk"
+     terug op algemene Coram cijfers (artifact). Teksten uit het concept, af te stemmen met Coram.
+     Bron: Claude Design concept "Coram eindejaarsmail: bedankt voor het vakwerk", concept 3. -->
+
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+      <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+      <meta name="x-apple-disable-message-reformatting">
+      <meta name="color-scheme" content="light dark">
+      <meta name="supported-color-schemes" content="light dark">
+      <link rel="shortcut icon" href="https://studio.100procentemail.com/designs/100email/st_j/100_new_design/Avatar_2_light.jpg" type="image/x-icon">
+      <link rel="icon" type="image/icon" href="https://studio.100procentemail.com/designs/100email/st_j/100_new_design/Avatar_2_light.jpg">
+      <title>Recht gehangen</title>
+
+      <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+		<o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+      <style type="text/css">
+         body {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0px;
+            padding: 0px;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+         }
+
+         .ReadMsgBody {
+            width: 100%;
+         }
+
+         .ExternalClass {
+            width: 100%;
+         }
+
+         table,
+         td {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+         }
+
+         th {
+            font-weight: normal;
+         }
+
+         img {
+            display: block;
+            -ms-interpolation-mode: bicubic;
+         }
+
+         a[x-apple-data-detectors],
+
+         .unstyle-auto-detected-links a,
+         .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+         }
+
+         u+#body a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+         }
+
+         #MessageViewBody a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+         }
+
+         *,
+         *:after,
+         *:before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+         }
+
+         p {
+            margin: 0;
+            font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+         }
+
+         h1 {
+            margin: 0;
+            font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 34px;
+            line-height: 39px;
+            font-weight: 800;
+         }
+
+         h2 {
+            margin: 0;
+            font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 28px;
+            line-height: 32px;
+            font-weight: 800;
+         }
+
+         h3 {
+            margin: 0;
+            font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 700;
+         }
+
+         .bodytxt a {
+            color: #9980FF;
+            font-weight: bold;
+         }
+
+         .bodytxt a:visited {
+            color: #9980FF;
+            font-weight: bold;
+         }
+
+         .bodytxt {
+            font-size: 16px!important;
+            line-height: 24px!important;
+         }
+
+         .bodytxtwhite,
+         .nav {
+            font-size: 16px!important;
+            line-height: 24px!important;
+         }
+
+         h1.headertxt {
+            font-size: 34px!important;
+            line-height: 39px!important;
+            font-weight: 800!important;
+         }
+
+         h2.headertxt {
+            font-size: 28px!important;
+            line-height: 32px!important;
+            font-weight: 800!important;
+         }
+
+         h3.headertxt {
+            font-size: 20px!important;
+            line-height: 26px!important;
+            font-weight: 700!important;
+         }
+
+         .bodytxtwhite a {
+            color: #ffffff;
+            font-weight: bold;
+         }
+
+         .bodytxtwhite a:visited {
+            color: #ffffff;
+            font-weight: bold;
+         }
+
+         @media only screen and (max-width: 600px) {
+
+            .headertxt {
+               font-size: 1.4em !important;
+            }
+
+            .col-sm-12 {
+               max-width: 100% !important;
+               width: 100% !important;
+               display: block !important
+            }
+
+            .col-sm-9 {
+               max-width: 75% !important;
+               width: 75% !important;
+            }
+
+            .col-sm-8 {
+               max-width: 66.66666666% !important;
+               width: 66.66666666% !important;
+            }
+
+            .col-sm-6 {
+               max-width: 49.5% !important;
+               width: 49.5% !important;
+            }
+
+            .col-sm-4 {
+               max-width: 33.33333333% !important;
+               width: 33.33333333% !important;
+            }
+
+            .col-sm-3 {
+               max-width: 25% !important;
+               width: 25% !important;
+            }
+
+            .col-sm-12-img img {
+               width: 100% !important;
+               max-width: 100% !important;
+            }
+
+            .btn {
+               width: 100% !important;
+            }
+
+            .txt-center {
+               text-align: center !important;
+            }
+
+            .item-center {
+               margin-left: auto !important;
+               margin-right: auto !important;
+            }
+
+            .clearheight {
+               height: 0 !important;
+            }
+
+            .float {
+               width: 100% !important;
+               max-width: 100% !important;
+               clear: both !important;
+               float: left !important;
+            }
+
+            .noBorder {
+               border: none !important;
+            }
+
+            .headerheight {
+               height: 140px !important;
+            }
+
+            .hide_on_mobile {
+               display: none !important;
+            }
+
+            .show-on-mobile {
+               display: block !important;
+               line-height: normal !important;
+               max-height: none !important;
+               width: 100% !important;
+               overflow: hidden !important;
+            }
+
+            .pm0 {
+               padding: 0 !important;
+            }
+
+            .pmt0 {
+               padding-top: 0 !important;
+            }
+
+            .pmr0 {
+               padding-right: 0 !important;
+            }
+
+            .pmb0 {
+               padding-bottom: 0 !important;
+            }
+
+            .pml0 {
+               padding-left: 0 !important;
+            }
+
+            .pm4 {
+               padding: 4px !important;
+            }
+
+            .pmt4 {
+               padding-top: 4px !important;
+            }
+
+            .pmr4 {
+               padding-right: 4px !important;
+            }
+
+            .pmb4 {
+               padding-bottom: 4px !important;
+            }
+
+            .pml4 {
+               padding-left: 4px !important;
+            }
+
+            .pm8 {
+               padding: 8px !important;
+            }
+
+            .pmt8 {
+               padding-top: 8px !important;
+            }
+
+            .pmr8 {
+               padding-right: 8px !important;
+            }
+
+            .pmb8 {
+               padding-bottom: 8px !important;
+            }
+
+            .pml8 {
+               padding-left: 8px !important;
+            }
+
+            .pm12 {
+               padding: 12px !important;
+            }
+
+            .pmt12 {
+               padding-top: 12px !important;
+            }
+
+            .pmr12 {
+               padding-right: 12px !important;
+            }
+
+            .pmb12 {
+               padding-bottom: 12px !important;
+            }
+
+            .pml12 {
+               padding-left: 12px !important;
+            }
+
+            .pm16 {
+               padding: 16px !important;
+            }
+
+            .pmt16 {
+               padding-top: 16px !important;
+            }
+
+            .pmr16 {
+               padding-right: 16px !important;
+            }
+
+            .pmb16 {
+               padding-bottom: 16px !important;
+            }
+
+            .pml16 {
+               padding-left: 16px !important;
+            }
+
+            .pm24 {
+               padding: 24px !important;
+            }
+
+            .pmt24 {
+               padding-top: 24px !important;
+            }
+
+            .pmr24 {
+               padding-right: 24px !important;
+            }
+
+            .pmb24 {
+               padding-bottom: 24px !important;
+            }
+
+            .pml24 {
+               padding-left: 24px !important;
+            }
+
+            .pm32 {
+               padding: 32px !important;
+            }
+
+            .pmt32 {
+               padding-top: 32px !important;
+            }
+
+            .pmr32 {
+               padding-right: 32px !important;
+            }
+
+            .pmb32 {
+               padding-bottom: 32px !important;
+            }
+
+            .pml32 {
+               padding-left: 32px !important;
+            }
+
+         }
+
+         @media only screen and (max-width: 374px) {
+
+            .col-xs-12 {
+               max-width: 100% !important;
+            }
+
+            .col-xs-9 {
+               max-width: 75% !important;
+            }
+
+            .col-xs-8 {
+               max-width: 66.66666666% !important;
+            }
+
+            .col-xs-6 {
+               max-width: 49.5% !important;
+            }
+
+            .col-xs-4 {
+               max-width: 33.33333333% !important;
+            }
+
+            .col-xs-3 {
+               max-width: 25% !important;
+            }
+         }
+      </style>
+      <style type="text/css">
+         @media (prefers-color-scheme: dark) {
+
+            .invert {
+               filter: invert(1);
+            }
+
+            .dark-img {
+               display: inline-block !important;
+            }
+
+            .light-img {
+               display: none !important;
+            }
+
+            .darkmode_side_td {
+               background-color: #1A1A1A!important;
+            }
+
+            .darkmode {
+               background-color: #1A1A1A!important;
+            }
+
+            .darkmode_body {
+               background-color: #1A1A1A!important;
+            }
+
+            .darkmode_cta {
+               background-color: #2525B0!important;
+
+               border: 1px solid #2525B0!important
+            }
+
+            .headertxt {
+               color: #FFFFFF!important;
+            }
+
+            .bodytxt {
+               color: #FFFFFF!important;
+            }
+
+            a {
+               color: #FFFFFF!important;
+            }
+         }
+
+         [data-ogsc] .invert {
+            filter: invert(1);
+         }
+
+         [data-ogsc] .dark-img {
+            display: inline-block !important;
+         }
+
+         [data-ogsc] .light-img {
+            display: none !important;
+         }
+
+         [data-ogsc] .darkmode_side_td {background-color: #1A1A1A!important;
+         }
+
+         [data-ogsc] .darkmode {background-color: #1A1A1A!important;
+         }
+
+         [data-ogsc] .darkmode_body {background-color: #1A1A1A!important;
+         }
+
+         [data-ogsc] .darkmode_cta {background-color: #2525B0!important;
+border: 1px solid #2525B0!important
+         }
+
+         [data-ogsc] .headertxt {color: #FFFFFF!important
+         }
+
+         [data-ogsc] .bodytxt {color: #FFFFFF!important
+         }
+
+         [data-ogsc] a {color: #FFFFFF!important;
+         }
+      </style>
+      <!--[if !mso]><!-->
+      <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet" type="text/css">
+      <!--<![endif]-->
+      <!-- coram_mail -->
+      <style type="text/css">
+         .cor-a-white {
+            color: #FFFFFF !important;
+         }
+      </style>
+      <!-- // coram_mail -->
+      <!-- coram_concept_3 -->
+      <style type="text/css">
+         @media only screen and (max-width: 600px) {
+            .cr3-msg {
+               padding: 56px 16px !important;
+            }
+
+            .cr3-h2 {
+               font-size: 26px !important;
+               line-height: 33px !important;
+            }
+
+            .cr3-year {
+               padding: 48px 16px !important;
+            }
+
+            .cr3-col {
+               display: block !important;
+               width: 100% !important;
+               margin: 0 0 12px 0 !important;
+               box-sizing: border-box !important;
+            }
+
+            .cr3-gap {
+               display: none !important;
+            }
+         }
+      </style>
+      <!-- // coram_concept_3 -->
+      <!-- hotspot_1_col_subtitle_title_txt_icon_btn -->
+<style type="text/css">
+ /* Recht gehangen (artifact "Recht gehangen"): a towel rail that hangs a little crooked. The first arrow (label of
+  .cw-c1) swings it too far (8 degrees), the second (label of .cw-c2, only then shown) sets it level: the bubble in
+  the middle and a towel with "Handdoek en bedankt". "Nog een keer" resets the form. Order: inputs, fallback,
+  interactive. Interactive only in WebKit clients that support :checked (pre-checked .cw-detect); everything else
+  keeps the fallback: the level rail with the towel, built in tables. */
+ @media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .cw-detect:checked ~ .cw-fallback {
+   display: none !important;
+   max-height: 0 !important;
+   overflow: hidden !important;
+  }
+
+  .cw-detect:checked ~ .cw-interactive {
+   display: block !important;
+   max-height: none !important;
+   overflow: visible !important;
+  }
+ }
+
+ /* hero: 680 high, the tile wall (100px grid) */
+ .cw-interactive .cw-hero {
+  min-height: 680px;
+  padding: 56px 60px 0 60px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #D9D4CD;
+  background-image: repeating-linear-gradient(0deg, rgba(120,110,100,0.25) 0 1px, transparent 1px 100px), repeating-linear-gradient(90deg, rgba(120,110,100,0.25) 0 1px, transparent 1px 100px);
+  text-align: center;
+ }
+
+ /* the three texts (scheef, oeps, recht) share one grid cell, so the rail below doesn't move between the states */
+ .cw-interactive .cw-texts {
+  display: -ms-grid;
+  display: grid;
+  min-height: 150px;
+ }
+
+ .cw-interactive .cw-t {
+  grid-area: 1 / 1;
+  visibility: hidden;
+ }
+
+ .cw-interactive .cw-t0 {
+  visibility: visible;
+ }
+
+ .cw-c1:checked ~ .cw-interactive .cw-t0 {
+  visibility: hidden;
+ }
+
+ .cw-c1:checked ~ .cw-interactive .cw-t1 {
+  visibility: visible;
+ }
+
+ .cw-c1:checked ~ .cw-c2:checked ~ .cw-interactive .cw-t1 {
+  visibility: hidden;
+ }
+
+ .cw-c1:checked ~ .cw-c2:checked ~ .cw-interactive .cw-t2 {
+  visibility: visible;
+ }
+
+ .cw-interactive .cw-kicker {
+  margin: 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #3D3935;
+ }
+
+ .cw-interactive .cw-h1 {
+  margin: 12px 0 0 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 42px;
+  line-height: 48.3px;
+  font-weight: 300;
+  color: #1A1A1A;
+ }
+
+ .cw-interactive .cw-hint {
+  margin: 12px 0 0 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 17px;
+  line-height: 25px;
+  font-weight: 300;
+  color: #3D3935;
+ }
+
+ /* the rack area: 520 x 380 (73.0769% = 380 / 520), 16 + 10 under the texts */
+ .cw-interactive .cw-stage {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 0;
+  margin: 26px auto 0 auto;
+  padding-bottom: 73.0769%;
+ }
+
+ .cw-interactive .cw-a {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+ }
+
+ /* the rotating group (520 x 340 at y 40), turning around the bar (y 92); -6 / 8 / 0 degrees */
+ .cw-interactive .cw-rack {
+  left: 0;
+  top: 10.5263%;
+  width: 100%;
+  height: 89.4737%;
+  -webkit-transform-origin: 50% 27.0588%;
+  transform-origin: 50% 27.0588%;
+  -webkit-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  -webkit-transition: -webkit-transform 0.9s cubic-bezier(0.3, 1.5, 0.5, 1);
+  transition: transform 0.9s cubic-bezier(0.3, 1.5, 0.5, 1);
+ }
+
+ .cw-c1:checked ~ .cw-interactive .cw-rack {
+  -webkit-transform: rotate(8deg);
+  transform: rotate(8deg);
+ }
+
+ .cw-c1:checked ~ .cw-c2:checked ~ .cw-interactive .cw-rack {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+ }
+
+ .cw-interactive .cw-bracket-l,
+ .cw-interactive .cw-bracket-r {
+  border-radius: 8px;
+  background-color: #1C1C1C;
+  box-shadow: 0 6px 12px rgba(40,30,20,0.3);
+ }
+
+ .cw-interactive .cw-bracket-l {
+  left: 3.8462%; top: 20.5882%; width: 8.4615%; height: 12.9412%;
+ }
+
+ .cw-interactive .cw-bracket-r {
+  left: 87.6923%; top: 20.5882%; width: 8.4615%; height: 12.9412%;
+ }
+
+ .cw-interactive .cw-bar {
+  left: 8.0769%; top: 24.7059%; width: 83.8462%; height: 4.7059%;
+  border-radius: 8px;
+  background-color: #1C1C1C;
+ }
+
+ /* the spirit level (240 x 40) with its black ends and the vial (96 x 20) */
+ .cw-interactive .cw-level {
+  left: 26.9231%; top: 12.9412%; width: 46.1538%; height: 11.7647%;
+  border-radius: 4px;
+  background-color: #B9BEC3;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.6), 0 4px 8px rgba(0,0,0,0.25);
+ }
+
+ .cw-interactive .cw-end-l,
+ .cw-interactive .cw-end-r {
+  top: 0;
+  width: 8.3333%;
+  height: 100%;
+  background-color: #1C1C1C;
+ }
+
+ .cw-interactive .cw-end-l {
+  left: 0;
+  border-radius: 4px 0 0 4px;
+ }
+
+ .cw-interactive .cw-end-r {
+  right: 0;
+  border-radius: 0 4px 4px 0;
+ }
+
+ .cw-interactive .cw-vial {
+  left: 30%;
+  top: 25%;
+  width: 40%;
+  height: 50%;
+  border-radius: 10px;
+  background-color: #E9EDD8;
+  box-shadow: inset 0 0 0 2px #7D8288;
+ }
+
+ .cw-interactive .cw-mark-1,
+ .cw-interactive .cw-mark-2 {
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #3D3935;
+ }
+
+ .cw-interactive .cw-mark-1 {
+  left: 35.4167%;
+ }
+
+ .cw-interactive .cw-mark-2 {
+  left: 62.5%;
+ }
+
+ /* the bubble: x 68 / 6 / 37 of the 96 vial */
+ .cw-interactive .cw-bubble {
+  left: 70.8333%;
+  top: 15%;
+  width: 22.9167%;
+  height: 70%;
+  border-radius: 7px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+  -webkit-transition: left 0.9s ease;
+  transition: left 0.9s ease;
+ }
+
+ .cw-c1:checked ~ .cw-interactive .cw-bubble {
+  left: 6.25%;
+ }
+
+ .cw-c1:checked ~ .cw-c2:checked ~ .cw-interactive .cw-bubble {
+  left: 38.5417%;
+ }
+
+ /* the towel, only when level */
+ .cw-interactive .cw-towel {
+  display: none;
+  left: 30.7692%; top: 27.0588%; width: 38.4615%; height: 70.5882%;
+  padding: 0 18px 34px 18px;
+  border-radius: 0 0 6px 6px;
+  background-color: #E3B5AE;
+  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.12) 0 2px, transparent 2px 7px);
+  box-shadow: 0 14px 24px rgba(40,30,20,0.25);
+ }
+
+ .cw-c1:checked ~ .cw-c2:checked ~ .cw-interactive .cw-towel {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+ }
+
+ .cw-interactive .cw-towel-txt {
+  width: 100%;
+  margin: 0;
+  padding-top: 14px;
+  border-top: 2px solid rgba(255,255,255,0.7);
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 24px;
+  line-height: 28.8px;
+  font-weight: 500;
+  text-align: center;
+  color: #FFFFFF;
+ }
+
+ /* the arrows: labels, centred on the board's buttons (1: 448,150 60 x 60; 2: 6,0 56 x 56 of the 520 x 380 area) */
+ .cw-interactive .cw-btn {
+  display: none;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+ }
+
+ .cw-interactive .cw-btn1 {
+  display: -webkit-flex;
+  display: flex;
+  left: 91.9231%;
+  top: 47.3684%;
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  background-color: #2525B0;
+  box-shadow: 0 0 0 8px rgba(37,37,176,0.18);
+ }
+
+ .cw-interactive .cw-btn2 {
+  left: 6.5385%;
+  top: 7.3684%;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border: 2px solid rgba(37,37,176,0.45);
+  background-color: rgba(255,255,255,0.75);
+ }
+
+ .cw-c1:checked ~ .cw-interactive .cw-btn1 {
+  display: none;
+ }
+
+ .cw-c1:checked ~ .cw-interactive .cw-btn2 {
+  display: -webkit-flex;
+  display: flex;
+ }
+
+ .cw-c1:checked ~ .cw-c2:checked ~ .cw-interactive .cw-btn2 {
+  display: none;
+ }
+
+ /* "Nog een keer": the form's reset button, only when level */
+ .cw-interactive .cw-reset {
+  display: none;
+  height: 44px;
+  margin: 16px auto 0 auto;
+  padding: 0 20px;
+  border: 0;
+  background-color: transparent;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 15px;
+  line-height: 22px;
+  text-decoration: underline;
+  color: #3D3935;
+  cursor: pointer;
+  -webkit-appearance: none;
+ }
+
+ .cw-c1:checked ~ .cw-c2:checked ~ .cw-interactive .cw-reset {
+  display: block;
+ }
+
+ @media only screen and (max-width: 600px) {
+  .cw-interactive .cw-hero {
+   min-height: 0 !important;
+   padding: 40px 16px 24px 16px !important;
+  }
+
+  .cw-interactive .cw-texts {
+   min-height: 0 !important;
+  }
+
+  .cw-h1 {
+   font-size: 30px !important;
+   line-height: 35px !important;
+  }
+
+  .cw-hint {
+   font-size: 15px !important;
+   line-height: 22px !important;
+  }
+
+  .cw-interactive .cw-stage {
+   margin-top: 16px !important;
+  }
+
+  .cw-interactive .cw-towel {
+   padding: 0 10px 16px 10px !important;
+  }
+
+  .cw-towel-txt {
+   padding-top: 8px !important;
+   font-size: 16px !important;
+   line-height: 19px !important;
+  }
+
+  .cw-interactive .cw-btn1 {
+   width: 48px !important;
+   height: 48px !important;
+   margin: -24px 0 0 -24px !important;
+   box-shadow: 0 0 0 6px rgba(37,37,176,0.18) !important;
+  }
+
+  .cw-interactive .cw-btn2 {
+   width: 44px !important;
+   height: 44px !important;
+   margin: -22px 0 0 -22px !important;
+  }
+
+  .cw-interactive .cw-btn svg {
+   width: 22px !important;
+   height: 22px !important;
+  }
+
+  .cw-interactive .cw-bracket-l,
+  .cw-interactive .cw-bracket-r {
+   border-radius: 6px !important;
+  }
+
+  /* fallback: the hero padding and the towel text */
+  .cw-fb-hero {
+   padding: 40px 16px 24px 16px !important;
+  }
+ }
+
+ @media only screen and (max-width: 400px) {
+  .cw-h1 {
+   font-size: 26px !important;
+   line-height: 31px !important;
+  }
+
+  .cw-towel-txt {
+   font-size: 14px !important;
+   line-height: 17px !important;
+  }
+ }
+
+ /* Outlook.com / new Outlook: class names get an x_ prefix */
+ [class~="x_cw-interactive"],
+ [class~="x_cw-detect"]:checked ~ [class~="x_cw-interactive"] {
+  display: none !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+ }
+
+ [class~="x_cw-fallback"],
+ [class~="x_cw-detect"]:checked ~ [class~="x_cw-fallback"] {
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
+ }
+
+ /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+ #MessageViewBody .cw-interactive {
+  display: none !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+ }
+
+ #MessageViewBody .cw-fallback {
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
+ }
+</style>
+<style type="text/css">
+ /* Outlook apps: back to the fallback (separate style tag: the \0 hack breaks the rest of a style tag) */
+ .cw-interactive\0,
+ .cw-detect:checked ~ .cw-interactive\0 {
+  display: none !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+ }
+
+ .cw-fallback\0,
+ .cw-detect:checked ~ .cw-fallback\0 {
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
+ }
+</style>
+      <!-- // hotspot_1_col_subtitle_title_txt_icon_btn -->
+   </head>
+
+   <body id="body" class="darkmode body" width="100%" style="margin: 0; padding: 0 !important;">
+      <!--[if !mso & !IE]><!-->
+      <div style="display: none; max-height: 0px; overflow: hidden;">Hang jij hem even recht, [Voornaam]?</div>
+      <div style="display: none; max-height: 0px; overflow: hidden;">
+         &#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;
+      </div>
+      <!--<![endif]-->
+
+      <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F4F2EF" class="darkmode">
+         <tr>
+            <td class="darkmode_side_td" style="background-color: #F4F2EF"></td>
+            <td class="darkmode" bgcolor="#FFFFFF" style="text-align: center; font-size: 0; width: 700px; max-width: 700px; background-color: #FFFFFF;" align="center">
+               <!-- header_coram: the CORAM wordmark as text, as in the artifact -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#1A1A1A">
+                  <tr>
+                     <td align="center" valign="middle" height="80" style="height: 80px; padding: 0 20px;">
+                        <a href="https://100procent.nl/" target="_blank" class="cor-a-white" style="display: inline-block; padding-left: 0.38em; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 24px; line-height: 35px; font-weight: 600; letter-spacing: 0.38em; color: #FFFFFF; text-decoration: none;">CORAM</a>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end header_coram -->
+               <!-- start hotspot_1_col_subtitle_title_txt_icon_btn -->
+               <!-- "Recht gehangen" (Claude Design artifact "Coram eindejaarsmail", concept 3): a towel rail that hangs a little
+                    crooked. Two checkboxes in a row: the first arrow swings it too far, the second sets it level and a towel appears
+                    ("Handdoek en bedankt"); "Nog een keer" resets. Fallback (Gmail, Outlook, Samsung): the level rail with the towel
+                    in tables and the end texts.
+                    Geometry, font sizes and the animation are the artifact's; colours and fonts are token values here (the Coram
+                    mail uses the artifact's). Built with interactive_artifact/coram/concept_3_recht_gehangen/build/gen_rek.js: change
+                    the generator, not this file. -->
+               <!-- the form makes "Nog een keer" (input type=reset) work: it sets the inputs back to their defaults -->
+               <form action="#" style="margin: 0;">
+                  <!--[if !mso]><!-->
+                  <input type="checkbox" class="cw-detect" checked style="display: none !important; mso-hide: all;">
+                  <input type="checkbox" id="cw-c1" class="cw-c1" style="display: none !important; mso-hide: all;">
+                  <input type="checkbox" id="cw-c2" class="cw-c2" style="display: none !important; mso-hide: all;">
+                  <!--<![endif]-->
+                  <!-- 76 = 680 hero - 56 - 128 - 132 - 288 rail and towel -->
+                  <!-- fallback: the artifact's end state (the rail level, the towel), built in tables; the same texts as step 3
+                       (artifact: "de rest ziet direct het rechte rek met de handdoek en de tekst") -->
+                  <div class="cw-fallback">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#D9D4CD">
+                        <tr>
+                           <td align="center" valign="top" class="cw-fb-hero" style="padding: 56px 60px 76px 60px; background-color: #D9D4CD; background-image: repeating-linear-gradient(0deg, rgba(120,110,100,0.25) 0 1px, transparent 1px 100px), repeating-linear-gradient(90deg, rgba(120,110,100,0.25) 0 1px, transparent 1px 100px); word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.3em; text-transform: uppercase; color: #3D3935;">Bedankt voor het vakwerk</p>
+                              <h1 class="cw-h1" style="margin: 12px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 42px; line-height: 48px; font-weight: 300; color: #1A1A1A;">Strak. Zoals elke montage van jullie dit jaar.</h1>
+                              <!-- 132 = the board's 150 text block - 128 (kicker 19 + 12 + two heading lines 97) + 26 + 40 + 44 to the level's top -->
+                              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="132" style="height: 132px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 520px; table-layout: fixed;">
+                                 <tr>
+                                    <td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0; height: 26px;">&nbsp;</td><td width="8.4615%" style="width: 8.4615%; font-size: 0; line-height: 0;">&nbsp;</td><td width="14.6154%" style="width: 14.6154%; font-size: 0; line-height: 0;">&nbsp;</td>
+                                    <td width="46.1538%" rowspan="2" valign="top" style="width: 46.1538%;">
+                                       <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#B9BEC3" style="border-radius: 4px; border-collapse: separate;">
+                                          <tr>
+                                             <td width="8%" height="40" bgcolor="#1C1C1C" style="width: 8%; height: 40px; border-radius: 4px 0 0 4px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                             <td align="center" valign="middle" style="font-size: 0; line-height: 0;">
+                                                <table role="presentation" width="96" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#E9EDD8" style="width: 96px; border-radius: 10px; border-collapse: separate; border: 2px solid #7D8288;">
+                                                   <tr>
+                                                      <td width="32" height="16" style="width: 32px; height: 16px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                      <td width="2" bgcolor="#3D3935" style="width: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                      <td width="24" align="center" valign="middle" style="width: 24px; font-size: 0; line-height: 0;"><span style="display: inline-block; width: 22px; height: 12px; border-radius: 7px; background-color: #FFFFFF;">&nbsp;</span></td>
+                                                      <td width="2" bgcolor="#3D3935" style="width: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                      <td width="32" style="width: 32px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                   </tr>
+                                                </table>
+                                             </td>
+                                             <td width="8%" bgcolor="#1C1C1C" style="width: 8%; border-radius: 0 4px 4px 0; font-size: 0; line-height: 0;">&nbsp;</td>
+                                          </tr>
+                                       </table>
+                                    </td>
+                                    <td width="14.6154%" style="width: 14.6154%; font-size: 0; line-height: 0;">&nbsp;</td><td width="8.4615%" style="width: 8.4615%; font-size: 0; line-height: 0;">&nbsp;</td><td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0;">&nbsp;</td>
+                                 </tr>
+                                 <tr>
+                                    <td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0; height: 14px;">&nbsp;</td>
+                                    <td width="8.4615%" rowspan="3" height="44" bgcolor="#1C1C1C" style="width: 8.4615%; height: 44px; border-radius: 8px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                    <td width="14.6154%" style="width: 14.6154%; font-size: 0; line-height: 0;">&nbsp;</td><td width="14.6154%" style="width: 14.6154%; font-size: 0; line-height: 0;">&nbsp;</td>
+                                    <td width="8.4615%" rowspan="3" bgcolor="#1C1C1C" style="width: 8.4615%; border-radius: 8px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                    <td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0;">&nbsp;</td>
+                                 </tr>
+                                 <tr>
+                                    <td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0; height: 16px;">&nbsp;</td>
+                                    <td colspan="3" height="16" bgcolor="#1C1C1C" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                    <td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0;">&nbsp;</td>
+                                 </tr>
+                                 <tr>
+                                    <td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0; height: 14px;">&nbsp;</td>
+                                    <td colspan="3" style="font-size: 0; line-height: 0;">
+                                       <table role="presentation" width="51.0204%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#E3B5AE" style="width: 51.0204%;">
+                                          <tr>
+                                             <td height="14" valign="bottom" align="center" class="" style="height: 14px; padding: 0; font-size: 0; line-height: 0;">&nbsp;</td>
+                                          </tr>
+                                       </table>
+                                    </td>
+                                    <td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0;">&nbsp;</td>
+                                 </tr>
+                                 <tr>
+                                    <!-- the rest of the towel, in the same three middle columns as its top, so both parts are equally wide -->
+                                    <td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0;">&nbsp;</td><td width="8.4615%" style="width: 8.4615%; font-size: 0; line-height: 0;">&nbsp;</td>
+                                    <td colspan="3" style="font-size: 0; line-height: 0;">
+                                       <table role="presentation" width="51.0204%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#E3B5AE" style="width: 51.0204%; border-radius: 0 0 6px 6px; border-collapse: separate;">
+                                          <tr>
+                                             <td height="218" valign="bottom" align="center" class="cw-fb-towel" style="height: 218px; padding: 0 18px 34px 18px; font-size: 16px; line-height: 19px;"><p style="margin: 0; padding-top: 14px; border-top: 2px solid rgba(255,255,255,0.7); font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 24px; line-height: 29px; font-weight: 500; color: #FFFFFF;" class="cw-towel-txt">Handdoek en bedankt</p></td>
+                                          </tr>
+                                       </table>
+                                    </td>
+                                    <td width="8.4615%" style="width: 8.4615%; font-size: 0; line-height: 0;">&nbsp;</td><td width="3.8462%" style="width: 3.8462%; font-size: 0; line-height: 0;">&nbsp;</td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <!--[if !mso]><!-->
+                  <div class="cw-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+                     <div class="cw-hero">
+                        <div class="cw-texts">
+                           <div class="cw-t cw-t0">
+                              <p class="cw-kicker">Nog één klusje voor 2026</p>
+                              <h1 class="cw-h1">Hang jij hem even recht, [Voornaam]?</h1>
+                              <p class="cw-hint">Tik op het pijltje rechtsonder.</p>
+                           </div>
+                           <div class="cw-t cw-t1">
+                              <p class="cw-kicker">Oeps</p>
+                              <h1 class="cw-h1">Net iets te enthousiast.</h1>
+                              <p class="cw-hint">Nog één tikje, linksboven.</p>
+                           </div>
+                           <div class="cw-t cw-t2">
+                              <p class="cw-kicker">Bedankt voor het vakwerk</p>
+                              <h1 class="cw-h1">Strak. Zoals elke montage van jullie dit jaar.</h1>
+                           </div>
+                        </div>
+                        <div class="cw-stage">
+                           <div class="cw-a cw-rack">
+                              <div class="cw-a cw-bracket-l"></div>
+                              <div class="cw-a cw-bracket-r"></div>
+                              <div class="cw-a cw-bar"></div>
+                              <div class="cw-a cw-level">
+                                 <div class="cw-a cw-end-l"></div>
+                                 <div class="cw-a cw-end-r"></div>
+                                 <div class="cw-a cw-vial">
+                                    <div class="cw-a cw-mark-1"></div>
+                                    <div class="cw-a cw-mark-2"></div>
+                                    <div class="cw-a cw-bubble"></div>
+                                 </div>
+                              </div>
+                              <div class="cw-a cw-towel"><p class="cw-towel-txt">Handdoek en bedankt</p></div>
+                           </div>
+                           <label for="cw-c1" class="cw-a cw-btn cw-btn1" title="Draai het rek recht"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"></path><path d="M20 4v5h-5"></path></svg></label>
+                           <label for="cw-c2" class="cw-a cw-btn cw-btn2" title="Nog een tikje terug"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2525B0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.3-5.6"></path><path d="M4 4v5h5"></path></svg></label>
+                        </div>
+                        <input type="reset" class="cw-reset" value="Nog een keer">
+                     </div>
+                  </div>
+                  <!--<![endif]-->
+               </form>
+               <!-- end hotspot_1_col_subtitle_title_txt_icon_btn -->
+
+               <!-- 1_col_title_txt_x3_coram_message -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+                  <tr>
+                     <td align="center" class="cr3-msg" style="padding: 111px 90px; word-wrap: break-word; overflow-wrap: break-word;">
+                        <h2 class="cr3-h2" style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 34px; line-height: 42.5px; font-weight: 300; color: #1A1A1A;">Jullie maken van onze ontwerpen een perfect eindresultaat.</h2>
+                        <p style="margin: 24px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 18px; line-height: 29.7px; font-weight: 300; color: #3D3935;">Beste [Voornaam], wij tekenen een handdoekrek, een spiegel, een douchewand. Maar pas als jullie hem monteren, klopt het. Recht, stevig en precies op de goede plek.</p>
+                        <p style="margin: 24px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 20px; line-height: 30px; font-weight: 500; color: #1A1A1A;">Bedankt voor elke strakke montage dit jaar.</p>
+                        <p style="margin: 32px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 17px; line-height: 27.2px; font-weight: 300; color: #1A1A1A;">Fijne feestdagen en tot in 2027.<br>Het team van Coram</p>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end 1_col_title_txt_x3_coram_message -->
+               <!-- 3_col_title_txt_coram_year: falls back on general Coram figures without data (artifact) -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#F4F2EF">
+                  <tr>
+                     <td align="center" class="cr3-year" style="padding: 64px 60px 82px 60px;">
+                        <h3 style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 38px; font-weight: 400; color: #1A1A1A;">Jullie jaar in vakwerk</h3>
+                        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 36px 0 0 0; table-layout: fixed;">
+                           <tr>
+                              <td class="cr3-col" width="180" valign="top" bgcolor="#FFFFFF" style="width: 180px; padding: 30px 18px; text-align: center; background-color: #FFFFFF;">
+                                 <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                       <td height="46" align="center" valign="middle" style="height: 46px; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 46px; line-height: 46px; font-weight: 300; color: #2525B0;">[X]</td>
+                                    </tr>
+                                 </table>
+                                 <p style="margin: 10px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #3D3935;">Coram producten gemonteerd</p>
+                              </td>
+                              <td class="cr3-gap" width="20" style="width: 20px; font-size: 0; line-height: 0;">&nbsp;</td>
+                              <td class="cr3-col" width="180" valign="top" bgcolor="#FFFFFF" style="width: 180px; padding: 30px 18px; text-align: center; background-color: #FFFFFF;">
+                                 <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                       <td height="46" align="center" valign="middle" style="height: 46px; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 28px; line-height: 34px; font-weight: 300; color: #2525B0;">[Merknaam]</td>
+                                    </tr>
+                                 </table>
+                                 <p style="margin: 10px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #3D3935;">jullie favoriete merk</p>
+                              </td>
+                              <td class="cr3-gap" width="20" style="width: 20px; font-size: 0; line-height: 0;">&nbsp;</td>
+                              <td class="cr3-col" width="180" valign="top" bgcolor="#FFFFFF" style="width: 180px; padding: 30px 18px; text-align: center; background-color: #FFFFFF;">
+                                 <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                       <td height="46" align="center" valign="middle" style="height: 46px; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 46px; line-height: 46px; font-weight: 300; color: #2525B0;">50+</td>
+                                    </tr>
+                                 </table>
+                                 <p style="margin: 10px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 15px; line-height: 21px; color: #3D3935;">landen waar onze ontwerpen naartoe gaan</p>
+                              </td>
+                           </tr>
+                        </table>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end 3_col_title_txt_coram_year -->
+               <!-- footer_coram -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#1A1A1A">
+                  <tr>
+                     <td align="center" class="pml16 pmr16" style="padding: 48px 70px; word-wrap: break-word; overflow-wrap: break-word;">
+                        <p style="margin: 0; padding-left: 0.38em; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 22px; line-height: 32px; font-weight: 600; letter-spacing: 0.38em; color: #FFFFFF;">CORAM</p>
+                        <p style="margin: 18px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 24px; font-weight: 300; color: #D9D4CD;">Tiger &middot; Sealskin &middot; Geesa &middot; Impey &middot; Coram Showers &middot; Esbada</p>
+                        <p style="margin: 18px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 24px; font-weight: 300; color: #D9D4CD;">[Adres Coram] &middot; [Telefoon]</p>
+                        <p style="margin: 18px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #FFFFFF;">
+                           <!-- view online link -->
+                           <a href="https://100procent.nl/" target="_blank" class="cor-a-white" style="color: #FFFFFF; text-decoration: underline;">Bekijk online</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           <!-- preferences link -->
+                           <a href="https://100procent.nl/" target="_blank" class="cor-a-white" style="color: #FFFFFF; text-decoration: underline;">Voorkeuren</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           <!-- unsubscribe link -->
+                           <a href="https://100procent.nl/" target="_blank" class="cor-a-white" style="color: #FFFFFF; text-decoration: underline;">Afmelden</a>
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end footer_coram -->
+            </td>
+            <td class="darkmode_side_td" style="background-color: #F4F2EF"></td>
+         </tr>
+      </table>
+   </body>
+
+</html>

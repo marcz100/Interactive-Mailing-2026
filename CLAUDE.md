@@ -30,6 +30,7 @@ artifacts (`HTML/interactive_artifact/`). This file only routes: the rules live 
 | WestCord concepts 1 De lift and 4 Post bij de receptie | CURRENT | yes |
 | Funda B2C 1 De straat van de uitersten | CURRENT | yes |
 | Colbe concept A Zes wensen | CURRENT, no block yet (per its README) | partly |
+| Coram concepts 1–4 (boorgat, velletje, recht gehangen, lijn van het jaar) | CURRENT | yes |
 | WestCord concept 2 Wrapped in de lift and `HTML/blocks/car/car_1_col_subtitle_title_txt_x6_img_btn_x2.html` | LEGACY | no: id selectors, old client overrides |
 | `HTML/test_mails/`, `HTML/interactive_artifact/funda/concept_1_straat_van_de_uitersten/tests/` | snapshots | no |
 | `HTML/blocks/accordion/`, `HTML/blocks/ham/`, `HTML/blocks/car/car_1_col_img_title_txt_btn.html` | older generic blocks, not checked against email_rules section 4 | check first |

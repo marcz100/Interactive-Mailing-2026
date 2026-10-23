@@ -1,0 +1,560 @@
+<!-- start para_1_col_row_1_subtitle_title_txt_row_2_txt_x6_row_3_icon -->
+<!-- "Dit bedankje past niet op één velletje" (Claude Design artifact "Coram eindejaarsmail", concept 2): the thank-you
+     rolls up out of a matte black toilet-roll holder while you scroll, sheet by sheet. Scroll window with the hero and
+     the paper as live text; the holder is a fixed layer at the bottom of the window. Fallback (Gmail, Outlook,
+     Samsung): the paper strip stacked with the roll below.
+     Geometry and font sizes are the artifact's; colours and fonts are token values here (the Coram mail uses the
+     artifact's). Built with interactive_artifact/coram/concept_2_niet_op_een_velletje/build/gen_rol.js: change the
+     generator, not this file. -->
+<style type="text/css">
+   /* Dit bedankje past niet op één velletje (artifact "De volledige mail" + "Zo rolt het af"): a scroll window on the
+      tiled wall holds the hero and the paper strip as live text; the toilet-roll holder is a fixed layer over the
+      bottom of the window. The scroll area ends at the roll's middle line, so the paper rolls up out of the roll and
+      never shows under it; the wall is the window's own background, so it stays still while the paper moves. At the
+      end the last sheet (the wish and the signature) stands above the roll and the paper ends 40 into it, as in the
+      board. Order: input, fallback, interactive. Interactive only in WebKit clients that support :checked
+      (pre-checked .cr-detect); everything else keeps the fallback: the paper strip stacked, the roll below. */
+   @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      .cr-detect:checked ~ .cr-fallback {
+         display: none !important;
+         max-height: 0 !important;
+         overflow: hidden !important;
+      }
+
+      .cr-detect:checked ~ .cr-interactive {
+         display: block !important;
+         max-height: none !important;
+         overflow: visible !important;
+      }
+   }
+
+   /* 104.2857% = 730 / 700 */
+   .cr-interactive .cr-window {
+      position: relative;
+      height: 0;
+      padding-bottom: 104.2857%;
+      overflow: hidden;
+      background-color: #444444;
+      background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 100px), repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 100px);
+   }
+
+   /* the scroll area ends 160 above the window's bottom (the roll's middle line): 21.9178% of 730 */
+   .cr-interactive .cr-scroll {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 21.9178%;
+      left: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+   }
+
+   /* no scrollbar: it would make the paper narrower than the roll layer (the hero says "Scroll maar") */
+   .cr-interactive .cr-scroll::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+   }
+
+   /* hero: the board's 560 column at y 150 (70 under the wall's top), items 18 apart */
+   .cr-interactive .cr-hero {
+      padding: 70px 70px 0 70px;
+      text-align: center;
+   }
+
+   .cr-interactive .cr-kicker {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #ffffff;
+   }
+
+   .cr-interactive .cr-h1 {
+      margin: 18px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 46px;
+      line-height: 51.5px;
+      font-weight: 300;
+      color: #ffffff;
+   }
+
+   .cr-interactive .cr-lead {
+      margin: 18px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 19px;
+      line-height: 27px;
+      font-weight: 300;
+      color: #ffffff;
+   }
+
+   .cr-interactive .cr-arrow {
+      display: block;
+      margin: 18px auto 0 auto;
+   }
+
+   /* the paper strip: 380 wide (54.2857%), its top 360 under the wall's top (59 under the hero) */
+   .cr-interactive .cr-paper {
+      width: 54.2857%;
+      margin: 59px auto 0 auto;
+      background-color: #ffffff;
+      box-shadow: 0 10px 30px rgba(5,0,51,0.35);
+   }
+
+   .cr-interactive .cr-sheet {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      height: 300px;
+      padding: 40px;
+      box-sizing: border-box;
+      border-top: 2px dotted #e6e6e6;
+      text-align: center;
+   }
+
+   .cr-interactive .cr-sheet-1 {
+      border-top: 0;
+   }
+
+   .cr-interactive .cr-sheet-6 {
+      height: 340px;
+   }
+
+   .cr-interactive .cr-s-hello {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 30px;
+      line-height: 43px;
+      font-weight: 300;
+      color: #050033;
+   }
+
+   .cr-interactive .cr-s-txt {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 21px;
+      line-height: 31.5px;
+      font-weight: 300;
+      color: #050033;
+   }
+
+   .cr-interactive .cr-s-big {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 26px;
+      line-height: 35.1px;
+      font-weight: 400;
+      color: #050033;
+   }
+
+   .cr-interactive .cr-s-num {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 64px;
+      line-height: 64px;
+      font-weight: 300;
+      color: #9980FF;
+   }
+
+   .cr-interactive .cr-s-fact {
+      margin: 8px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 19px;
+      line-height: 27.55px;
+      font-weight: 300;
+      color: #050033;
+   }
+
+   .cr-interactive .cr-s-wish {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 300;
+      color: #050033;
+   }
+
+   .cr-interactive .cr-s-sign {
+      margin: 14px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 17px;
+      line-height: 25px;
+      font-weight: 500;
+      color: #050033;
+   }
+
+   /* the tail: the paper ends 40 into the roll at the end of the scroll, 20 above the scroll area's bottom */
+   .cr-interactive .cr-tail {
+      height: 0;
+      padding-bottom: 2.8571%;
+   }
+
+   /* the roll layer: the board's 700 x 220 from the roll's top; over the bottom of the window, pointer-events: none so
+      you can scroll through it */
+   .cr-interactive .cr-desk {
+      position: absolute;
+      top: 69.863%;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      pointer-events: none;
+   }
+
+   .cr-interactive .cr-a {
+      position: absolute;
+      display: block;
+      box-sizing: border-box;
+   }
+
+   .cr-interactive .cr-holder {
+      left: 12.8571%; top: 10%; width: 11.1429%; height: 35.4545%;
+      border-radius: 12px;
+      background-color: #050033;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+   }
+
+   .cr-interactive .cr-bar {
+      left: 21.4286%; top: 23.6364%; width: 62.8571%; height: 8.1818%;
+      border-radius: 9px;
+      background-color: #050033;
+   }
+
+   .cr-interactive .cr-roll {
+      left: 21.4286%; top: 0%; width: 57.1429%; height: 54.5455%;
+      border-radius: 22px;
+      background-color: #efefef;
+      box-shadow: inset 0 -16px 22px rgba(0,0,0,0.10), inset 0 10px 14px rgba(255,255,255,0.8), 0 12px 24px rgba(5,0,51,0.35);
+   }
+
+   .cr-interactive .cr-line-1,
+   .cr-interactive .cr-line-2,
+   .cr-interactive .cr-line-3 {
+      left: 22.8571%;
+      width: 54.2857%;
+      height: 1px;
+   }
+
+   .cr-interactive .cr-line-1 {
+      top: 5.4545%;
+      background-color: rgba(0,0,0,0.06);
+   }
+
+   .cr-interactive .cr-line-2 {
+      top: 15.9091%;
+      background-color: rgba(0,0,0,0.05);
+   }
+
+   .cr-interactive .cr-line-3 {
+      top: 38.6364%;
+      background-color: rgba(0,0,0,0.05);
+   }
+
+   .cr-interactive .cr-knob {
+      left: 78.2857%; top: 22.7273%; width: 3.1429%; height: 10%;
+      border-radius: 50%;
+      background-color: #050033;
+   }
+
+   @media only screen and (max-width: 600px) {
+      /* mobile: the window gets the phone proportion (1268 of 700); the scroll area and the roll layer in % of it */
+      .cr-interactive .cr-window {
+         padding-bottom: 181.1429% !important;
+      }
+
+      .cr-interactive .cr-scroll {
+         bottom: 12.6183% !important;
+      }
+
+      .cr-interactive .cr-desk {
+         top: 82.6498% !important;
+      }
+
+      .cr-interactive .cr-hero {
+         padding: 40px 20px 0 20px !important;
+      }
+
+      .cr-h1 {
+         font-size: 32px !important;
+         line-height: 37px !important;
+      }
+
+      .cr-lead {
+         font-size: 17px !important;
+         line-height: 25px !important;
+      }
+
+      /* the paper: wider, lower sheets, smaller type */
+      /* the paper tip at the start: the roll's top is at (1268 - 220) / 700 = 149.7% of the width; the paper starts
+         about 25% of the width above it under a hero of about 240px: 149.7 - 25 = 124.7vw - 240px (on mobile the mail is
+         as wide as the screen) */
+      .cr-interactive .cr-paper {
+         width: 72% !important;
+         margin-top: calc(124.7vw - 240px) !important;
+      }
+
+      .cr-interactive .cr-sheet {
+         height: 220px !important;
+         padding: 20px !important;
+      }
+
+      .cr-interactive .cr-sheet-6 {
+         height: 240px !important;
+      }
+
+      .cr-s-hello {
+         font-size: 24px !important;
+         line-height: 34px !important;
+      }
+
+      .cr-s-txt {
+         font-size: 17px !important;
+         line-height: 25px !important;
+      }
+
+      .cr-s-big {
+         font-size: 20px !important;
+         line-height: 27px !important;
+      }
+
+      .cr-s-num {
+         font-size: 48px !important;
+         line-height: 48px !important;
+      }
+
+      .cr-s-fact,
+      .cr-s-wish {
+         font-size: 16px !important;
+         line-height: 23px !important;
+      }
+
+      .cr-s-sign {
+         font-size: 15px !important;
+         line-height: 22px !important;
+      }
+
+      /* the paper is wider on mobile (72%), so the roll is too (78%, 11-89%): the paper must always be narrower than
+         the roll it comes out of. Holder, bar, lines and knob move along (same offsets as the board, in 700ths) */
+      .cr-interactive .cr-roll {
+         left: 11% !important;
+         width: 78% !important;
+         border-radius: 12px !important;
+      }
+
+      .cr-interactive .cr-holder {
+         left: 2.4286% !important;
+         border-radius: 7px !important;
+      }
+
+      .cr-interactive .cr-bar {
+         left: 11% !important;
+         width: 83.7143% !important;
+      }
+
+      .cr-interactive .cr-line-1,
+      .cr-interactive .cr-line-2,
+      .cr-interactive .cr-line-3 {
+         left: 12.4286% !important;
+         width: 75.1429% !important;
+      }
+
+      .cr-interactive .cr-knob {
+         left: 88.7143% !important;
+      }
+
+      .cr-fb-hero {
+         padding: 40px 20px 32px 20px !important;
+      }
+
+      .cr-fb-paper-pad {
+         padding: 0 16px !important;
+      }
+
+      .cr-fb-sheet {
+         height: auto !important;
+         padding: 32px 20px !important;
+      }
+   }
+
+   @media only screen and (max-width: 400px) {
+      .cr-h1 {
+         font-size: 28px !important;
+         line-height: 33px !important;
+      }
+   }
+
+   /* Outlook.com / new Outlook: class names get an x_ prefix */
+   [class~="x_cr-interactive"],
+   [class~="x_cr-detect"]:checked ~ [class~="x_cr-interactive"] {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   [class~="x_cr-fallback"],
+   [class~="x_cr-detect"]:checked ~ [class~="x_cr-fallback"] {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+
+   /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+   #MessageViewBody .cr-interactive {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   #MessageViewBody .cr-fallback {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<style type="text/css">
+   /* Outlook apps: back to the fallback (separate style tag: the \0 hack breaks the rest of a style tag) */
+   .cr-interactive\0,
+   .cr-detect:checked ~ .cr-interactive\0 {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   .cr-fallback\0,
+   .cr-detect:checked ~ .cr-fallback\0 {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#444444">
+   <tr>
+      <td align="center" style="padding: 0;">
+         <!--[if !mso]><!-->
+         <input type="checkbox" class="cr-detect" checked style="display: none !important; mso-hide: all;">
+         <!--<![endif]-->
+         <!-- fallback: "Gmail, Outlook en desktop zien de fallback: dezelfde papierstrook statisch onder elkaar, met de rol
+              eronder" (artifact), in tables on the wall colour -->
+         <div class="cr-fallback">
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#444444">
+               <tr>
+                  <td align="center" class="cr-fb-hero" style="padding: 70px 70px 59px 70px; background-color: #444444; background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 100px), repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 100px); word-wrap: break-word; overflow-wrap: break-word;">
+                     <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffffff;">subtitle_1</p>
+                     <h1 class="cr-h1" style="margin: 18px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 46px; line-height: 51.5px; font-weight: 300; color: #ffffff;">title_1</h1>
+                     <p class="cr-lead" style="margin: 18px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 19px; line-height: 27px; font-weight: 300; color: #ffffff;">txt_1</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="center" class="cr-fb-paper-pad" style="padding: 0 160px; background-color: #444444;">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="max-width: 380px;">
+                        <tr>
+                           <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 30px; line-height: 43px; font-weight: 300; color: #050033;">txt_2</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; border-top: 2px dotted #e6e6e6; word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 21px; line-height: 31.5px; font-weight: 300; color: #050033;" class="cr-s-txt">txt_3</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; border-top: 2px dotted #e6e6e6; word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 35px; font-weight: 400; color: #050033;" class="cr-s-big">title_2</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; border-top: 2px dotted #e6e6e6; word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 64px; line-height: 64px; font-weight: 300; color: #9980FF;">title_3</p>
+                              <p style="margin: 8px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 19px; line-height: 27.5px; font-weight: 300; color: #050033;" class="cr-s-fact">txt_4</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; border-top: 2px dotted #e6e6e6; word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 35px; font-weight: 400; color: #050033;" class="cr-s-big">title_4</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td align="center" valign="middle" height="340" class="cr-fb-sheet" style="height: 340px; padding: 40px; border-top: 2px dotted #e6e6e6; word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 20px; line-height: 30px; font-weight: 300; color: #050033;" class="cr-s-wish">txt_5</p>
+                              <p style="margin: 14px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 17px; line-height: 25px; font-weight: 500; color: #050033;">txt_6</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <!-- the roll under the strip (simplified in tables: the holder and the roll; the artifact intends the holder as one
+                    image) -->
+               <tr>
+                  <td align="center" style="padding: 24px 20px 100px 20px; background-color: #444444;">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 460px;">
+                        <tr>
+                           <td width="60" valign="middle" style="width: 60px; font-size: 0; line-height: 0;">
+                              <table role="presentation" width="60" border="0" cellspacing="0" cellpadding="0" bgcolor="#050033" style="width: 60px; border-radius: 12px 0 0 12px; border-collapse: separate;"><tr><td height="78" style="height: 78px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                           </td>
+                           <td height="120" bgcolor="#efefef" style="height: 120px; border-radius: 22px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <!--[if !mso]><!-->
+         <div class="cr-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+            <div class="cr-window">
+               <div class="cr-scroll">
+                  <div class="cr-hero">
+                     <p class="cr-kicker">subtitle_1</p>
+                     <h1 class="cr-h1">title_1</h1>
+                     <p class="cr-lead">txt_1</p>
+                     <svg class="cr-arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"><path d="M12 4v16M6 14l6 6 6-6"></path></svg>
+                  </div>
+                  <div class="cr-paper">
+                     <div class="cr-sheet cr-sheet-1">
+                        <p class="cr-s-hello">txt_2</p>
+                     </div>
+                     <div class="cr-sheet cr-sheet-2">
+                        <p class="cr-s-txt">txt_3</p>
+                     </div>
+                     <div class="cr-sheet cr-sheet-3">
+                        <p class="cr-s-big">title_2</p>
+                     </div>
+                     <div class="cr-sheet cr-sheet-4">
+                        <p class="cr-s-num">title_3</p>
+                        <p class="cr-s-fact">txt_4</p>
+                     </div>
+                     <div class="cr-sheet cr-sheet-5">
+                        <p class="cr-s-big">title_4</p>
+                     </div>
+                     <div class="cr-sheet cr-sheet-6">
+                        <p class="cr-s-wish">txt_5</p>
+                        <p class="cr-s-sign">txt_6</p>
+                     </div>
+                  </div>
+                  <div class="cr-tail"></div>
+               </div>
+               <!-- the roll holder: stays still over the bottom of the window -->
+               <div class="cr-desk">
+                  <div class="cr-a cr-holder"></div>
+                  <div class="cr-a cr-bar"></div>
+                  <div class="cr-a cr-roll"></div>
+                  <div class="cr-a cr-line-1"></div>
+                  <div class="cr-a cr-line-2"></div>
+                  <div class="cr-a cr-line-3"></div>
+                  <div class="cr-a cr-knob"></div>
+               </div>
+            </div>
+         </div>
+         <!--<![endif]-->
+      </td>
+   </tr>
+</table>
+<!-- end para_1_col_row_1_subtitle_title_txt_row_2_txt_x6_row_3_icon -->

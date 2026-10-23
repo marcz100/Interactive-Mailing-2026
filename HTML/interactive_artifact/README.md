@@ -9,9 +9,10 @@ concepts. It's a living document: add a rule when we learn something, and write 
 ```
 interactive_artifact/
   README.md                      <- this file: rules for every artifact concept
-  tools/                         <- shared tooling (unbundle_artifact.js)
+  tools/                         <- shared tooling (unbundle_artifact.js, render_board.js)
   <client>/
     README.md                    <- client rules: brand values, mail shell, data, open items, concept overview
+    shell/                       <- optional: the client's mail shell and test helpers, shared by its concepts
     concept_<n>_<name>/
       README.md                  <- concept rules: what it does, states, geometry, decisions, tests, open items
       <client>_<campaign>_<year>_concept_<n>.html
@@ -55,6 +56,14 @@ DevTools Protocol is not a real device.
    every text element) and compare the mail with the same script. Where the board sets no `line-height` it renders
    `normal` (about 1.2x for most webfonts), not the canvas page's base.
    - *Lesson:* Funda B2C 1 used 1.4 by guess; the finale and the cards were 30px taller than the board.
+7. **Rule: render a board per state when its runtime is missing**: `node tools/render_board.js <board.dc.html> <out.html>
+   '{"state":"json"}'` runs the board's DCLogic with that state and resolves `sc-if`, `sc-for` and `{{values}}`, so the
+   mail can be compared with every state of the board.
+   - *Lesson:* the Coram artifact refuses `support.js`, so the boards don't render on their own.
+8. **Check: the board can be wrong too.** Fix layout bugs in the board (overlapping texts, gaps that make no sense in
+   the end state) instead of copying them, and list them as deviations.
+   - *Lesson:* Coram concept 4: the feedback question overlaps the message card, and the pipe keeps gaps where the
+     clogs were.
 
 ## 2. One-on-one
 
@@ -112,6 +121,9 @@ DevTools Protocol is not a real device.
 | Something that can't be undone (a door stays open) | `pointer-events: none` on the label of a checked input (`.c1:checked ~ .xx-interactive .label-1`) | Funda doors |
 | Locked until the others are done | the label starts with `pointer-events: none`; the chain of all inputs (`.c1:checked ~ … ~ .c6:checked ~ .xx-interactive`) sets `pointer-events: auto`. A rule for the next state must contain the chain too, or it loses on specificity | Funda door 24 |
 | Count text ("Nog 3 deuren te gaan") with many inputs | a CSS counter: `counter-reset: n 6` on the text, an empty span per input with `counter-increment: n -1` when checked, `content: counter(n)` in a span between the copy. One selector per input instead of 2^n combinations | Funda progress |
+| Steps that must happen in order (open, then fix 1, 2, 3) | checkboxes in that order; each label shows from the chain of the steps before it (`.s1:checked ~ .s2:checked ~ .xx-interactive .fix3`) and goes when its own step is checked; colours per stretch from the same chains | Coram pipe, towel rail |
+| Something rolls out of an object and must not show under it | end the scroll area (not the window) at the object's middle line, so the content is cut there behind the object; the background stays on the window, so it stands still | Coram toilet roll |
+| A drawing on desktop, a simpler version on mobile, one HTML | the elements are absolutely positioned on desktop and in flow on mobile; groups (sections) are static wrappers on desktop and carry the mobile drawing (e.g. the pipe as their left border) | Coram pipe |
 | Newest of several cards in one spot, without fixed heights | all cards in one CSS grid cell (`grid-area: 1 / 1`), unopened ones `visibility: hidden` (they still size the cell), z-index countdown animation as above | Funda record cards |
 
 - **Check: stacked layers need identical boxes.** A shorter text on top doesn't cover a longer one below.

@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<!-- Coram eindejaarsmail 2026: concept 2 "Dit bedankje past niet op één velletje" (artifact boards "De volledige
+     mail" en "Zo rolt het af, techniek en gewicht").
+     Een matzwarte rolhouder staat vast onderin beeld. Tijdens het scrollen rolt het bedankje als papier omhoog,
+     velletje voor velletje: een scrollvenster op de tegelwand met de hero en de papierstrook als live tekst, de
+     rolhouder als vaste laag onderin. Het scrollgebied eindigt op de middellijn van de rol, zodat het papier uit de rol
+     komt en er nooit onder zichtbaar is; de tegelwand staat stil. Aan het eind staat het laatste velletje met de wens
+     en de ondertekening boven de rol. Geen klik nodig: alleen een detectie-checkbox.
+     Kleuren, fonts, maten en teksten 1:1 uit het artifact.
+     Fallback (Gmail, Outlook, Samsung): dezelfde papierstrook statisch onder elkaar, met de rol eronder (vereenvoudigd
+     in tabellen; het artifact bedoelt de rolhouder als afbeelding).
+     Mobiel (het artifact heeft geen mobiel ontwerp, wel een telefoonschets): venster in de verhouding van de schets,
+     bredere strook met kleinere letters.
+     Gebouwd met build/gen_rol.js + build/build_mail.js; wijzig de generator, niet de HTML.
+     Persoonlijke velden ([Voornaam], [X], [Bedrijfsnaam]) zijn placeholders. Toon: graag een bewuste keuze van Coram
+     (artifact: "het onderwerp blijft een toiletrol"). Teksten af te stemmen met Coram.
+     Bron: Claude Design concept "Coram eindejaarsmail: bedankt voor het vakwerk", concept 2. -->
+
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+      <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+      <meta name="x-apple-disable-message-reformatting">
+      <meta name="color-scheme" content="light dark">
+      <meta name="supported-color-schemes" content="light dark">
+      <link rel="shortcut icon" href="https://studio.100procentemail.com/designs/100email/st_j/100_new_design/Avatar_2_light.jpg" type="image/x-icon">
+      <link rel="icon" type="image/icon" href="https://studio.100procentemail.com/designs/100email/st_j/100_new_design/Avatar_2_light.jpg">
+      <title>Dit bedankje past niet op één velletje.</title>
+
+      <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+		<o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+      <style type="text/css">
+         body {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0px;
+            padding: 0px;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+         }
+
+         .ReadMsgBody {
+            width: 100%;
+         }
+
+         .ExternalClass {
+            width: 100%;
+         }
+
+         table,
+         td {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+         }
+
+         th {
+            font-weight: normal;
+         }
+
+         img {
+            display: block;
+            -ms-interpolation-mode: bicubic;
+         }
+
+         a[x-apple-data-detectors],
+
+         .unstyle-auto-detected-links a,
+         .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+         }
+
+         u+#body a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+         }
+
+         #MessageViewBody a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+         }
+
+         *,
+         *:after,
+         *:before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+         }
+
+         p {
+            margin: 0;
+            font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+         }
+
+         h1 {
+            margin: 0;
+            font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 34px;
+            line-height: 39px;
+            font-weight: 800;
+         }
+
+         h2 {
+            margin: 0;
+            font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 28px;
+            line-height: 32px;
+            font-weight: 800;
+         }
+
+         h3 {
+            margin: 0;
+            font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 700;
+         }
+
+         .bodytxt a {
+            color: #9980FF;
+            font-weight: bold;
+         }
+
+         .bodytxt a:visited {
+            color: #9980FF;
+            font-weight: bold;
+         }
+
+         .bodytxt {
+            font-size: 16px!important;
+            line-height: 24px!important;
+         }
+
+         .bodytxtwhite,
+         .nav {
+            font-size: 16px!important;
+            line-height: 24px!important;
+         }
+
+         h1.headertxt {
+            font-size: 34px!important;
+            line-height: 39px!important;
+            font-weight: 800!important;
+         }
+
+         h2.headertxt {
+            font-size: 28px!important;
+            line-height: 32px!important;
+            font-weight: 800!important;
+         }
+
+         h3.headertxt {
+            font-size: 20px!important;
+            line-height: 26px!important;
+            font-weight: 700!important;
+         }
+
+         .bodytxtwhite a {
+            color: #ffffff;
+            font-weight: bold;
+         }
+
+         .bodytxtwhite a:visited {
+            color: #ffffff;
+            font-weight: bold;
+         }
+
+         @media only screen and (max-width: 600px) {
+
+            .headertxt {
+               font-size: 1.4em !important;
+            }
+
+            .col-sm-12 {
+               max-width: 100% !important;
+               width: 100% !important;
+               display: block !important
+            }
+
+            .col-sm-9 {
+               max-width: 75% !important;
+               width: 75% !important;
+            }
+
+            .col-sm-8 {
+               max-width: 66.66666666% !important;
+               width: 66.66666666% !important;
+            }
+
+            .col-sm-6 {
+               max-width: 49.5% !important;
+               width: 49.5% !important;
+            }
+
+            .col-sm-4 {
+               max-width: 33.33333333% !important;
+               width: 33.33333333% !important;
+            }
+
+            .col-sm-3 {
+               max-width: 25% !important;
+               width: 25% !important;
+            }
+
+            .col-sm-12-img img {
+               width: 100% !important;
+               max-width: 100% !important;
+            }
+
+            .btn {
+               width: 100% !important;
+            }
+
+            .txt-center {
+               text-align: center !important;
+            }
+
+            .item-center {
+               margin-left: auto !important;
+               margin-right: auto !important;
+            }
+
+            .clearheight {
+               height: 0 !important;
+            }
+
+            .float {
+               width: 100% !important;
+               max-width: 100% !important;
+               clear: both !important;
+               float: left !important;
+            }
+
+            .noBorder {
+               border: none !important;
+            }
+
+            .headerheight {
+               height: 140px !important;
+            }
+
+            .hide_on_mobile {
+               display: none !important;
+            }
+
+            .show-on-mobile {
+               display: block !important;
+               line-height: normal !important;
+               max-height: none !important;
+               width: 100% !important;
+               overflow: hidden !important;
+            }
+
+            .pm0 {
+               padding: 0 !important;
+            }
+
+            .pmt0 {
+               padding-top: 0 !important;
+            }
+
+            .pmr0 {
+               padding-right: 0 !important;
+            }
+
+            .pmb0 {
+               padding-bottom: 0 !important;
+            }
+
+            .pml0 {
+               padding-left: 0 !important;
+            }
+
+            .pm4 {
+               padding: 4px !important;
+            }
+
+            .pmt4 {
+               padding-top: 4px !important;
+            }
+
+            .pmr4 {
+               padding-right: 4px !important;
+            }
+
+            .pmb4 {
+               padding-bottom: 4px !important;
+            }
+
+            .pml4 {
+               padding-left: 4px !important;
+            }
+
+            .pm8 {
+               padding: 8px !important;
+            }
+
+            .pmt8 {
+               padding-top: 8px !important;
+            }
+
+            .pmr8 {
+               padding-right: 8px !important;
+            }
+
+            .pmb8 {
+               padding-bottom: 8px !important;
+            }
+
+            .pml8 {
+               padding-left: 8px !important;
+            }
+
+            .pm12 {
+               padding: 12px !important;
+            }
+
+            .pmt12 {
+               padding-top: 12px !important;
+            }
+
+            .pmr12 {
+               padding-right: 12px !important;
+            }
+
+            .pmb12 {
+               padding-bottom: 12px !important;
+            }
+
+            .pml12 {
+               padding-left: 12px !important;
+            }
+
+            .pm16 {
+               padding: 16px !important;
+            }
+
+            .pmt16 {
+               padding-top: 16px !important;
+            }
+
+            .pmr16 {
+               padding-right: 16px !important;
+            }
+
+            .pmb16 {
+               padding-bottom: 16px !important;
+            }
+
+            .pml16 {
+               padding-left: 16px !important;
+            }
+
+            .pm24 {
+               padding: 24px !important;
+            }
+
+            .pmt24 {
+               padding-top: 24px !important;
+            }
+
+            .pmr24 {
+               padding-right: 24px !important;
+            }
+
+            .pmb24 {
+               padding-bottom: 24px !important;
+            }
+
+            .pml24 {
+               padding-left: 24px !important;
+            }
+
+            .pm32 {
+               padding: 32px !important;
+            }
+
+            .pmt32 {
+               padding-top: 32px !important;
+            }
+
+            .pmr32 {
+               padding-right: 32px !important;
+            }
+
+            .pmb32 {
+               padding-bottom: 32px !important;
+            }
+
+            .pml32 {
+               padding-left: 32px !important;
+            }
+
+         }
+
+         @media only screen and (max-width: 374px) {
+
+            .col-xs-12 {
+               max-width: 100% !important;
+            }
+
+            .col-xs-9 {
+               max-width: 75% !important;
+            }
+
+            .col-xs-8 {
+               max-width: 66.66666666% !important;
+            }
+
+            .col-xs-6 {
+               max-width: 49.5% !important;
+            }
+
+            .col-xs-4 {
+               max-width: 33.33333333% !important;
+            }
+
+            .col-xs-3 {
+               max-width: 25% !important;
+            }
+         }
+      </style>
+      <style type="text/css">
+         @media (prefers-color-scheme: dark) {
+
+            .invert {
+               filter: invert(1);
+            }
+
+            .dark-img {
+               display: inline-block !important;
+            }
+
+            .light-img {
+               display: none !important;
+            }
+
+            .darkmode_side_td {
+               background-color: #1A1A1A!important;
+            }
+
+            .darkmode {
+               background-color: #1A1A1A!important;
+            }
+
+            .darkmode_body {
+               background-color: #1A1A1A!important;
+            }
+
+            .darkmode_cta {
+               background-color: #2525B0!important;
+
+               border: 1px solid #2525B0!important
+            }
+
+            .headertxt {
+               color: #FFFFFF!important;
+            }
+
+            .bodytxt {
+               color: #FFFFFF!important;
+            }
+
+            a {
+               color: #FFFFFF!important;
+            }
+         }
+
+         [data-ogsc] .invert {
+            filter: invert(1);
+         }
+
+         [data-ogsc] .dark-img {
+            display: inline-block !important;
+         }
+
+         [data-ogsc] .light-img {
+            display: none !important;
+         }
+
+         [data-ogsc] .darkmode_side_td {background-color: #1A1A1A!important;
+         }
+
+         [data-ogsc] .darkmode {background-color: #1A1A1A!important;
+         }
+
+         [data-ogsc] .darkmode_body {background-color: #1A1A1A!important;
+         }
+
+         [data-ogsc] .darkmode_cta {background-color: #2525B0!important;
+border: 1px solid #2525B0!important
+         }
+
+         [data-ogsc] .headertxt {color: #FFFFFF!important
+         }
+
+         [data-ogsc] .bodytxt {color: #FFFFFF!important
+         }
+
+         [data-ogsc] a {color: #FFFFFF!important;
+         }
+      </style>
+      <!--[if !mso]><!-->
+      <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet" type="text/css">
+      <!--<![endif]-->
+      <!-- coram_mail -->
+      <style type="text/css">
+         .cor-a-white {
+            color: #FFFFFF !important;
+         }
+      </style>
+      <!-- // coram_mail -->
+      <!-- para_1_col_row_1_subtitle_title_txt_row_2_txt_x6_row_3_icon -->
+<style type="text/css">
+ /* Dit bedankje past niet op één velletje (artifact "De volledige mail" + "Zo rolt het af"): a scroll window on the
+  tiled wall holds the hero and the paper strip as live text; the toilet-roll holder is a fixed layer over the
+  bottom of the window. The scroll area ends at the roll's middle line, so the paper rolls up out of the roll and
+  never shows under it; the wall is the window's own background, so it stays still while the paper moves. At the
+  end the last sheet (the wish and the signature) stands above the roll and the paper ends 40 into it, as in the
+  board. Order: input, fallback, interactive. Interactive only in WebKit clients that support :checked
+  (pre-checked .cr-detect); everything else keeps the fallback: the paper strip stacked, the roll below. */
+ @media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .cr-detect:checked ~ .cr-fallback {
+   display: none !important;
+   max-height: 0 !important;
+   overflow: hidden !important;
+  }
+
+  .cr-detect:checked ~ .cr-interactive {
+   display: block !important;
+   max-height: none !important;
+   overflow: visible !important;
+  }
+ }
+
+ /* 104.2857% = 730 / 700 */
+ .cr-interactive .cr-window {
+  position: relative;
+  height: 0;
+  padding-bottom: 104.2857%;
+  overflow: hidden;
+  background-color: #776E65;
+  background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 100px), repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 100px);
+ }
+
+ /* the scroll area ends 160 above the window's bottom (the roll's middle line): 21.9178% of 730 */
+ .cr-interactive .cr-scroll {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 21.9178%;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+ }
+
+ /* no scrollbar: it would make the paper narrower than the roll layer (the hero says "Scroll maar") */
+ .cr-interactive .cr-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+ }
+
+ /* hero: the board's 560 column at y 150 (70 under the wall's top), items 18 apart */
+ .cr-interactive .cr-hero {
+  padding: 70px 70px 0 70px;
+  text-align: center;
+ }
+
+ .cr-interactive .cr-kicker {
+  margin: 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+ }
+
+ .cr-interactive .cr-h1 {
+  margin: 18px 0 0 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 46px;
+  line-height: 51.5px;
+  font-weight: 300;
+  color: #FFFFFF;
+ }
+
+ .cr-interactive .cr-lead {
+  margin: 18px 0 0 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 19px;
+  line-height: 27px;
+  font-weight: 300;
+  color: #FFFFFF;
+ }
+
+ .cr-interactive .cr-arrow {
+  display: block;
+  margin: 18px auto 0 auto;
+ }
+
+ /* the paper strip: 380 wide (54.2857%), its top 360 under the wall's top (59 under the hero) */
+ .cr-interactive .cr-paper {
+  width: 54.2857%;
+  margin: 59px auto 0 auto;
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(20,15,10,0.35);
+ }
+
+ .cr-interactive .cr-sheet {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 300px;
+  padding: 40px;
+  box-sizing: border-box;
+  border-top: 2px dotted #C9C3BB;
+  text-align: center;
+ }
+
+ .cr-interactive .cr-sheet-1 {
+  border-top: 0;
+ }
+
+ .cr-interactive .cr-sheet-6 {
+  height: 340px;
+ }
+
+ .cr-interactive .cr-s-hello {
+  margin: 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 30px;
+  line-height: 43px;
+  font-weight: 300;
+  color: #1A1A1A;
+ }
+
+ .cr-interactive .cr-s-txt {
+  margin: 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 21px;
+  line-height: 31.5px;
+  font-weight: 300;
+  color: #1A1A1A;
+ }
+
+ .cr-interactive .cr-s-big {
+  margin: 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 26px;
+  line-height: 35.1px;
+  font-weight: 400;
+  color: #1A1A1A;
+ }
+
+ .cr-interactive .cr-s-num {
+  margin: 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: 300;
+  color: #2525B0;
+ }
+
+ .cr-interactive .cr-s-fact {
+  margin: 8px 0 0 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 19px;
+  line-height: 27.55px;
+  font-weight: 300;
+  color: #1A1A1A;
+ }
+
+ .cr-interactive .cr-s-wish {
+  margin: 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+  color: #1A1A1A;
+ }
+
+ .cr-interactive .cr-s-sign {
+  margin: 14px 0 0 0;
+  font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 17px;
+  line-height: 25px;
+  font-weight: 500;
+  color: #1A1A1A;
+ }
+
+ /* the tail: the paper ends 40 into the roll at the end of the scroll, 20 above the scroll area's bottom */
+ .cr-interactive .cr-tail {
+  height: 0;
+  padding-bottom: 2.8571%;
+ }
+
+ /* the roll layer: the board's 700 x 220 from the roll's top; over the bottom of the window, pointer-events: none so
+  you can scroll through it */
+ .cr-interactive .cr-desk {
+  position: absolute;
+  top: 69.863%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+ }
+
+ .cr-interactive .cr-a {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+ }
+
+ .cr-interactive .cr-holder {
+  left: 12.8571%; top: 10%; width: 11.1429%; height: 35.4545%;
+  border-radius: 12px;
+  background-color: #1C1C1C;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+ }
+
+ .cr-interactive .cr-bar {
+  left: 21.4286%; top: 23.6364%; width: 62.8571%; height: 8.1818%;
+  border-radius: 9px;
+  background-color: #1C1C1C;
+ }
+
+ .cr-interactive .cr-roll {
+  left: 21.4286%; top: 0%; width: 57.1429%; height: 54.5455%;
+  border-radius: 22px;
+  background-color: #F7F5F2;
+  box-shadow: inset 0 -16px 22px rgba(0,0,0,0.10), inset 0 10px 14px rgba(255,255,255,0.8), 0 12px 24px rgba(20,15,10,0.35);
+ }
+
+ .cr-interactive .cr-line-1,
+ .cr-interactive .cr-line-2,
+ .cr-interactive .cr-line-3 {
+  left: 22.8571%;
+  width: 54.2857%;
+  height: 1px;
+ }
+
+ .cr-interactive .cr-line-1 {
+  top: 5.4545%;
+  background-color: rgba(0,0,0,0.06);
+ }
+
+ .cr-interactive .cr-line-2 {
+  top: 15.9091%;
+  background-color: rgba(0,0,0,0.05);
+ }
+
+ .cr-interactive .cr-line-3 {
+  top: 38.6364%;
+  background-color: rgba(0,0,0,0.05);
+ }
+
+ .cr-interactive .cr-knob {
+  left: 78.2857%; top: 22.7273%; width: 3.1429%; height: 10%;
+  border-radius: 50%;
+  background-color: #1C1C1C;
+ }
+
+ @media only screen and (max-width: 600px) {
+  /* mobile: the window gets the phone proportion (1268 of 700); the scroll area and the roll layer in % of it */
+  .cr-interactive .cr-window {
+   padding-bottom: 181.1429% !important;
+  }
+
+  .cr-interactive .cr-scroll {
+   bottom: 12.6183% !important;
+  }
+
+  .cr-interactive .cr-desk {
+   top: 82.6498% !important;
+  }
+
+  .cr-interactive .cr-hero {
+   padding: 40px 20px 0 20px !important;
+  }
+
+  .cr-h1 {
+   font-size: 32px !important;
+   line-height: 37px !important;
+  }
+
+  .cr-lead {
+   font-size: 17px !important;
+   line-height: 25px !important;
+  }
+
+  /* the paper: wider, lower sheets, smaller type */
+  /* the paper tip at the start: the roll's top is at (1268 - 220) / 700 = 149.7% of the width; the paper starts
+   about 25% of the width above it under a hero of about 240px: 149.7 - 25 = 124.7vw - 240px (on mobile the mail is
+   as wide as the screen) */
+  .cr-interactive .cr-paper {
+   width: 72% !important;
+   margin-top: calc(124.7vw - 240px) !important;
+  }
+
+  .cr-interactive .cr-sheet {
+   height: 220px !important;
+   padding: 20px !important;
+  }
+
+  .cr-interactive .cr-sheet-6 {
+   height: 240px !important;
+  }
+
+  .cr-s-hello {
+   font-size: 24px !important;
+   line-height: 34px !important;
+  }
+
+  .cr-s-txt {
+   font-size: 17px !important;
+   line-height: 25px !important;
+  }
+
+  .cr-s-big {
+   font-size: 20px !important;
+   line-height: 27px !important;
+  }
+
+  .cr-s-num {
+   font-size: 48px !important;
+   line-height: 48px !important;
+  }
+
+  .cr-s-fact,
+  .cr-s-wish {
+   font-size: 16px !important;
+   line-height: 23px !important;
+  }
+
+  .cr-s-sign {
+   font-size: 15px !important;
+   line-height: 22px !important;
+  }
+
+  /* the paper is wider on mobile (72%), so the roll is too (78%, 11-89%): the paper must always be narrower than
+   the roll it comes out of. Holder, bar, lines and knob move along (same offsets as the board, in 700ths) */
+  .cr-interactive .cr-roll {
+   left: 11% !important;
+   width: 78% !important;
+   border-radius: 12px !important;
+  }
+
+  .cr-interactive .cr-holder {
+   left: 2.4286% !important;
+   border-radius: 7px !important;
+  }
+
+  .cr-interactive .cr-bar {
+   left: 11% !important;
+   width: 83.7143% !important;
+  }
+
+  .cr-interactive .cr-line-1,
+  .cr-interactive .cr-line-2,
+  .cr-interactive .cr-line-3 {
+   left: 12.4286% !important;
+   width: 75.1429% !important;
+  }
+
+  .cr-interactive .cr-knob {
+   left: 88.7143% !important;
+  }
+
+  .cr-fb-hero {
+   padding: 40px 20px 32px 20px !important;
+  }
+
+  .cr-fb-paper-pad {
+   padding: 0 16px !important;
+  }
+
+  .cr-fb-sheet {
+   height: auto !important;
+   padding: 32px 20px !important;
+  }
+ }
+
+ @media only screen and (max-width: 400px) {
+  .cr-h1 {
+   font-size: 28px !important;
+   line-height: 33px !important;
+  }
+ }
+
+ /* Outlook.com / new Outlook: class names get an x_ prefix */
+ [class~="x_cr-interactive"],
+ [class~="x_cr-detect"]:checked ~ [class~="x_cr-interactive"] {
+  display: none !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+ }
+
+ [class~="x_cr-fallback"],
+ [class~="x_cr-detect"]:checked ~ [class~="x_cr-fallback"] {
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
+ }
+
+ /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+ #MessageViewBody .cr-interactive {
+  display: none !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+ }
+
+ #MessageViewBody .cr-fallback {
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
+ }
+</style>
+<style type="text/css">
+ /* Outlook apps: back to the fallback (separate style tag: the \0 hack breaks the rest of a style tag) */
+ .cr-interactive\0,
+ .cr-detect:checked ~ .cr-interactive\0 {
+  display: none !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+ }
+
+ .cr-fallback\0,
+ .cr-detect:checked ~ .cr-fallback\0 {
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
+ }
+</style>
+      <!-- // para_1_col_row_1_subtitle_title_txt_row_2_txt_x6_row_3_icon -->
+   </head>
+
+   <body id="body" class="darkmode body" width="100%" style="margin: 0; padding: 0 !important;">
+      <!--[if !mso & !IE]><!-->
+      <div style="display: none; max-height: 0px; overflow: hidden;">Scroll maar, [Voornaam].</div>
+      <div style="display: none; max-height: 0px; overflow: hidden;">
+         &#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;
+      </div>
+      <!--<![endif]-->
+
+      <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F4F2EF" class="darkmode">
+         <tr>
+            <td class="darkmode_side_td" style="background-color: #F4F2EF"></td>
+            <td class="darkmode" bgcolor="#FFFFFF" style="text-align: center; font-size: 0; width: 700px; max-width: 700px; background-color: #FFFFFF;" align="center">
+               <!-- header_coram: the CORAM wordmark as text, as in the artifact -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#1A1A1A">
+                  <tr>
+                     <td align="center" valign="middle" height="80" style="height: 80px; padding: 0 20px;">
+                        <a href="https://100procent.nl/" target="_blank" class="cor-a-white" style="display: inline-block; padding-left: 0.38em; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 24px; line-height: 35px; font-weight: 600; letter-spacing: 0.38em; color: #FFFFFF; text-decoration: none;">CORAM</a>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end header_coram -->
+               <!-- start para_1_col_row_1_subtitle_title_txt_row_2_txt_x6_row_3_icon -->
+               <!-- "Dit bedankje past niet op één velletje" (Claude Design artifact "Coram eindejaarsmail", concept 2): the thank-you
+                    rolls up out of a matte black toilet-roll holder while you scroll, sheet by sheet. Scroll window with the hero and
+                    the paper as live text; the holder is a fixed layer at the bottom of the window. Fallback (Gmail, Outlook,
+                    Samsung): the paper strip stacked with the roll below.
+                    Geometry and font sizes are the artifact's; colours and fonts are token values here (the Coram mail uses the
+                    artifact's). Built with interactive_artifact/coram/concept_2_niet_op_een_velletje/build/gen_rol.js: change the
+                    generator, not this file. -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#776E65">
+                  <tr>
+                     <td align="center" style="padding: 0;">
+                        <!--[if !mso]><!-->
+                        <input type="checkbox" class="cr-detect" checked style="display: none !important; mso-hide: all;">
+                        <!--<![endif]-->
+                        <!-- fallback: "Gmail, Outlook en desktop zien de fallback: dezelfde papierstrook statisch onder elkaar, met de rol
+                             eronder" (artifact), in tables on the wall colour -->
+                        <div class="cr-fallback">
+                           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#776E65">
+                              <tr>
+                                 <td align="center" class="cr-fb-hero" style="padding: 70px 70px 59px 70px; background-color: #776E65; background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 100px), repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 100px); word-wrap: break-word; overflow-wrap: break-word;">
+                                    <p style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 13px; line-height: 19px; letter-spacing: 0.3em; text-transform: uppercase; color: #FFFFFF;">Bedankt voor het vakwerk</p>
+                                    <h1 class="cr-h1" style="margin: 18px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 46px; line-height: 51.5px; font-weight: 300; color: #FFFFFF;">Dit bedankje past niet op één velletje.</h1>
+                                    <p class="cr-lead" style="margin: 18px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 19px; line-height: 27px; font-weight: 300; color: #FFFFFF;">Scroll maar, [Voornaam].</p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td align="center" class="cr-fb-paper-pad" style="padding: 0 160px; background-color: #776E65;">
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="max-width: 380px;">
+                                       <tr>
+                                          <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <p style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 30px; line-height: 43px; font-weight: 300; color: #1A1A1A;">Beste [Voornaam],</p>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; border-top: 2px dotted #C9C3BB; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <p style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 21px; line-height: 31.5px; font-weight: 300; color: #1A1A1A;" class="cr-s-txt">Wat een jaar. Badkamer na badkamer, toilet na toilet kwamen onze ontwerpen in jullie handen.</p>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; border-top: 2px dotted #C9C3BB; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <p style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 35px; font-weight: 400; color: #1A1A1A;" class="cr-s-big">Jullie maken van onze ontwerpen een perfect eindresultaat.</p>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; border-top: 2px dotted #C9C3BB; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <p style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 64px; line-height: 64px; font-weight: 300; color: #2525B0;">[X]</p>
+                                             <p style="margin: 8px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 19px; line-height: 27.5px; font-weight: 300; color: #1A1A1A;" class="cr-s-fact">Coram producten gingen dit jaar door de handen van [Bedrijfsnaam].</p>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td align="center" valign="middle" height="300" class="cr-fb-sheet" style="height: 300px; padding: 40px; border-top: 2px dotted #C9C3BB; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <p style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 26px; line-height: 35px; font-weight: 400; color: #1A1A1A;" class="cr-s-big">Bedankt voor elke strakke montage dit jaar.</p>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td align="center" valign="middle" height="340" class="cr-fb-sheet" style="height: 340px; padding: 40px; border-top: 2px dotted #C9C3BB; word-wrap: break-word; overflow-wrap: break-word;">
+                                             <p style="margin: 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 20px; line-height: 30px; font-weight: 300; color: #1A1A1A;" class="cr-s-wish">Fijne feestdagen en tot in 2027.</p>
+                                             <p style="margin: 14px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 17px; line-height: 25px; font-weight: 500; color: #1A1A1A;">Het team van Coram</p>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                              <!-- the roll under the strip (simplified in tables: the holder and the roll; the artifact intends the holder as one
+                                   image) -->
+                              <tr>
+                                 <td align="center" style="padding: 24px 20px 100px 20px; background-color: #776E65;">
+                                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 460px;">
+                                       <tr>
+                                          <td width="60" valign="middle" style="width: 60px; font-size: 0; line-height: 0;">
+                                             <table role="presentation" width="60" border="0" cellspacing="0" cellpadding="0" bgcolor="#1C1C1C" style="width: 60px; border-radius: 12px 0 0 12px; border-collapse: separate;"><tr><td height="78" style="height: 78px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
+                                          </td>
+                                          <td height="120" bgcolor="#F7F5F2" style="height: 120px; border-radius: 22px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                        <!--[if !mso]><!-->
+                        <div class="cr-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+                           <div class="cr-window">
+                              <div class="cr-scroll">
+                                 <div class="cr-hero">
+                                    <p class="cr-kicker">Bedankt voor het vakwerk</p>
+                                    <h1 class="cr-h1">Dit bedankje past niet op één velletje.</h1>
+                                    <p class="cr-lead">Scroll maar, [Voornaam].</p>
+                                    <svg class="cr-arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"><path d="M12 4v16M6 14l6 6 6-6"></path></svg>
+                                 </div>
+                                 <div class="cr-paper">
+                                    <div class="cr-sheet cr-sheet-1">
+                                       <p class="cr-s-hello">Beste [Voornaam],</p>
+                                    </div>
+                                    <div class="cr-sheet cr-sheet-2">
+                                       <p class="cr-s-txt">Wat een jaar. Badkamer na badkamer, toilet na toilet kwamen onze ontwerpen in jullie handen.</p>
+                                    </div>
+                                    <div class="cr-sheet cr-sheet-3">
+                                       <p class="cr-s-big">Jullie maken van onze ontwerpen een perfect eindresultaat.</p>
+                                    </div>
+                                    <div class="cr-sheet cr-sheet-4">
+                                       <p class="cr-s-num">[X]</p>
+                                       <p class="cr-s-fact">Coram producten gingen dit jaar door de handen van [Bedrijfsnaam].</p>
+                                    </div>
+                                    <div class="cr-sheet cr-sheet-5">
+                                       <p class="cr-s-big">Bedankt voor elke strakke montage dit jaar.</p>
+                                    </div>
+                                    <div class="cr-sheet cr-sheet-6">
+                                       <p class="cr-s-wish">Fijne feestdagen en tot in 2027.</p>
+                                       <p class="cr-s-sign">Het team van Coram</p>
+                                    </div>
+                                 </div>
+                                 <div class="cr-tail"></div>
+                              </div>
+                              <!-- the roll holder: stays still over the bottom of the window -->
+                              <div class="cr-desk">
+                                 <div class="cr-a cr-holder"></div>
+                                 <div class="cr-a cr-bar"></div>
+                                 <div class="cr-a cr-roll"></div>
+                                 <div class="cr-a cr-line-1"></div>
+                                 <div class="cr-a cr-line-2"></div>
+                                 <div class="cr-a cr-line-3"></div>
+                                 <div class="cr-a cr-knob"></div>
+                              </div>
+                           </div>
+                        </div>
+                        <!--<![endif]-->
+                     </td>
+                  </tr>
+               </table>
+               <!-- end para_1_col_row_1_subtitle_title_txt_row_2_txt_x6_row_3_icon -->
+
+               <!-- footer_coram -->
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#1A1A1A">
+                  <tr>
+                     <td align="center" class="pml16 pmr16" style="padding: 48px 70px; word-wrap: break-word; overflow-wrap: break-word;">
+                        <p style="margin: 0; padding-left: 0.38em; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 22px; line-height: 32px; font-weight: 600; letter-spacing: 0.38em; color: #FFFFFF;">CORAM</p>
+                        <p style="margin: 18px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 24px; font-weight: 300; color: #D9D4CD;">Tiger &middot; Sealskin &middot; Geesa &middot; Impey &middot; Coram Showers &middot; Esbada</p>
+                        <p style="margin: 18px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 24px; font-weight: 300; color: #D9D4CD;">[Adres Coram] &middot; [Telefoon]</p>
+                        <p style="margin: 18px 0 0 0; font-family: Jost,Helvetica Neue,Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; color: #FFFFFF;">
+                           <!-- view online link -->
+                           <a href="https://100procent.nl/" target="_blank" class="cor-a-white" style="color: #FFFFFF; text-decoration: underline;">Bekijk online</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           <!-- preferences link -->
+                           <a href="https://100procent.nl/" target="_blank" class="cor-a-white" style="color: #FFFFFF; text-decoration: underline;">Voorkeuren</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           <!-- unsubscribe link -->
+                           <a href="https://100procent.nl/" target="_blank" class="cor-a-white" style="color: #FFFFFF; text-decoration: underline;">Afmelden</a>
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+               <!-- end footer_coram -->
+            </td>
+            <td class="darkmode_side_td" style="background-color: #F4F2EF"></td>
+         </tr>
+      </table>
+   </body>
+
+</html>
