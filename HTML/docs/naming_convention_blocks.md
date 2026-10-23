@@ -64,6 +64,7 @@ close_alert_1_col_row_1_title_row_2_img_x2
 |------|---------|
 | scale | columns shrink instead of stacking on mobile |
 | mob_hide | hide on mobile |
+| click | the interaction starts with a click (e.g. a closed envelope that opens) before the rest of the block works |
 
 ## Prefix — specific blocks
 | Code | Meaning |

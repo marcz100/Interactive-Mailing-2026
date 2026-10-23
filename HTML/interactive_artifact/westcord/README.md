@@ -13,7 +13,7 @@ Rules and facts for every WestCord concept. General rules: [../README.md](../REA
 | 1 · De lift (scroll parallax, cabin stays still, hotel scrolls past) | `Main.dc.html`, `Scrollmomenten.dc.html`, `Lagen.dc.html` | built: [concept_1_de_lift](concept_1_de_lift/) |
 | 2 · WestCord Wrapped in de lift (radio carousel, 6 floors) | `WrappedLift.dc.html`, `WrappedVerdiepingen.dc.html`, `TechniekConcepten.dc.html` | built: [concept_2_wrapped_lift](concept_2_wrapped_lift/) |
 | 3 · Turndown service (4 checkboxes, chocolate on a pillow) | `Kussenchocolaatje.dc.html`, `KussenStappen.dc.html`, `TechniekConcepten.dc.html` | built: [concept_3_turndown](concept_3_turndown/) |
-| 4 · Post bij de receptie (letter scrolls out of a fixed envelope) | `PostReceptie.dc.html`, `PostMomenten.dc.html`, `PostTechniek.dc.html` | not built |
+| 4 · Post bij de receptie (letter scrolls out of a fixed envelope) | `PostReceptie.dc.html`, `PostMomenten.dc.html`, `PostTechniek.dc.html` | built: [concept_4_post_receptie](concept_4_post_receptie/), plus version 2 (click to open the envelope first) |
 
 ## Brand values (from the artifact; approximations, to confirm with the WestCord brand guide)
 
@@ -44,8 +44,8 @@ Rules and facts for every WestCord concept. General rules: [../README.md](../REA
 4. **Footer:** navy, "WestCord Hotels", `[Contactgegevens WestCord]`, "Afmelden voor deze e-mails" (`<!-- unsubscribe link -->`).
 5. **Links:** all `https://100procent.nl/` for now.
 6. **Width:** 648px, unless the scene is an illustration where text and drawing must keep the artifact's proportions;
-   then the mail is as wide as the artifact canvas (concept 1: 700px).
-7. **Logo:** when the artifact's module contains the WestCord logo itself (concept 1, in the sky), the shell only gets
+   then the mail is as wide as the artifact canvas (concepts 1 and 4: 700px).
+7. **Logo:** when the artifact's module contains the WestCord logo itself (concept 1 in the sky, concept 4 in the hero), the shell only gets
    the "Bekijk online" row, no second logo.
 
 ## Data and copy

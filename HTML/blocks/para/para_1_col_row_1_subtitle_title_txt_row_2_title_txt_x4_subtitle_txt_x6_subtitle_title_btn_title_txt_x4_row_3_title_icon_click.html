@@ -1,0 +1,1105 @@
+<!-- start para_1_col_row_1_subtitle_title_txt_row_2_title_txt_x4_subtitle_txt_x6_subtitle_title_btn_title_txt_x4_row_3_title_icon_click -->
+<!-- "Post bij de receptie" (Claude Design artifact "WestCord eindejaarsmail: de lift", concept 4): a Christmas letter
+     that slides out of an envelope on the reception desk while you scroll. Scroll window with the hero and the letter
+     as live text; the counter with the envelope is a fixed layer over the bottom of the window. Fallback (Gmail,
+     Outlook, Samsung): the letter as a normal mail with the envelope below.
+     Geometry and font sizes are the artifact's; colours and fonts are token values here (the WestCord mail uses the
+     artifact's). Built with interactive_artifact/westcord/concept_4_post_receptie/build/gen_post.js: change the
+     generator, not this file.
+     Version 2 (click): the envelope starts closed; a click on it opens the flap and the first part of the letter
+     slides out by itself, then you scroll as in version 1. -->
+<style type="text/css">
+   /* Post bij de receptie (artifact "De volledige kerstbrief"): a scroll window (700 x 1000) with the hero and the
+      letter as live text, and the counter with the envelope (700 x 280) as a fixed layer over the bottom of the
+      window. The letter scrolls behind the counter, so it seems to slide out of the envelope. At the end of the
+      scroll the content's bottom meets the window's bottom: the letter's last 60 (and the 220 tail) sit behind the
+      counter, exactly where the artifact puts the letter (1860) against the counter (1800-2080).
+      Order: input, fallback, interactive. Interactive only in WebKit clients that support :checked (pre-checked
+      .pk-detect); everything else keeps the fallback: the letter as a normal mail with the envelope below. */
+   @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      .pk-detect:checked ~ .pk-fallback {
+         display: none !important;
+         max-height: 0 !important;
+         overflow: hidden !important;
+      }
+
+      .pk-detect:checked ~ .pk-interactive {
+         display: block !important;
+         max-height: none !important;
+         overflow: visible !important;
+      }
+   }
+
+   /* 142.8571% = 1000 / 700 */
+   .pk-interactive .pk-window {
+      position: relative;
+      height: 0;
+      padding-bottom: 142.8571%;
+      overflow: hidden;
+      background-color: #efefef;
+   }
+
+   .pk-interactive .pk-scroll {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+   }
+
+   /* no scrollbar: it would make the content narrower than the counter layer (the hero says "Scroll maar") */
+   .pk-interactive .pk-scroll::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+   }
+
+   /* hero: 360 high, navy (artifact 0-360) */
+   .pk-interactive .pk-hero {
+      min-height: 360px;
+      padding: 36px 70px 5px 70px;
+      box-sizing: border-box;
+      background-color: #050033;
+      text-align: center;
+      color: #ffffff;
+   }
+
+   .pk-interactive .pk-logo {
+      margin: 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 40px;
+      line-height: 40px;
+      color: #ffffff;
+   }
+
+   .pk-interactive .pk-logo-sub {
+      margin: 2px 0 0 0;
+      padding-left: 0.5em;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 11px;
+      line-height: 18px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: #ffffff;
+   }
+
+   .pk-interactive .pk-kicker {
+      margin: 44px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 14px;
+      line-height: 23px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e3fc5e;
+   }
+
+   .pk-interactive .pk-h1 {
+      margin: 14px 0 0 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 52px;
+      line-height: 54.6px;
+      font-weight: 500;
+      color: #ffffff;
+   }
+
+   .pk-interactive .pk-lead {
+      margin: 14px 0 0 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 19px;
+      line-height: 27.55px;
+      color: #efefef;
+   }
+
+   /* the letter: 440 wide (artifact x 130-570), 60 under the hero, 1440 high on desktop (content + white paper) */
+   .pk-interactive .pk-letter {
+      width: 62.8571%;
+      margin: 60px auto 0 auto;
+      padding: 0 40px 198px 40px;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      box-shadow: 0 10px 30px rgba(5,0,51,0.14);
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 19px;
+      line-height: 29.45px;
+      text-align: left;
+      color: #050033;
+   }
+
+   /* the tail under the letter: at the end of the scroll the letter ends 124 under the counter layer's top (110 into
+      the envelope), below the tip of the bottom flap (14 + 42% of 210 = 102), so the paper's bottom edge never shows
+      in the open envelope. 22.2857% = (280 - 124) / 700. (The artifact ends it 60 under: with its opaque counter band
+      that didn't show; here the envelope is open, see below.) */
+   .pk-interactive .pk-tail {
+      height: 0;
+      padding-bottom: 22.2857%;
+   }
+
+   .pk-interactive .pk-stripe {
+      height: 10px;
+      margin: 0 -40px;
+      background-color: #9980FF;
+      background-image: repeating-linear-gradient(90deg, #9980FF 0 14px, #ffffff 14px 18px, #050033 18px 32px, #ffffff 32px 36px);
+   }
+
+   .pk-interactive .pk-head {
+      padding: 34px 0 0 0;
+      text-align: center;
+   }
+
+   .pk-interactive .pk-head-logo {
+      margin: 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 32px;
+      line-height: 32px;
+      color: #050033;
+   }
+
+   .pk-interactive .pk-head-sub {
+      margin: 2px 0 0 0;
+      padding-left: 0.5em;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 10px;
+      line-height: 16px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: #050033;
+   }
+
+   .pk-interactive .pk-since {
+      margin: 6px 0 0 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 23px;
+      font-style: italic;
+      color: #4d4d4d;
+   }
+
+   .pk-interactive .pk-date {
+      margin: 20px 0 0 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 25px;
+      font-style: italic;
+      text-align: right;
+      color: #4d4d4d;
+   }
+
+   .pk-interactive .pk-hello {
+      margin: 20px 0 0 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 34px;
+      line-height: 37px;
+      color: #050033;
+   }
+
+   /* letter paragraphs need their own size: the head sets p to 16px */
+   .pk-interactive .pk-p {
+      margin: 20px 0 0 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 19px;
+      line-height: 29.45px;
+      color: #050033;
+   }
+
+   .pk-interactive .pk-sign .pk-p {
+      margin: 0;
+   }
+
+   .pk-interactive .pk-box {
+      margin: 20px 0 0 0;
+      padding: 18px 20px;
+      border-radius: 4px;
+      background-color: #efefef;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 21px;
+   }
+
+   .pk-interactive .pk-label {
+      margin: 0;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 11px;
+      line-height: 15px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9980FF;
+   }
+
+   .pk-interactive .pk-row {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      margin: 8px 0 0 0;
+   }
+
+   .pk-interactive .pk-val {
+      padding-left: 12px;
+      font-weight: 600;
+      text-align: right;
+   }
+
+   /* the gift card: dashed, turned 1.5 degrees */
+   .pk-interactive .pk-card {
+      margin: 20px 0 0 0;
+      padding: 22px;
+      border: 2px dashed #9980FF;
+      border-radius: 6px;
+      text-align: center;
+      -webkit-transform: rotate(-1.5deg);
+      transform: rotate(-1.5deg);
+   }
+
+   .pk-interactive .pk-card .pk-label {
+      line-height: 17px;
+   }
+
+   .pk-interactive .pk-offer {
+      margin: 12px 0 0 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 26px;
+      line-height: 30px;
+      color: #050033;
+   }
+
+   .pk-interactive .pk-btn {
+      display: inline-block;
+      margin: 12px 0 0 0;
+      padding: 11px 20px;
+      border-radius: 4px;
+      background-color: #9980FF;
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #ffffff;
+   }
+
+   .pk-interactive .pk-sign {
+      margin: 20px 0 0 0;
+   }
+
+   .pk-interactive .pk-family {
+      margin: 2px 0 0 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 44px;
+      line-height: 48px;
+      color: #050033;
+   }
+
+   .pk-interactive .pk-team {
+      margin: 2px 0 0 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 16px;
+      line-height: 25px;
+      font-style: italic;
+      color: #4d4d4d;
+   }
+
+   .pk-interactive .pk-ps {
+      margin: 20px 0 0 0;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 26px;
+      line-height: 31px;
+      color: #050033;
+   }
+
+   /* the counter with the envelope: fixed over the bottom of the window (40% = 280 / 700), above the scrolling letter;
+      pointer-events: none so you can scroll through it */
+   .pk-interactive .pk-desk {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      height: 0;
+      padding-bottom: 40%;
+      pointer-events: none;
+   }
+
+   .pk-interactive .pk-a {
+      position: absolute;
+      display: block;
+      box-sizing: border-box;
+   }
+
+   .pk-interactive .pk-counter {
+      left: 0%; top: 73.5714%; width: 100%; height: 26.4286%;
+      background-color: #050033;
+      box-shadow: inset 0 4px 0 #9980FF;
+   }
+
+   /* the envelope is open at the back (feedback): the layer has no background band and the envelope's back is
+      transparent, so the letter shows in the opening between the side flaps and above the bottom flap, and goes
+      straight into the envelope. Only the strips beside the letter (desktop: 100-130 and 570-600) are the white back,
+      so the envelope doesn't look see-through. The shadow stays (an outer shadow isn't painted under the box). */
+   .pk-interactive .pk-env {
+      left: 14.2857%; top: 5%; width: 71.4286%; height: 75%;
+      border-radius: 4px;
+      background-color: transparent;
+      box-shadow: 0 12px 26px rgba(5,0,51,0.28);
+   }
+
+   .pk-interactive .pk-back-l {
+      left: 14.2857%; top: 5%; width: 4.2857%; height: 75%;
+      border-radius: 4px 0 0 4px;
+      background-color: #ffffff;
+   }
+
+   .pk-interactive .pk-back-r {
+      left: 81.4286%; top: 5%; width: 4.2857%; height: 75%;
+      border-radius: 0 4px 4px 0;
+      background-color: #ffffff;
+   }
+
+   .pk-interactive .pk-flap-l,
+   .pk-interactive .pk-flap-r,
+   .pk-interactive .pk-flap-b {
+      left: 14.2857%; top: 5%; width: 71.4286%; height: 75%;
+      background-color: #efefef;
+   }
+
+   .pk-interactive .pk-flap-l {
+      -webkit-clip-path: polygon(0 0, 48% 58%, 0 100%);
+      clip-path: polygon(0 0, 48% 58%, 0 100%);
+   }
+
+   .pk-interactive .pk-flap-r {
+      -webkit-clip-path: polygon(100% 0, 52% 58%, 100% 100%);
+      clip-path: polygon(100% 0, 52% 58%, 100% 100%);
+   }
+
+   .pk-interactive .pk-flap-b {
+      border-radius: 0 0 4px 4px;
+      background-color: #e6e6e6;
+      -webkit-clip-path: polygon(0 100%, 50% 42%, 100% 100%);
+      clip-path: polygon(0 100%, 50% 42%, 100% 100%);
+   }
+
+   .pk-interactive .pk-to {
+      left: 14.2857%;
+      top: 53.5714%;
+      width: 71.4286%;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 34px;
+      line-height: 43px;
+      text-align: center;
+      color: #050033;
+   }
+
+   /* the stamp sits on the right flap (feedback): a box the size of the envelope, clipped to the right flap's shape, so
+      the part of the stamp above the flap's edge is gone (the letter shows there in the open envelope) */
+   .pk-interactive .pk-stamp-clip {
+      left: 14.2857%; top: 5%; width: 71.4286%; height: 75%;
+      -webkit-clip-path: polygon(100% 0, 52% 58%, 100% 100%);
+      clip-path: polygon(100% 0, 52% 58%, 100% 100%);
+   }
+
+   /* in % of the envelope: x 518-100 = 418 of 500, y 40-14 = 26 of 210, 56 x 68 */
+   .pk-interactive .pk-stamp {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      left: 83.6%;
+      top: 12.381%;
+      width: 11.2%;
+      height: 32.381%;
+      border: 3px dashed #ffffff;
+      outline: 2px solid #9980FF;
+      background-color: #9980FF;
+      color: #ffffff;
+   }
+
+   .pk-interactive .pk-stamp-wc {
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 18px;
+      line-height: 18px;
+   }
+
+   .pk-interactive .pk-stamp-year {
+      font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 11px;
+      line-height: 16px;
+   }
+
+   /* plant and bell on the counter (decoration, as in the artifact) */
+   .pk-interactive .pk-leaf-1 {
+      left: 3.1429%; top: 57.1429%; width: 4.8571%; height: 7.1429%;
+      border-radius: 50%;
+      background-color: #444444;
+      -webkit-transform: rotate(-30deg);
+      transform: rotate(-30deg);
+   }
+
+   .pk-interactive .pk-leaf-2 {
+      left: 7.1429%; top: 55.7143%; width: 4.8571%; height: 7.1429%;
+      border-radius: 50%;
+      background-color: #9E9E9E;
+      -webkit-transform: rotate(25deg);
+      transform: rotate(25deg);
+   }
+
+   .pk-interactive .pk-berry-1 {
+      left: 6.2857%; top: 62.8571%; width: 1.7143%; height: 4.2857%;
+      border-radius: 50%;
+      background-color: #9980FF;
+   }
+
+   .pk-interactive .pk-berry-2 {
+      left: 8%; top: 65%; width: 1.7143%; height: 4.2857%;
+      border-radius: 50%;
+      background-color: #050033;
+   }
+
+   .pk-interactive .pk-bell {
+      left: 89.4286%; top: 61.4286%; width: 6.2857%; height: 8.5714%;
+      border-radius: 22px 22px 0 0;
+      background-color: #e6e6e6;
+   }
+
+   .pk-interactive .pk-bell-base {
+      left: 88.2857%; top: 70%; width: 8.5714%; height: 2.8571%;
+      border-radius: 3px;
+      background-color: #9E9E9E;
+   }
+
+   .pk-interactive .pk-bell-top {
+      left: 92%; top: 58.5714%; width: 1.1429%; height: 2.8571%;
+      border-radius: 50%;
+      background-color: #9E9E9E;
+   }
+
+   /* dark mode: the button keeps its own colour (the head turns every link white) */
+   @media (prefers-color-scheme: dark) {
+      .pk-btn-link {
+         color: #ffffff !important;
+      }
+   }
+
+   [data-ogsc] .pk-btn-link {
+      color: #ffffff !important;
+   }
+
+   @media only screen and (max-width: 600px) {
+      /* mobile: a taller window, 1200 of 700 (171.4286%), so more of the letter is in view above the counter */
+      .pk-interactive .pk-window {
+         padding-bottom: 171.4286% !important;
+      }
+
+      .pk-interactive .pk-hero {
+         min-height: 0 !important;
+         padding: 28px 24px 32px 24px !important;
+      }
+
+      .pk-interactive .pk-logo {
+         font-size: 32px !important;
+         line-height: 32px !important;
+      }
+
+      .pk-interactive .pk-kicker {
+         margin-top: 28px !important;
+         font-size: 12px !important;
+         line-height: 18px !important;
+      }
+
+      .pk-h1 {
+         font-size: 34px !important;
+         line-height: 38px !important;
+      }
+
+      .pk-lead {
+         font-size: 16px !important;
+         line-height: 24px !important;
+      }
+
+      /* the letter: wide paper with readable type, but narrower than the envelope (94%); less white paper under the P.S. */
+      .pk-interactive .pk-letter {
+         width: 84% !important;
+         margin-top: 32px !important;
+         padding: 0 20px 120px 20px !important;
+      }
+
+      .pk-interactive .pk-p {
+         font-size: 17px !important;
+         line-height: 26px !important;
+      }
+
+      .pk-interactive .pk-stripe {
+         margin: 0 -20px !important;
+      }
+
+      .pk-interactive .pk-p,
+      .pk-interactive .pk-hello,
+      .pk-interactive .pk-box,
+      .pk-interactive .pk-card,
+      .pk-interactive .pk-sign,
+      .pk-interactive .pk-ps,
+      .pk-interactive .pk-date {
+         margin-top: 16px !important;
+      }
+
+      .pk-interactive .pk-hello,
+      .pk-fb-hello {
+         font-size: 30px !important;
+         line-height: 33px !important;
+      }
+
+      .pk-interactive .pk-box {
+         padding: 14px 16px !important;
+      }
+
+      .pk-interactive .pk-card {
+         padding: 18px 14px !important;
+      }
+
+      .pk-offer {
+         font-size: 22px !important;
+         line-height: 26px !important;
+      }
+
+      .pk-interactive .pk-family,
+      .pk-fb-family {
+         font-size: 36px !important;
+         line-height: 40px !important;
+      }
+
+      .pk-interactive .pk-ps,
+      .pk-fb-ps {
+         font-size: 22px !important;
+         line-height: 27px !important;
+      }
+
+      /* mobile counter scene (own layout): no plant and bell, the envelope 94% wide right at the top of the layer (no
+         band above it, so the letter goes straight into the envelope), the counter under it. The layer is 48% of the
+         width high (envelope 94% x 500:210 = 39.48%, 82.25% of the layer); the layer has no background, the letter
+         (84% wide, narrower than the envelope) disappears behind the envelope and the counter. */
+      .pk-interactive .pk-desk {
+         padding-bottom: 48% !important;
+         background-color: transparent !important;
+      }
+
+      .pk-interactive .pk-leaf-1,
+      .pk-interactive .pk-leaf-2,
+      .pk-interactive .pk-berry-1,
+      .pk-interactive .pk-berry-2,
+      .pk-interactive .pk-bell,
+      .pk-interactive .pk-bell-base,
+      .pk-interactive .pk-bell-top {
+         display: none !important;
+      }
+
+      .pk-interactive .pk-counter {
+         top: 76% !important;
+         height: 24% !important;
+      }
+
+      .pk-interactive .pk-env,
+      .pk-interactive .pk-flap-l,
+      .pk-interactive .pk-flap-r,
+      .pk-interactive .pk-flap-b,
+      .pk-interactive .pk-stamp-clip {
+         left: 3% !important;
+         top: 0 !important;
+         width: 94% !important;
+         height: 82.25% !important;
+      }
+
+      /* the name keeps its place on the envelope: 64.8% down (150-14 of 210); the stamp is in % of the envelope already */
+      .pk-interactive .pk-to {
+         left: 3% !important;
+         top: 53.3% !important;
+         width: 94% !important;
+         font-size: 25px !important;
+         line-height: 30px !important;
+      }
+
+      .pk-interactive .pk-stamp {
+         border-width: 2px !important;
+         outline-width: 1px !important;
+      }
+
+      .pk-interactive .pk-stamp-wc {
+         font-size: 13px !important;
+         line-height: 13px !important;
+      }
+
+      .pk-interactive .pk-stamp-year {
+         font-size: 9px !important;
+         line-height: 11px !important;
+      }
+
+      /* the white back beside the letter (letter 84% = 8-92%, envelope 3-97%) */
+      .pk-interactive .pk-back-l,
+      .pk-interactive .pk-back-r {
+         top: 0 !important;
+         width: 5% !important;
+         height: 82.25% !important;
+      }
+
+      .pk-interactive .pk-back-l {
+         left: 3% !important;
+      }
+
+      .pk-interactive .pk-back-r {
+         left: 92% !important;
+      }
+
+      /* the tail: the letter ends 21.6% of the width (45% of the layer) under the envelope top, below the tip of the
+         bottom flap (42% of the envelope = 34.5% of the layer) (48% - 21.6% = 26.4%) */
+      .pk-interactive .pk-tail {
+         padding-bottom: 26.4% !important;
+      }
+
+      /* fallback letter: full width */
+      .pk-fb-pad {
+         padding: 32px 16px 0 16px !important;
+      }
+
+      .pk-fb-paper {
+         padding: 0 20px 32px 20px !important;
+      }
+
+      .pk-fb-env {
+         padding: 14px 16px 0 16px !important;
+      }
+   }
+
+   @media only screen and (max-width: 400px) {
+      .pk-h1 {
+         font-size: 30px !important;
+         line-height: 34px !important;
+      }
+
+      /* a tighter hero, so the letterhead still shows above the envelope at the start */
+      .pk-interactive .pk-hero {
+         padding: 24px 20px 24px 20px !important;
+      }
+
+      .pk-interactive .pk-kicker {
+         margin-top: 20px !important;
+      }
+
+      .pk-interactive .pk-letter {
+         width: 84% !important;
+         margin-top: 20px !important;
+         padding: 0 16px 104px 16px !important;
+      }
+
+      .pk-interactive .pk-stripe {
+         margin: 0 -16px !important;
+      }
+
+      .pk-interactive .pk-to {
+         font-size: 23px !important;
+         line-height: 28px !important;
+      }
+
+      .pk-interactive .pk-stamp-wc {
+         font-size: 12px !important;
+         line-height: 12px !important;
+      }
+
+      .pk-interactive .pk-stamp-year {
+         font-size: 8px !important;
+         line-height: 10px !important;
+      }
+   }
+
+   /* version 2, click to open: closed envelope, the counter layer is the label of .pk-open */
+   .pk-interactive .pk-scroll {
+      overflow-y: hidden;
+   }
+
+   .pk-open:checked ~ .pk-interactive .pk-scroll {
+      overflow-y: auto;
+   }
+
+   /* the letter waits in the envelope: moved down just under the envelope top (desktop: letter 420 -> 750, the
+      envelope starts at 734), so it comes out right away when the envelope opens */
+   .pk-interactive .pk-letter {
+      -webkit-transform: translateY(330px);
+      transform: translateY(330px);
+   }
+
+   .pk-open:checked ~ .pk-interactive .pk-letter {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-transition: -webkit-transform 1.4s cubic-bezier(0.25, 0.8, 0.3, 1) 0.45s;
+      transition: transform 1.4s cubic-bezier(0.25, 0.8, 0.3, 1) 0.45s;
+   }
+
+   .pk-interactive .pk-open-label {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 5;
+      display: block;
+      cursor: pointer;
+      pointer-events: auto;
+      -webkit-tap-highlight-color: transparent;
+   }
+
+   .pk-open:checked ~ .pk-interactive .pk-open-label {
+      display: none;
+   }
+
+   /* the top flap: closed it points down to the middle of the envelope; opening folds it up */
+   .pk-interactive .pk-flap-t {
+      left: 14.2857%; top: 5%; width: 71.4286%; height: 75%;
+      background-color: #e6e6e6;
+      -webkit-clip-path: polygon(0 0, 100% 0, 50% 50%);
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+      -webkit-transform-origin: 50% 0;
+      transform-origin: 50% 0;
+   }
+
+   .pk-open:checked ~ .pk-interactive .pk-flap-t {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      -webkit-transition: -webkit-transform 0.5s ease-in;
+      transition: transform 0.5s ease-in;
+   }
+
+   /* closed, the envelope's back is white (nothing shows through); it opens up together with the flap */
+   .pk-interactive .pk-env {
+      background-color: #ffffff;
+   }
+
+   /* closed, the stamp is whole (the top flap covers the opening); open, it is cut along the right flap like version 1 */
+   .pk-interactive .pk-stamp-clip {
+      -webkit-clip-path: none;
+      clip-path: none;
+   }
+
+   .pk-open:checked ~ .pk-interactive .pk-stamp-clip {
+      -webkit-clip-path: polygon(100% 0, 52% 58%, 100% 100%);
+      clip-path: polygon(100% 0, 52% 58%, 100% 100%);
+   }
+
+   .pk-open:checked ~ .pk-interactive .pk-env {
+      background-color: transparent;
+      -webkit-transition: background-color 0.3s 0.3s;
+      transition: background-color 0.3s 0.3s;
+   }
+
+   /* the seal on the tip of the flap (x 350, y 119), pulsing until it is clicked */
+   .pk-interactive .pk-seal {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      left: 46.8571%; top: 34.6429%; width: 6.2857%; height: 15.7143%;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      background-color: #9980FF;
+      font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif;
+      font-size: 20px;
+      line-height: 20px;
+      color: #ffffff;
+      -webkit-animation: pk-pulse 1.4s ease-in-out infinite;
+      animation: pk-pulse 1.4s ease-in-out infinite;
+   }
+
+   .pk-open:checked ~ .pk-interactive .pk-seal {
+      opacity: 0;
+      -webkit-animation: none;
+      animation: none;
+      -webkit-transition: opacity 0.2s;
+      transition: opacity 0.2s;
+   }
+
+   @-webkit-keyframes pk-pulse {
+      0%, 100% {
+         -webkit-transform: scale(1);
+      }
+
+      50% {
+         -webkit-transform: scale(1.12);
+      }
+   }
+
+   @keyframes pk-pulse {
+      0%, 100% {
+         transform: scale(1);
+      }
+
+      50% {
+         transform: scale(1.12);
+      }
+   }
+
+   @media only screen and (max-width: 600px) {
+      /* mobile: the envelope top sits at about 123% of the width in the window, the letter starts under the hero
+         (about 300px); 120vw - 230px keeps the letter just inside the envelope from 320 to 600px wide */
+      .pk-interactive .pk-letter {
+         -webkit-transform: translateY(calc(120vw - 230px));
+         transform: translateY(calc(120vw - 230px));
+      }
+
+      .pk-open:checked ~ .pk-interactive .pk-letter {
+         -webkit-transform: translateY(0);
+         transform: translateY(0);
+      }
+
+      /* the mobile envelope (3%, 0, 94% x 82.25% of the layer); the flap tip at 41.1%, the seal 9% of the width */
+      .pk-interactive .pk-flap-t {
+         left: 3% !important;
+         top: 0 !important;
+         width: 94% !important;
+         height: 82.25% !important;
+      }
+
+      .pk-interactive .pk-seal {
+         left: 45.5% !important;
+         top: 31.7% !important;
+         width: 9% !important;
+         height: 18.75% !important;
+         font-size: 16px !important;
+         line-height: 16px !important;
+      }
+   }
+
+   /* Outlook.com / new Outlook: class names get an x_ prefix */
+   [class~="x_pk-interactive"],
+   [class~="x_pk-detect"]:checked ~ [class~="x_pk-interactive"] {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   [class~="x_pk-fallback"],
+   [class~="x_pk-detect"]:checked ~ [class~="x_pk-fallback"] {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+
+   /* Samsung Mail: the message is wrapped in #MessageViewBody (the id outranks the activation selector) */
+   #MessageViewBody .pk-interactive {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   #MessageViewBody .pk-fallback {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<style type="text/css">
+   /* Outlook apps: back to the fallback (separate style tag: the \0 hack breaks the rest of a style tag) */
+   .pk-interactive\0,
+   .pk-detect:checked ~ .pk-interactive\0 {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+   }
+
+   .pk-fallback\0,
+   .pk-detect:checked ~ .pk-fallback\0 {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+   }
+</style>
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#efefef">
+   <tr>
+      <td align="center" style="padding: 0;">
+         <!--[if !mso]><!-->
+         <input type="checkbox" class="pk-detect" checked style="display: none !important; mso-hide: all;">
+         <input type="checkbox" id="pk-open" class="pk-open" style="display: none !important; mso-hide: all;">
+         <!--<![endif]-->
+         <!-- fallback: the letter as a normal mail with the envelope below (artifact: "Andere mailprogramma's krijgen de
+              brief als gewone mail, met de envelop eronder") -->
+         <div class="pk-fallback">
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#050033">
+               <tr>
+                  <td align="center" class="pml16 pmr16" style="padding: 36px 70px 40px 70px; word-wrap: break-word; overflow-wrap: break-word;">
+                     <p style="margin: 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 40px; line-height: 40px; color: #ffffff;">label_1</p>
+                     <p style="margin: 2px 0 0 0; padding-left: 0.5em; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 18px; letter-spacing: 0.5em; text-transform: uppercase; color: #ffffff;">label_2</p>
+                     <p style="margin: 44px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 14px; line-height: 23px; letter-spacing: 0.14em; text-transform: uppercase; color: #e3fc5e;">subtitle_1</p>
+                     <h1 class="pk-h1" style="margin: 14px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 52px; line-height: 54.6px; font-weight: 500; color: #ffffff;">title_1</h1>
+                     <p class="pk-lead" style="margin: 14px 0 0 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 19px; line-height: 27.55px; color: #efefef;">txt_1</p>
+                  </td>
+               </tr>
+            </table>
+            <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef">
+               <tr>
+                  <td align="center" class="pk-fb-pad" style="padding: 60px 130px 0 130px;">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="max-width: 440px; table-layout: fixed;">
+                        <tr>
+                           <!-- the letterhead stripe (the gradient shows where supported, the stripe colour elsewhere) -->
+                           <td height="10" bgcolor="#9980FF" style="height: 10px; font-size: 0; line-height: 0; background-color: #9980FF; background-image: repeating-linear-gradient(90deg, #9980FF 0 14px, #ffffff 14px 18px, #050033 18px 32px, #ffffff 32px 36px);">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td align="left" class="pk-fb-paper" style="padding: 0 40px 40px 40px; word-wrap: break-word; overflow-wrap: break-word;">
+                              <p style="margin: 0; padding-top: 34px; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 32px; line-height: 32px; text-align: center; color: #050033;">label_3</p>
+                              <p style="margin: 2px 0 0 0; padding-left: 0.5em; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 10px; line-height: 16px; letter-spacing: 0.5em; text-transform: uppercase; text-align: center; color: #050033;">label_4</p>
+                              <p style="margin: 6px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 23px; font-style: italic; text-align: center; color: #4d4d4d;">txt_2</p>
+                              <p style="margin: 20px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 25px; font-style: italic; text-align: right; color: #4d4d4d;">txt_3</p>
+                              <p class="pk-fb-hello" style="margin: 20px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 34px; line-height: 37px; color: #050033;">title_2</p>
+                              <p style="margin: 20px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 19px; line-height: 29.45px; color: #050033;">txt_4</p>
+                              <p style="margin: 20px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 19px; line-height: 29.45px; color: #050033;">txt_5</p>
+                              <!-- "Jouw 2026": without stay data this box is left out and the letter stays (artifact) -->
+                              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefef" style="margin: 20px 0 0 0; border-radius: 4px; border-collapse: separate;">
+                                 <tr>
+                                    <td colspan="2" style="padding: 18px 20px 0 20px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #9980FF;">subtitle_2</td>
+                                 </tr>
+                                 <tr>
+                                    <td align="left" style="padding: 8px 0 0px 20px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 21px; color: #050033;">txt_6</td>
+                                    <td align="right" style="padding: 8px 20px 0px 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 21px; font-weight: 600; color: #050033;">txt_7</td>
+                                 </tr>
+                                 <tr>
+                                    <td align="left" style="padding: 8px 0 0px 20px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 21px; color: #050033;">txt_8</td>
+                                    <td align="right" style="padding: 8px 20px 0px 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 21px; font-weight: 600; color: #050033;">txt_9</td>
+                                 </tr>
+                                 <tr>
+                                    <td align="left" style="padding: 8px 0 18px 20px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 21px; color: #050033;">txt_10</td>
+                                    <td align="right" style="padding: 8px 20px 18px 12px; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 15px; line-height: 21px; font-weight: 600; color: #050033;">txt_11</td>
+                                 </tr>
+                              </table>
+                              <p style="margin: 20px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 19px; line-height: 29.45px; color: #050033;">txt_12</p>
+                              <!-- the gift card -->
+                              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px 0 0 0; border: 2px dashed #9980FF; border-radius: 6px; border-collapse: separate;">
+                                 <tr>
+                                    <td align="center" style="padding: 22px;">
+                                       <p style="margin: 0; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 17px; letter-spacing: 0.14em; text-transform: uppercase; color: #9980FF;">subtitle_3</p>
+                                       <p class="pk-offer" style="margin: 12px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 30px; color: #050033;">title_3</p>
+                                       <div style="padding: 12px 0 0 0;">
+                                          <!--[if mso]>
+                                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://100procent.nl/" style="height:46px;v-text-anchor:middle;width:240px;" arcsize="9%" strokecolor="#9980FF" fillcolor="#9980FF">
+                                             <w:anchorlock/>
+                                             <center style="color:#ffffff;font-family:Roboto,Arial,Helvetica,Verdana,sans-serif;font-size:16px;font-weight:bold;">btn_txt_1</center>
+                                          </v:roundrect>
+                                          <![endif]-->
+                                          <a class="pk-btn-link" href="https://100procent.nl/" target="_blank" style="display: inline-block; padding: 11px 20px; border-radius: 4px; background-color: #9980FF; color: #ffffff; font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 24px; font-weight: 600; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">btn_txt_1</a>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <p style="margin: 20px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 19px; line-height: 29.45px; color: #050033;">txt_13</p>
+                              <p style="margin: 20px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 19px; line-height: 29.45px; color: #050033;">txt_14</p>
+                              <p class="pk-fb-family" style="margin: 2px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 44px; line-height: 48px; color: #050033;">title_4</p>
+                              <p style="margin: 2px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 16px; line-height: 25px; font-style: italic; color: #4d4d4d;">txt_15</p>
+                              <p class="pk-fb-ps" style="margin: 20px 0 0 0; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 26px; line-height: 31px; color: #050033;">txt_16</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <!-- the counter with the envelope (simplified in tables: no flaps, plant or bell; the artifact intends this as
+                    one image, "alleen de balie met envelop is een afbeelding") -->
+               <tr>
+                  <td align="center" class="pk-fb-env" style="padding: 14px 100px 0 100px;">
+                     <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="max-width: 500px; border-radius: 4px; border-collapse: separate;">
+                        <tr>
+                           <td align="right" valign="top" style="padding: 26px 26px 0 0;">
+                              <table role="presentation" border="0" cellspacing="0" cellpadding="0" bgcolor="#9980FF">
+                                 <tr>
+                                    <td align="center" width="50" style="width: 50px; padding: 12px 0; border: 3px dashed #ffffff; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 18px; line-height: 18px; color: #ffffff;">label_5<br><span style="font-family: Roboto,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; line-height: 16px;">label_6</span></td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td align="center" style="padding: 32px 16px 30px 16px; font-family: Roboto Slab,Arial,Helvetica,Verdana,sans-serif; font-size: 34px; line-height: 43px; color: #050033;">title_5</td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td height="56" bgcolor="#050033" style="height: 56px; border-top: 4px solid #9980FF; font-size: 0; line-height: 0;">&nbsp;</td>
+               </tr>
+            </table>
+         </div>
+         <!--[if !mso]><!-->
+         <div class="pk-interactive" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+            <div class="pk-window">
+               <div class="pk-scroll">
+                  <div class="pk-hero">
+                     <p class="pk-logo">label_1</p>
+                     <p class="pk-logo-sub">label_2</p>
+                     <p class="pk-kicker">subtitle_1</p>
+                     <h1 class="pk-h1">title_1</h1>
+                     <p class="pk-lead">txt_17</p>
+                  </div>
+                  <div class="pk-letter">
+                     <div class="pk-stripe"></div>
+                     <div class="pk-head">
+                        <p class="pk-head-logo">label_3</p>
+                        <p class="pk-head-sub">label_4</p>
+                        <p class="pk-since">txt_2</p>
+                     </div>
+                     <p class="pk-date">txt_3</p>
+                     <p class="pk-hello">title_2</p>
+                     <p class="pk-p">txt_4</p>
+                     <p class="pk-p">txt_5</p>
+                     <!-- "Jouw 2026": without stay data this box is left out and the letter stays (artifact) -->
+                     <div class="pk-box">
+                        <p class="pk-label">subtitle_2</p>
+                        <div class="pk-row"><span>txt_6</span><span class="pk-val">txt_7</span></div>
+                        <div class="pk-row"><span>txt_8</span><span class="pk-val">txt_9</span></div>
+                        <div class="pk-row"><span>txt_10</span><span class="pk-val">txt_11</span></div>
+                     </div>
+                     <p class="pk-p">txt_12</p>
+                     <div class="pk-card">
+                        <p class="pk-label">subtitle_3</p>
+                        <p class="pk-offer">title_3</p>
+                        <a class="pk-btn pk-btn-link" href="https://100procent.nl/" target="_blank">btn_txt_1</a>
+                     </div>
+                     <p class="pk-p">txt_13</p>
+                     <div class="pk-sign">
+                        <p class="pk-p">txt_14</p>
+                        <p class="pk-family">title_4</p>
+                        <p class="pk-team">txt_15</p>
+                     </div>
+                     <p class="pk-ps">txt_16</p>
+                  </div>
+                  <div class="pk-tail"></div>
+               </div>
+               <!-- the counter with the envelope: stays still over the bottom of the window -->
+               <div class="pk-desk">
+                  <div class="pk-a pk-counter"></div>
+                  <div class="pk-a pk-leaf-1"></div>
+                  <div class="pk-a pk-leaf-2"></div>
+                  <div class="pk-a pk-berry-1"></div>
+                  <div class="pk-a pk-berry-2"></div>
+                  <div class="pk-a pk-bell"></div>
+                  <div class="pk-a pk-bell-base"></div>
+                  <div class="pk-a pk-bell-top"></div>
+                  <div class="pk-a pk-env"></div>
+                  <div class="pk-a pk-back-l"></div>
+                  <div class="pk-a pk-back-r"></div>
+                  <div class="pk-a pk-flap-l"></div>
+                  <div class="pk-a pk-flap-r"></div>
+                  <div class="pk-a pk-flap-b"></div>
+                  <!-- version 2: the closed flap (under the name and the stamp) -->
+                  <div class="pk-a pk-flap-t"></div>
+                  <div class="pk-a pk-to">title_5</div>
+                  <div class="pk-a pk-stamp-clip"><div class="pk-a pk-stamp"><span class="pk-stamp-wc">label_5</span><span class="pk-stamp-year">label_6</span></div></div>
+                  <!-- version 2: the seal on the flap's tip; the whole counter layer opens the envelope -->
+                  <div class="pk-a pk-seal">label_7</div>
+                  <label for="pk-open" class="pk-open-label" title="Open de envelop"></label>
+               </div>
+            </div>
+         </div>
+         <!--<![endif]-->
+      </td>
+   </tr>
+</table>
+<!-- end para_1_col_row_1_subtitle_title_txt_row_2_title_txt_x4_subtitle_txt_x6_subtitle_title_btn_title_txt_x4_row_3_title_icon_click -->
