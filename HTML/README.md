@@ -22,11 +22,16 @@ Block folders and file names follow the naming convention in `docs/naming_conven
 
 ## Rules for a plain block
 
+[docs/email_rules.md](docs/email_rules.md) is authoritative for HTML/CSS, email-client and size rules; the bullets
+below summarise them for plain blocks.
+
 - **Self-contained.** If a block needs extra CSS (interactive `:checked` tricks, keyframes, block-specific media
   queries — `car_*`, `ham_*`, `accordion_*`, `bg_img_*`, `absolute_bg_*`, input, countdown, …), put a `<style>` as
   the first thing inside the block's start/end comments. Never add block CSS to `basic_head.html` or the template head.
-- **Hardcoded values, but only token values.** Colors, fonts, sizes, paddings and widths should be values from the
-  token table. If a design needs a new value, add it to the table rather than inventing a one-off.
+- **Hardcoded values, but only token values.** Colors and fonts come from the token table; so do sizes, paddings
+  and widths where the table has one. A block generated from an artifact may keep the artifact's geometry and type
+  sizes literally and says so in its top comment. If a design needs a new value, add it to the table rather than
+  inventing a one-off. Client values belong in the concept mail (email_rules 1.6).
 - **Keep the email-client support**: MSO conditional comments + VML buttons/backgrounds, `darkmode_*` /
   `light-img` / `dark-img` classes, the mobile classes (`pml16 pmr16`, `pmt0 pmr24 pmb24 pml24`, `col-sm-12`).
 - **Fallback first.** In an interactive block the fallback comes directly after the toggle inputs, before the

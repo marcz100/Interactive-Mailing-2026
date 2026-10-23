@@ -53,7 +53,8 @@ Rules and facts for every WestCord concept. General rules: [../README.md](../REA
 - Personal fields in the artifact: `[Voornaam]`, `[X]` (nights), `[Hotelnaam]`, `[Plaats]`, `[Aantal]`, `[Maand]`. They
   stay placeholders until WestCord confirms which fields exist.
 - **Rule: never show `[X]`, `0` or an empty heading.** Every personal text needs a version for recipients without
-  stay data. WestCord has to supply that copy; we don't invent it. (Concept 2 already renders the no-data version.)
+  stay data. WestCord has to supply that copy; we don't invent it. (Concept 2 already renders the no-data version.) This applies to the ESP-ready mail; concept mails for client
+  review may show the artifact's placeholders (email_rules 2.4).
 - Artifact copy is used as default text, still to be agreed with WestCord. Signatory of the letter (concept 4,
   "Familie Westers") to be agreed with the client.
 - Never mention other clients in anything WestCord sees.

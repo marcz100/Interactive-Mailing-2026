@@ -3,6 +3,9 @@
 Rules for building email in this repo, with extra attention for interactive email. This is a living document: add a
 rule when we learn something, and write down **why**, so the rule can be judged later.
 
+This file is **authoritative** for HTML/CSS, email-client, interactive and size rules. Other documents refer to it
+instead of repeating its rules; when they differ, this file wins.
+
 Status per rule: **Rule** = always do this. **Check** = verify every time. **Lesson** = learned the hard way, the
 reason is in the text.
 
@@ -21,9 +24,14 @@ reason is in the text.
 5. **Rule: keep copies in sync.** When a block also lives inside a campaign mail (`interactive_artifact/`), change
    both; concepts built with a generator get both from the same generator. Concepts from Claude Design artifacts follow
    the extra rules in [interactive_artifact/README.md](../interactive_artifact/README.md).
-6. **Rule: only token values** (README token table) for colors, fonts, sizes and paddings. Client styling belongs in
-   the client's concept mail (`interactive_artifact/<client>/`); a block that deliberately hardcodes client values
-   says so in a comment at the top.
+6. **Rule: blocks use token values, concept mails use the client's values.**
+   - Blocks in `blocks/`: colours and fonts are token values (README token table); sizes, paddings and widths too
+     where the table has one. A block generated from an artifact may keep the artifact's geometry and type sizes
+     literally and names them in its top comment.
+   - Concept mails in `interactive_artifact/<client>/`: the artifact's and client's literal values; approximations
+     are listed in the client README.
+   - A generator builds both from one structure: `build(DEFAULT)` gives the block, `build(client values)` the mail
+     ([interactive_artifact/README.md](../interactive_artifact/README.md) section 6).
 
 ## 2. Content and placeholders
 
@@ -32,10 +40,14 @@ reason is in the text.
 2. **Rule: render every element the block name promises** (all `_1.._n` slots).
 3. **Rule: links** point to `https://100procent.nl/` until there is a real destination. `mailto:` and `tel:` stay
    as they are. Links an ESP fills in later get a comment: `<!-- view online link -->`, `<!-- unsubscribe link -->`.
-4. **Rule: never invent data.** Personal values ([X], [Hotelnaam]) stay placeholders. Default to the version
-   **without** recipient data, so a mail never shows `[X]`, `0` or an empty heading; describe the with-data
-   variant in a comment.
-5. **Rule: logos in concepts are a text version** until the designer delivers the real logo. Never redraw a logo.
+4. **Rule: never invent data.** Personal values ([X], [Hotelnaam]) stay placeholders.
+   - **Blocks and ESP-ready mails** default to the version **without** recipient data, so they never show `[X]`,
+     `0` or an empty heading; describe the with-data variant in a comment.
+   - **Concept mails for client review** (`interactive_artifact/`) may show the artifact's own placeholders
+     (`[Voornaam]`, `[X]`), so the client sees which data is needed. Until the client supplies the no-data copy, it
+     is an open item in the concept README.
+5. **Rule: logos in concepts are a text placeholder** (a text version, or the artifact's own placeholder box such
+   as a dashed "[logo funda]") until the designer delivers the real logo. Never redraw a logo.
    - *Why:* a redrawn logo (HTML/CSS/SVG) is never exactly right and looks careless to the client; the logo is the
      client's trademark and must come from their official files; a text version is clearly a placeholder, so it
      can't slip into the final mail by accident; and Gmail/Outlook don't show SVG, so the real image file is
@@ -87,8 +99,10 @@ reason is in the text.
    `.car1-wrap`), so two interactive blocks in one mail don't break each other. **Check** duplicate ids after assembling.
 8. **Rule: repeated styles as classes, not inline per panel.** Inside the interactive part, write repeated
    styles as `.name-interactive .name-sN` (two classes):
-   - *Why two classes:* that has the same priority as inline: it beats single-class rules and loses to
-     `!important` (mobile overrides, dark mode), exactly as the inline style did.
+   - *Why two classes:* `.name-interactive .name-sN` is (0,2,0). It beats the block's single-class rules and loses
+     to `!important` overrides (mobile, dark mode, state rules), which is the precedence the inline style had in
+     practice. It is **not** equal to inline: a non-`!important` rule of (0,2,0) or higher on the same element now
+     wins where the inline style used to. Check for such rules before moving inline styles to classes.
    - The fallback keeps its inline styles (Gmail and Outlook need them).
 9. **Rule: content per screen is the same** in the interactive part and the fallback, including the CTAs.
 
@@ -96,7 +110,8 @@ reason is in the text.
 
 1. **Check: total size under ~102 KB**, and the fallback plus the footer/unsubscribe link before that point.
    - *Why:* Gmail hides everything after ~102 KB behind "[Message clipped]", including the unsubscribe link.
-2. **Rule: keep margin.** An ESP adds bytes (tracking URLs, its own code); aim for ≤ ~95 KB in this repo.
+2. **Rule: keep margin.** An ESP adds bytes (tracking URLs, its own code): **≤ 90 KB preferred, 95 KB hard limit**
+   in this repo. Measure the byte offset of the fallback and the unsubscribe link too, not only the total.
 3. **Ways to slim down, in order of preference:** repeated styles → classes; identical comments once; less
    indentation in repeated panels; fewer panels (e.g. one per floor with the highlight in CSS) — the last one
    changes the design, so decide it together.

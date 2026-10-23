@@ -4,6 +4,7 @@ Mail: [westcord_eindejaarsmail_2026_concept_3.html](westcord_eindejaarsmail_2026
 Block: `blocks/hotspot/hotspot_1_col_row_1_title_txt_row_2_subtitle_txt_x4_txt_title_row_3_btn_x2.html`
 Artifact boards: `Kussenchocolaatje.dc.html` (clickable), `KussenStappen.dc.html` (4 steps), `TechniekConcepten.dc.html`.
 Rules: [../README.md](../README.md) (WestCord), [../../README.md](../../README.md) (all artifact concepts).
+**Status:** REFERENCE (approved) · copy-safe technique: YES · real devices: NOT TESTED (vocabulary: [../../README.md](../../README.md), "Status of a concept")
 
 ## What it does
 

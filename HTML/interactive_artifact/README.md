@@ -22,6 +22,20 @@ interactive_artifact/
 The reusable block for a concept lives in `blocks/<prefix>/` (default tokens, slot names). The concept mail in this
 folder is the same structure with the client's values and copy.
 
+## Status of a concept
+
+Every concept README has a status line under its header, so a session knows whether its technique is safe to copy:
+
+- **Status:** REFERENCE (approved, use it as the example) · CURRENT (follows the current rules) · LEGACY (predates
+  the current rules: don't copy its technique).
+- **Copy-safe technique:** YES · PARTIAL · NO.
+- **Real devices:** NOT TESTED · PARTIAL · TESTED.
+
+Words the concept READMEs use, so facts and choices stay apart: *from the artifact* (source value) · *own
+interpretation* (our decision where the artifact has no answer) · **Deviation** (knowingly different from the
+artifact) · **Open** (unresolved, including unconfirmed assumptions) · **Tested** always says where: Chrome over the
+DevTools Protocol is not a real device.
+
 ## 1. Reading the artifact
 
 1. **Rule: read the files, not the page.** Use the Artifact tool, action `read` with `paths`: `project/canvas.json` and
@@ -54,8 +68,8 @@ folder is the same structure with the client's values and copy.
    container that can grow.
    - *Lesson:* the turndown texts were in the growing stage; when the mobile summary was added below, their
      % positions slid down and covered a folded flap.
-4. **Rule: copy stays literal**, including the artifact's personal placeholders (`[Voornaam]`, `[X]`, `[Hotelnaam]`).
-   Never invent data or copy.
+4. **Rule: copy stays literal**, including the artifact's personal placeholders (`[Voornaam]`, `[X]`, `[Hotelnaam]`):
+   concept mails are for client review (email_rules 2.4). Never invent data or copy.
 5. **Rule: where the artifact has no answer** (mobile, Outlook, dark mode) we make our own interpretation and say so,
    in the concept README and in the report.
 
@@ -66,12 +80,9 @@ folder is the same structure with the client's values and copy.
 2. **Rule: a pre-checked detection input** (`xx-detect`) gates the interactive layer:
    `@media screen and (-webkit-min-device-pixel-ratio: 0) { .xx-detect:checked ~ .xx-interactive {...} }`.
    - *Why:* WebKit alone doesn't mean `:checked` works (Gmail apps).
-3. **Rule: client overrides at least as specific as the activation selector.** `.xx-detect:checked ~ .xx-interactive`
-   is (0,3,0); a single-class override with `!important` loses to it. So every override also exists as a chained
-   variant:
-   - Outlook.com / new Outlook: `[class~="x_xx-interactive"]` and `[class~="x_xx-detect"]:checked ~ [class~="x_xx-interactive"]`
-   - Samsung Mail: `#MessageViewBody .xx-interactive` (an id outranks it)
-   - Outlook apps: `.xx-interactive\0` and `.xx-detect:checked ~ .xx-interactive\0`, in a separate `<style>`
+3. **Rule: client overrides at least as specific as the activation selector.** The selectors are in
+   [email_rules 4.5](../docs/email_rules.md); take them from there, not from older blocks.
+   - *Why:* `.xx-detect:checked ~ .xx-interactive` is (0,3,0); a single-class override with `!important` loses to it.
 4. **Rule: selectors use classes, not ids** (Gmail drops id selectors). Ids exist only for `label for=`.
 5. **Rule: one prefix per block** (`hs-`, `lift-`, …) for every class, id and keyframe name.
 6. **Rule: the fallback is the artifact's end state** (everything revealed), built in tables with inline styles and a
@@ -157,8 +168,8 @@ folder is the same structure with the client's values and copy.
 
 ## 8. Size
 
-- ≤ 90 KB preferred, 95 KB hard limit, ~102 KB is where Gmail clips (email_rules section 5). Measure the byte offset of
-  the fallback and the unsubscribe link, not only the total.
+- Size limits and what to measure: [email_rules section 5](../docs/email_rules.md). The lessons below are specific to
+  generated concept mails.
 - **Rule: insert a large generated block into the mail without re-indenting it.**
   - *Lesson:* shifting the lift block 15 spaces to the mail's nesting added about 11 KB (the mail went from 90 KB to
     101 KB).

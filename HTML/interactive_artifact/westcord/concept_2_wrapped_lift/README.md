@@ -4,6 +4,10 @@ Mail: [westcord_eindejaarsmail_2026_concept_2.html](westcord_eindejaarsmail_2026
 Block: `blocks/car/car_1_col_subtitle_title_txt_x6_img_btn_x2.html`
 Artifact boards: `WrappedLift.dc.html` (clickable), `WrappedVerdiepingen.dc.html` (all floors), `TechniekConcepten.dc.html`.
 Rules: [../README.md](../README.md) (WestCord), [../../README.md](../../README.md) (all artifact concepts).
+**Status:** LEGACY · copy-safe technique: **NO** · real devices: NOT TESTED (vocabulary: [../../README.md](../../README.md), "Status of a concept"). Don't copy: id selectors in the
+CSS, the old client overrides (exact `[class="x_…"]`, `meta*`), 11 panels where 6 are planned, block and mail not
+generated from one source, not compared one-on-one (see Open items). The same applies to its block
+`blocks/car/car_1_col_subtitle_title_txt_x6_img_btn_x2.html`.
 
 ## What it does
 

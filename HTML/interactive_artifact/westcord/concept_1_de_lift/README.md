@@ -5,6 +5,7 @@ Block: `blocks/para/para_1_col_row_1_title_txt_row_2_subtitle_title_txt_x4_img_x
 Artifact boards: `Main.dc.html` (the full mail, 700 × 4600), `Scrollmomenten.dc.html` (3 moments + the cabin),
 `Lagen.dc.html` (3 layers).
 Rules: [../README.md](../README.md) (WestCord), [../../README.md](../../README.md) (all artifact concepts).
+**Status:** CURRENT · copy-safe technique: YES · real devices: NOT TESTED (vocabulary: [../../README.md](../../README.md), "Status of a concept")
 
 ## What it does
 

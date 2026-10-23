@@ -5,6 +5,8 @@ Block: `blocks/hotspot/hotspot_1_col_row_1_subtitle_title_txt_row_2_icon_x7_row_
 Artifact board: "B2C 1 · De straat van de uitersten" (page 0 of the downloaded "Funda eindejaarsmails 2026", see
 [../README.md](../README.md)).
 Rules: [../README.md](../README.md) (Funda), [../../README.md](../../README.md) (all artifact concepts).
+**Status:** CURRENT · copy-safe technique: YES · real devices: PARTIAL (one Email on Acid run, of the earlier radio
+version in `tests/`) (vocabulary: [../../README.md](../../README.md), "Status of a concept"). The file in `tests/` is LEGACY: don't copy it.
 
 ## What it does
 
